@@ -10,6 +10,18 @@ This effort is closely related on the work being done in the
 [Office 365 Developer Patterns and Practices repository](https://github.com/OfficeDev/PnP) on actual engine, 
 which will provision SharePoint sites and other elements using this schema. 
 
+# Version
+
+## Current approved version
+
+_None_
+
+## Current draft version
+
+Version 0.5 (see branch 0.5)
+
+Estimated approval date: April 2015
+
 ## More information
 More information and documentation can be found here:
 
