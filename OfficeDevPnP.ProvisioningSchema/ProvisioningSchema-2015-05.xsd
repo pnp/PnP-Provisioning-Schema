@@ -498,6 +498,19 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+      <xsd:element name="DataRows" maxOccurs="1" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="DataRow" maxOccurs="unbounded" minOccurs="0">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="DataValue" maxOccurs="unbounded" minOccurs="1" type="DataValueDefinition" />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
     </xsd:all>
 
     <xsd:attribute name="Title" type="xsd:string" use="required">
@@ -607,6 +620,14 @@
 
   </xsd:complexType>
 
+  <xsd:complexType name="DataValueDefinition">
+    <xsd:simpleContent>
+      <xsd:extension base="ReplaceableString">
+        <xsd:attribute name="FieldName" use="required" type="xsd:string"/>
+      </xsd:extension>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  
   <xsd:complexType name="ContentType">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
