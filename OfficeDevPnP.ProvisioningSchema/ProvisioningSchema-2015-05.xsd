@@ -2,10 +2,11 @@
 <xsd:schema targetNamespace="http://schemas.dev.office.com/PnP/2015/05/ProvisioningSchema"
     elementFormDefault="qualified"
     xmlns="http://schemas.dev.office.com/PnP/2015/05/ProvisioningSchema"
+    xmlns:pnp="http://schemas.dev.office.com/PnP/2015/05/ProvisioningSchema"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
   <!-- The main element -->
-  <xsd:element name="Provisioning" type="ProvisioningDefinition">
+  <xsd:element name="Provisioning" type="pnp:Provisioning">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
         This is the base element of a Provisioning File.
@@ -14,7 +15,7 @@
   </xsd:element>
 
   <!-- The main element for external references -->
-  <xsd:element name="SharePointProvisioningTemplate" type="SharePointProvisioningTemplate">
+  <xsd:element name="SharePointProvisioningTemplate" type="pnp:SharePointProvisioningTemplate">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
         This is the base element of a referenced SharePoint Provisioning Template File.
@@ -22,9 +23,9 @@
     </xsd:annotation>
   </xsd:element>
 
-  <xsd:complexType name="ProvisioningDefinition">
+  <xsd:complexType name="Provisioning">
     <xsd:sequence>
-      <xsd:element name="Preferences" type="PreferencesDefinition" minOccurs="1" maxOccurs="1">
+      <xsd:element name="Preferences" type="pnp:Preferences" minOccurs="1" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation>
             The mandatory section of preferences for the current provisioning definition
@@ -32,9 +33,9 @@
         </xsd:annotation>
       </xsd:element>
       <xsd:sequence minOccurs="1" maxOccurs="unbounded">
-        <xsd:element name="Templates" type="TemplatesDefinition" minOccurs="0"/>
-        <xsd:element name="Sequence" type="SequenceDefinition" minOccurs="0"/>
-        <xsd:element name="ImportSequence" type="ImportSequenceDefinition" minOccurs="0">
+        <xsd:element name="Templates" type="pnp:Templates" minOccurs="0"/>
+        <xsd:element name="Sequence" type="pnp:Sequence" minOccurs="0"/>
+        <xsd:element name="ImportSequence" type="pnp:ImportSequence" minOccurs="0">
           <xsd:annotation>
             <xsd:documentation xml:lang="en">
               Imports sequences from an external file. All current properties should be sent to that file.
@@ -45,7 +46,7 @@
     </xsd:sequence>
   </xsd:complexType>
 
-  <xsd:complexType name="PreferencesDefinition" >
+  <xsd:complexType name="Preferences" >
     <xsd:annotation>
       <xsd:documentation>General settins of this Provisioning file</xsd:documentation>
     </xsd:annotation>
@@ -101,28 +102,28 @@
     </xsd:attribute>
   </xsd:complexType>
 
-  <xsd:complexType name="TemplatesDefinition">
+  <xsd:complexType name="Templates">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
         SharePoint Templates, which can be inline or references to external files
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence minOccurs="0" maxOccurs="unbounded">
-      <xsd:element name="SharePointProvisioningTemplateFile" type="SharePointProvisioningTemplateFile" minOccurs="0">
+      <xsd:element name="SharePointProvisioningTemplateFile" type="pnp:SharePointProvisioningTemplateFile" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
             Reference to an external template file, which will be based on the current schema but will focus only on the SharePointProvisioningTemplate section.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="SharePointProvisioningTemplateReference" type="SharePointProvisioningTemplateReference" minOccurs="0">
+      <xsd:element name="SharePointProvisioningTemplateReference" type="pnp:SharePointProvisioningTemplateReference" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
             Reference to another template by ID.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="SharePointProvisioningTemplate" type="SharePointProvisioningTemplate" minOccurs="0" />
+      <xsd:element name="SharePointProvisioningTemplate" type="pnp:SharePointProvisioningTemplate" minOccurs="0" />
     </xsd:sequence>
     <xsd:attribute name="ID" type="xsd:ID" use="optional">
       <xsd:annotation>
@@ -159,7 +160,7 @@
         </xsd:annotation>
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="PropertyBagEntry" type="PropertyBagEntry"
+            <xsd:element name="PropertyBagEntry" type="pnp:StringDictionaryItem"
                           minOccurs="1" maxOccurs="unbounded" />
           </xsd:sequence>
         </xsd:complexType>
@@ -173,28 +174,28 @@
         </xsd:annotation>
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="AdditionalAdministrators" type="UsersList" minOccurs="0">
+            <xsd:element name="AdditionalAdministrators" type="pnp:UsersList" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation xml:lang="en">
                   List of additional Administrators for the Site, optional collection of elements
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
-            <xsd:element name="AdditionalOwners" type="UsersList" minOccurs="0">
+            <xsd:element name="AdditionalOwners" type="pnp:UsersList" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation xml:lang="en">
                   List of additional Owners for the Site, optional collection of elements
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
-            <xsd:element name="AdditionalMembers" type="UsersList" minOccurs="0">
+            <xsd:element name="AdditionalMembers" type="pnp:UsersList" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation xml:lang="en">
                   List of additional Members for the Site, optional collection of elements
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
-            <xsd:element name="AdditionalVisitors" type="UsersList" minOccurs="0">
+            <xsd:element name="AdditionalVisitors" type="pnp:UsersList" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation xml:lang="en">
                   List of additional Visitors for the Site, optional collection of elements
@@ -227,7 +228,7 @@
         </xsd:annotation>
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="ContentType" type="ContentType"
+            <xsd:element name="ContentType" type="pnp:ContentType"
                           minOccurs="0" maxOccurs="unbounded" />
           </xsd:sequence>
           <xsd:anyAttribute processContents="skip"/>
@@ -242,7 +243,7 @@
         </xsd:annotation>
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="ListInstance" type="ListInstance"
+            <xsd:element name="ListInstance" type="pnp:ListInstance"
                           minOccurs="1" maxOccurs="unbounded" />
           </xsd:sequence>
         </xsd:complexType>
@@ -257,14 +258,14 @@
 
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="SiteFeatures" type="FeaturesList" minOccurs="0">
+            <xsd:element name="SiteFeatures" type="pnp:FeaturesList" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation xml:lang="en">
                   The Site Features to activate or deactivate while applying the Provisioning Template, optional collection of elements
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
-            <xsd:element name="WebFeatures" type="FeaturesList" minOccurs="0">
+            <xsd:element name="WebFeatures" type="pnp:FeaturesList" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation xml:lang="en">
                   The Web Features to activate or deactivate while applying the Provisioning Template, optional collection of elements
@@ -285,14 +286,14 @@
 
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="SiteCustomActions" type="CustomActionsList" minOccurs="0">
+            <xsd:element name="SiteCustomActions" type="pnp:CustomActionsList" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation xml:lang="en">
                   The Site Custom Actions to provision while applying the Provisioning Template, optional element
                 </xsd:documentation>
               </xsd:annotation>
             </xsd:element>
-            <xsd:element name="WebCustomActions" type="CustomActionsList" minOccurs="0">
+            <xsd:element name="WebCustomActions" type="pnp:CustomActionsList" minOccurs="0">
               <xsd:annotation>
                 <xsd:documentation xml:lang="en">
                   The Web Custom Actions to provision while applying the Provisioning Template, optional element
@@ -312,7 +313,7 @@
         </xsd:annotation>
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="File" type="File"
+            <xsd:element name="File" type="pnp:File"
                           minOccurs="1" maxOccurs="unbounded" />
           </xsd:sequence>
         </xsd:complexType>
@@ -326,13 +327,21 @@
         </xsd:annotation>
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="Page" type="Page"
+            <xsd:element name="Page" type="pnp:Page"
                           minOccurs="1" maxOccurs="unbounded" />
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
 
-      <xsd:element name="ComposedLook" type="ComposedLook" minOccurs="0" maxOccurs="1">
+      <xsd:element name="TermGroup" type="pnp:TermGroup" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            The TermGroup element to provision into the target Site through the Provisioning Template, optional element
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+
+      <xsd:element name="ComposedLook" type="pnp:ComposedLook" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
             The ComposedLook for the Provisioning Template, optional element
@@ -349,7 +358,7 @@
 
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="Provider" type="Provider"
+            <xsd:element name="Provider" type="pnp:Provider"
                           minOccurs="1" maxOccurs="unbounded" />
           </xsd:sequence>
         </xsd:complexType>
@@ -376,17 +385,17 @@
 
   </xsd:complexType>
 
-  <xsd:complexType name="PropertyBagEntry">
+  <xsd:complexType name="StringDictionaryItem">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
-        Defines a PropertyBagEntry element
+        Defines a StringDictionary element
       </xsd:documentation>
     </xsd:annotation>
 
     <xsd:attribute name="Key" type="xsd:string" use="required">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The Key of the property to store in the Property Bag, required attribute
+          The Key of the property to store in the StringDictionary, required attribute
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -394,13 +403,13 @@
     <xsd:attribute name="Value" type="xsd:string" use="required">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The Value of the property to store in the Property Bag, required attribute
+          The Value of the property to store in the StringDictionary, required attribute
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
 
   </xsd:complexType>
-
+  
   <xsd:complexType name="UsersList">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
@@ -409,7 +418,7 @@
     </xsd:annotation>
 
     <xsd:sequence>
-      <xsd:element name="User" type="User" maxOccurs="unbounded" />
+      <xsd:element name="User" type="pnp:User" maxOccurs="unbounded" />
     </xsd:sequence>
 
   </xsd:complexType>
@@ -447,7 +456,7 @@
         </xsd:annotation>
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="ContentTypeBinding" type="ContentTypeBinding"
+            <xsd:element name="ContentTypeBinding" type="pnp:ContentTypeBinding"
                          minOccurs="1" maxOccurs="unbounded" />
           </xsd:sequence>
         </xsd:complexType>
@@ -504,7 +513,7 @@
             <xsd:element name="DataRow" maxOccurs="unbounded" minOccurs="0">
               <xsd:complexType>
                 <xsd:sequence>
-                  <xsd:element name="DataValue" maxOccurs="unbounded" minOccurs="1" type="DataValueDefinition" />
+                  <xsd:element name="DataValue" maxOccurs="unbounded" minOccurs="1" type="pnp:DataValue" />
                 </xsd:sequence>
               </xsd:complexType>
             </xsd:element>
@@ -620,9 +629,13 @@
 
   </xsd:complexType>
 
-  <xsd:complexType name="DataValueDefinition">
-    <xsd:simpleContent>
-      <xsd:extension base="ReplaceableString">
+  <xsd:complexType name="DataValue">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        The DataValue of a single field of a row to insert into a target ListInstance
+      </xsd:documentation>
+    </xsd:annotation>    <xsd:simpleContent>
+      <xsd:extension base="pnp:ReplaceableString">
         <xsd:attribute name="FieldName" use="required" type="xsd:string"/>
       </xsd:extension>
     </xsd:simpleContent>
@@ -644,7 +657,7 @@
         </xsd:annotation>
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="FieldRef" type="FieldRef"
+            <xsd:element name="FieldRef" type="pnp:FieldRef"
                          minOccurs="1" maxOccurs="unbounded" />
           </xsd:sequence>
         </xsd:complexType>
@@ -741,7 +754,7 @@
       </xsd:documentation>
     </xsd:annotation>
 
-    <xsd:attribute name="ContentTypeID" type="ContentTypeId" use="required">
+    <xsd:attribute name="ContentTypeID" type="pnp:ContentTypeId" use="required">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           The value of the ContentTypeID to bind, required attribute
@@ -767,7 +780,7 @@
     </xsd:annotation>
 
     <xsd:sequence>
-      <xsd:element name="Feature" type="Feature"
+      <xsd:element name="Feature" type="pnp:Feature"
                    minOccurs="1" maxOccurs="unbounded" />
     </xsd:sequence>
 
@@ -780,7 +793,7 @@
       </xsd:documentation>
     </xsd:annotation>
 
-    <xsd:attribute name="ID" type="GUID" use="required">
+    <xsd:attribute name="ID" type="pnp:GUID" use="required">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           The unique ID of the Feature, required attribute
@@ -813,7 +826,7 @@
       </xsd:documentation>
     </xsd:annotation>
 
-    <xsd:attribute name="ID" type="GUID" use="required">
+    <xsd:attribute name="ID" type="pnp:GUID" use="required">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           The value of the field ID to bind, required attribute
@@ -849,7 +862,7 @@
     </xsd:annotation>
 
     <xsd:sequence>
-      <xsd:element name="CustomAction" type="CustomAction"
+      <xsd:element name="CustomAction" type="pnp:CustomAction"
                    minOccurs="1" maxOccurs="unbounded" />
     </xsd:sequence>
 
@@ -976,7 +989,7 @@
         </xsd:annotation>
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="WebPart" type="WebPartPageWebPart"
+            <xsd:element name="WebPart" type="pnp:WebPartPageWebPart"
                          minOccurs="1" maxOccurs="unbounded" />
           </xsd:sequence>
         </xsd:complexType>
@@ -1032,7 +1045,7 @@
         </xsd:annotation>
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="WebPart" type="WikiPageWebPart"
+            <xsd:element name="WebPart" type="pnp:WikiPageWebPart"
                          minOccurs="1" maxOccurs="unbounded" />
           </xsd:sequence>
         </xsd:complexType>
@@ -1055,7 +1068,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="Layout" type="WIKIPAGELAYOUT" use="required">
+    <xsd:attribute name="Layout" type="pnp:WIKIPAGELAYOUT" use="required">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Required: Defines the layout of the wikipage
@@ -1246,18 +1259,10 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="Assembly" type="xsd:string" use="required">
+    <xsd:attribute name="HandlerType" type="xsd:string" use="required">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The .NET Assembly FQN of the Extensibility Provider, required attribute
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-
-    <xsd:attribute name="Type" type="xsd:string" use="required">
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          The .NET Type of the Extensibility Provider, required attribute
+          The type of the handler. It can be a FQN of a .NET type, the URL of a node.js file, or whatever else, required attribute
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -1301,7 +1306,7 @@
     </xsd:attribute>
   </xsd:complexType>
 
-  <xsd:complexType name="SequenceDefinition" >
+  <xsd:complexType name="Sequence" >
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
         Each Provisioning file is split into a set of Sequence elements.
@@ -1310,10 +1315,10 @@
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence maxOccurs="unbounded">
-      <xsd:element name="SiteCollection" type="SiteCollectionDefinition" minOccurs="0" />
-      <xsd:element name="Site" type="SiteDefinition"  minOccurs="0"/>
-      <xsd:element name="TermStore" type="TermStoreDefinition"  minOccurs="0"/>
-      <xsd:element name="Extensions" type="ExtensionsDefinition" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="SiteCollection" type="pnp:SiteCollection" minOccurs="0" />
+      <xsd:element name="Site" type="pnp:Site"  minOccurs="0"/>
+      <xsd:element name="TermStore" type="pnp:TermStore"  minOccurs="0"/>
+      <xsd:element name="Extensions" type="pnp:Extensions" minOccurs="0" maxOccurs="1"/>
       <!-- TODO: add more top level items here-->
     </xsd:sequence>
     <xsd:attribute name="SequenceType" default="Synchronous" use="optional">
@@ -1350,13 +1355,18 @@
     </xsd:attribute>
   </xsd:complexType>
 
-  <xsd:complexType name="SiteCollectionDefinition">
+  <xsd:complexType name="SiteCollection">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        Defines a SiteCollection that will be created into the target tenant/farm
+      </xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="Templates" type="TemplatesDefinition" minOccurs="0" />
+      <xsd:element name="Templates" type="pnp:Templates" minOccurs="0" />
     </xsd:sequence>
-    <xsd:attributeGroup ref="SiteCollectionAttributes"/>
-    <xsd:attributeGroup ref="SiteAttributes"/>
-    <xsd:attribute name="Url" type="ReplaceableString" use="required">
+    <xsd:attributeGroup ref="pnp:SiteCollectionAttributes"/>
+    <xsd:attributeGroup ref="pnp:SiteAttributes"/>
+    <xsd:attribute name="Url" type="pnp:ReplaceableString" use="required">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Absolute Url to the site
@@ -1365,13 +1375,18 @@
     </xsd:attribute>
   </xsd:complexType>
 
-  <xsd:complexType name="SiteDefinition">
+  <xsd:complexType name="Site">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        Defines a Site that will be created into a target Site Collection
+      </xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="Templates" type="TemplatesDefinition" minOccurs="0" />
+      <xsd:element name="Templates" type="pnp:Templates" minOccurs="0" />
     </xsd:sequence>
-    <xsd:attributeGroup ref="SiteAttributes"/>
+    <xsd:attributeGroup ref="pnp:SiteAttributes"/>
     <xsd:attribute name="UseSamePermissionsAsParentSite" type="xsd:boolean" use="optional"/>
-    <xsd:attribute name="Url" type="ReplaceableString" use="required">
+    <xsd:attribute name="Url" type="pnp:ReplaceableString" use="required">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Relative Url to the site
@@ -1381,42 +1396,47 @@
   </xsd:complexType>
 
   <xsd:attributeGroup name="SiteCollectionAttributes">
-    <xsd:attribute name="StorageMaximumLevel" type="ReplaceableInt" use="optional">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        Common set of attributes for any Site Collection
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="StorageMaximumLevel" type="pnp:ReplaceableInt" use="optional">
       <xsd:annotation>
         <xsd:documentation>
           Maximum Storage Level, in Megabytes
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="StorageWarningLevel" type="ReplaceableInt" use="optional">
+    <xsd:attribute name="StorageWarningLevel" type="pnp:ReplaceableInt" use="optional">
       <xsd:annotation>
         <xsd:documentation>
           Warning Storage Level, in Megabytes
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="UserCodeMaximumLevel" type="ReplaceableInt" use="optional">
+    <xsd:attribute name="UserCodeMaximumLevel" type="pnp:ReplaceableInt" use="optional">
       <xsd:annotation>
         <xsd:documentation>
           Maximum Resource usage, in points
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="UserCodeWarningLevel" type="ReplaceableInt" use="optional">
+    <xsd:attribute name="UserCodeWarningLevel" type="pnp:ReplaceableInt" use="optional">
       <xsd:annotation>
         <xsd:documentation>
           Warning Resource usage, in points
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="PrimarySiteCollectionAdmin" type="ReplaceableString" use="required">
+    <xsd:attribute name="PrimarySiteCollectionAdmin" type="pnp:ReplaceableString" use="required">
       <xsd:annotation>
         <xsd:documentation>
           ID of the Primary Site Collection Admin
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="SecondarySiteCollectionAdmin" type="ReplaceableString" use="optional">
+    <xsd:attribute name="SecondarySiteCollectionAdmin" type="pnp:ReplaceableString" use="optional">
       <xsd:annotation>
         <xsd:documentation>
           ID of the Secondary Site Collection Admin
@@ -1426,14 +1446,19 @@
   </xsd:attributeGroup>
 
   <xsd:attributeGroup name="SiteAttributes">
-    <xsd:attribute name="Title" type="ReplaceableString"  use="required">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        Common set of attributes for any Site
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="Title" type="pnp:ReplaceableString"  use="required">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Title of the site
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="CustomJSUrl" type="ReplaceableString" use="optional">
+    <xsd:attribute name="CustomJSUrl" type="pnp:ReplaceableString" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Custom JavaScript URL
@@ -1447,17 +1472,17 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="AlternateCssUrl" type="ReplaceableString" use="optional">
+    <xsd:attribute name="AlternateCssUrl" type="pnp:ReplaceableString" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Alternat CSS URL
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="Language" type="ReplaceableString" use="optional"/>
+    <xsd:attribute name="Language" type="pnp:ReplaceableString" use="optional"/>
     <xsd:attribute name="AllowDesigner" type="xsd:boolean" use="optional"/>
     <xsd:attribute name="MembersCanShare" type="xsd:boolean" use="optional"/>
-    <xsd:attribute name="TimeZone" type="ReplaceableInt" use="optional" >
+    <xsd:attribute name="TimeZone" type="pnp:ReplaceableInt" use="optional" >
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Time zone of the site
@@ -1466,20 +1491,19 @@
     </xsd:attribute>
   </xsd:attributeGroup>
 
-  <xsd:complexType name="TermStoreDefinition" >
+  <xsd:complexType name="TermStore" >
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        A TermStore to use for provisioning of TermGroups
+      </xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="TermGroup" minOccurs="0" maxOccurs="unbounded">
-        <xsd:complexType>
-          <xsd:complexContent>
-            <xsd:extension base="TermBase">
-              <xsd:sequence>
-                <xsd:element name="TermSet" type="TermSetDefinition" minOccurs="0" maxOccurs="unbounded"/>
-              </xsd:sequence>
-              <xsd:attribute name="IsOpenForTermCreation" use="optional" type="xsd:boolean"/>
-              <xsd:attribute name="Contact" use="optional" type="ReplaceableString"/>
-            </xsd:extension>
-          </xsd:complexContent>
-        </xsd:complexType>
+      <xsd:element name="TermGroup" type="pnp:TermGroup" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            The TermGroup element to provision into the target TermStore through, optional element
+          </xsd:documentation>
+        </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
     <xsd:attribute name="Scope" use="required">
@@ -1497,51 +1521,103 @@
     </xsd:attribute>
   </xsd:complexType>
 
-  <xsd:complexType name="TermBase" >
-    <xsd:attribute name="Name" type="xsd:string" use="required"/>
-    <xsd:attribute name="ID" type="GUID" use="optional"/>
-    <xsd:attribute name="Description" use="optional"/>
-  </xsd:complexType>
-
-  <xsd:complexType name="TermSetDefinition">
+  <xsd:complexType name="TermGroup">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        A TermGroup to use for provisioning of TermSets and Terms
+      </xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="TermBase">
+        <xsd:sequence>
+          <xsd:element name="TermSet" type="pnp:TermSet" minOccurs="0" maxOccurs="unbounded"/>
+        </xsd:sequence>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="TermBase" >
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        Base type for TermSets and TermSetItems
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="Name" type="xsd:string" use="required"/>
+    <xsd:attribute name="ID" type="pnp:GUID" use="optional"/>
+    <xsd:attribute name="Description" type="xsd:string" use="optional"/>
+  </xsd:complexType>
+
+  <xsd:complexType name="TermSet">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        A TermSet to provision
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="pnp:TermBase">
         <xsd:sequence >
-          <xsd:element name="Term" type="TermDefinition" minOccurs="0" maxOccurs="unbounded"/>
+          <xsd:element name="Term" type="pnp:Term" minOccurs="0" maxOccurs="unbounded"/>
         </xsd:sequence>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
 
   <xsd:complexType name="TermSetItem" >
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        A TermSet Item to provision
+      </xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="TermBase">
-        <xsd:attribute name="Owner" type="ReplaceableString" use="optional"/>
+      <xsd:extension base="pnp:TermBase">
+        <xsd:attribute name="Owner" type="pnp:ReplaceableString" use="optional"/>
         <xsd:attribute name="IsAvailableForTagging " type="xsd:boolean" use="optional"/>
         <xsd:attribute name="CustomSortOrder" type="xsd:string" use="optional"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
 
-  <xsd:complexType name="TermDefinition" >
+  <xsd:complexType name="Term">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        A Term to provision into a TermSet or a hyerarchical Term
+      </xsd:documentation>
+    </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="TermSetItem">
+      <xsd:extension base="pnp:TermSetItem">
         <xsd:all>
           <xsd:element name="ChildTerms" minOccurs="0" maxOccurs="1">
             <xsd:complexType>
               <xsd:choice>
-                <xsd:element name="Term" type="TermDefinition"  maxOccurs="unbounded" minOccurs="0"/>
+                <xsd:element name="Term" type="Term"  maxOccurs="unbounded" minOccurs="0"/>
               </xsd:choice>
             </xsd:complexType>
           </xsd:element>
-          <xsd:element name="Labels" minOccurs="0" maxOccurs="1" type="TermLabels" />
-          <xsd:element name="Properties" minOccurs="0" maxOccurs="1"/>
+          <xsd:element name="Labels" minOccurs="0" maxOccurs="1" type="pnp:TermLabels" />
+          <xsd:element name="Properties" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                The Term Properties, optional collection of elements
+              </xsd:documentation>
+            </xsd:annotation>
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="Property" type="pnp:StringDictionaryItem"
+                              minOccurs="1" maxOccurs="unbounded" />
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
         </xsd:all>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
 
   <xsd:complexType name="TermLabels">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        A collection of Term Labels, in order to support multi-language terms
+      </xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
       <xsd:element name="Label" minOccurs="1" maxOccurs="unbounded">
         <xsd:complexType>
@@ -1553,13 +1629,18 @@
     </xsd:sequence>
   </xsd:complexType>
 
-  <xsd:complexType name="TermSetsDefinition">
+  <xsd:complexType name="TermSets">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        A collection of TermSets to provision
+      </xsd:documentation>
+    </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="TermSet" type="TermSetDefinition" maxOccurs="unbounded" minOccurs="0"/>
+      <xsd:element name="TermSet" type="pnp:TermSet" maxOccurs="unbounded" minOccurs="0"/>
     </xsd:sequence>
   </xsd:complexType>
 
-  <xsd:complexType name="ExtensionsDefinition" >
+  <xsd:complexType name="Extensions" >
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
         Extensions are custom XML elements and instructions that can be extensions of this default schema or vendor or engine specific extensions.
@@ -1570,19 +1651,7 @@
     </xsd:sequence>
   </xsd:complexType>
 
-  <xsd:simpleType name="Sequence">
-    <xsd:annotation>
-      <xsd:documentation xml:lang="en">
-        A positive integer, 0-65536
-      </xsd:documentation>
-    </xsd:annotation>
-    <xsd:restriction base="xsd:int">
-      <xsd:minInclusive value="0" />
-      <xsd:maxInclusive value="65536" />
-    </xsd:restriction>
-  </xsd:simpleType>
-
-  <xsd:complexType name="ImportSequenceDefinition">
+  <xsd:complexType name="ImportSequence">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
         Imports sequences from an external file. All current properties should be sent to that file.
@@ -1629,7 +1698,8 @@
   <xsd:simpleType name='ReplaceableInt' id='ReplaceableInt'>
     <xsd:annotation>
       <xsd:documentation>
-        TODO
+        A Replaceable Int is an integer  that contains parameters enclosed by curly braces {...}
+        At runtime the provisioning engine replaces those parameters with the parameters specified in Preferences/Parameters
       </xsd:documentation>
     </xsd:annotation>
     <xsd:restriction base='xsd:string'>
