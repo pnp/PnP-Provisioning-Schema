@@ -1558,6 +1558,7 @@
         <xsd:sequence >
           <xsd:element name="Term" type="pnp:Term" minOccurs="0" maxOccurs="unbounded"/>
         </xsd:sequence>
+        <xsd:attribute name="LCID" type="xsd:int" use="optional" />
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
