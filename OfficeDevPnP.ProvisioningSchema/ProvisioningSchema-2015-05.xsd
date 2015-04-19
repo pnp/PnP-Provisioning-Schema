@@ -333,12 +333,23 @@
         </xsd:complexType>
       </xsd:element>
 
-      <xsd:element name="TermGroup" type="pnp:TermGroup" minOccurs="0" maxOccurs="1">
+      <xsd:element name="TermGroups" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
-            The TermGroup element to provision into the target Site through the Provisioning Template, optional element
+            The TermGroups element allows provisioning one or more TermGroups into the target Site, optional element
           </xsd:documentation>
         </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="TermGroup" type="pnp:TermGroup" minOccurs="1" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:documentation xml:lang="en">
+                  The TermGroup element to provision into the target Site through the Provisioning Template, optional element
+                </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
       </xsd:element>
 
       <xsd:element name="ComposedLook" type="pnp:ComposedLook" minOccurs="0" maxOccurs="1">
