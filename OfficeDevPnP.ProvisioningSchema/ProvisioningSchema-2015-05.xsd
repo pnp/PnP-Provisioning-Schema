@@ -1572,10 +1572,16 @@
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="pnp:TermBase">
-        <xsd:sequence >
-          <xsd:element name="Term" type="pnp:Term" minOccurs="0" maxOccurs="unbounded"/>
+        <xsd:sequence>
+          <xsd:element name="Terms" minOccurs="0" maxOccurs="1">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="Term" type="pnp:Term" minOccurs="0" maxOccurs="unbounded"/>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
         </xsd:sequence>
-        <xsd:attribute name="LCID" type="xsd:int" use="optional" />
+        <xsd:attribute name="Language" type="xsd:int" use="optional" />
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
