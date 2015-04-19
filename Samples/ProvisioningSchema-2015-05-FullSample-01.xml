@@ -139,10 +139,14 @@
       <pnp:TermGroup ID="{0E8F395E-FF58-4D45-9FF7-E331AB728BEB}" Name="{CompanyName} TermSets">
         <pnp:TermSet Name="Projects" ID="{5880B01B-5D6F-4606-A492-3B03A2FB4DD7}">
           <pnp:Term Name="IT Projects" ID="{3D212FC2-F176-4621-AED1-128219666D95}">
-            <pnp:Properties>
+            <pnp:CustomProperties>
               <pnp:Property Key="Property1" Value="Value1" />
               <pnp:Property Key="Property2" Value="Value2" />
-            </pnp:Properties>
+            </pnp:CustomProperties>
+            <pnp:LocalCustomProperties>
+              <pnp:Property Key="LocalProperty1" Value="Value1" />
+              <pnp:Property Key="LocalProperty2" Value="Value2" />
+            </pnp:LocalCustomProperties>
             <pnp:ChildTerms>
               <pnp:Term Name="Cloud" ID="{87C55100-8316-4DA0-97FD-FEB5731880F6}">
                 <pnp:Labels>
@@ -232,10 +236,14 @@
       <pnp:TermGroup ID="{0E8F395E-FF58-4D45-9FF7-E331AB728BEB}" Name="{CompanyName} TermSets">
         <pnp:TermSet Name="Projects" ID="{5880B01B-5D6F-4606-A492-3B03A2FB4DD7}">
           <pnp:Term Name="IT Projects" ID="{3D212FC2-F176-4621-AED1-128219666D95}">
-            <pnp:Properties>
+            <pnp:CustomProperties>
               <pnp:Property Key="Property1" Value="Value1" />
               <pnp:Property Key="Property2" Value="Value2" />
-            </pnp:Properties>
+            </pnp:CustomProperties>
+            <pnp:LocalCustomProperties>
+              <pnp:Property Key="LocalProperty1" Value="Value1" />
+              <pnp:Property Key="LocalProperty2" Value="Value2" />
+            </pnp:LocalCustomProperties>
             <pnp:ChildTerms>
               <pnp:Term Name="Cloud" ID="{87C55100-8316-4DA0-97FD-FEB5731880F6}">
                 <pnp:Labels>
@@ -275,5 +283,5 @@
   </pnp:Sequence>
 
   <pnp:ImportSequence File="AnotherSequence.xml" />
-  
+
 </pnp:Provisioning>
