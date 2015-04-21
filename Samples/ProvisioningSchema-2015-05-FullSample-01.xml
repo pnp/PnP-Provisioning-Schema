@@ -10,9 +10,9 @@
   </pnp:Preferences>
   <pnp:Templates ID="SAMPLE-TEMPLATES">
 
-    <pnp:SharePointProvisioningTemplateFile ID="WORKFLOWSITE" File="ProvisioningSchema-2015-05-ReferenceSample-01.xml" />
+    <pnp:ProvisioningTemplateFile ID="WORKFLOWSITE" File="ProvisioningSchema-2015-05-ReferenceSample-01.xml" />
 
-    <pnp:SharePointProvisioningTemplate ID="SPECIALTEAM" Version="1.0">
+    <pnp:ProvisioningTemplate ID="SPECIALTEAM" Version="1.0">
 
       <pnp:SitePolicy>HBI</pnp:SitePolicy>
 
@@ -136,6 +136,10 @@
         <pnp:File Src="Custom.spfont" Folder="_catalogs/Theme/15" Overwrite="true" />
       </pnp:Files>
 
+      <pnp:Pages>
+        <pnp:Page Layout="TwoColumns" Overwrite="true" Url="{site}/SitePages/DemoWikiPage.aspx"></pnp:Page>
+      </pnp:Pages>
+
       <pnp:TermGroups>
         <pnp:TermGroup ID="{0E8F395E-FF58-4D45-9FF7-E331AB728BEB}" Name="{CompanyName} TermSets">
           <pnp:TermSets>
@@ -206,7 +210,7 @@
         </pnp:Provider>
       </pnp:Providers>
 
-    </pnp:SharePointProvisioningTemplate>
+    </pnp:ProvisioningTemplate>
 
   </pnp:Templates>
 
@@ -221,7 +225,7 @@
                         Url="https://{O365TenantName}.sharepoint.com/sites/Intranet">
       <pnp:Templates>
         <!-- And let's use the SPECIALTEAM SharePointProvisioningTemplate -->
-        <pnp:SharePointProvisioningTemplateReference ID="SPECIALTEAM" />
+        <pnp:ProvisioningTemplateReference ID="SPECIALTEAM" />
       </pnp:Templates>
     </pnp:SiteCollection>
 
@@ -233,7 +237,7 @@
               Url="Workflows"
               UseSamePermissionsAsParentSite="true">
       <pnp:Templates>
-        <pnp:SharePointProvisioningTemplateReference ID="WORKFLOWSITE" />
+        <pnp:ProvisioningTemplateReference ID="WORKFLOWSITE" />
       </pnp:Templates>
     </pnp:Site>
 
