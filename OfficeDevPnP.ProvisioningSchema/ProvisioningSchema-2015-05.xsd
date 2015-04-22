@@ -512,7 +512,7 @@
         </xsd:annotation>
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="FieldRef" type="FieldRef"
+            <xsd:element name="FieldRef" type="pnp:ListInstanceFieldRef"
                          minOccurs="1" maxOccurs="unbounded" />
           </xsd:sequence>
         </xsd:complexType>
@@ -684,7 +684,7 @@
         </xsd:annotation>
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="FieldRef" type="pnp:FieldRef"
+            <xsd:element name="FieldRef" type="pnp:ContentTypeFieldRef"
                          minOccurs="1" maxOccurs="unbounded" />
           </xsd:sequence>
         </xsd:complexType>
@@ -848,10 +848,14 @@
 
   </xsd:complexType>
 
-  <xsd:complexType name="FieldRef">
+  <xsd:complexType name="FieldRefBase">
+    <xsd:attributeGroup ref="pnp:FieldRefAttributes" />
+  </xsd:complexType>
+
+  <xsd:attributeGroup name="FieldRefAttributes">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
-        Defines the binding between a ListInstance and a Field
+        Common set of attributes for any FieldRef element
       </xsd:documentation>
     </xsd:annotation>
 
@@ -859,14 +863,6 @@
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           The value of the field ID to bind, required attribute
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-
-    <xsd:attribute name="DisplayName" type="xsd:string" use="optional">
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          The display name of the field to bind, only applicable to fields that will be added to lists, optional attribute
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -887,8 +883,36 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:anyAttribute processContents="skip"/>
+  </xsd:attributeGroup>
 
+  <xsd:complexType name="ListInstanceFieldRef">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        Defines the binding between a ListInstance and a Field
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="FieldRefBase">
+        <xsd:attribute name="DisplayName" type="xsd:string" use="optional">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              The display name of the field to bind, only applicable to fields that will be added to lists, optional attribute
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="ContentTypeFieldRef">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        Defines the binding between a ContentType and a Field
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="FieldRefBase" />
+    </xsd:complexContent>
   </xsd:complexType>
 
   <xsd:complexType name="CustomActionsList">
@@ -1667,6 +1691,7 @@
             </xsd:annotation>
           </xsd:element>
         </xsd:all>
+        <xsd:attribute name="Language" type="xsd:int" use="optional"/>
         <xsd:attribute name="CustomSortOrder" type="xsd:string" use="optional"/>
       </xsd:extension>
     </xsd:complexContent>
@@ -1695,7 +1720,7 @@
         <xsd:complexType>
           <xsd:attribute name="Language" type="xsd:int" use="required" />
           <xsd:attribute name="Value" type="xsd:string" use="required" />
-          <xsd:attribute name="IsDefaultForLanguage" type="xsd:boolean" use="optional" />
+          <xsd:attribute name="IsDefaultForLanguage" type="xsd:boolean" use="optional" default="false" />
         </xsd:complexType>
       </xsd:element>
     </xsd:sequence>
