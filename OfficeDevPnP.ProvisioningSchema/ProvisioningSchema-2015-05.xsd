@@ -867,6 +867,14 @@
       </xsd:annotation>
     </xsd:attribute>
 
+    <xsd:attribute name="Name" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The name of the field used in the field reference. This is for reference/readibility only.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
     <xsd:attribute name="Required" type="xsd:boolean" use="optional" default="false">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
@@ -1034,6 +1042,18 @@
 
   </xsd:complexType>
 
+  <xsd:complexType name="FileProperties">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        A collection of File Properties
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Property" type="pnp:StringDictionaryItem"
+                    minOccurs="1" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+
   <xsd:complexType name="File">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
@@ -1042,6 +1062,13 @@
     </xsd:annotation>
 
     <xsd:all>
+      <xsd:element name="Properties" type="pnp:FileProperties" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            The File Properties, optional collection of elements
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="WebParts" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
@@ -1129,7 +1156,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="Layout" type="pnp:WIKIPAGELAYOUT" use="required">
+    <xsd:attribute name="Layout" type="pnp:WikiPageLayout" use="required">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Required: Defines the layout of the wikipage
@@ -1692,7 +1719,7 @@
           </xsd:element>
         </xsd:all>
         <xsd:attribute name="Language" type="xsd:int" use="optional"/>
-        <xsd:attribute name="CustomSortOrder" type="xsd:string" use="optional"/>
+        <xsd:attribute name="CustomSortOrder" type="xsd:int" use="optional" default="0"/>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -1820,7 +1847,7 @@
     </xsd:restriction>
   </xsd:simpleType>
 
-  <xsd:simpleType name="WIKIPAGELAYOUT">
+  <xsd:simpleType name="WikiPageLayout">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
         The column layout of a wiki page
