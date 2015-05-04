@@ -18,9 +18,9 @@ _None_
 
 ## Current draft version
 
-Version 0.5 (see branch 0.5)
+Version 201505 (see branch 201505)
 
-Estimated approval date: April 2015
+Estimated approval date: May 2015
 
 ## More information
 More information and documentation can be found here:
