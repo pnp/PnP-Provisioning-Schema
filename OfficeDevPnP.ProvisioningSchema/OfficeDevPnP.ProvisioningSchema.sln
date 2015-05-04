@@ -6,6 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Schemas", "Schemas", "{055E8985-14F3-40BC-A9D6-AC7C64A73D0E}"
 	ProjectSection(SolutionItems) = preProject
 		..\OfficeProvisioningSchema-0.5.xsd = ..\OfficeProvisioningSchema-0.5.xsd
+		..\ProvisioningSchema-2015-05.md = ..\ProvisioningSchema-2015-05.md
 		ProvisioningSchema-2015-05.xsd = ProvisioningSchema-2015-05.xsd
 	EndProjectSection
 EndProject
