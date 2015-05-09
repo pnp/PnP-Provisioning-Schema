@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Schemas", "Schemas", "{055E8985-14F3-40BC-A9D6-AC7C64A73D0E}"
+	ProjectSection(SolutionItems) = preProject
+		..\OfficeProvisioningSchema-0.5.xsd = ..\OfficeProvisioningSchema-0.5.xsd
+		..\ProvisioningSchema-2015-05.md = ..\ProvisioningSchema-2015-05.md
+		ProvisioningSchema-2015-05.xsd = ProvisioningSchema-2015-05.xsd
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{892C6DE1-A055-4D22-912C-E7056977AF98}"
+	ProjectSection(SolutionItems) = preProject
+		..\Samples\ExportedSiteExample.xml = ..\Samples\ExportedSiteExample.xml
+		..\Samples\ProvisioningSchema-2015-05-FullSample-01.xml = ..\Samples\ProvisioningSchema-2015-05-FullSample-01.xml
+		..\Samples\ProvisioningSchema-2015-05-ReferenceSample-01.xml = ..\Samples\ProvisioningSchema-2015-05-ReferenceSample-01.xml
+		..\Samples\SampleFile1.xml = ..\Samples\SampleFile1.xml
+		..\Samples\SiteTemplatesExample.xml = ..\Samples\SiteTemplatesExample.xml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

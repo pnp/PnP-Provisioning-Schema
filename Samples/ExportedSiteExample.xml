@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+Sample provisioning file, as a result from an export operation from an engine
+-->
+<p:Provisioning xmlns:p="http://github.com/OfficeDev/PnP-Provisioning-Schema/0.5">
+  <p:Preferences Author="Wictor Wilén">
+  </p:Preferences>
+
+  <p:Sequence ID="{FE6BB003-729A-49AA-AFCF-57936E5F06ED}">
+    <p:Site ID="{8EE3E177-0163-41EE-98A0-5FBBA43BD1BC}"
+            Title="Exported site"
+            AllowDesigner="true"
+            AlternateCssUrl=""
+            CustomJSUrl=""
+            EnableMinimalDownload="true"
+            TimeZone="3"
+            MembersCanShare="true"
+            SiteLogoUrl="/teams/teamsite/SiteAssets/thelogo.png"
+            MasterUrl="/_catalogs/masterpage/oslo.master"
+            CustomMasterUrl="/_catalogs/masterpage/oslo.master"
+            Url="https://contoso.sharepoint.com/teams/teamsite"
+            >
+      <p:BaseConfiguration Locale="1033">STS#0</p:BaseConfiguration>
+      <p:Sites/>
+      <p:ContentTypes></p:ContentTypes>
+      <p:CustomActions></p:CustomActions>
+      <p:ContentTypes/>
+      <p:Sites/>
+    </p:Site>
+  </p:Sequence>
+
+</p:Provisioning>

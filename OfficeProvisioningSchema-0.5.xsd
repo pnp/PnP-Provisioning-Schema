@@ -1,0 +1,1107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://github.com/OfficeDev/PnP-Provisioning-Schema/0.5"
+    elementFormDefault="qualified"
+    xmlns="http://github.com/OfficeDev/PnP-Provisioning-Schema/0.5"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <!-- Simple types-->
+  <xs:simpleType name="ProvisioningRequirements">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+        Indicates that the target has to be provisioned during an provisioning execution.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Required">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">
+            The target has to be provisioned and supported by the engine
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Optional">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">
+            The target is optional to be provisioned and optional to be supported by the engine
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <xs:simpleType name="TemplateReferenceType">
+    <xs:restriction base="xs:string">
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="Sequence">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+        A positive integer, 0-65536
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:int">
+      <xs:minInclusive value="0" />
+      <xs:maxInclusive value="65536" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="guid">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+        The representation of a GUID, generally the id of an element.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:pattern value="\{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}\}"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="SPBoolean">
+    <xs:annotation>
+      <xs:documentation>A Boolean field, backwards compatible with SharePoint CAML syntax. Avoid using the TRUE/True/FALSE/False representations.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="true"/>
+      <xs:enumeration value="1"/>
+      <xs:enumeration value="TRUE"/>
+      <xs:enumeration value="True"/>
+      <xs:enumeration value="false"/>
+      <xs:enumeration value="0"/>
+      <xs:enumeration value="FALSE"/>
+      <xs:enumeration value="False"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="ProvisioningAction">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+        Indicates how the engine should provision the item
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Provision">
+        <xs:annotation>
+          <xs:documentation>
+            Provisions the item. Should be default
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Ignore">
+        <xs:annotation>
+          <xs:documentation>
+            The provisioning engine should ignore this item.
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Inherit">
+        <xs:annotation>
+          <xs:documentation>
+            Inherit the provisioning action from a parent Container
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Unprovision">
+        <xs:annotation>
+          <xs:documentation>
+            The engine should unprovision (delete) the item
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name='ReplaceableString' id='ReplaceableString'>
+    <xs:annotation>
+      <xs:documentation>
+        A Replaceable string is a string that contains parameters enclosed by curly braces {...}
+        At runtime the provisioning engine replaces those parameters with the parameters specified in Preferences/Parameters
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base='xs:string'>
+      <xs:annotation>
+        <xs:documentation>
+          TODO: this should be replaced with a better regexp to validate Replaceable strings
+        </xs:documentation>
+      </xs:annotation>
+      <xs:pattern value='[\s\S]*'/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name='ReplaceableInt' id='ReplaceableInt'>
+    <xs:annotation>
+      <xs:documentation>
+        TODO
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base='xs:string'>
+      <xs:annotation>
+        <xs:documentation>
+          TODO: regexp that validates either an integer or something like this "{lcid}"
+        </xs:documentation>
+      </xs:annotation>
+      <xs:pattern value='[\s\S]+'/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name='ContentTypeId' id='ContentTypeId'>
+    <xs:restriction base='xs:string'>
+      <xs:annotation>
+        <xs:documentation xml:lang="en">
+          A Content Type ID
+        </xs:documentation>
+      </xs:annotation>
+      <xs:pattern value='0x[a-zA-Z0-9]+'/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name='FeatureScopeDefinition'>
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+        The Scope of a feature
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Web"/>
+      <xs:enumeration value="Site"/>
+      <xs:enumeration value="WebApplication"/>
+      <xs:enumeration value="Farm"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="BaseConfigurationOptions">
+    <xs:annotation>
+      <xs:documentation>
+        Site Templates.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:annotation>
+        <xs:documentation>
+          TODO: Change to regexp that accepts name#number or {GUID}#name
+        </xs:documentation>
+      </xs:annotation>
+      <xs:pattern value='[\s\S]+'/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="OverwriteOptions">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+        Specifies how the engine should handle scenarios where the Container already exists.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Prohibitied">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">
+            The item must not be overwritten or updated
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Allowed">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">
+            The item should be updated if already existing
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Inherit">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">
+            Overwrite option is inherited from parent Container or general preferences
+          </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:complexType name="ExtensionsDefinition" >
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+        Extensions are custom XML elements and instructions that can be extensions of this default schema or vendor or engine specific extensions.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:any processContents="lax" namespace="##other"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GroupMembersDefinition" >
+    <xs:sequence minOccurs="0" maxOccurs="unbounded">
+      <xs:element name="GroupMember" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:attribute name="ID" use="required" type="xs:string">
+            <xs:annotation>
+              <xs:documentation>
+                ID of the user, normally UPN or E-mail
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:attributeGroup name="ContainerAttributes">
+    <xs:annotation>
+      <xs:documentation>
+        Attributes present on all containers
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="ID" type="xs:string"  use="optional">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">
+          A unique identifier for the container.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="OverwriteOptions" type="OverwriteOptions" use="optional" default="Inherit">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">
+          Specifies how the engine should handle situations when the container already exists. Default is to inherit
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="ProvisioningSupport" type="ProvisioningRequirements" use="optional" default="Optional">
+      <xs:annotation>
+        <xs:documentation>
+          <![CDATA[
+          Requirements on the provisioning engine.
+          - Required: the engine must support this container type and it must be provisioned
+          - Optional: the engine must not support this container and it's optional to be provisioned
+          ]]>
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="ProvisioningAction" type="ProvisioningAction" use="optional" default="Provision">
+    </xs:attribute>
+  </xs:attributeGroup>
+
+  <xs:complexType name="BaseConfigurationDefinition">
+    <xs:simpleContent>
+      <xs:extension base="BaseConfigurationOptions">
+        <xs:attribute name="Locale" use="required" type="ReplaceableInt">
+          <xs:annotation>
+            <xs:documentation>
+              The Locale to use (LCID)
+            </xs:documentation>
+          </xs:annotation>
+        </xs:attribute>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <!-- For instance a SharePoint Site -->
+  <xs:complexType name="SiteDefinition" >
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="TemplateReference" type="TemplateReferenceType"/>
+        <xs:element name="BaseConfiguration" type="BaseConfigurationDefinition" />
+      </xs:choice>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <!-- Inherited from Site-->
+        <xs:element name="Sites"  type="SitesDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="Lists"  type="ListsDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="Files"  type="FilesDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="Fields"  type="FieldsDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="Pages"  type="PagesDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="Features"  type="FeaturesDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="ContentTypes" type="ContentTypesDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="SiteGroups" type="SiteGroupsDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="CustomActions" type="CustomActionsDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="PropertyBag" type="PropertyBagDefinition" nillable="false" minOccurs="0"/>
+        <!-- Inherited from Container-->
+        <xs:element name="Extensions" type="ExtensionsDefinition" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:sequence>
+    <xs:attributeGroup ref="SiteAttributes"/>
+    <xs:attribute name="Url" type="ReplaceableString" use="required">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">
+          Relative Url to the site
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attributeGroup ref="ContainerAttributes"/>
+  </xs:complexType>
+
+  <!-- For instance a SharePoint Site Collection-->
+  <xs:complexType name="SiteCollectionDefinition"  >
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="TemplateReference" type="TemplateReferenceType"/>
+        <xs:element name="BaseConfiguration" type="BaseConfigurationDefinition" />
+      </xs:choice>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TermSets" type="TermSetsDefinition" minOccurs="0" maxOccurs="1"/>
+        <!-- Inherited from Site-->
+        <xs:element name="Sites"  type="SitesDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="Lists"  type="ListsDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="Files"  type="FilesDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="Fields"  type="FieldsDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="Pages"  type="PagesDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="Features"  type="FeaturesDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="ContentTypes" type="ContentTypesDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="SiteGroups" type="SiteGroupsDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="CustomActions" type="CustomActionsDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="PropertyBag" type="PropertyBagDefinition" nillable="false" minOccurs="0"/>
+        <!-- Inherited from Container-->
+        <xs:element name="Extensions" type="ExtensionsDefinition" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:sequence>
+
+    <xs:attributeGroup ref="SiteCollectionAttributes"/>
+    <xs:attribute name="Url" type="ReplaceableString" use="required">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">
+          Absolute Url to the site
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attributeGroup ref="SiteAttributes"/>
+    <xs:attributeGroup ref="ContainerAttributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="SiteTemplateDefinition" >
+    <xs:sequence>
+      <xs:choice>
+        <xs:element name="BaseConfiguration" type="BaseConfigurationDefinition" />
+      </xs:choice>
+      <xs:sequence minOccurs="0" maxOccurs="unbounded">
+        <!-- Inherited from Site-->
+        <xs:element name="Sites"  type="SitesDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="Lists"  type="ListsDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="Files"  type="FilesDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="Fields"  type="FieldsDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="Pages"  type="PagesDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="Features"  type="FeaturesDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="ContentTypes" type="ContentTypesDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="SiteGroups" type="SiteGroupsDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="CustomActions" type="CustomActionsDefinition" minOccurs="0" maxOccurs="1"/>
+        <xs:element name="PropertyBag" type="PropertyBagDefinition" nillable="false" minOccurs="0"/>
+        <!-- Inherited from Container-->
+        <xs:element name="Extensions" type="ExtensionsDefinition" minOccurs="0" maxOccurs="1"/>
+      </xs:sequence>
+    </xs:sequence>
+    <xs:attributeGroup ref="SiteAttributes"/>
+    <xs:attributeGroup ref="ContainerAttributes"/>
+  </xs:complexType>
+
+  <xs:attributeGroup name="SiteCollectionAttributes">
+    <xs:attribute name="StorageMaximumLevel" type="ReplaceableInt" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Maximum Storage Level, in Megabytes
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="StorageWarningLevel" type="ReplaceableInt" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Warning Storage Level, in Megabytes
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="UserCodeMaximumLevel" type="ReplaceableInt" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Maximum Resource usage, in points
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="UserCodeWarningLevel" type="ReplaceableInt" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Warning Resource usage, in points
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="QuotaTemplate" type="ReplaceableString" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Quota Template to use. If specified, this will override Storage*Level and UserCode*Level
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="PrimarySiteCollectionAdmin" type="ReplaceableString" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          ID of the Primary Site Collection Admin
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="SecondarySiteCollectionAdmin" type="ReplaceableString" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          ID of the Secondary Site Collection Admin
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+
+  <xs:attributeGroup name="SiteAttributes">
+    <xs:attribute name="Title" type="ReplaceableString"  use="required">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">
+          Title of the site
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="CustomJSUrl" type="ReplaceableString" use="optional">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">
+          Custom JavaScript URL
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="QuickLaunchEnabled" type="xs:boolean" use="optional">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">
+          Is the Quick launch enabled
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="EnableMinimalDownload" type="xs:boolean" use="optional">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">
+          Is the Minimal Download Strategy enabled
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="AlternateCssUrl" type="ReplaceableString" use="optional">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">
+          Alternat CSS URL
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="AllowDesigner" type="xs:boolean" use="optional"/>
+    <xs:attribute name="TimeZone" type="ReplaceableInt" use="optional" >
+      <xs:annotation>
+        <xs:documentation xml:lang="en">
+          Time zone of the site
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="MembersCanShare" type="xs:boolean" use="optional"/>
+    <xs:attribute name="SiteLogoUrl" type="ReplaceableString" use="optional"/>
+    <xs:attribute name="MasterUrl"  type="ReplaceableString" use="optional"/>
+    <xs:attribute name="CustomMasterUrl"  type="ReplaceableString" use="optional"/>
+  </xs:attributeGroup>
+
+  <xs:complexType name="SitesDefinition">
+    <xs:sequence>
+      <xs:element name="Site" type="SiteDefinition" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ListsDefinition">
+    <xs:sequence>
+      <xs:element name="List" type="ListDefinition" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="FilesDefinition">
+    <xs:sequence>
+      <xs:element name="File" type="FileDefinition" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PagesDefinition">
+    <xs:sequence>
+      <xs:element name="Page" type="PageDefinition" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="FeaturesDefinition">
+    <xs:sequence>
+      <xs:element name="Feature" type="FeatureDefinition" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="FieldsDefinition">
+    <xs:sequence>
+      <xs:element name="Field" type="FieldDefinition" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ContentTypesDefinition">
+    <xs:sequence>
+      <xs:element name="ContentType" type="ContentTypeDefinition" maxOccurs="unbounded" minOccurs="0">
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SiteGroupsDefinition">
+    <xs:sequence>
+      <xs:element name="DefaultSiteGroup" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="SiteGroupMembers" type="GroupMembersDefinition" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+          <xs:attribute name="DefaultGroup" use="required">
+            <xs:simpleType>
+              <xs:restriction base="xs:string">
+                <xs:enumeration value="Visitors"/>
+                <xs:enumeration value="Members"/>
+                <xs:enumeration value="Owners"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:attribute>
+          <xs:attributeGroup ref="GroupAttributes"/>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SiteGroup" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="SiteGroupMembers" type="GroupMembersDefinition" minOccurs="0" maxOccurs="1"/>
+          </xs:sequence>
+          <xs:attribute name="Title" use="required" type="ReplaceableString"/>
+          <xs:attributeGroup ref="GroupAttributes"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CustomActionsDefinition">
+    <xs:sequence>
+      <xs:element name="CustomAction" type="CustomActionDefinition" maxOccurs="unbounded" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CustomActionDefinition">
+    <xs:attribute name="Location" type="xs:string" use="optional" >
+      <xs:annotation>
+        <xs:appinfo source="https://msdn.microsoft.com/en-us/library/office/bb802730.aspx"/>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="ScriptSrc" type="xs:string" use="optional" >
+      <xs:annotation>
+        <xs:documentation xml:lang="en">
+          The source of the custom action script. Can start with ~site or ~sitecollection
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="Sequence" type="Sequence" />
+    <xs:attribute name="Title" type="ReplaceableString"  use="required">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">
+          Title of the Custom Action
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attributeGroup ref="ContainerAttributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="PropertyBagDefinition">
+    <xs:sequence>
+      <xs:element name="Property" type="PropertyDefinition" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="PropertyDefinition">
+    <xs:sequence>
+    </xs:sequence>
+    <xs:attribute name="Key" type="xs:string" use="required" />
+    <xs:attribute name="Value" type="ReplaceableString" />
+    <xs:attribute name="Indexed" type="xs:boolean" use="optional">
+      <xs:annotation>
+        <xs:documentation>
+          Is the property configured to be indexed (for SPWeb objects)
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:attributeGroup name="GroupAttributes">
+    <xs:attribute name="AllowMembersEditMembership" type="xs:boolean"  use="optional"/>
+    <xs:attribute name="OnlyAllowMembersViewMembership" type="xs:boolean"  use="optional"/>
+    <xs:attribute name="AllowRequestToJoinLeave" type="xs:boolean"  use="optional"/>
+  </xs:attributeGroup>
+
+  <xs:complexType name="FileDefinition" >
+    <xs:attribute name="Source" type="ReplaceableString" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          Source of the file, relative to the XML file
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="Target" type="ReplaceableString" use="required"/>
+    <xs:attributeGroup ref="ContainerAttributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="PageDefinition" >
+    <xs:sequence maxOccurs="unbounded" minOccurs="0">
+      <xs:element name="WebParts">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="WebPartXmlDefinition" minOccurs="1" maxOccurs="1" nillable="false" type="ReplaceableString"/>
+          </xs:sequence>
+          <xs:attribute name="ZoneID" type="xs:string" use="required"/>
+          <xs:attribute name="ZoneIndex" type="xs:int" use="required"/>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Url" type="ReplaceableString" use="required"/>
+    <xs:attribute name="TemplateFile" type="ReplaceableString" use="required"/>
+    <xs:attribute name="IsHomePage" type="xs:boolean" use="optional"/>
+    <xs:attributeGroup ref="ContainerAttributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="DataValueDefinition">
+    <xs:simpleContent>
+      <xs:extension base="ReplaceableString">
+        <xs:attribute name="FieldName" use="required" type="xs:string"/>
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="ListDefinition" >
+    <xs:sequence minOccurs="0" maxOccurs="1">
+      <xs:element name="ContentTypeBindings" maxOccurs="1" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ContentTypeBinding" maxOccurs="unbounded" minOccurs="0">
+              <xs:complexType>
+                <xs:attribute name="ContentTypeID" type="ContentTypeId" use="required"/>
+                <xs:attribute name="Default" type="xs:boolean" use="optional"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Views" maxOccurs="1" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="View" maxOccurs="unbounded" minOccurs="0">
+              <xs:complexType>
+                <xs:all>
+                  <xs:element name="ViewQuery" type="xs:string" nillable="false" minOccurs="1">
+                  </xs:element>
+                  <xs:element name="ViewFieldRefs" minOccurs="0" maxOccurs="1">
+                    <xs:complexType>
+                      <xs:sequence>
+                        <xs:element name="FieldRef" minOccurs="0" maxOccurs="unbounded">
+                          <xs:complexType>
+                            <xs:attribute name="Name" use="optional" type="xs:string"/>
+                          </xs:complexType>
+                        </xs:element>
+                      </xs:sequence>
+                    </xs:complexType>
+                  </xs:element>
+                  <xs:element name="JSLink" type="xs:string" minOccurs="0" maxOccurs="1"></xs:element>
+                  <xs:element name="RowLimit" type="RowLimitDefinition" minOccurs="0" maxOccurs="1" />
+                </xs:all>
+                <xs:attribute name="DisplayName" type="ReplaceableString" use="required"/>
+                <xs:attribute name="DefaultVieww" type="xs:boolean" use="optional"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="DataRows" maxOccurs="1" minOccurs="0">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="DataRow" maxOccurs="unbounded" minOccurs="0">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="DataValue" maxOccurs="unbounded" minOccurs="0" type="DataValueDefinition"/>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Title" type="ReplaceableString"  use="required">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">
+          Title of the list
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="Url" type="ReplaceableString" use="optional"/>
+    <xs:attribute name="TemplateType" type="xs:integer" use="required">
+      <xs:annotation>
+        <xs:appinfo source="https://msdn.microsoft.com/en-us/library/office/microsoft.sharepoint.client.listtemplatetype.aspx"/>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="Description" type="xs:string" use="optional"/>
+    <xs:attribute name="OnQuickLaunch" type="xs:boolean" use="optional" default="false"/>
+    <xs:attribute name="QuickLaunchUrl" type="xs:string" use="optional"/>
+    <xs:attribute name="EnableVersioning" type="xs:boolean" use="optional"/>
+    <xs:attribute name="EnableMinorVersions" type="xs:boolean" />
+    <xs:attribute name="EnableContentTypes" type="xs:boolean" />
+    <xs:attribute name="RemoveDefaultContentType" type="xs:boolean" use="optional" default="false"/>
+    <xs:attributeGroup ref="ContainerAttributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="RowLimitDefinition">
+    <xs:simpleContent>
+      <xs:extension base="xs:int">
+        <xs:attribute name="Paged" type="SPBoolean" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <xs:complexType name="FieldDefinition" >
+    <xs:choice minOccurs="0" maxOccurs="1">
+      <xs:element name="Choices">
+        <xs:complexType>
+          <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="Choice" nillable="false" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:choice>
+    <xs:attribute name="ID" use="required" type="guid"/>
+    <xs:attribute name="Name" use="required" type="xs:string"/>
+    <xs:attribute name="DisplayName" use="optional" type="xs:string"/>
+    <xs:attribute name="Group" use="optional" type="xs:string"/>
+    <xs:attribute name="MaxLength" use="optional" type="xs:integer"/>
+    <xs:attribute name="AllowDeletion" use="optional" type="SPBoolean"/>
+    <xs:attribute name="Type" use="required">
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="AllDayEvent"/>
+          <xs:enumeration value="Attachments"/>
+          <xs:enumeration value="Boolean"/>
+          <xs:enumeration value="Calculated"/>
+          <xs:enumeration value="Choice"/>
+          <xs:enumeration value="Computed"/>
+          <xs:enumeration value="ContentTypeId"/>
+          <xs:enumeration value="Counter"/>
+          <xs:enumeration value="CrossProjectLink"/>
+          <xs:enumeration value="Currency"/>
+          <xs:enumeration value="DateTime"/>
+          <xs:enumeration value="File"/>
+          <xs:enumeration value="GridChoice"/>
+          <xs:enumeration value="Guid"/>
+          <xs:enumeration value="Lookup"/>
+          <xs:enumeration value="LookupMulti"/>
+          <xs:enumeration value="ModStat"/>
+          <xs:enumeration value="MultiChoice"/>
+          <xs:enumeration value="MultiColumn"/>
+          <xs:enumeration value="Note"/>
+          <xs:enumeration value="Number"/>
+          <xs:enumeration value="PageSeparator"/>
+          <xs:enumeration value="Recurrence"/>
+          <xs:enumeration value="Text"/>
+          <xs:enumeration value="ThreadIndex"/>
+          <xs:enumeration value="URL"/>
+          <xs:enumeration value="User"/>
+          <xs:enumeration value="UserMulti"/>
+          <xs:enumeration value="WorkflowEventType"/>
+          <xs:enumeration value="WorkflowStatus"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ProvisioningAction" type="ProvisioningAction" use="optional" default="Provision"/>
+    <xs:anyAttribute processContents="skip"/>
+  </xs:complexType>
+
+  <xs:complexType name="ContentTypeDefinition" >
+    <xs:all>
+      <xs:element name="FieldRefs" minOccurs="0" maxOccurs="1">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="FieldRef" minOccurs="0" maxOccurs="unbounded">
+              <xs:complexType>
+                <xs:attribute name="ID" type="guid" use="required"/>
+                <xs:attribute name="Name" use="optional" type="xs:string"/>
+                <xs:attribute name="DisplayName" use="optional" type="xs:string"/>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="JSLink" type="xs:string" minOccurs="0" maxOccurs="1"></xs:element>
+    </xs:all>
+    <xs:attribute name="ID" use="required" type="ContentTypeId"/>
+    <xs:attribute name="Name" type="xs:string" use="required"/>
+    <xs:attribute name="Description" type="xs:string" use="optional"/>
+    <xs:attribute name="Group" type="xs:string" use="optional"/>
+    <xs:attribute name="Inherits" type="xs:boolean" use="optional" default="true"/>
+    <xs:attribute name="Version" type="xs:integer" use="optional"/>
+    <xs:anyAttribute processContents="skip"/>
+  </xs:complexType>
+
+  <xs:complexType name="FeatureDefinition" >
+    <xs:attribute name="ID" use="required" type="xs:string"/>
+    <xs:attribute name="Name" use="optional" type="xs:string" />
+    <xs:attribute name="Activate" use="optional" type="xs:boolean" default="true"/>
+    <xs:attribute name="Scope" use="optional" type="FeatureScopeDefinition"/>
+  </xs:complexType>
+
+  <xs:complexType name="TermSetDefinition">
+    <xs:complexContent>
+      <xs:extension base="TermBase">
+        <xs:sequence >
+          <xs:element name="Term" type="TermDefinition" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="TermSetsDefinition">
+    <xs:sequence>
+      <xs:element name="TermSet" type="TermSetDefinition" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="TermStoreDefinition" >
+    <xs:sequence>
+      <xs:element name="TermGroup" minOccurs="0" maxOccurs="unbounded">
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="TermBase">
+              <xs:sequence>
+                <xs:element name="TermSet" type="TermSetDefinition" minOccurs="0" maxOccurs="unbounded"/>
+              </xs:sequence>
+              <xs:attribute name="IsOpenForTermCreation" use="optional" type="xs:boolean"/>
+              <xs:attribute name="Contact" use="optional" type="ReplaceableString"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Scope" use="required">
+      <xs:annotation>
+        <xs:documentation>
+          The scope of the term store.
+        </xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Default"/>
+          <xs:enumeration value="Current"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attributeGroup ref="ContainerAttributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="TermBase" >
+    <xs:attribute name="Name" type="xs:string" use="required"/>
+    <xs:attribute name="ID" type="guid" use="optional"/>
+    <xs:attribute name="Description" use="optional"/>
+  </xs:complexType>
+
+  <xs:complexType name="TermSetItem" >
+    <xs:complexContent>
+      <xs:extension base="TermBase">
+        <xs:attribute name="Owner" type="ReplaceableString" use="optional"/>
+        <xs:attribute name="IsAvailableForTagging " type="xs:boolean" use="optional"/>
+        <xs:attribute name="CustomSortOrder" type="xs:string" use="optional"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+ 
+  <xs:complexType name="TermDefinition" >
+    <xs:complexContent>
+      <xs:extension base="TermSetItem">
+        <xs:all>
+          <xs:element name="ChildTerms" minOccurs="0" maxOccurs="1">
+            <xs:complexType>
+              <xs:choice>
+                <xs:element name="Term" type="TermDefinition"  maxOccurs="unbounded" minOccurs="0"/>
+              </xs:choice>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="TermDescriptions" minOccurs="0" maxOccurs="1"/>
+          <xs:element name="Properties" minOccurs="0" maxOccurs="1"/>
+        </xs:all>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="UserDefinition" >
+    <xs:attributeGroup ref="ContainerAttributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="GroupDefinition" >
+    <xs:sequence minOccurs="0" maxOccurs="1">
+      <xs:element name="GroupMembers" type="GroupMembersDefinition" minOccurs="0" maxOccurs="1"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="ContainerAttributes"/>
+  </xs:complexType>
+
+  <xs:complexType name="ImportSequenceDefinition">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+        Imports sequences from an external file. All current properties should be sent to that file.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:attribute name="file" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">
+          Absolute or relative path to the file.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="TemplatesDefinition">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+        Templates...
+      </xs:documentation>
+    </xs:annotation>
+    <xs:all>
+      <xs:element name="SiteTemplate" type="SiteTemplateDefinition"  minOccurs="0"/>
+      <!-- TODO: Add more templates here-->
+    </xs:all>
+    <xs:attribute name="ID" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">
+          A unique identifier of the Templates collection
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="SequenceDefinition" >
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+        Each Provisioning file is split into a set of Sequence elements.
+        The Sequence element groups the artefacts to be provisioned into groups.
+        The Sequences must be evaluated by the provisioning engine in the order in which they appear.
+      </xs:documentation>
+    </xs:annotation>
+    <xs:sequence maxOccurs="unbounded">
+      <xs:element name="SiteCollection" type="SiteCollectionDefinition" minOccurs="0" />
+      <xs:element name="Site" type="SiteDefinition"  minOccurs="0"/>
+      <xs:element name="TermStore" type="TermStoreDefinition"  minOccurs="0"/>
+      <xs:element name="Extensions" type="ExtensionsDefinition" minOccurs="0" maxOccurs="1"/>
+      <!-- TODO: add more top level items here-->
+    </xs:sequence>
+    <xs:attribute name="SequenceType" default="Synchronous" use="optional">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">
+          Instructions to the Provisioning engine on how the Containers within the Sequence can be provisioned.
+        </xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Synchronous">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">
+                The Containers within this Sequence has to be provisioned Synchronous in the order that they appear.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="Asynchronous">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">
+                The Containers within this Sequence can be provisioned Asynchronously.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="ID" type="xs:string" use="required">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">
+          A unique identifier of the Sequence
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="OverwriteOptions" type="OverwriteOptions" use="optional">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">
+          Specifies the default overwrite options for the Sequence
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="PreferencesDefinition" >
+    <xs:annotation>
+      <xs:documentation>General settins of this Provisioning file</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ProvisioningSettings" minOccurs="0">
+        <xs:complexType>
+          <xs:attribute name="OverwriteOptions" type="OverwriteOptions" use="optional" default="Allowed">
+            <xs:annotation>
+              <xs:documentation xml:lang="en">
+                The default overwrite settings of the provisioning file. Default value is prohibited.
+              </xs:documentation>
+            </xs:annotation>
+          </xs:attribute>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="Parameters" minOccurs="0">
+        <xs:annotation>
+          <xs:documentation>
+            Definition of parameters
+          </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="Parameter" maxOccurs="unbounded">
+              <xs:complexType mixed="true">
+                <xs:attribute name="Key" use="required" type="xs:string">
+                  <xs:annotation>
+                    <xs:documentation xml:lang="en">
+                      The name of the Parameter
+                    </xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+                <xs:attribute name="Required" use="optional" type="xs:boolean" default="false">
+                  <xs:annotation>
+                    <xs:documentation>When set to true then a value must be provided in the XML or provided at runtime</xs:documentation>
+                  </xs:annotation>
+                </xs:attribute>
+              </xs:complexType>
+            </xs:element>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+    <xs:attribute name="Version" type="xs:string"  use="optional">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">
+          Optional version number.
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="Author" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">
+          Optional Author name
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="Generator" type="xs:string" use="optional">
+      <xs:annotation>
+        <xs:documentation xml:lang="en">
+          Optional Name of tool generating this file
+        </xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name="ProvisioningDefinition">
+    <xs:sequence>
+      <xs:element name="Preferences" type="PreferencesDefinition" minOccurs="1" maxOccurs="1"/>
+      <xs:sequence minOccurs="1" maxOccurs="unbounded">
+        <xs:element name="Templates" type="TemplatesDefinition" minOccurs="0"/>
+        <xs:element name="Sequence" type="SequenceDefinition" minOccurs="0"/>
+        <xs:element name="ImportSequence" type="ImportSequenceDefinition"  minOccurs="0"/>
+      </xs:sequence>
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- The main element-->
+  <xs:element name="Provisioning" type="ProvisioningDefinition">
+    <xs:annotation>
+      <xs:documentation xml:lang="en">
+        This is the base element of a Provisioning File.
+      </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+</xs:schema>
