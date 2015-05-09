@@ -9,41 +9,16 @@ Initial versions will concentrate on SharePoint, but target is to define also ot
 This effort is closely related on the work being done in the 
 [Office 365 Developer Patterns and Practices repository](https://github.com/OfficeDev/PnP) on actual engine, 
 which will provision SharePoint sites and other elements using this schema. 
-<<<<<<< HEAD
-=======
 
 # Version
 
 ## Current approved version
 
-_None_
-
-## Current draft version
-
-Version 201505 (see branch 201505)
-
-Estimated approval date: May 2015
+[Version 201505](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2015-05.xsd)
 
 ## More information
 More information and documentation can be found here:
 
-* [Remote Provisioning Schema Wiki](../../wiki)
->>>>>>> 201505
+* [Remote Provisioning Schema Documentation](ProvisioningSchema-2015-05.md)
 
-# Version
-
-## Current approved version
-
-_None_
-
-## Current draft version
-
-Version 201505 (see branch 201505)
-
-Estimated approval date: May 2015
-
-## More information
-More information and documentation can be found here:
-
-* [Remote Provisioning Schema Wiki](../../wiki)
 
