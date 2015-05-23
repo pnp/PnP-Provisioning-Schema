@@ -1,0 +1,139 @@
+﻿<?xml version="1.0"?>
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2015/05/ProvisioningSchema">
+  <pnp:Preferences Author="OfficeDev PnP" Generator="Human Being :-)" Version="1.0">
+  </pnp:Preferences>
+  <pnp:Templates>
+    <pnp:ProvisioningTemplate ID="TAXONOMIESDEMO" Version="1">
+      <pnp:SiteFields>
+        <Field Type="Note"
+               DisplayName="Project_0"
+               StaticName="Project_Note"
+               Name="Project_Note"
+               ID="{D7917FD4-5EEF-4307-9EBF-372245389DF9}"
+               ShowInViewForms="FALSE"
+               Required="FALSE"
+               Hidden="TRUE"
+               CanToggleHidden="TRUE" />
+        <Field Type="TaxonomyFieldType"
+               DisplayName="Project"
+               Name="Project"
+               StaticName="Project"
+               ShowField="Term1033"
+               Required="FALSE"
+               EnforceUniqueValues="FALSE"
+               Group="PnP"
+               ID="{21515F04-1C08-4B94-A6ED-630436679ED3}">
+          <Customization>
+            <ArrayOfProperty>
+              <Property>
+                <Name>SspId</Name>
+                <Value xmlns:q1="http://www.w3.org/2001/XMLSchema" p4:type="q1:string" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">{sitecollectiontermstoreid}</Value>
+              </Property>
+              <Property>
+                <Name>TermSetId</Name>
+                <Value xmlns:q2="http://www.w3.org/2001/XMLSchema" p4:type="q2:string" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">{termsetid:PnpTermSets:Projects}</Value>
+              </Property>
+              <Property>
+                <Name>TextField</Name>
+                <Value xmlns:q6="http://www.w3.org/2001/XMLSchema" p4:type="q6:string" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">D7917FD4-5EEF-4307-9EBF-372245389DF9</Value>
+              </Property>
+              <Property>
+                <Name>IsPathRendered</Name>
+                <Value xmlns:q7="http://www.w3.org/2001/XMLSchema" p4:type="q7:boolean" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">false</Value>
+              </Property>
+              <Property>
+                <Name>IsKeyword</Name>
+                <Value xmlns:q8="http://www.w3.org/2001/XMLSchema" p4:type="q8:boolean" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">false</Value>
+              </Property>
+            </ArrayOfProperty>
+          </Customization>
+        </Field>
+      </pnp:SiteFields>
+
+      <pnp:ContentTypes>
+        <pnp:ContentType ID="0x010100BA1C6566F0EA4F5288CC9E510660F752" Name="ProjectDocument" Description="Project's Document" Group="PnP Group">
+          <pnp:FieldRefs>
+            <pnp:FieldRef ID="{21515F04-1C08-4B94-A6ED-630436679ED3}" Name="Project" Required="true" />
+          </pnp:FieldRefs>
+        </pnp:ContentType>
+      </pnp:ContentTypes>
+
+      <pnp:Lists>
+        <pnp:ListInstance Title="Projects' Documents" Url="ProjectsDocuments" TemplateType="101" Description="Library of Documents related to Projects" ContentTypesEnabled="true" OnQuickLaunch="true" RemoveExistingContentTypes="true">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x010100BA1C6566F0EA4F5288CC9E510660F752" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views RemoveExistingViews="true">
+            <View Name="{53F4020D-4287-4DC9-B122-629849A348C4}" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Documents" Url="{sitecollection}/ProjectsDocuments/Forms/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/dlicon.png?rev=39">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="Project" />
+                  <FieldRef Name="FileLeafRef" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="DocIcon" />
+                <FieldRef Name="LinkFilename" />
+                <FieldRef Name="Project" />
+                <FieldRef Name="Modified" />
+                <FieldRef Name="Editor" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+              <XslLink Default="TRUE">main.xsl</XslLink>
+              <Toolbar Type="Standard" />
+            </View>
+          </pnp:Views>
+        </pnp:ListInstance>
+      </pnp:Lists>
+
+      <pnp:TermGroups>
+        <pnp:TermGroup ID="{0E8F395E-FF58-4D45-9FF7-E331AB728BEB}" Name="PnpTermSets">
+          <pnp:TermSets>
+            <pnp:TermSet Name="Projects" ID="{5880B01B-5D6F-4606-A492-3B03A2FB4DD7}" Language="1040">
+              <pnp:Terms>
+                <pnp:Term Name="IT Projects" ID="{3D212FC2-F176-4621-AED1-128219666D95}" IsAvailableForTagging="false">
+                  <pnp:CustomProperties>
+                    <pnp:Property Key="Property1" Value="Value1" />
+                    <pnp:Property Key="Property2" Value="Value2" />
+                  </pnp:CustomProperties>
+                  <pnp:LocalCustomProperties>
+                    <pnp:Property Key="LocalProperty1" Value="Value1" />
+                    <pnp:Property Key="LocalProperty2" Value="Value2" />
+                  </pnp:LocalCustomProperties>
+                  <pnp:Terms>
+                    <pnp:Term Name="Cloud" ID="{87C55100-8316-4DA0-97FD-FEB5731880F6}">
+                      <pnp:Labels>
+                        <pnp:Label Language="1040" Value="Nuvola"/>
+                      </pnp:Labels>
+                    </pnp:Term>
+                    <pnp:Term Name="New Farm" ID="{C422BD0D-681D-448F-A41E-C71C473A95CC}">
+                      <pnp:Labels>
+                        <pnp:Label Language="1040" Value="Nuova Farm"/>
+                      </pnp:Labels>
+                    </pnp:Term>
+                  </pnp:Terms>
+                </pnp:Term>
+                <pnp:Term Name="HSE Projects" ID="{1F1B9EE8-74EA-4D89-B502-FEAA44340385}" IsAvailableForTagging="false">
+                  <pnp:Terms>
+                    <pnp:Term Name="Security Assessment" ID="{3279FE80-95DB-4D35-B235-A9B2F0FB6F9E}">
+                      <pnp:Labels>
+                        <pnp:Label Language="1040" Value="Valutazione Sicurezza"/>
+                      </pnp:Labels>
+                    </pnp:Term>
+                    <pnp:Term Name="Safety Program" ID="{FBEA36EA-A750-4A97-9667-5D51A6C895AF}">
+                      <pnp:Labels>
+                        <pnp:Label Language="1040" Value="Programma Sicurezza"/>
+                      </pnp:Labels>
+                    </pnp:Term>
+                  </pnp:Terms>
+                </pnp:Term>
+              </pnp:Terms>
+            </pnp:TermSet>
+          </pnp:TermSets>
+        </pnp:TermGroup>
+      </pnp:TermGroups>
+
+    </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>
