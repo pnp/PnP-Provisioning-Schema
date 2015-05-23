@@ -1,0 +1,203 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2015/05/ProvisioningSchema">
+  <pnp:Preferences Author="OfficeDev PnP" Generator="Human Being :-)" Version="1.0">
+  </pnp:Preferences>
+  <pnp:Templates>
+    <pnp:ProvisioningTemplate ID="LOOKUPDEMO" Version="1.0">
+
+      <pnp:SiteFields>
+
+        <!-- PnPOrder Fields -->
+        <Field ID="{2735DBDB-F789-4E72-A956-FBA7B6FB21E9}"
+               Name="PnPOrderTarget"
+               StaticName="PnPOrderTarget"
+               DisplayName="Target User"
+               Group="PnP Site Columns"
+               Type="User"
+               List="UserInfo"
+               UserSelectionMode="PeopleOnly" />
+        <Field ID="{55D68C76-D375-4FF2-AB60-E9281521F738}"
+               Name="PnPOrderSupplier"
+               StaticName="PnPOrderSupplier"
+               DisplayName="Supplier"
+               Group="PnP Site Columns"
+               Type="Text"/>
+        <Field ID="{55343AEA-D070-4336-8519-798BA3C1CA51}"
+               Name="PnPOrderNote"
+               StaticName="PnPOrderNote"
+               DisplayName="Notes"
+               Group="PnP Site Columns"
+               Type="Text" />
+        <Field ID="{813E0521-D94D-41D3-8E81-E79FB247DF75}"
+               Name="PnPOrderApproved"
+               StaticName="PnPOrderApproved"
+               DisplayName="Approved"
+               Group="PnP Site Columns"
+               Type="Boolean" />
+
+        <!-- PnPOrderItem Fields -->
+        <Field ID="{5E536E99-6EA7-4A0D-95E0-122C6DD61467}"
+               Name="PnPOrderItemDescription"
+               StaticName="PnPOrderItemDescription"
+               DisplayName="Item Description"
+               Group="PnP Site Columns"
+               Type="Text" />
+        <Field ID="{A545F52E-3A82-4F63-9EE4-0751E12D72A9}"
+               Name="PnPOrderItemQuantity"
+               StaticName="PnPOrderItemQuantity"
+               DisplayName="Quantity"
+               Group="PnP Site Columns"
+               Type="Integer" />
+        <Field ID="{6B426432-34EC-4EDA-A918-BC36109134B7}"
+               Name="PnPOrderItemPrice"
+               StaticName="PnPOrderItemPrice"
+               DisplayName="Price"
+               Group="PnP Site Columns"
+               Type="Currency" />
+        <Field ID="{AE724011-F6A5-4DDE-8E53-72B5B51DD0B4}"
+               Name="PnPOrderItemOrderLookup"
+               StaticName="PnPOrderItemOrderLookup"
+               DisplayName="Order"
+               Group="PnP Site Columns"
+               Type="Lookup"
+               List="Lists/Orders"
+               ShowField="Title" />
+
+      </pnp:SiteFields>
+      
+      <pnp:ContentTypes>
+      
+        <!-- PnPOrder -->
+        <pnp:ContentType ID="0x01002D415D16908E4116B6E2A940036C2028" Description="Order" Group="PnP Content Types"
+                         Name="PnPOrder">
+          <pnp:FieldRefs>
+            <pnp:FieldRef ID="{2735DBDB-F789-4E72-A956-FBA7B6FB21E9}"
+                   Name="PnPOrderTarget" Required="true" />
+            <pnp:FieldRef ID="{55D68C76-D375-4FF2-AB60-E9281521F738}"
+                   Name="PnPOrderSupplier" Required="true" />
+            <pnp:FieldRef ID="{55343AEA-D070-4336-8519-798BA3C1CA51}"
+                   Name="PnPOrderNote" />
+            <pnp:FieldRef ID="{813E0521-D94D-41D3-8E81-E79FB247DF75}"
+                   Name="PnPOrderApproved" Required="true" />
+          </pnp:FieldRefs>
+        </pnp:ContentType>
+
+        <!-- PnPOrderItem -->
+        <pnp:ContentType ID="0x010080DB087266A240829DF6311D1DE4BEDB" Description="Order Item" Group="PnP Content Types"
+                         Name="PnPOrderItem">
+          <pnp:FieldRefs>
+            <pnp:FieldRef ID="{5E536E99-6EA7-4A0D-95E0-122C6DD61467}"
+                   Name="PnPOrderItemDescription" Required="true" />
+            <pnp:FieldRef ID="{A545F52E-3A82-4F63-9EE4-0751E12D72A9}"
+                   Name="PnPOrderItemQuantity" Required="true" />
+            <pnp:FieldRef ID="{6B426432-34EC-4EDA-A918-BC36109134B7}"
+                   Name="PnPOrderItemPrice" Required="true" />
+            <pnp:FieldRef ID="{AE724011-F6A5-4DDE-8E53-72B5B51DD0B4}"
+                   Name="PnPOrderItemOrderLookup" Required="true" />
+          </pnp:FieldRefs>
+        </pnp:ContentType>
+
+      </pnp:ContentTypes>
+
+      <pnp:Lists>
+
+        <!-- List of Orders -->
+        <pnp:ListInstance ContentTypesEnabled="true" RemoveExistingContentTypes="true" Title="Orders" Url="Lists/Orders" TemplateType="100" OnQuickLaunch="true">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x01002D415D16908E4116B6E2A940036C2028" Default="true" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views RemoveExistingViews="true">
+            <View Name="{72B7CFFE-A861-4AF8-90D1-4DEA0CE952F6}" DefaultView="TRUE" MobileView="TRUE" Type="HTML" DisplayName="Orders" Url="{site}/Lists/Orders/Orders.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=39">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="DocIcon" />
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="PnPOrderTarget" />
+                <FieldRef Name="PnPOrderSupplier" />
+                <FieldRef Name="PnPOrderApproved" />
+                <FieldRef Name="PnPOrderNote" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <Aggregations Value="Off" />
+              <JSLink>clienttemplates.js</JSLink>
+              <XslLink Default="TRUE">main.xsl</XslLink>
+              <Toolbar Type="Standard" />
+            </View>
+          </pnp:Views>
+          <pnp:DataRows>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Order #1</pnp:DataValue>
+              <pnp:DataValue FieldName="PnPOrderTarget">10;#paolo@piasysdev.onmicrosoft.com</pnp:DataValue>
+              <pnp:DataValue FieldName="PnPOrderSupplier">Fabrikam</pnp:DataValue>
+              <pnp:DataValue FieldName="PnPOrderNote">This is the first sample order</pnp:DataValue>
+              <pnp:DataValue FieldName="PnPOrderApproved">1</pnp:DataValue>
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Order #2</pnp:DataValue>
+              <pnp:DataValue FieldName="PnPOrderTarget">10;#paolo@piasysdev.onmicrosoft.com</pnp:DataValue>
+              <pnp:DataValue FieldName="PnPOrderSupplier">PiaSys.com</pnp:DataValue>
+              <pnp:DataValue FieldName="PnPOrderNote">This is the second sample order</pnp:DataValue>
+              <pnp:DataValue FieldName="PnPOrderApproved">1</pnp:DataValue>
+            </pnp:DataRow>
+            <pnp:DataRow>
+              <pnp:DataValue FieldName="Title">Order #3</pnp:DataValue>
+              <pnp:DataValue FieldName="PnPOrderTarget">10;#paolo@piasysdev.onmicrosoft.com</pnp:DataValue>
+              <pnp:DataValue FieldName="PnPOrderSupplier">Contoso</pnp:DataValue>
+              <pnp:DataValue FieldName="PnPOrderNote">This is the third sample order</pnp:DataValue>
+              <pnp:DataValue FieldName="PnPOrderApproved">0</pnp:DataValue>
+            </pnp:DataRow>
+          </pnp:DataRows>
+        </pnp:ListInstance>
+
+        <!-- List of Orders' Items -->
+        <pnp:ListInstance ContentTypesEnabled="true" RemoveExistingContentTypes="true" Title="Order Items" Url="Lists/OrdersItems" TemplateType="100" OnQuickLaunch="true">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x010080DB087266A240829DF6311D1DE4BEDB" Default="true" />
+          </pnp:ContentTypeBindings>
+          <pnp:Fields>
+            <Field Type="Calculated" ID="{8D4B54A8-41AF-4D41-AE31-F66A1A15F885}" StaticName="PnPOrderItemTotal" Name="PnPOrderItemTotal" DisplayName="Total" LCID="1033" ResultType="Currency" ReadOnly="TRUE" Version="1">
+              <Formula>=Price*Quantity</Formula>
+              <FieldRefs>
+                <FieldRef Name="PnPOrderItemQuantity" />
+                <FieldRef Name="PnPOrderItemPrice" />
+              </FieldRefs>
+            </Field>
+          </pnp:Fields>
+          <pnp:FieldRefs>
+            <pnp:FieldRef ID="5e536e99-6ea7-4a0d-95e0-122c6dd61467" Name="PnPOrderItemDescription" DisplayName="Item Description" />
+            <pnp:FieldRef ID="a545f52e-3a82-4f63-9ee4-0751e12d72a9" Name="PnPOrderItemQuantity" DisplayName="Quantity" />
+            <pnp:FieldRef ID="6b426432-34ec-4eda-a918-bc36109134b7" Name="PnPOrderItemPrice" DisplayName="Price" />
+            <pnp:FieldRef ID="ae724011-f6a5-4dde-8e53-72b5b51dd0b4" Name="PnPOrderItemOrderLookup" DisplayName="Order" />
+          </pnp:FieldRefs>
+          <pnp:Views RemoveExistingViews="true">
+            <View Name="{5FE34720-EE36-45A9-B80E-99A088F45F8C}" DefaultView="TRUE" MobileView="TRUE" Type="HTML" DisplayName="Order Items" Url="{site}/Lists/OrdersItems/Order Items.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/generic.png?rev=39">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="ID" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="DocIcon" />
+                <FieldRef Name="LinkTitle" />
+                <FieldRef Name="PnPOrderItemOrderLookup" />
+                <FieldRef Name="PnPOrderItemPrice" />
+                <FieldRef Name="PnPOrderItemQuantity" />
+                <FieldRef Name="PnPOrderItemTotal" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <Aggregations Value="Off" />
+              <JSLink>clienttemplates.js</JSLink>
+              <XslLink Default="TRUE">main.xsl</XslLink>
+              <Toolbar Type="Standard" />
+            </View>
+          </pnp:Views>
+        </pnp:ListInstance>
+      </pnp:Lists>
+
+    </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>
