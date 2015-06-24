@@ -60,6 +60,35 @@
           <pnp:User Name="user@contoso.com"/>
           <pnp:User Name="U_SHAREPOINT_ADMINS"/>
         </pnp:AdditionalVisitors>
+        <pnp:SiteGroups>
+          <pnp:SiteGroup
+              Title="Power Users"
+              Description="Group of Power Users"
+              Owner="admin@contoso.com">
+            <pnp:Members>
+              <pnp:User Name="user1@contoso.com" />
+              <pnp:User Name="user2@contoso.com" />
+              <pnp:User Name="user3@contoso.com" />
+            </pnp:Members>            
+          </pnp:SiteGroup>
+        </pnp:SiteGroups>
+        <pnp:Permissions>
+          <pnp:RoleDefinitions>
+            <pnp:RoleDefinition Name="Manage List Items" Description="Allows a user to manage list items">
+              <pnp:Permissions>
+                <pnp:Permission>ViewListItems</pnp:Permission>
+                <pnp:Permission>AddListItems</pnp:Permission>
+                <pnp:Permission>EditListItems</pnp:Permission>
+                <pnp:Permission>DeleteListItems</pnp:Permission>
+              </pnp:Permissions>
+            </pnp:RoleDefinition>
+          </pnp:RoleDefinitions>
+          <pnp:RoleAssignments>
+            <pnp:RoleAssignment Principal="Power Users" RoleDefinition="Manage List Items"/>
+            <pnp:RoleAssignment Principal="user1@contoso.com" RoleDefinition="Manage List Items"/>
+            <pnp:RoleAssignment Principal="user2@contoso.com" RoleDefinition="Full Control"/>
+          </pnp:RoleAssignments>
+        </pnp:Permissions>
       </pnp:Security>
 
       <pnp:SiteFields>
