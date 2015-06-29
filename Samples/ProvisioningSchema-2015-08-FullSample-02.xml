@@ -39,7 +39,7 @@
       </pnp:SupportedUILanguages>
 
       <pnp:PropertyBagEntries>
-        <pnp:PropertyBagEntry Key="KEY1" Value ="value1" />
+        <pnp:PropertyBagEntry Key="KEY1" Value ="value1" Overwrite="true" />
         <pnp:PropertyBagEntry Key="KEY2" Value ="value2" />
       </pnp:PropertyBagEntries>
 
