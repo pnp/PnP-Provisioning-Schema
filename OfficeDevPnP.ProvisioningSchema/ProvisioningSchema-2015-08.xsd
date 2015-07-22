@@ -179,111 +179,36 @@
         </xsd:annotation>
       </xsd:element>
 
-      <xsd:element name="SupportedUILanguages" minOccurs="0" maxOccurs="1">
+      <xsd:element name="SupportedUILanguages" type="pnp:SupportedUILanguages" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
             The Supported UI Languages for the Provisioning Template, optional element
           </xsd:documentation>
         </xsd:annotation>
-
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="SupportedUILanguage" minOccurs="0" maxOccurs="unbounded">
-              <xsd:complexType>
-                <xsd:attribute name="LCID" type="xsd:int" use="required" />
-              </xsd:complexType>
-            </xsd:element>
-          </xsd:sequence>
-        </xsd:complexType>
-
       </xsd:element>
 
-      <xsd:element name="PropertyBagEntries" minOccurs="0" maxOccurs="1">
+      <xsd:element name="AuditSettings" type="pnp:AuditSettings" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            The Audit Settings for the Provisioning Template, optional element
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+
+      <xsd:element name="PropertyBagEntries" type="pnp:PropertyBagEntries" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
             The Property Bag entries of the Provisioning Template, optional collection of elements
           </xsd:documentation>
         </xsd:annotation>
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="PropertyBagEntry" minOccurs="1" maxOccurs="unbounded">
-              <xsd:complexType>
-                <xsd:complexContent>
-                  <xsd:extension base="pnp:StringDictionaryItem">
-                    <xsd:attribute name="Overwrite" type="xsd:boolean" use="optional" />
-                  </xsd:extension>
-                </xsd:complexContent>
-              </xsd:complexType>
-            </xsd:element>
-          </xsd:sequence>
-        </xsd:complexType>
       </xsd:element>
 
-      <xsd:element name="Security" minOccurs="0" maxOccurs="1">
+      <xsd:element name="Security" type="pnp:Security" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
-            The Security Groups Members of the Provisioning Template, optional collection of elements
+            The Security configurations of the Provisioning Template, optional collection of elements
           </xsd:documentation>
         </xsd:annotation>
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="AdditionalAdministrators" type="pnp:UsersList" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation xml:lang="en">
-                  List of additional Administrators for the Site, optional collection of elements
-                </xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="AdditionalOwners" type="pnp:UsersList" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation xml:lang="en">
-                  List of additional Owners for the Site, optional collection of elements
-                </xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="AdditionalMembers" type="pnp:UsersList" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation xml:lang="en">
-                  List of additional Members for the Site, optional collection of elements
-                </xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="AdditionalVisitors" type="pnp:UsersList" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation xml:lang="en">
-                  List of additional Visitors for the Site, optional collection of elements
-                </xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="SiteGroups" type="pnp:SiteGroups" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation xml:lang="en">
-                  List of additional Groups for the Site, optional collection of elements
-                </xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="Permissions" minOccurs="0">
-              <xsd:complexType>
-                <xsd:sequence>
-                  <xsd:element name="RoleDefinitions" type="pnp:RoleDefinitions" minOccurs="0">
-                    <xsd:annotation>
-                      <xsd:documentation xml:lang="en">
-                        List of Role Definitions for the Site, optional collection of elements
-                      </xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                  <xsd:element name="RoleAssignments" type="pnp:RoleAssignments" minOccurs="0">
-                    <xsd:annotation>
-                      <xsd:documentation xml:lang="en">
-                        List of Role Assignments for the Site, optional collection of elements
-                      </xsd:documentation>
-                    </xsd:annotation>
-                  </xsd:element>
-                </xsd:sequence>
-              </xsd:complexType>
-            </xsd:element>
-          </xsd:sequence>
-        </xsd:complexType>
       </xsd:element>
 
       <xsd:element name="SiteFields" minOccurs="0" maxOccurs="1">
@@ -328,60 +253,20 @@
         </xsd:complexType>
       </xsd:element>
 
-      <xsd:element name="Features" minOccurs="0" maxOccurs="1">
+      <xsd:element name="Features" type="pnp:Features" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
             The Features (Site or Web) to activate or deactivate while applying the Provisioning Template, optional collection of elements
           </xsd:documentation>
         </xsd:annotation>
-
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="SiteFeatures" type="pnp:FeaturesList" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation xml:lang="en">
-                  The Site Features to activate or deactivate while applying the Provisioning Template, optional collection of elements
-                </xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="WebFeatures" type="pnp:FeaturesList" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation xml:lang="en">
-                  The Web Features to activate or deactivate while applying the Provisioning Template, optional collection of elements
-                </xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-          </xsd:sequence>
-        </xsd:complexType>
-
       </xsd:element>
 
-      <xsd:element name="CustomActions" minOccurs="0" maxOccurs="1">
+      <xsd:element name="CustomActions" type="pnp:CustomActions" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
             The Custom Actions (Site or Web) to provision with the Provisioning Template, optional element
           </xsd:documentation>
         </xsd:annotation>
-
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="SiteCustomActions" type="pnp:CustomActionsList" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation xml:lang="en">
-                  The Site Custom Actions to provision while applying the Provisioning Template, optional element
-                </xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-            <xsd:element name="WebCustomActions" type="pnp:CustomActionsList" minOccurs="0">
-              <xsd:annotation>
-                <xsd:documentation xml:lang="en">
-                  The Web Custom Actions to provision while applying the Provisioning Template, optional element
-                </xsd:documentation>
-              </xsd:annotation>
-            </xsd:element>
-          </xsd:sequence>
-        </xsd:complexType>
-
       </xsd:element>
 
       <xsd:element name="Files" minOccurs="0" maxOccurs="1">
@@ -398,27 +283,12 @@
         </xsd:complexType>
       </xsd:element>
 
-      <xsd:element name="Pages" minOccurs="0" maxOccurs="1">
+      <xsd:element name="Pages" type="pnp:Pages" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
             The Pages to provision into the target Site through the Provisioning Template, optional element
           </xsd:documentation>
         </xsd:annotation>
-        <xsd:complexType>
-          <xsd:sequence>
-            <xsd:element name="Page" type="pnp:Page"
-                          minOccurs="1" maxOccurs="unbounded" />
-          </xsd:sequence>
-
-          <xsd:attribute name="WelcomePage" type="xsd:string" use="optional">
-            <xsd:annotation>
-              <xsd:documentation xml:lang="en">
-                Defines the Welcome Page (Home Page) of the site to which the Provisioning Template is applied, optional attribute
-              </xsd:documentation>
-            </xsd:annotation>
-          </xsd:attribute>
-
-        </xsd:complexType>
       </xsd:element>
 
       <xsd:element name="TermGroups" minOccurs="0" maxOccurs="1">
@@ -654,6 +524,250 @@
       <xsd:enumeration value="11:00PM" />
     </xsd:restriction>
   </xsd:simpleType>
+
+  <xsd:complexType name="SupportedUILanguages">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        Defines the Supported UI Languages for a site
+      </xsd:documentation>
+    </xsd:annotation>
+    
+    <xsd:sequence>
+      <xsd:element name="SupportedUILanguage" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            Defines a single Supported UI Language for a site
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:attribute name="LCID" type="xsd:int" use="required">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                The Locale ID of a Supported UI Language
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="AuditSettings">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        The Audit Settings for the Provisioning Template, optional element
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:sequence>
+      <xsd:element name="Audit" minOccurs="1" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            A single Audit setting defined by an AuditFlag
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:attribute name="AuditFlag">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                An Audit Flag for a single Audit setting
+              </xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:enumeration value="All" />
+                <xsd:enumeration value="CheckIn" />
+                <xsd:enumeration value="CheckOut" />
+                <xsd:enumeration value="ChildDelete" />
+                <xsd:enumeration value="Copy" />
+                <xsd:enumeration value="Move" />
+                <xsd:enumeration value="None" />
+                <xsd:enumeration value="ObjectDelete" />
+                <xsd:enumeration value="ProfileChange" />
+                <xsd:enumeration value="SchemaChange" />
+                <xsd:enumeration value="Search" />
+                <xsd:enumeration value="SecurityChange" />
+                <xsd:enumeration value="Undelete" />
+                <xsd:enumeration value="Update" />
+                <xsd:enumeration value="View" />
+                <xsd:enumeration value="Workflow" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:attribute>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+
+    <xsd:attribute name="AuditLogTrimmingRetention" type="xsd:int" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Audit Log Trimming Retention for Audits, optional attribute
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="TrimAuditLog" type="xsd:boolean" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          A flag to enable Audit Log Trimming, optional attribute
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+  </xsd:complexType>
+
+  <xsd:complexType name="PropertyBagEntries">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        The Property Bag entries of the Provisioning Template, optional collection of elements
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="PropertyBagEntry" minOccurs="1" maxOccurs="unbounded">
+        <xsd:complexType>
+          <xsd:complexContent>
+            <xsd:extension base="pnp:StringDictionaryItem">
+              <xsd:attribute name="Overwrite" type="xsd:boolean" use="optional" />
+            </xsd:extension>
+          </xsd:complexContent>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="Security">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        The Security configurations of the Provisioning Template, optional collection of elements
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="AdditionalAdministrators" type="pnp:UsersList" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            List of additional Administrators for the Site, optional collection of elements
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="AdditionalOwners" type="pnp:UsersList" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            List of additional Owners for the Site, optional collection of elements
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="AdditionalMembers" type="pnp:UsersList" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            List of additional Members for the Site, optional collection of elements
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="AdditionalVisitors" type="pnp:UsersList" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            List of additional Visitors for the Site, optional collection of elements
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="SiteGroups" type="pnp:SiteGroups" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            List of additional Groups for the Site, optional collection of elements
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Permissions" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="RoleDefinitions" type="pnp:RoleDefinitions" minOccurs="0">
+              <xsd:annotation>
+                <xsd:documentation xml:lang="en">
+                  List of Role Definitions for the Site, optional collection of elements
+                </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="RoleAssignments" type="pnp:RoleAssignments" minOccurs="0">
+              <xsd:annotation>
+                <xsd:documentation xml:lang="en">
+                  List of Role Assignments for the Site, optional collection of elements
+                </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="Features">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        The Features (Site or Web) to activate or deactivate while applying the Provisioning Template, optional collection of elements
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="SiteFeatures" type="pnp:FeaturesList" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            The Site Features to activate or deactivate while applying the Provisioning Template, optional collection of elements
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="WebFeatures" type="pnp:FeaturesList" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            The Web Features to activate or deactivate while applying the Provisioning Template, optional collection of elements
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="CustomActions">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        The Custom Actions (Site or Web) to provision with the Provisioning Template, optional element
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="SiteCustomActions" type="pnp:CustomActionsList" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            The Site Custom Actions to provision while applying the Provisioning Template, optional element
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="WebCustomActions" type="pnp:CustomActionsList" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            The Web Custom Actions to provision while applying the Provisioning Template, optional element
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="Pages">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        The Pages to provision into the target Site through the Provisioning Template, optional element
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Page" type="pnp:Page"
+                    minOccurs="1" maxOccurs="unbounded" />
+    </xsd:sequence>
+
+    <xsd:attribute name="WelcomePage" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines the Welcome Page (Home Page) of the site to which the Provisioning Template is applied, optional attribute
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+  </xsd:complexType>
 
   <xsd:complexType name="StringDictionaryItem">
     <xsd:annotation>

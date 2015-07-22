@@ -38,6 +38,13 @@
         <pnp:SupportedUILanguage LCID="1052"/>
       </pnp:SupportedUILanguages>
 
+      <pnp:AuditSettings AuditLogTrimmingRetention="50" TrimAuditLog="true">
+        <pnp:Audit AuditFlag="CheckIn" />
+        <pnp:Audit AuditFlag="CheckOut" />
+        <pnp:Audit AuditFlag="Update" />
+        <pnp:Audit AuditFlag="View" />
+      </pnp:AuditSettings>
+      
       <pnp:PropertyBagEntries>
         <pnp:PropertyBagEntry Key="KEY1" Value ="value1" Overwrite="true" />
         <pnp:PropertyBagEntry Key="KEY2" Value ="value2" />
