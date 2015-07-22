@@ -115,6 +115,51 @@
           </pnp:FieldRefs>
         </pnp:ContentType>
 
+        <pnp:ContentType ID="0x0120D5200039D83CD2C9BA4A4499AEE6BE3562E023"
+                         Name="Project Document Set"
+                         Description="Document Set for a Project"
+                         Hidden="false" Group="Document Sets Samples"
+                         ReadOnly="false" Sealed="false" Overwrite="false">
+          <pnp:FieldRefs>
+            <!-- Project ID -->
+            <pnp:FieldRef ID="{23203E97-3BFE-40CB-AFB4-07AA2B86BF45}" />
+            <!-- Project Name -->
+            <pnp:FieldRef ID="{B01B3DBC-4630-4ED1-B5BA-321BC7841E3D}" />
+            <!-- Project Manager -->
+            <pnp:FieldRef ID="{A5DE9600-B7A6-42DD-A05E-10D4F1500208}" />
+          </pnp:FieldRefs>
+          <pnp:DocumentSetTemplate>
+            <pnp:AllowedContentTypes>
+              <pnp:AllowedContentType ContentTypeID="0x0101" />
+              <pnp:AllowedContentType ContentTypeID="0x01005D4F34E4BE7F4B6892AEBE088EDD215E" />
+            </pnp:AllowedContentTypes>
+            <pnp:DefaultDocuments>
+              <pnp:DefaultDocument Name="ProjectMainDocument.docx"
+                                   ContentTypeID="0x01005D4F34E4BE7F4B6892AEBE088EDD215E"
+                                   FileSourcePath="./ProjectDocumentSet/ProjectMainDocument.docx"/>
+              <pnp:DefaultDocument Name="Requirements.docx" 
+                                   ContentTypeID="0x0101" 
+                                   FileSourcePath="./ProjectDocumentSet/Requirements.docx"/>
+              <pnp:DefaultDocument Name="Tests/TestModel.docx"
+                                   ContentTypeID="0x0101"
+                                   FileSourcePath="./ProjectDocumentSet/Tests/TestModel.docx"/>
+              <pnp:DefaultDocument Name="Tests/Labs.docx"
+                                   ContentTypeID="0x0101"
+                                   FileSourcePath="./ProjectDocumentSet/Tests/Labs.docx"/>
+            </pnp:DefaultDocuments>
+            <pnp:SharedFields>
+              <pnp:SharedField ID="{23203E97-3BFE-40CB-AFB4-07AA2B86BF45}" />
+              <pnp:SharedField ID="{B01B3DBC-4630-4ED1-B5BA-321BC7841E3D}" />
+              <pnp:SharedField ID="{A5DE9600-B7A6-42DD-A05E-10D4F1500208}" />
+            </pnp:SharedFields>
+            <pnp:WelcomePageFields>
+              <pnp:SharedField ID="{23203E97-3BFE-40CB-AFB4-07AA2B86BF45}" />
+              <pnp:SharedField ID="{B01B3DBC-4630-4ED1-B5BA-321BC7841E3D}" />
+              <pnp:SharedField ID="{A5DE9600-B7A6-42DD-A05E-10D4F1500208}" />
+            </pnp:WelcomePageFields>
+          </pnp:DocumentSetTemplate>
+        </pnp:ContentType>
+
       </pnp:ContentTypes>
 
       <pnp:Lists>
@@ -191,7 +236,7 @@
         <pnp:File Src="Custom.spfont" Folder="_catalogs/Theme/15" Overwrite="true" />
       </pnp:Files>
 
-      <pnp:Pages>
+      <pnp:Pages WelcomePage="/Pages/Home.aspx">
         <pnp:Page Layout="TwoColumns" Overwrite="true" Url="{site}/SitePages/DemoWikiPage.aspx"></pnp:Page>
       </pnp:Pages>
 

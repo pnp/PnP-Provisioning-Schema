@@ -1203,6 +1203,15 @@
           </xsd:attribute>
         </xsd:complexType>
       </xsd:element>
+
+      <xsd:element name="DocumentSetTemplate" type="pnp:DocumentSetTemplate" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            Specifies the properties of the DocumentSet Template if the ContentType defines a DocumentSet.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      
     </xsd:all>
 
     <xsd:attribute name="ID" type="pnp:ContentTypeId" use="required">
@@ -1298,6 +1307,101 @@
 
   </xsd:complexType>
 
+  <xsd:complexType name="DocumentSetTemplate">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        Defines a DocumentSet Template for creating multiple DocumentSet instances
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:sequence>
+      <xsd:element name="AllowedContentTypes" minOccurs="0" maxOccurs="1">
+        <xsd:complexType>
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              The list of allowed Content Types for the Document Set, optional
+            </xsd:documentation>
+          </xsd:annotation>
+          <xsd:sequence>
+            <xsd:element name="AllowedContentType" minOccurs="1" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:attribute name="ContentTypeID" type="pnp:ContentTypeId" use="required">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      The value of the ContentTypeID to allow for the Document Set, required attribute
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="DefaultDocuments" minOccurs="0" maxOccurs="1">
+        <xsd:complexType>
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              The list of default Documents for the Document Set, optional
+            </xsd:documentation>
+          </xsd:annotation>
+          <xsd:sequence>
+            <xsd:element name="DefaultDocument" minOccurs="1" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:attribute name="Name" type="xsd:string" use="required">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      The name (including the relative path) of the Default Document for a Document Set, required attribute
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="ContentTypeID" type="pnp:ContentTypeId" use="required">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      The value of the ContentTypeID of the Default Document for the Document Set, required attribute
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="FileSourcePath" type="pnp:ReplaceableString" use="required">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      The path of the file to upload as a Default Document for the Document Set, required attribute
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="SharedFields" minOccurs="0" maxOccurs="1">
+        <xsd:complexType>
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              The list of allowed Content Types for the Document Set, optional
+            </xsd:documentation>
+          </xsd:annotation>
+          <xsd:sequence>
+            <xsd:element name="SharedField" type="pnp:DocumentSetFieldRef" 
+                         minOccurs="1" maxOccurs="unbounded" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="WelcomePageFields" minOccurs="0" maxOccurs="1">
+        <xsd:complexType>
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              The list of allowed Content Types for the Document Set, optional
+            </xsd:documentation>
+          </xsd:annotation>
+          <xsd:sequence>
+            <xsd:element name="SharedField" type="pnp:DocumentSetFieldRef"
+                         minOccurs="1" maxOccurs="unbounded" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
   <xsd:complexType name="FeaturesList">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
@@ -1346,7 +1450,21 @@
   </xsd:complexType>
 
   <xsd:complexType name="FieldRefBase">
-    <xsd:attributeGroup ref="pnp:FieldRefAttributes" />
+    <xsd:attribute name="ID" type="pnp:GUID" use="required">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The value of the field ID to bind, required attribute
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+
+  <xsd:complexType name="FieldRefFull">
+    <xsd:complexContent>
+      <xsd:extension base="pnp:FieldRefBase">
+        <xsd:attributeGroup ref="pnp:FieldRefAttributes" />
+      </xsd:extension>
+    </xsd:complexContent>
   </xsd:complexType>
 
   <xsd:attributeGroup name="FieldRefAttributes">
@@ -1355,14 +1473,6 @@
         Common set of attributes for any FieldRef element
       </xsd:documentation>
     </xsd:annotation>
-
-    <xsd:attribute name="ID" type="pnp:GUID" use="required">
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          The value of the field ID to bind, required attribute
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
 
     <xsd:attribute name="Name" type="xsd:string" use="optional">
       <xsd:annotation>
@@ -1397,7 +1507,7 @@
       </xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="FieldRefBase">
+      <xsd:extension base="pnp:FieldRefFull">
         <xsd:attribute name="DisplayName" type="xsd:string" use="optional">
           <xsd:annotation>
             <xsd:documentation xml:lang="en">
@@ -1416,7 +1526,18 @@
       </xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="FieldRefBase" />
+      <xsd:extension base="pnp:FieldRefBase" />
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="DocumentSetFieldRef">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        Defines the binding between a Document Set and a Field
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="pnp:FieldRefBase" />
     </xsd:complexContent>
   </xsd:complexType>
 
