@@ -1874,6 +1874,7 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+      <xsd:element name="Security" type="pnp:ObjectSecurity" minOccurs="0" maxOccurs="1" />
     </xsd:all>
 
     <xsd:attribute name="Src" type="xsd:string" use="required">
@@ -1922,6 +1923,7 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+      <xsd:element name="Security" type="pnp:ObjectSecurity" minOccurs="0" maxOccurs="1" />
     </xsd:all>
 
     <xsd:attribute name="Url" type="xsd:string" use="required">

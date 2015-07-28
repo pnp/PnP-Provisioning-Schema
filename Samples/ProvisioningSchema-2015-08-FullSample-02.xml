@@ -254,7 +254,12 @@
 
       <pnp:Files>
         <pnp:File Src="Logo.png" Folder="SiteAssets" Overwrite="true" />
-        <pnp:File Src="CustomPage.aspx" Folder="SitePages" Overwrite="true" />
+        <pnp:File Src="CustomPage.aspx" Folder="SitePages" Overwrite="true">
+          <pnp:Security>
+            <pnp:BreakRoleInheritance CopyRoleAssignments="true" ClearSubscopes="true" />
+            <pnp:RoleAssignment Principal="Power Users" RoleDefinition="Full Control"/>
+          </pnp:Security>
+        </pnp:File>
         <pnp:File Src="CustomMaster.master" Folder="_catalogs/MasterPage" Overwrite="true" />
         <pnp:File Src="Custom.spcolor" Folder="_catalogs/Theme/15" Overwrite="true" />
         <pnp:File Src="Custom.spfont" Folder="_catalogs/Theme/15" Overwrite="true" />
@@ -262,6 +267,13 @@
 
       <pnp:Pages WelcomePage="/Pages/Home.aspx">
         <pnp:Page Layout="TwoColumns" Overwrite="true" Url="{site}/SitePages/DemoWikiPage.aspx"></pnp:Page>
+        <pnp:Page Layout="OneColumn" Overwrite="true" Url="{site}/SitePages/OneColumnPage.aspx">
+          <pnp:Security>
+            <pnp:BreakRoleInheritance CopyRoleAssignments="true" ClearSubscopes="true" />
+            <pnp:RoleAssignment Principal="Power Users" RoleDefinition="Full Control"/>
+            <pnp:RoleAssignment Principal="Guests" RoleDefinition="View Only"/>
+          </pnp:Security>
+        </pnp:Page>
       </pnp:Pages>
 
       <pnp:TermGroups>
