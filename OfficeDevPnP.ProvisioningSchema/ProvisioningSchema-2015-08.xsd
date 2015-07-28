@@ -318,6 +318,14 @@
         </xsd:annotation>
       </xsd:element>
 
+      <xsd:element name="Workflows" type="pnp:Workflows" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            The Workflows for the Provisioning Template, optional element
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+
       <xsd:element name="Providers" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
@@ -531,7 +539,7 @@
         Defines the Supported UI Languages for a site
       </xsd:documentation>
     </xsd:annotation>
-    
+
     <xsd:sequence>
       <xsd:element name="SupportedUILanguage" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
@@ -990,7 +998,7 @@
             </xsd:element>
           </xsd:sequence>
         </xsd:complexType>
-        
+
       </xsd:element>
     </xsd:sequence>
 
@@ -1022,7 +1030,7 @@
     <xsd:sequence>
       <xsd:element name="RoleAssignment" type="pnp:RoleAssignment" maxOccurs="unbounded" />
     </xsd:sequence>
-    
+
   </xsd:complexType>
 
   <xsd:complexType name="RoleAssignment">
@@ -1042,7 +1050,7 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-  
+
   </xsd:complexType>
 
   <xsd:complexType name="ListInstance">
@@ -1325,7 +1333,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      
+
     </xsd:all>
 
     <xsd:attribute name="ID" type="pnp:ContentTypeId" use="required">
@@ -1495,7 +1503,7 @@
             </xsd:documentation>
           </xsd:annotation>
           <xsd:sequence>
-            <xsd:element name="SharedField" type="pnp:DocumentSetFieldRef" 
+            <xsd:element name="SharedField" type="pnp:DocumentSetFieldRef"
                          minOccurs="1" maxOccurs="unbounded" />
           </xsd:sequence>
         </xsd:complexType>
@@ -2036,6 +2044,279 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
+
+  </xsd:complexType>
+
+  <xsd:complexType name="Workflows">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        Defines the Workflows to provision
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:sequence>
+      <xsd:element name="WorkflowDefinitions">
+        <xsd:complexType>
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              Defines the Workflows Definitions to provision
+            </xsd:documentation>
+          </xsd:annotation>
+
+          <xsd:sequence>
+            <xsd:element name="WorkflowDefinition" minOccurs="0" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:annotation>
+                  <xsd:documentation xml:lang="en">
+                    Defines a Workflow Definition to provision
+                  </xsd:documentation>
+                </xsd:annotation>
+
+                <xsd:sequence>
+                  <xsd:element name="Properties" minOccurs="0">
+                    <xsd:complexType>
+                      <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                          Defines the Properties of the Workflows to provision
+                        </xsd:documentation>
+                      </xsd:annotation>
+
+                      <xsd:sequence>
+                        <xsd:element name="Property" type="pnp:StringDictionaryItem"
+                                      minOccurs="1" maxOccurs="unbounded" />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+
+                  <xsd:element name="FormField" minOccurs="0">
+                    <xsd:complexType>
+                      <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                          Defines the FormField XML of the Workflow to provision
+                        </xsd:documentation>
+                      </xsd:annotation>
+
+                      <xsd:sequence>
+                        <xsd:any minOccurs="0" maxOccurs="1" processContents="skip" />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+
+                  <xsd:element name="Xaml" minOccurs="1" maxOccurs="1">
+                    <xsd:complexType>
+                      <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                          Defines the XAML of the Workflow to provision
+                        </xsd:documentation>
+                      </xsd:annotation>
+
+                      <xsd:sequence>
+                        <xsd:any minOccurs="1" maxOccurs="1" processContents="skip" />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+
+                </xsd:sequence>
+
+                <xsd:attribute name="Id" type="pnp:GUID" use="required">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      Defines the ID of the Workflow Definition for the current Subscription
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+                
+                <xsd:attribute name="AssociationUrl" type="xsd:string" use="optional">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      Defines the URL of the Workflow Association page
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+
+                <xsd:attribute name="Description" type="xsd:string" use="optional">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      The Description of the Workflow
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+
+                <xsd:attribute name="DisplayName" type="xsd:string" use="required">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      The Display Name of the Workflow
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+
+                <xsd:attribute name="InitiationUrl" type="xsd:string" use="optional">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      Defines the URL of the Workflow Initiation page
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+
+                <xsd:attribute name="RequiresAssociationForm" type="xsd:boolean" use="optional">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      Defines if the Workflow requires the Association Form
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+
+                <xsd:attribute name="RequiresInitiationForm" type="xsd:boolean" use="optional">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      Defines if the Workflow requires the Initiation Form
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+
+                <xsd:attribute name="RestrictToScope" type="xsd:boolean" use="optional">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      Defines the Scope Restriction for the Workflow
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+
+                <xsd:attribute name="RestrictToType" type="xsd:boolean" use="optional">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      Defines the Type of Scope Restriction for the Workflow
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="WorkflowSubscriptions">
+        <xsd:complexType>
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              Defines the Workflows Subscriptions to provision
+            </xsd:documentation>
+          </xsd:annotation>
+
+          <xsd:sequence>
+            <xsd:element name="WorkflowSubscription" minOccurs="0" maxOccurs="unbounded">
+              <xsd:complexType>
+                <xsd:annotation>
+                  <xsd:documentation xml:lang="en">
+                    Defines a Workflow Subscription to provision
+                  </xsd:documentation>
+                </xsd:annotation>
+
+                <xsd:sequence>
+                  <xsd:element name="PropertyDefinitions" minOccurs="0">
+                    <xsd:complexType>
+                      <xsd:annotation>
+                        <xsd:documentation xml:lang="en">
+                          Defines the Property Definitions of the Workflows to provision
+                        </xsd:documentation>
+                      </xsd:annotation>
+
+                      <xsd:sequence>
+                        <xsd:element name="PropertyDefinition" type="pnp:StringDictionaryItem"
+                                      minOccurs="1" maxOccurs="unbounded" />
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+
+                </xsd:sequence>
+
+                <xsd:attribute name="DefinitionId" type="pnp:GUID" use="required">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      Defines the ID of the Workflow Definition for the current Subscription
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+
+                <xsd:attribute name="Enabled" type="xsd:boolean" use="required">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      Defines if the Workflow Definition is enabled for the current Subscription
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+
+                <xsd:attribute name="EventSourceId" type="pnp:GUID" use="optional">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      Defines the ID of the Event Source for the current Subscription
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+
+                <xsd:attribute name="WorkflowStartEvent" type="xsd:boolean" use="required">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      Defines if the Workflow will start manually
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+
+                <xsd:attribute name="ItemAddedEvent" type="xsd:boolean" use="required">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      Defines if the Workflow will start on item added
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+
+                <xsd:attribute name="ItemUpdatedEvent" type="xsd:boolean" use="required">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      Defines if the Workflow will start on item updated
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+
+                <xsd:attribute name="ManualStartBypassesActivationLimit" type="xsd:boolean" use="optional">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      Defines if the Workflow can be manually started bypassing the activation limit
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+
+                <xsd:attribute name="Name" type="xsd:string" use="required">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      Defines the Name of the Workflow Subscription
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+
+                <xsd:attribute name="ParentContentTypeId" type="xsd:string" use="optional">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      Defines the Parent ContentType Id of the Workflow Subscription
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+
+                <xsd:attribute name="StatusFieldName" type="xsd:string" use="required">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      Defines the Status Field Name of the Workflow Subscription
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
 
   </xsd:complexType>
 
