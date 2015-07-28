@@ -187,14 +187,31 @@
               <pnp:DataValue FieldName="ProjectName">Sample Project 01</pnp:DataValue>
               <pnp:DataValue FieldName="ProjectManager">Me</pnp:DataValue>
               <pnp:DataValue FieldName="ProjectDescription">This is a sample Project</pnp:DataValue>
+              <pnp:Security>
+                <pnp:BreakRoleInheritance CopyRoleAssignments="true" ClearSubscopes="true" />
+                <pnp:RoleAssignment Principal="user1@contoso.com" RoleDefinition="Full Control"/>
+                <pnp:RoleAssignment Principal="user2@contoso.com" RoleDefinition="Edit"/>
+                <pnp:RoleAssignment Principal="user3@contoso.com" RoleDefinition="View Only"/>
+              </pnp:Security>
             </pnp:DataRow>
             <pnp:DataRow>
               <pnp:DataValue FieldName="ProjectID">PRJ021</pnp:DataValue>
               <pnp:DataValue FieldName="ProjectName">Sample Project 02</pnp:DataValue>
               <pnp:DataValue FieldName="ProjectManager">You</pnp:DataValue>
               <pnp:DataValue FieldName="ProjectDescription">This is another sample Project</pnp:DataValue>
+              <pnp:Security>
+                <pnp:BreakRoleInheritance CopyRoleAssignments="false" ClearSubscopes="true" />
+                <pnp:RoleAssignment Principal="user3@contoso.com" RoleDefinition="Full Control"/>
+                <pnp:RoleAssignment Principal="user2@contoso.com" RoleDefinition="Edit"/>
+                <pnp:RoleAssignment Principal="user1@contoso.com" RoleDefinition="View Only"/>
+              </pnp:Security>
             </pnp:DataRow>
           </pnp:DataRows>
+          <pnp:Security>
+            <pnp:BreakRoleInheritance CopyRoleAssignments="true" ClearSubscopes="true" />
+            <pnp:RoleAssignment Principal="Power Users" RoleDefinition="Full Control"/>
+            <pnp:RoleAssignment Principal="Guests" RoleDefinition="View Only"/>
+          </pnp:Security>
         </pnp:ListInstance>
         <pnp:ListInstance Title="General Documents"
                      Description="Project Documents are stored here"

@@ -1068,6 +1068,41 @@
 
   </xsd:complexType>
 
+  <xsd:complexType name="ObjectSecurity">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        Defines a set of Role Assignments for specific principals
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:sequence>
+      <xsd:element name="BreakRoleInheritance" minOccurs="1" maxOccurs="1">
+        <xsd:complexType>
+        
+          <xsd:attribute name="CopyRoleAssignments" type="xsd:boolean" use="required">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                Defines whether to copy role assignments or not while breaking role inheritance, required attribute
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+
+          <xsd:attribute name="ClearSubscopes" type="xsd:boolean" use="required">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                Defines whether to clear subscopes or not while breaking role inheritance, required attribute
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+        
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="RoleAssignment" type="pnp:RoleAssignment" maxOccurs="unbounded" />
+    </xsd:sequence>
+
+
+  </xsd:complexType>
+
   <xsd:complexType name="ListInstance">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
@@ -1142,12 +1177,14 @@
               <xsd:complexType>
                 <xsd:sequence>
                   <xsd:element name="DataValue" maxOccurs="unbounded" minOccurs="1" type="pnp:DataValue" />
+                  <xsd:element name="Security" type="pnp:ObjectSecurity" minOccurs="0" maxOccurs="1" />
                 </xsd:sequence>
               </xsd:complexType>
             </xsd:element>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+      <xsd:element name="Security" type="pnp:ObjectSecurity" minOccurs="0" maxOccurs="1" />
     </xsd:all>
 
     <xsd:attribute name="Title" type="xsd:string" use="required">
