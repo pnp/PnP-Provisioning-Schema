@@ -1078,6 +1078,15 @@
     <xsd:sequence>
       <xsd:element name="BreakRoleInheritance" minOccurs="1" maxOccurs="1">
         <xsd:complexType>
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              Declares a section of custom permissions, breaking role inheritance from parent
+            </xsd:documentation>
+          </xsd:annotation>
+
+          <xsd:sequence>
+            <xsd:element name="RoleAssignment" type="pnp:RoleAssignment" maxOccurs="unbounded" />
+          </xsd:sequence>
         
           <xsd:attribute name="CopyRoleAssignments" type="xsd:boolean" use="required">
             <xsd:annotation>
@@ -1097,7 +1106,6 @@
         
         </xsd:complexType>
       </xsd:element>
-      <xsd:element name="RoleAssignment" type="pnp:RoleAssignment" maxOccurs="unbounded" />
     </xsd:sequence>
 
 
@@ -1574,6 +1582,15 @@
         </xsd:complexType>
       </xsd:element>
     </xsd:sequence>
+
+    <xsd:attribute name="WelcomePage" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines the custom WelcomePage for the Document Set, optional
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    
   </xsd:complexType>
 
   <xsd:complexType name="FeaturesList">
@@ -2109,6 +2126,7 @@
     </xsd:annotation>
 
     <xsd:sequence>
+      
       <xsd:element name="WorkflowDefinitions">
         <xsd:complexType>
           <xsd:annotation>
@@ -2152,20 +2170,6 @@
 
                       <xsd:sequence>
                         <xsd:any minOccurs="0" maxOccurs="1" processContents="skip" />
-                      </xsd:sequence>
-                    </xsd:complexType>
-                  </xsd:element>
-
-                  <xsd:element name="Xaml" minOccurs="1" maxOccurs="1">
-                    <xsd:complexType>
-                      <xsd:annotation>
-                        <xsd:documentation xml:lang="en">
-                          Defines the XAML of the Workflow to provision
-                        </xsd:documentation>
-                      </xsd:annotation>
-
-                      <xsd:sequence>
-                        <xsd:any minOccurs="1" maxOccurs="1" processContents="skip" />
                       </xsd:sequence>
                     </xsd:complexType>
                   </xsd:element>
@@ -2244,6 +2248,15 @@
                   </xsd:annotation>
                 </xsd:attribute>
 
+
+                <xsd:attribute name="XamlPath" type="xsd:string" use="required">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      Defines the XAML of the Workflow to provision
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+                
               </xsd:complexType>
             </xsd:element>
           </xsd:sequence>
@@ -2289,6 +2302,16 @@
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
                       Defines the ID of the Workflow Definition for the current Subscription
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+
+                <xsd:attribute name="ListId" type="pnp:ReplaceableString" use="optional">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      Defines the ID of the target list/library for the current Subscription, 
+                      optional attribute and if it is missing, the workflow subscription will 
+                      be at Site level
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>

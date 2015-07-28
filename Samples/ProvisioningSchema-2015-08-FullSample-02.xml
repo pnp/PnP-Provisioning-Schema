@@ -123,7 +123,7 @@
         </pnp:ContentType>
 
         <pnp:ContentType ID="0x0120D5200039D83CD2C9BA4A4499AEE6BE3562E023"
-                         Name="Project Document Set"
+                         Name="ProjectDocumentSet"
                          Description="Document Set for a Project"
                          Hidden="false" Group="Document Sets Samples"
                          ReadOnly="false" Sealed="false" Overwrite="false">
@@ -135,7 +135,7 @@
             <!-- Project Manager -->
             <pnp:FieldRef ID="{A5DE9600-B7A6-42DD-A05E-10D4F1500208}" />
           </pnp:FieldRefs>
-          <pnp:DocumentSetTemplate>
+          <pnp:DocumentSetTemplate WelcomePage="{sitecollection}/_cts/ProjectDocumentSet/ProjectHomePage.aspx">
             <pnp:AllowedContentTypes>
               <pnp:AllowedContentType ContentTypeID="0x0101" />
               <pnp:AllowedContentType ContentTypeID="0x01005D4F34E4BE7F4B6892AEBE088EDD215E" />
@@ -188,10 +188,11 @@
               <pnp:DataValue FieldName="ProjectManager">Me</pnp:DataValue>
               <pnp:DataValue FieldName="ProjectDescription">This is a sample Project</pnp:DataValue>
               <pnp:Security>
-                <pnp:BreakRoleInheritance CopyRoleAssignments="true" ClearSubscopes="true" />
-                <pnp:RoleAssignment Principal="user1@contoso.com" RoleDefinition="Full Control"/>
-                <pnp:RoleAssignment Principal="user2@contoso.com" RoleDefinition="Edit"/>
-                <pnp:RoleAssignment Principal="user3@contoso.com" RoleDefinition="View Only"/>
+                <pnp:BreakRoleInheritance CopyRoleAssignments="true" ClearSubscopes="true">
+                  <pnp:RoleAssignment Principal="user1@contoso.com" RoleDefinition="Full Control"/>
+                  <pnp:RoleAssignment Principal="user2@contoso.com" RoleDefinition="Edit"/>
+                  <pnp:RoleAssignment Principal="user3@contoso.com" RoleDefinition="View Only"/>
+                </pnp:BreakRoleInheritance>
               </pnp:Security>
             </pnp:DataRow>
             <pnp:DataRow>
@@ -200,17 +201,19 @@
               <pnp:DataValue FieldName="ProjectManager">You</pnp:DataValue>
               <pnp:DataValue FieldName="ProjectDescription">This is another sample Project</pnp:DataValue>
               <pnp:Security>
-                <pnp:BreakRoleInheritance CopyRoleAssignments="false" ClearSubscopes="true" />
-                <pnp:RoleAssignment Principal="user3@contoso.com" RoleDefinition="Full Control"/>
-                <pnp:RoleAssignment Principal="user2@contoso.com" RoleDefinition="Edit"/>
-                <pnp:RoleAssignment Principal="user1@contoso.com" RoleDefinition="View Only"/>
+                <pnp:BreakRoleInheritance CopyRoleAssignments="false" ClearSubscopes="true">
+                  <pnp:RoleAssignment Principal="user3@contoso.com" RoleDefinition="Full Control"/>
+                  <pnp:RoleAssignment Principal="user2@contoso.com" RoleDefinition="Edit"/>
+                  <pnp:RoleAssignment Principal="user1@contoso.com" RoleDefinition="View Only"/>
+                </pnp:BreakRoleInheritance>
               </pnp:Security>
             </pnp:DataRow>
           </pnp:DataRows>
           <pnp:Security>
-            <pnp:BreakRoleInheritance CopyRoleAssignments="true" ClearSubscopes="true" />
-            <pnp:RoleAssignment Principal="Power Users" RoleDefinition="Full Control"/>
-            <pnp:RoleAssignment Principal="Guests" RoleDefinition="View Only"/>
+            <pnp:BreakRoleInheritance CopyRoleAssignments="true" ClearSubscopes="true">
+              <pnp:RoleAssignment Principal="Power Users" RoleDefinition="Full Control"/>
+              <pnp:RoleAssignment Principal="Guests" RoleDefinition="View Only"/>
+            </pnp:BreakRoleInheritance>
           </pnp:Security>
         </pnp:ListInstance>
         <pnp:ListInstance Title="General Documents"
@@ -256,22 +259,27 @@
         <pnp:File Src="Logo.png" Folder="SiteAssets" Overwrite="true" />
         <pnp:File Src="CustomPage.aspx" Folder="SitePages" Overwrite="true">
           <pnp:Security>
-            <pnp:BreakRoleInheritance CopyRoleAssignments="true" ClearSubscopes="true" />
-            <pnp:RoleAssignment Principal="Power Users" RoleDefinition="Full Control"/>
+            <pnp:BreakRoleInheritance CopyRoleAssignments="true" ClearSubscopes="true">
+              <pnp:RoleAssignment Principal="Power Users" RoleDefinition="Full Control"/>
+            </pnp:BreakRoleInheritance>
           </pnp:Security>
         </pnp:File>
         <pnp:File Src="CustomMaster.master" Folder="_catalogs/MasterPage" Overwrite="true" />
         <pnp:File Src="Custom.spcolor" Folder="_catalogs/Theme/15" Overwrite="true" />
         <pnp:File Src="Custom.spfont" Folder="_catalogs/Theme/15" Overwrite="true" />
+
+        <!-- This is the custom WelcomePage for the ProjectDocumentSet ContentType -->
+        <pnp:File Src="ProjectHomePage.aspx" Folder="_cts/ProjectDocumentSet/" Overwrite="true" />      
       </pnp:Files>
 
       <pnp:Pages WelcomePage="/Pages/Home.aspx">
         <pnp:Page Layout="TwoColumns" Overwrite="true" Url="{site}/SitePages/DemoWikiPage.aspx"></pnp:Page>
         <pnp:Page Layout="OneColumn" Overwrite="true" Url="{site}/SitePages/OneColumnPage.aspx">
           <pnp:Security>
-            <pnp:BreakRoleInheritance CopyRoleAssignments="true" ClearSubscopes="true" />
-            <pnp:RoleAssignment Principal="Power Users" RoleDefinition="Full Control"/>
-            <pnp:RoleAssignment Principal="Guests" RoleDefinition="View Only"/>
+            <pnp:BreakRoleInheritance CopyRoleAssignments="true" ClearSubscopes="true">
+              <pnp:RoleAssignment Principal="Power Users" RoleDefinition="Full Control"/>
+              <pnp:RoleAssignment Principal="Guests" RoleDefinition="View Only"/>
+            </pnp:BreakRoleInheritance>
           </pnp:Security>
         </pnp:Page>
       </pnp:Pages>
@@ -339,63 +347,9 @@
               InitiationUrl=""
               AssociationUrl=""
               RequiresInitiationForm="false"
-              RequiresAssociationForm="false">
+              RequiresAssociationForm="false"
+              XamlPath="SampleWorkflow.xaml">
             <pnp:FormField />
-            <pnp:Xaml>
-              <Activity mc:Ignorable="mwaw" 
-                        x:Class="SampleWF.MTW" 
-                        xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" 
-                        xmlns:local="clr-namespace:Microsoft.SharePoint.WorkflowServices.Activities" 
-                        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-                        xmlns:mwaw="clr-namespace:Microsoft.Web.Authoring.Workflow;assembly=Microsoft.Web.Authoring" 
-                        xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" 
-                        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-                <Sequence>
-                  <Sequence>
-                    <mwaw:SPDesignerXamlWriter.CustomAttributes>
-                      <scg:Dictionary x:TypeArguments="x:String, x:String">
-                        <x:String x:Key="InitBlock">InitBlock-7751C281-B0D1-4336-87B4-83F2198EDE6D</x:String>
-                      </scg:Dictionary></mwaw:SPDesignerXamlWriter.CustomAttributes>
-                  </Sequence>
-                  <Flowchart StartNode="{x:Reference __ReferenceID0}">
-                    <FlowStep x:Name="__ReferenceID0">
-                      <mwaw:SPDesignerXamlWriter.CustomAttributes>
-                        <scg:Dictionary x:TypeArguments="x:String, x:String">
-                          <x:String x:Key="Next">4294967294</x:String>
-                        </scg:Dictionary>
-                      </mwaw:SPDesignerXamlWriter.CustomAttributes>
-                      <Sequence>
-                        <mwaw:SPDesignerXamlWriter.CustomAttributes="">
-                          <scg:Dictionary x:TypeArguments="x:String, x:String">
-                            <x:String x:Key="StageAttribute">
-                              StageContainer-8EDBFE6D-DA0D-42F6-A806-F5807380DA4D
-                            </x:String>
-                          </scg:Dictionary>
-                          </mwaw:SPDesignerXamlWriter.CustomAttributes>
-                          <local:SetWorkflowStatus Disabled="False" Status="Stage 1">
-                            <mwaw:SPDesignerXamlWriter.CustomAttributes>
-                              <scg:Dictionary x:TypeArguments="x:String, x:String">
-                                <x:String x:Key="StageAttribute">StageHeader-7FE15537-DFDB-4198-ABFA-8AF8B9D669AE</x:String>
-                              </scg:Dictionary>
-                            </mwaw:SPDesignerXamlWriter.CustomAttributes>
-                            </local:SetWorkflowStatus>
-                            <Sequence DisplayName="Stage 1">
-                              <local:WriteToHistory Message="Hello World" />
-                            </Sequence>
-                            <Sequence>
-                              <mwaw:SPDesignerXamlWriter.CustomAttributes>
-                                <scg:Dictionary x:TypeArguments="x:String, x:String">
-                                  <x:String x:Key="StageAttribute">
-                                    StageFooter-3A59FA7C-C493-47A1-8F8B-1F481143EB08
-                                  </x:String>
-                                  </scg:Dictionary>
-                              </mwaw:SPDesignerXamlWriter.CustomAttributes>
-                            </Sequence>
-                      </Sequence>
-                    </FlowStep></Flowchart>
-                </Sequence>
-              </Activity>
-            </pnp:Xaml>
           </pnp:WorkflowDefinition>
                                   
         </pnp:WorkflowDefinitions>
@@ -403,6 +357,7 @@
         <pnp:WorkflowSubscriptions>
           <pnp:WorkflowSubscription 
             DefinitionId="{72756D8D-2F0C-4DA0-83BB-4E496E60F443}"
+            ListId="{listid:General Documents}"
             Enabled="true" 
             ItemAddedEvent="true" ItemUpdatedEvent="true" WorkflowStartEvent="true"
             Name="Sample Workflow" StatusFieldName="SampleWorkflowStatus">
