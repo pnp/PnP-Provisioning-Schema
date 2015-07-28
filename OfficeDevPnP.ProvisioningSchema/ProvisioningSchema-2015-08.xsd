@@ -326,6 +326,21 @@
         </xsd:annotation>
       </xsd:element>
 
+      <xsd:element name="SearchSettings" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            The Search Settings for the Provisioning Template, optional element
+          </xsd:documentation>
+        </xsd:annotation>
+
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:any minOccurs="0" maxOccurs="1" processContents="skip"  />
+          </xsd:sequence>
+        </xsd:complexType>
+        
+      </xsd:element>
+
       <xsd:element name="Providers" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
