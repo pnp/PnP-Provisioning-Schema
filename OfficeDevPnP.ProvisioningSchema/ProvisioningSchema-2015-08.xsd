@@ -1192,6 +1192,13 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+      <xsd:element name="FieldDefaults" maxOccurs="1" minOccurs="0">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="FieldDefault" maxOccurs="unbounded" minOccurs="1" type="pnp:FieldDefault" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
       <xsd:element name="Security" type="pnp:ObjectSecurity" minOccurs="0" maxOccurs="1" />
     </xsd:all>
 
@@ -1334,10 +1341,10 @@
 
   </xsd:complexType>
 
-  <xsd:complexType name="DataValue">
+  <xsd:complexType name="BaseFieldValue">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
-        The DataValue of a single field of a row to insert into a target ListInstance
+        The BaseFieldValue of a single field of a row to insert into a target ListInstance
       </xsd:documentation>
     </xsd:annotation>
     <xsd:simpleContent>
@@ -1345,6 +1352,28 @@
         <xsd:attribute name="FieldName" use="required" type="xsd:string"/>
       </xsd:extension>
     </xsd:simpleContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="DataValue">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        The DataValue of a single field of a row to insert into a target ListInstance
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="BaseFieldValue" />
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="FieldDefault">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        The FieldDefault of a single field of list or library for target ListInstance
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="BaseFieldValue" />
+    </xsd:complexContent>
   </xsd:complexType>
 
   <xsd:complexType name="ContentType">

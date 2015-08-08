@@ -209,6 +209,11 @@
               </pnp:Security>
             </pnp:DataRow>
           </pnp:DataRows>
+          <pnp:FieldDefaults>
+            <pnp:FieldDefault FieldName="ProjectName">Default Project Name</pnp:FieldDefault>
+            <pnp:FieldDefault FieldName="ProjectManager">[Me]</pnp:FieldDefault>
+            <pnp:FieldDefault FieldName="ProjectDescription">Default Project Description</pnp:FieldDefault>
+          </pnp:FieldDefaults>
           <pnp:Security>
             <pnp:BreakRoleInheritance CopyRoleAssignments="true" ClearSubscopes="true">
               <pnp:RoleAssignment Principal="Power Users" RoleDefinition="Full Control"/>
