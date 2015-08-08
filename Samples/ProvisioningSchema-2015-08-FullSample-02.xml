@@ -419,6 +419,23 @@
         </SearchConfigurationSettings>
       </pnp:SearchSettings>
 
+      <pnp:Publishing>
+        <pnp:DesignPackage DesignPackagePath="CustomDesign.wsp" 
+                           MajorVersion="1" 
+                           MinorVersion="0" 
+                           PackageGuid="{A3349210-5283-44A5-A23F-00F489EB690B}" 
+                           PackageName="Custom Design"/>
+        <pnp:AvailableWebTemplates>
+          <pnp:WebTemplate LanguageCode="1033" TemplateName="STS#0" />
+          <pnp:WebTemplate TemplateName="BLOG#0" />
+        </pnp:AvailableWebTemplates>
+        <pnp:PageLayouts>
+          <pnp:PageLayout Path="News.aspx" IsDefault="false" />
+          <pnp:PageLayout Path="SimplePage.aspx" IsDefault="true" />
+          <pnp:PageLayout Path="Product.aspx" IsDefault="false" />
+        </pnp:PageLayouts>
+      </pnp:Publishing>
+      
       <pnp:Addins>
         <pnp:Addin PackagePath="CustomSharePointAddin.app" Source="ObjectModel" />
       </pnp:Addins>

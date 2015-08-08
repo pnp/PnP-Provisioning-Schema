@@ -341,6 +341,14 @@
         
       </xsd:element>
 
+      <xsd:element name="Publishing" type="pnp:Publishing" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            The Publishing capabilities configuration for the Provisioning Template, optional element
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+
       <xsd:element name="Addins" type="pnp:Addins" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
@@ -348,7 +356,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-
+      
       <xsd:element name="Providers" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
@@ -2475,7 +2483,148 @@
     </xsd:sequence>
     
   </xsd:complexType>
-  
+
+  <xsd:complexType name="Publishing">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        Defines the Publishing configuration to provision
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:sequence>
+
+      <xsd:element name="DesignPackage" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            Defines a Design Package to import into the current Publishing site
+          </xsd:documentation>
+        </xsd:annotation>
+
+        <xsd:complexType>
+
+          <xsd:attribute name="DesignPackagePath" type="xsd:string" use="required">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                Defines the path of the Design Package to import into the current Publishing site, required attribute
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+
+          <xsd:attribute name="MajorVersion" type="xsd:int" use="optional">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                The Major Version of the Design Package to import into the current Publishing site, optional attribute
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+
+          <xsd:attribute name="MinorVersion" type="xsd:int" use="optional">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                The Minor Version of the Design Package to import into the current Publishing site, optional attribute
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+
+          <xsd:attribute name="PackageGuid" type="pnp:GUID" use="optional">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                The ID of the Design Package to import into the current Publishing site, optional attribute
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+
+          <xsd:attribute name="PackageName " type="xsd:string" use="required">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                The Name of the Design Package to import into the current Publishing site, required attribute
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+
+        </xsd:complexType>
+        
+      </xsd:element>
+
+      <xsd:element name="AvailableWebTemplates" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            Defines the Available Web Templates for the current Publishing site
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="WebTemplate" minOccurs="0" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:documentation xml:lang="en">
+                  Defines an available Web Template for the current Publishing site
+                </xsd:documentation>
+              </xsd:annotation>
+              <xsd:complexType>
+                <xsd:attribute name="LanguageCode" type="xsd:int" use="optional">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      The Language Code for the Web Template
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="TemplateName" type="xsd:string" use="required">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      The Name of the Web Template
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="PageLayouts" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            Defines the Available Page Layouts for the current Publishing site
+          </xsd:documentation>
+        </xsd:annotation>
+
+        <xsd:complexType>
+        
+          <xsd:sequence>
+            <xsd:element name="PageLayout" minOccurs="0" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:documentation xml:lang="en">
+                  Defines an available Page Layout for the current Publishing site
+                </xsd:documentation>
+              </xsd:annotation>
+
+              <xsd:complexType>
+                <xsd:attribute name="Path" type="xsd:string" use="required">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      Defines the path of the Page Layout for the current Publishing site
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="IsDefault" type="xsd:boolean" use="required">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      Defines whether the Page Layout is the default for the current Publishing site, just one Page Layout can be the default
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+              </xsd:complexType>
+
+            </xsd:element>
+          </xsd:sequence>
+
+        </xsd:complexType>
+      </xsd:element>
+
+    </xsd:sequence>
+    
+  </xsd:complexType>
+
   <xsd:complexType name="Provider">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
