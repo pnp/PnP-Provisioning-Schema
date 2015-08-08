@@ -1604,7 +1604,7 @@
         <xsd:complexType>
           <xsd:annotation>
             <xsd:documentation xml:lang="en">
-              The list of allowed Content Types for the Document Set, optional
+              The list of Shared Fields for the Document Set, optional
             </xsd:documentation>
           </xsd:annotation>
           <xsd:sequence>
@@ -1617,11 +1617,11 @@
         <xsd:complexType>
           <xsd:annotation>
             <xsd:documentation xml:lang="en">
-              The list of allowed Content Types for the Document Set, optional
+              The list of Welcome Page Fields for the Document Set, optional
             </xsd:documentation>
           </xsd:annotation>
           <xsd:sequence>
-            <xsd:element name="SharedField" type="pnp:DocumentSetFieldRef"
+            <xsd:element name="WelcomePageField" type="pnp:DocumentSetFieldRef"
                          minOccurs="1" maxOccurs="unbounded" />
           </xsd:sequence>
         </xsd:complexType>
