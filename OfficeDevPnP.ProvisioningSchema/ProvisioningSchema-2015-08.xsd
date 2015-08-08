@@ -341,6 +341,14 @@
         
       </xsd:element>
 
+      <xsd:element name="Addins" type="pnp:Addins" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            The Workflows for the Provisioning Template, optional element
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+
       <xsd:element name="Providers" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
@@ -2277,7 +2285,6 @@
                   </xsd:annotation>
                 </xsd:attribute>
 
-
                 <xsd:attribute name="XamlPath" type="xsd:string" use="required">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
@@ -2426,6 +2433,49 @@
 
   </xsd:complexType>
 
+  <xsd:complexType name="Addins">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        Defines the SharePoint Add-ins to provision
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:sequence>
+      <xsd:element name="Addin" minOccurs="0" maxOccurs="unbounded">
+        <xsd:complexType>
+
+          <xsd:attribute name="PackagePath" type="xsd:string" use="required">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                Defines the .app file of the SharePoint Add-in to provision
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+
+          <xsd:attribute name="Source" use="required">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                Defines the Source of the SharePoint Add-in to provision
+              </xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:enumeration value="CorporateCatalog" />
+                <xsd:enumeration value="DeveloperSite" />
+                <xsd:enumeration value="InvalidSource" />
+                <xsd:enumeration value="Marketplace" />
+                <xsd:enumeration value="ObjectModel" />
+                <xsd:enumeration value="RemoteObjectModel" />
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:attribute>
+
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+    
+  </xsd:complexType>
+  
   <xsd:complexType name="Provider">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">

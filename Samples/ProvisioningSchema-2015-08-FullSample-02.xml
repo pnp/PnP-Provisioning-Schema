@@ -418,6 +418,10 @@
           </SearchSchemaConfigurationSettings>
         </SearchConfigurationSettings>
       </pnp:SearchSettings>
+
+      <pnp:Addins>
+        <pnp:Addin PackagePath="CustomSharePointAddin.app" Source="ObjectModel" />
+      </pnp:Addins>
       
       <pnp:Providers>
         <pnp:Provider HandlerType="OfficeDev.PnP.Provisioning.Providers.FakeProvider, OfficeDev.PnP.Provisioning.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" Enabled="true">
