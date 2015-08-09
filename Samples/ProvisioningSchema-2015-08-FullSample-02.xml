@@ -465,7 +465,7 @@
     <pnp:SiteCollection Language="1040"
                         PrimarySiteCollectionAdmin="john@contoso.com"
                         MembersCanShare="true"
-                        TimeZone="GMT+1"
+                        TimeZone="1"
                         Title="{CompanyName} Intranet"
                         Url="https://{O365TenantName}.sharepoint.com/sites/Intranet">
       <pnp:Templates>
@@ -477,7 +477,7 @@
     <!-- Now create a Site into the previously created Site Collection -->
     <pnp:Site Language="1040"
               QuickLaunchEnabled="true"
-              TimeZone="GMT+1"
+              TimeZone="1"
               Title="{CompanyName} Intranet Workflows"
               Url="Workflows"
               UseSamePermissionsAsParentSite="true">
