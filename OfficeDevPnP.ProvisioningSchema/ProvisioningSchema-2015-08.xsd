@@ -2241,7 +2241,7 @@
   <xsd:complexType name="Workflows">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
-        Defines the Workflows to provision
+        Defines the Workflows to provision.
       </xsd:documentation>
     </xsd:annotation>
 
@@ -2251,7 +2251,7 @@
         <xsd:complexType>
           <xsd:annotation>
             <xsd:documentation xml:lang="en">
-              Defines the Workflows Definitions to provision
+              Defines the Workflows Definitions to provision.
             </xsd:documentation>
           </xsd:annotation>
 
@@ -2260,7 +2260,7 @@
               <xsd:complexType>
                 <xsd:annotation>
                   <xsd:documentation xml:lang="en">
-                    Defines a Workflow Definition to provision
+                    Defines a Workflow Definition to provision, optional element.
                   </xsd:documentation>
                 </xsd:annotation>
 
@@ -2269,13 +2269,19 @@
                     <xsd:complexType>
                       <xsd:annotation>
                         <xsd:documentation xml:lang="en">
-                          Defines the Properties of the Workflows to provision
+                          Defines the Properties of the Workflows to provision, optional collection of elements.
                         </xsd:documentation>
                       </xsd:annotation>
 
                       <xsd:sequence>
                         <xsd:element name="Property" type="pnp:StringDictionaryItem"
-                                      minOccurs="1" maxOccurs="unbounded" />
+                                      minOccurs="1" maxOccurs="unbounded">
+                          <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                              Defines a Property for the Workflows to provision.
+                            </xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:element>
                       </xsd:sequence>
                     </xsd:complexType>
                   </xsd:element>
@@ -2284,7 +2290,7 @@
                     <xsd:complexType>
                       <xsd:annotation>
                         <xsd:documentation xml:lang="en">
-                          Defines the FormField XML of the Workflow to provision
+                          Defines the FormField XML of the Workflow to provision, optional element.
                         </xsd:documentation>
                       </xsd:annotation>
 
@@ -2299,7 +2305,7 @@
                 <xsd:attribute name="Id" type="pnp:GUID" use="required">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
-                      Defines the ID of the Workflow Definition for the current Subscription
+                      Defines the ID of the Workflow Definition for the current Subscription, required attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
@@ -2307,7 +2313,7 @@
                 <xsd:attribute name="AssociationUrl" type="xsd:string" use="optional">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
-                      Defines the URL of the Workflow Association page
+                      Defines the URL of the Workflow Association page, optional attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
@@ -2315,7 +2321,7 @@
                 <xsd:attribute name="Description" type="xsd:string" use="optional">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
-                      The Description of the Workflow
+                      The Description of the Workflow, optional attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
@@ -2323,7 +2329,7 @@
                 <xsd:attribute name="DisplayName" type="xsd:string" use="required">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
-                      The Display Name of the Workflow
+                      The Display Name of the Workflow, required attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
@@ -2331,7 +2337,7 @@
                 <xsd:attribute name="InitiationUrl" type="xsd:string" use="optional">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
-                      Defines the URL of the Workflow Initiation page
+                      Defines the URL of the Workflow Initiation page, optional attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
@@ -2339,7 +2345,7 @@
                 <xsd:attribute name="RequiresAssociationForm" type="xsd:boolean" use="optional">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
-                      Defines if the Workflow requires the Association Form
+                      Defines if the Workflow requires the Association Form, optional attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
@@ -2347,7 +2353,7 @@
                 <xsd:attribute name="RequiresInitiationForm" type="xsd:boolean" use="optional">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
-                      Defines if the Workflow requires the Initiation Form
+                      Defines if the Workflow requires the Initiation Form, optional attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
@@ -2355,7 +2361,7 @@
                 <xsd:attribute name="RestrictToScope" type="xsd:boolean" use="optional">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
-                      Defines the Scope Restriction for the Workflow
+                      Defines the Scope Restriction for the Workflow, optional attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
@@ -2363,7 +2369,7 @@
                 <xsd:attribute name="RestrictToType" type="xsd:boolean" use="optional">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
-                      Defines the Type of Scope Restriction for the Workflow
+                      Defines the Type of Scope Restriction for the Workflow, optional attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
@@ -2371,7 +2377,7 @@
                 <xsd:attribute name="XamlPath" type="xsd:string" use="required">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
-                      Defines the XAML of the Workflow to provision
+                      Defines the XAML of the Workflow to provision, required attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
@@ -2386,7 +2392,7 @@
         <xsd:complexType>
           <xsd:annotation>
             <xsd:documentation xml:lang="en">
-              Defines the Workflows Subscriptions to provision
+              Defines the Workflows Subscriptions to provision.
             </xsd:documentation>
           </xsd:annotation>
 
@@ -2395,7 +2401,7 @@
               <xsd:complexType>
                 <xsd:annotation>
                   <xsd:documentation xml:lang="en">
-                    Defines a Workflow Subscription to provision
+                    Defines a Workflow Subscription to provision, optional collection of elements.
                   </xsd:documentation>
                 </xsd:annotation>
 
@@ -2404,13 +2410,19 @@
                     <xsd:complexType>
                       <xsd:annotation>
                         <xsd:documentation xml:lang="en">
-                          Defines the Property Definitions of the Workflows to provision
+                          Defines the Property Definitions of the Workflows to provision, optional collection of elements.
                         </xsd:documentation>
                       </xsd:annotation>
 
                       <xsd:sequence>
                         <xsd:element name="PropertyDefinition" type="pnp:StringDictionaryItem"
-                                      minOccurs="1" maxOccurs="unbounded" />
+                                      minOccurs="1" maxOccurs="unbounded">
+                          <xsd:annotation>
+                            <xsd:documentation xml:lang="en">
+                              Defines the Property Definition of the Workflows to provision.
+                            </xsd:documentation>
+                          </xsd:annotation>
+                        </xsd:element>
                       </xsd:sequence>
                     </xsd:complexType>
                   </xsd:element>
@@ -2420,7 +2432,7 @@
                 <xsd:attribute name="DefinitionId" type="pnp:GUID" use="required">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
-                      Defines the ID of the Workflow Definition for the current Subscription
+                      Defines the ID of the Workflow Definition for the current Subscription, required attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
@@ -2428,9 +2440,9 @@
                 <xsd:attribute name="ListId" type="pnp:ReplaceableString" use="optional">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
-                      Defines the ID of the target list/library for the current Subscription, 
-                      optional attribute and if it is missing, the workflow subscription will 
-                      be at Site level
+                      Defines the ID of the target list/library for the current Subscription,
+                      optional attribute and if it is missing, the workflow subscription will
+                      be at Site level, optional attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
@@ -2438,7 +2450,7 @@
                 <xsd:attribute name="Enabled" type="xsd:boolean" use="required">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
-                      Defines if the Workflow Definition is enabled for the current Subscription
+                      Defines if the Workflow Definition is enabled for the current Subscription, required attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
@@ -2446,7 +2458,7 @@
                 <xsd:attribute name="EventSourceId" type="pnp:GUID" use="optional">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
-                      Defines the ID of the Event Source for the current Subscription
+                      Defines the ID of the Event Source for the current Subscription, optional attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
@@ -2454,7 +2466,7 @@
                 <xsd:attribute name="WorkflowStartEvent" type="xsd:boolean" use="required">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
-                      Defines if the Workflow will start manually
+                      Defines if the Workflow will start manually, required attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
@@ -2462,7 +2474,7 @@
                 <xsd:attribute name="ItemAddedEvent" type="xsd:boolean" use="required">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
-                      Defines if the Workflow will start on item added
+                      Defines if the Workflow will start on item added, required attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
@@ -2470,7 +2482,7 @@
                 <xsd:attribute name="ItemUpdatedEvent" type="xsd:boolean" use="required">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
-                      Defines if the Workflow will start on item updated
+                      Defines if the Workflow will start on item updated, required attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
@@ -2478,7 +2490,7 @@
                 <xsd:attribute name="ManualStartBypassesActivationLimit" type="xsd:boolean" use="optional">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
-                      Defines if the Workflow can be manually started bypassing the activation limit
+                      Defines if the Workflow can be manually started bypassing the activation limit, optional attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
@@ -2486,7 +2498,7 @@
                 <xsd:attribute name="Name" type="xsd:string" use="required">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
-                      Defines the Name of the Workflow Subscription
+                      Defines the Name of the Workflow Subscription, required attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
@@ -2494,7 +2506,7 @@
                 <xsd:attribute name="ParentContentTypeId" type="xsd:string" use="optional">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
-                      Defines the Parent ContentType Id of the Workflow Subscription
+                      Defines the Parent ContentType Id of the Workflow Subscription, optional attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
@@ -2502,7 +2514,7 @@
                 <xsd:attribute name="StatusFieldName" type="xsd:string" use="required">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
-                      Defines the Status Field Name of the Workflow Subscription
+                      Defines the Status Field Name of the Workflow Subscription, required attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
@@ -2519,7 +2531,7 @@
   <xsd:complexType name="AddIns">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
-        Defines the SharePoint Add-ins to provision
+        Defines the SharePoint Add-ins to provision, collection of elements.
       </xsd:documentation>
     </xsd:annotation>
 
@@ -2530,7 +2542,7 @@
           <xsd:attribute name="PackagePath" type="xsd:string" use="required">
             <xsd:annotation>
               <xsd:documentation xml:lang="en">
-                Defines the .app file of the SharePoint Add-in to provision
+                Defines the .app file of the SharePoint Add-in to provision, required attribute.
               </xsd:documentation>
             </xsd:annotation>
           </xsd:attribute>
@@ -2538,7 +2550,7 @@
           <xsd:attribute name="Source" use="required">
             <xsd:annotation>
               <xsd:documentation xml:lang="en">
-                Defines the Source of the SharePoint Add-in to provision
+                Defines the Source of the SharePoint Add-in to provision, required attribute.
               </xsd:documentation>
             </xsd:annotation>
             <xsd:simpleType>
@@ -2562,7 +2574,7 @@
   <xsd:complexType name="Publishing">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
-        Defines the Publishing configuration to provision
+        Defines the Publishing configuration to provision.
       </xsd:documentation>
     </xsd:annotation>
 
@@ -2571,7 +2583,7 @@
       <xsd:element name="DesignPackage" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
-            Defines a Design Package to import into the current Publishing site
+            Defines a Design Package to import into the current Publishing site, optional element.
           </xsd:documentation>
         </xsd:annotation>
 
@@ -2580,7 +2592,7 @@
           <xsd:attribute name="DesignPackagePath" type="xsd:string" use="required">
             <xsd:annotation>
               <xsd:documentation xml:lang="en">
-                Defines the path of the Design Package to import into the current Publishing site, required attribute
+                Defines the path of the Design Package to import into the current Publishing site, required attribute.
               </xsd:documentation>
             </xsd:annotation>
           </xsd:attribute>
@@ -2588,7 +2600,7 @@
           <xsd:attribute name="MajorVersion" type="xsd:int" use="optional">
             <xsd:annotation>
               <xsd:documentation xml:lang="en">
-                The Major Version of the Design Package to import into the current Publishing site, optional attribute
+                The Major Version of the Design Package to import into the current Publishing site, optional attribute.
               </xsd:documentation>
             </xsd:annotation>
           </xsd:attribute>
@@ -2596,7 +2608,7 @@
           <xsd:attribute name="MinorVersion" type="xsd:int" use="optional">
             <xsd:annotation>
               <xsd:documentation xml:lang="en">
-                The Minor Version of the Design Package to import into the current Publishing site, optional attribute
+                The Minor Version of the Design Package to import into the current Publishing site, optional attribute.
               </xsd:documentation>
             </xsd:annotation>
           </xsd:attribute>
@@ -2604,7 +2616,7 @@
           <xsd:attribute name="PackageGuid" type="pnp:GUID" use="optional">
             <xsd:annotation>
               <xsd:documentation xml:lang="en">
-                The ID of the Design Package to import into the current Publishing site, optional attribute
+                The ID of the Design Package to import into the current Publishing site, optional attribute.
               </xsd:documentation>
             </xsd:annotation>
           </xsd:attribute>
@@ -2612,7 +2624,7 @@
           <xsd:attribute name="PackageName " type="xsd:string" use="required">
             <xsd:annotation>
               <xsd:documentation xml:lang="en">
-                The Name of the Design Package to import into the current Publishing site, required attribute
+                The Name of the Design Package to import into the current Publishing site, required attribute.
               </xsd:documentation>
             </xsd:annotation>
           </xsd:attribute>
@@ -2624,7 +2636,7 @@
       <xsd:element name="AvailableWebTemplates" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
-            Defines the Available Web Templates for the current Publishing site
+            Defines the Available Web Templates for the current Publishing site, optional collection of elements.
           </xsd:documentation>
         </xsd:annotation>
         <xsd:complexType>
@@ -2632,21 +2644,21 @@
             <xsd:element name="WebTemplate" minOccurs="0" maxOccurs="unbounded">
               <xsd:annotation>
                 <xsd:documentation xml:lang="en">
-                  Defines an available Web Template for the current Publishing site
+                  Defines an available Web Template for the current Publishing site.
                 </xsd:documentation>
               </xsd:annotation>
               <xsd:complexType>
                 <xsd:attribute name="LanguageCode" type="xsd:int" use="optional">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
-                      The Language Code for the Web Template
+                      The Language Code for the Web Template, optional attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
                 <xsd:attribute name="TemplateName" type="xsd:string" use="required">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
-                      The Name of the Web Template
+                      The Name of the Web Template, required attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
@@ -2659,7 +2671,7 @@
       <xsd:element name="PageLayouts" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
-            Defines the Available Page Layouts for the current Publishing site
+            Defines the Available Page Layouts for the current Publishing site, optional collection of elements.
           </xsd:documentation>
         </xsd:annotation>
 
@@ -2669,7 +2681,7 @@
             <xsd:element name="PageLayout" minOccurs="0" maxOccurs="unbounded">
               <xsd:annotation>
                 <xsd:documentation xml:lang="en">
-                  Defines an available Page Layout for the current Publishing site
+                  Defines an available Page Layout for the current Publishing site.
                 </xsd:documentation>
               </xsd:annotation>
 
@@ -2677,14 +2689,14 @@
                 <xsd:attribute name="Path" type="xsd:string" use="required">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
-                      Defines the path of the Page Layout for the current Publishing site
+                      Defines the path of the Page Layout for the current Publishing site, required attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
                 <xsd:attribute name="IsDefault" type="xsd:boolean" use="required">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
-                      Defines whether the Page Layout is the default for the current Publishing site, just one Page Layout can be the default
+                      Defines whether the Page Layout is the default for the current Publishing site, just one Page Layout can be the default, required attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
@@ -2697,13 +2709,46 @@
       </xsd:element>
 
     </xsd:sequence>
+
+    <xsd:attribute name="AutoCheckRequirements" use="required">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines how an engine should behave if the requirements for provisioning publishing capabilities are not satisfied by the target site, required attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="MakeCompliant">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                Instructs the engine to make the target site compliant with the requirements.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="SkipIfNotCompliant">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                Instructs the engine to skip the Publishing section if the target site is not compliant with the requirements.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="FailIfNotCompliant">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                Instructs the engine to throw an exception/failure if the target site is not compliant with the requirements.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
     
   </xsd:complexType>
 
   <xsd:complexType name="Provider">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
-        Defines an Extensibility Provider
+        Defines an Extensibility Provider.
       </xsd:documentation>
     </xsd:annotation>
 
@@ -2711,7 +2756,7 @@
       <xsd:element name="Configuration" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
-            Defines an optional configuration section for the Extensibility Provider. The configuration section can be any XML
+            Defines an optional configuration section for the Extensibility Provider. The configuration section can be any XML.
           </xsd:documentation>
         </xsd:annotation>
 
@@ -2727,7 +2772,7 @@
     <xsd:attribute name="Enabled" type="xsd:boolean" use="optional" default="false">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          Defines whether the Extensibility Provider is enabled or not, optional attribute
+          Defines whether the Extensibility Provider is enabled or not, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -2735,7 +2780,7 @@
     <xsd:attribute name="HandlerType" type="xsd:string" use="required">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The type of the handler. It can be a FQN of a .NET type, the URL of a node.js file, or whatever else, required attribute
+          The type of the handler. It can be a FQN of a .NET type, the URL of a node.js file, or whatever else, required attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -2751,14 +2796,14 @@
     <xsd:attribute name="File" type="xsd:string" use="required">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          Absolute or relative path to the file.
+          Absolute or relative path to the file, required attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
     <xsd:attribute name="ID" type="xsd:ID" use="required">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          ID of the referenced template
+          ID of the referenced template, required attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -2773,7 +2818,7 @@
     <xsd:attribute name="ID" type="xsd:IDREF" use="required">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          ID of the referenced template
+          ID of the referenced template, required attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>

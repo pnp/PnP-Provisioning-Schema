@@ -419,7 +419,7 @@
         </SearchConfigurationSettings>
       </pnp:SearchSettings>
 
-      <pnp:Publishing>
+      <pnp:Publishing AutoCheckRequirements="MakeCompliant">
         <pnp:DesignPackage DesignPackagePath="CustomDesign.wsp" 
                            MajorVersion="1" 
                            MinorVersion="0" 
