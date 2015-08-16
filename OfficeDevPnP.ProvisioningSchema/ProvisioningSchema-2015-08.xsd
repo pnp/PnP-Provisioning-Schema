@@ -2833,10 +2833,34 @@
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence maxOccurs="unbounded">
-      <xsd:element name="SiteCollection" type="pnp:SiteCollection" minOccurs="0" />
-      <xsd:element name="Site" type="pnp:Site"  minOccurs="0"/>
-      <xsd:element name="TermStore" type="pnp:TermStore"  minOccurs="0"/>
-      <xsd:element name="Extensions" type="pnp:Extensions" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="SiteCollection" type="pnp:SiteCollection" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            A Site Collection to provision through a Sequence, optional element.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Site" type="pnp:Site"  minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            A Site to provision through a Sequence, optional element.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="TermStore" type="pnp:TermStore"  minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            A Term Store to provision through a Sequence, optional element.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Extensions" type="pnp:Extensions" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            Any Extension to provision through a Sequence, optional element.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <!-- TODO: add more top level items here-->
     </xsd:sequence>
     <xsd:attribute name="SequenceType" default="Synchronous" use="optional">
@@ -2867,7 +2891,7 @@
     <xsd:attribute name="ID" type="xsd:ID" use="required">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          A unique identifier of the Sequence
+          A unique identifier of the Sequence, required attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -2876,18 +2900,24 @@
   <xsd:complexType name="SiteCollection">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
-        Defines a SiteCollection that will be created into the target tenant/farm
+        Defines a SiteCollection that will be created into the target tenant/farm.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="Templates" type="pnp:Templates" minOccurs="0" />
+      <xsd:element name="Templates" type="pnp:Templates" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            Templates that can be provisioned together with the Site Collection, optional collection of elements.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
     </xsd:sequence>
     <xsd:attributeGroup ref="pnp:SiteCollectionAttributes"/>
     <xsd:attributeGroup ref="pnp:SiteAttributes"/>
     <xsd:attribute name="Url" type="pnp:ReplaceableString" use="required">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          Absolute Url to the site
+          Absolute Url to the site, required attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -2896,18 +2926,24 @@
   <xsd:complexType name="Site">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
-        Defines a Site that will be created into a target Site Collection
+        Defines a Site that will be created into a target Site Collection.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="Templates" type="pnp:Templates" minOccurs="0" />
+      <xsd:element name="Templates" type="pnp:Templates" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            Templates that can be provisioned together with the Site, optional collection of elements.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
     </xsd:sequence>
     <xsd:attributeGroup ref="pnp:SiteAttributes"/>
     <xsd:attribute name="UseSamePermissionsAsParentSite" type="xsd:boolean" use="optional"/>
     <xsd:attribute name="Url" type="pnp:ReplaceableString" use="required">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          Relative Url to the site
+          Relative Url to the site, required attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -2922,42 +2958,42 @@
     <xsd:attribute name="StorageMaximumLevel" type="pnp:ReplaceableInt" use="optional">
       <xsd:annotation>
         <xsd:documentation>
-          Maximum Storage Level, in Megabytes
+          Maximum Storage Level, in Megabytes, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
     <xsd:attribute name="StorageWarningLevel" type="pnp:ReplaceableInt" use="optional">
       <xsd:annotation>
         <xsd:documentation>
-          Warning Storage Level, in Megabytes
+          Warning Storage Level, in Megabytes, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
     <xsd:attribute name="UserCodeMaximumLevel" type="pnp:ReplaceableInt" use="optional">
       <xsd:annotation>
         <xsd:documentation>
-          Maximum Resource usage, in points
+          Maximum Resource usage, in points, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
     <xsd:attribute name="UserCodeWarningLevel" type="pnp:ReplaceableInt" use="optional">
       <xsd:annotation>
         <xsd:documentation>
-          Warning Resource usage, in points
+          Warning Resource usage, in points, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
     <xsd:attribute name="PrimarySiteCollectionAdmin" type="pnp:ReplaceableString" use="required">
       <xsd:annotation>
         <xsd:documentation>
-          ID of the Primary Site Collection Admin
+          ID of the Primary Site Collection Admin, required attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
     <xsd:attribute name="SecondarySiteCollectionAdmin" type="pnp:ReplaceableString" use="optional">
       <xsd:annotation>
         <xsd:documentation>
-          ID of the Secondary Site Collection Admin
+          ID of the Secondary Site Collection Admin, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -2966,44 +3002,62 @@
   <xsd:attributeGroup name="SiteAttributes">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
-        Common set of attributes for any Site
+        Common set of attributes for any Site.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:attribute name="Title" type="pnp:ReplaceableString"  use="required">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          Title of the site
+          Title of the site, required attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
     <xsd:attribute name="CustomJSUrl" type="pnp:ReplaceableString" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          Custom JavaScript URL
+          Custom JavaScript URL, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
     <xsd:attribute name="QuickLaunchEnabled" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          Is the Quick launch enabled
+          Is the Quick launch enabled, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
     <xsd:attribute name="AlternateCssUrl" type="pnp:ReplaceableString" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          Alternat CSS URL
+          Alternat CSS URL, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="Language" type="pnp:ReplaceableString" use="optional"/>
-    <xsd:attribute name="AllowDesigner" type="xsd:boolean" use="optional"/>
-    <xsd:attribute name="MembersCanShare" type="xsd:boolean" use="optional"/>
+    <xsd:attribute name="Language" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Language of the target Site, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="AllowDesigner" type="xsd:boolean" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines whether SharePoint Designer is allowed or not for the target Site, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="MembersCanShare" type="xsd:boolean" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines whether the Site's members can share or not contents, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
     <xsd:attribute name="TimeZone" type="pnp:ReplaceableInt" use="optional" >
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          Time zone of the site
+          Time zone of the site, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -3012,14 +3066,14 @@
   <xsd:complexType name="TermStore" >
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
-        A TermStore to use for provisioning of TermGroups
+        A TermStore to use for provisioning of TermGroups.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
       <xsd:element name="TermGroup" type="pnp:TermGroup" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
-            The TermGroup element to provision into the target TermStore through, optional element
+            The TermGroup element to provision into the target TermStore through, optional collection of elements.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -3027,7 +3081,7 @@
     <xsd:attribute name="Scope" use="required">
       <xsd:annotation>
         <xsd:documentation>
-          The scope of the term store.
+          The scope of the term store, required attribute.
         </xsd:documentation>
       </xsd:annotation>
       <xsd:simpleType>
@@ -3042,21 +3096,45 @@
   <xsd:complexType name="TermGroup">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
-        A TermGroup to use for provisioning of TermSets and Terms
+        A TermGroup to use for provisioning of TermSets and Terms.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="TaxonomyItem">
         <xsd:all>
           <xsd:element name="TermSets">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                A collection of Term Set elements.
+              </xsd:documentation>
+            </xsd:annotation>
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="TermSet" type="pnp:TermSet" minOccurs="0" maxOccurs="unbounded"/>
+                <xsd:element name="TermSet" type="pnp:TermSet" minOccurs="0" maxOccurs="unbounded">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      A Term Set, optional collection of elements.
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
               </xsd:sequence>
             </xsd:complexType>
           </xsd:element>
         </xsd:all>
-        <xsd:attribute name="Description" type="xsd:string" use="optional"/>
+        <xsd:attribute name="Description" type="xsd:string" use="optional">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              The Description of the TermGroup to use for provisioning of TermSets and Terms, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="SiteCollectionTermGroup" type="xsd:boolean" use="optional">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              Declares if the TermGroup is the Site Collection Term Group, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -3064,11 +3142,23 @@
   <xsd:complexType name="TaxonomyItem">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
-        Base Type for TermGroup, TermSet and Term
+        Base Type for TermGroup, TermSet and Term.
       </xsd:documentation>
     </xsd:annotation>
-    <xsd:attribute name="Name" type="xsd:string" use="required"/>
-    <xsd:attribute name="ID" type="pnp:GUID" use="optional" />
+    <xsd:attribute name="Name" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Name of the Taxonomy Item, required attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="ID" type="pnp:GUID" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The ID of the Taxonomy Item, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
 
   <xsd:complexType name="TermSetItem" >
@@ -3079,9 +3169,27 @@
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="pnp:TaxonomyItem">
-        <xsd:attribute name="Owner" type="xsd:string" use="optional" />
-        <xsd:attribute name="Description" type="xsd:string" use="optional"/>
-        <xsd:attribute name="IsAvailableForTagging" type="xsd:boolean" use="optional" default="true" />
+        <xsd:attribute name="Owner" type="xsd:string" use="optional">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              The Owner of the Term Set Item, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Description" type="xsd:string" use="optional">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              The Description of the Term Set Item, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="IsAvailableForTagging" type="xsd:boolean" use="optional" default="true">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              Declares whether the Term Set Item is available for tagging, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -3089,7 +3197,7 @@
   <xsd:complexType name="TermSet">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
-        A TermSet to provision
+        A TermSet to provision.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
@@ -3098,20 +3206,38 @@
           <xsd:element name="CustomProperties" type="pnp:TaxonomyItemProperties" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
               <xsd:documentation xml:lang="en">
-                The CustomProperties, optional collection of elements
+                The Custom Properties of the Term Set, optional collection of elements.
               </xsd:documentation>
             </xsd:annotation>
           </xsd:element>
           <xsd:element name="Terms" minOccurs="0" maxOccurs="1">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="Term" type="pnp:Term" minOccurs="0" maxOccurs="unbounded"/>
+                <xsd:element name="Term" type="pnp:Term" minOccurs="0" maxOccurs="unbounded">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      A child Term of the current Term Set Item, optional collection of elements.
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
               </xsd:sequence>
             </xsd:complexType>
           </xsd:element>
         </xsd:all>
-        <xsd:attribute name="Language" type="xsd:int" use="optional" />
-        <xsd:attribute name="IsOpenForTermCreation" type="xsd:boolean" use="optional" default="false"/>
+        <xsd:attribute name="Language" type="xsd:int" use="optional">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              The reference Language for the Term Set, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="IsOpenForTermCreation" type="xsd:boolean" use="optional" default="false">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              Declares whether the Term Set is open for terms creation or not, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -3119,7 +3245,7 @@
   <xsd:complexType name="Term">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
-        A Term to provision into a TermSet or a hyerarchical Term
+        A Term to provision into a TermSet or a hyerarchical Term.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
@@ -3128,28 +3254,52 @@
           <xsd:element name="Terms" minOccurs="0" maxOccurs="1">
             <xsd:complexType>
               <xsd:choice>
-                <xsd:element name="Term" type="Term"  maxOccurs="unbounded" minOccurs="0"/>
+                <xsd:element name="Term" type="Term"  maxOccurs="unbounded" minOccurs="0">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      A child Term of the current Term Set Item, optional collection of elements.
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:element>
               </xsd:choice>
             </xsd:complexType>
           </xsd:element>
-          <xsd:element name="Labels" minOccurs="0" maxOccurs="1" type="pnp:TermLabels" />
+          <xsd:element name="Labels" minOccurs="0" maxOccurs="1" type="pnp:TermLabels">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                The Labels of the current Term, optional element.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
           <xsd:element name="CustomProperties" type="pnp:TaxonomyItemProperties" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
               <xsd:documentation xml:lang="en">
-                The CustomProperties, optional collection of elements
+                The Custom Properties, optional collection of elements.
               </xsd:documentation>
             </xsd:annotation>
           </xsd:element>
           <xsd:element name="LocalCustomProperties" type="pnp:TaxonomyItemProperties" minOccurs="0" maxOccurs="1">
             <xsd:annotation>
               <xsd:documentation xml:lang="en">
-                The Term CustomProperties, optional collection of elements
+                The Term local Custom Properties, optional collection of elements.
               </xsd:documentation>
             </xsd:annotation>
           </xsd:element>
         </xsd:all>
-        <xsd:attribute name="Language" type="xsd:int" use="optional"/>
-        <xsd:attribute name="CustomSortOrder" type="xsd:int" use="optional" default="0"/>
+        <xsd:attribute name="Language" type="xsd:int" use="optional">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              The reference Language for the Term, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="CustomSortOrder" type="xsd:int" use="optional" default="0">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              The Custom Sort Order for the Term, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -3157,27 +3307,51 @@
   <xsd:complexType name="TaxonomyItemProperties">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
-        A collection of Term Properties
+        A collection of Term Properties.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
       <xsd:element name="Property" type="pnp:StringDictionaryItem"
-                    minOccurs="1" maxOccurs="unbounded" />
+                    minOccurs="1" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            A Term Property, collection of elements.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
     </xsd:sequence>
   </xsd:complexType>
 
   <xsd:complexType name="TermLabels">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
-        A collection of Term Labels, in order to support multi-language terms
+        A collection of Term Labels, in order to support multi-language terms.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
       <xsd:element name="Label" minOccurs="1" maxOccurs="unbounded">
         <xsd:complexType>
-          <xsd:attribute name="Language" type="xsd:int" use="required" />
-          <xsd:attribute name="Value" type="xsd:string" use="required" />
-          <xsd:attribute name="IsDefaultForLanguage" type="xsd:boolean" use="optional" default="false" />
+          <xsd:attribute name="Language" type="xsd:int" use="required">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                The reference Language for the Term Label, required attribute.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+          <xsd:attribute name="Value" type="xsd:string" use="required">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                The Value for the Term Label, required attribute.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+          <xsd:attribute name="IsDefaultForLanguage" type="xsd:boolean" use="optional" default="false">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                Declares whether the current Label is the default for the specific Language, optional attribute.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
         </xsd:complexType>
       </xsd:element>
     </xsd:sequence>
@@ -3186,15 +3360,21 @@
   <xsd:complexType name="TermSets">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
-        A collection of TermSets to provision
+        A collection of TermSets to provision.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="TermSet" type="pnp:TermSet" maxOccurs="unbounded" minOccurs="0"/>
+      <xsd:element name="TermSet" type="pnp:TermSet" maxOccurs="unbounded" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            A Term Set, optional collection of elements.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
     </xsd:sequence>
   </xsd:complexType>
 
-  <xsd:complexType name="Extensions" >
+  <xsd:complexType name="Extensions">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
         Extensions are custom XML elements and instructions that can be extensions of this default schema or vendor or engine specific extensions.
@@ -3214,7 +3394,7 @@
     <xsd:attribute name="File" type="xsd:string" use="required">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          Absolute or relative path to the file.
+          Absolute or relative path to the file, required attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
