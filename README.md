@@ -20,7 +20,28 @@ which will provision SharePoint sites and other elements using this schema.
 
 [Version 201508](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2015-08.xsd)
 
+In order to reference the schema version 201508 you can use the following syntax:
+
+```xml
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2015/08/ProvisioningSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="https://raw.githubusercontent.com/OfficeDev/PnP-Provisioning-Schema/master/OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2015-08.xsd">
+	<!-- All the schema contents -->
+</pnp:Provisioning>
+```
+
+
 [Version 201505](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2015-05.xsd)
+
+In order to reference the schema version 201505 you can use the following syntax:
+
+```xml
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2015/05/ProvisioningSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="https://raw.githubusercontent.com/OfficeDev/PnP-Provisioning-Schema/master/OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2015-05.xsd">
+	<!-- All the schema contents -->
+</pnp:Provisioning>
+```
 
 ## More information
 More information and documentation can be found here:
