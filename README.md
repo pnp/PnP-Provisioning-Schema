@@ -12,13 +12,21 @@ which will provision SharePoint sites and other elements using this schema.
 
 # Version
 
+# Current implemented version (in the PnP Provisioning Engine) 
+
+[Version 201505](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2015-05.xsd)
+
 ## Current approved version
+
+[Version 201508](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2015-08.xsd)
 
 [Version 201505](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2015-05.xsd)
 
 ## More information
 More information and documentation can be found here:
 
-* [Remote Provisioning Schema Documentation](ProvisioningSchema-2015-05.md)
+* [Remote Provisioning Schema Documentation - 201508](ProvisioningSchema-2015-08.md)
+
+* [Remote Provisioning Schema Documentation - 201505](ProvisioningSchema-2015-05.md)
 
 
