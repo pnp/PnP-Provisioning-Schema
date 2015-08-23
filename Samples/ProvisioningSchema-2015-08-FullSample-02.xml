@@ -18,8 +18,8 @@
 
       <pnp:RegionalSettings 
         AdjustHijriDays="1"
-        AlternateCalendarType="Korean Tangun Era"
-        CalendarType="Japanese Emperor Era"
+        AlternateCalendarType="Chinese Lunar"
+        CalendarType="Hebrew"
         Collation="5"
         FirstDayOfWeek="Sunday"
         FirstWeekOfYear="1"
