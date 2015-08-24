@@ -451,8 +451,8 @@
     </xsd:attribute>
 
   </xsd:complexType>
-
-
+  
+  
 
   <xsd:complexType name="UsersList">
     <xsd:annotation>
@@ -638,7 +638,7 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-
+    
     <xsd:attribute name="MinorVersionLimit" type="xsd:int" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
@@ -665,7 +665,7 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-
+    
     <xsd:attribute name="RemoveExistingContentTypes" type="xsd:boolean" use="optional" default="false">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
@@ -1007,6 +1007,11 @@
 
     <xsd:sequence>
       <xsd:element name="CommandUIExtension" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            Defines the Custom UI Extension XML, optional element.
+          </xsd:documentation>
+        </xsd:annotation>
         <xsd:complexType>
           <xsd:sequence>
             <xsd:any minOccurs="0" maxOccurs="unbounded" processContents="lax" />
@@ -1234,7 +1239,7 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-
+    
   </xsd:complexType>
 
   <xsd:complexType name="WikiPageWebPart">
