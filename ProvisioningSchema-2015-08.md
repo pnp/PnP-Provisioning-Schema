@@ -1,7 +1,7 @@
 ﻿
 #PnP Provisioning Schema
 ----------
-*Topic automatically generated on 8/24/2015*
+*Topic automatically generated on 8/26/2015*
 
 ##Namespace
 The namespace of the PnP Provisioning Schema is:
