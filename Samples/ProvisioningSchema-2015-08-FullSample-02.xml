@@ -437,16 +437,16 @@
           <pnp:WebTemplate LanguageCode="1033" TemplateName="STS#0" />
           <pnp:WebTemplate TemplateName="BLOG#0" />
         </pnp:AvailableWebTemplates>
-        <pnp:PageLayouts>
-          <pnp:PageLayout Path="News.aspx" IsDefault="false" />
-          <pnp:PageLayout Path="SimplePage.aspx" IsDefault="true" />
-          <pnp:PageLayout Path="Product.aspx" IsDefault="false" />
+        <pnp:PageLayouts Default="SimplePage.aspx">
+          <pnp:PageLayout Path="News.aspx" />
+          <pnp:PageLayout Path="SimplePage.aspx" />
+          <pnp:PageLayout Path="Product.aspx" />
         </pnp:PageLayouts>
       </pnp:Publishing>
-      
-      <pnp:Addins>
+
+      <pnp:AddIns>
         <pnp:Addin PackagePath="CustomSharePointAddin.app" Source="ObjectModel" />
-      </pnp:Addins>
+      </pnp:AddIns>
       
       <pnp:Providers>
         <pnp:Provider HandlerType="OfficeDev.PnP.Provisioning.Providers.FakeProvider, OfficeDev.PnP.Provisioning.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" Enabled="true">
