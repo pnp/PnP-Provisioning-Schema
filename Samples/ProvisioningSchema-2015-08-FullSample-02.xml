@@ -361,6 +361,8 @@
               AssociationUrl=""
               RequiresInitiationForm="false"
               RequiresAssociationForm="false"
+              RestrictToType="List"
+              RestrictToScope="{8486EF59-377B-43BB-AD48-93A9BA6182C8}"
               XamlPath="SampleWorkflow.xaml">
             <pnp:FormField />
           </pnp:WorkflowDefinition>
