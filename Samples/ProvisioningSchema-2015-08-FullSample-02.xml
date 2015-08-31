@@ -357,10 +357,14 @@
           <pnp:WorkflowDefinition Id="{72756D8D-2F0C-4DA0-83BB-4E496E60F443}"
               DisplayName="Sample-Workflow-Definition"
               Description="This is a sample Workflow Definition"
+              DraftVersion="1"
               InitiationUrl=""
               AssociationUrl=""
+              Published="true"
               RequiresInitiationForm="false"
               RequiresAssociationForm="false"
+              RestrictToType="List"
+              RestrictToScope="{8486EF59-377B-43BB-AD48-93A9BA6182C8}"
               XamlPath="SampleWorkflow.xaml">
             <pnp:FormField />
           </pnp:WorkflowDefinition>
