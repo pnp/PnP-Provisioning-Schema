@@ -25,7 +25,7 @@ In order to reference the schema version 201508 you can use the following syntax
 ```xml
 <pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2015/08/ProvisioningSchema"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:schemaLocation="https://raw.githubusercontent.com/OfficeDev/PnP-Provisioning-Schema/master/OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2015-08.xsd">
+                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2015/08/ProvisioningSchema https://raw.githubusercontent.com/OfficeDev/PnP-Provisioning-Schema/master/OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2015-08.xsd">
 	<!-- All the schema contents -->
 </pnp:Provisioning>
 ```
@@ -38,7 +38,7 @@ In order to reference the schema version 201505 you can use the following syntax
 ```xml
 <pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2015/05/ProvisioningSchema"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:schemaLocation="https://raw.githubusercontent.com/OfficeDev/PnP-Provisioning-Schema/master/OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2015-05.xsd">
+                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2015/05/ProvisioningSchema https://raw.githubusercontent.com/OfficeDev/PnP-Provisioning-Schema/master/OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2015-05.xsd">
 	<!-- All the schema contents -->
 </pnp:Provisioning>
 ```
