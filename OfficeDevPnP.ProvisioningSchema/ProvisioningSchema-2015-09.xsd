@@ -3331,15 +3331,8 @@
               Declares whether the Term Set Item is available for tagging, optional attribute.
             </xsd:documentation>
           </xsd:annotation>
-        </xsd:attribute>
-				<xsd:attribute name="UseForSiteNavigation" type="xsd:boolean" use="optional" default="true">
-					<xsd:annotation>
-						<xsd:documentation xml:lang="en">
-							Allow this term set to be used for Managed Navigation.
-						</xsd:documentation>
-					</xsd:annotation>
-				</xsd:attribute>				
-      </xsd:extension>
+        </xsd:attribute>				
+			</xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
 
@@ -3387,6 +3380,13 @@
             </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+				<xsd:attribute name="UseForSiteNavigation" type="xsd:boolean" use="optional" default="false">
+					<xsd:annotation>
+						<xsd:documentation xml:lang="en">
+							Allow this term set to be used for Managed Navigation.
+						</xsd:documentation>
+					</xsd:annotation>
+				</xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
