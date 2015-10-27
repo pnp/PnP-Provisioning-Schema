@@ -14,7 +14,7 @@ which will provision SharePoint sites and other elements using this schema.
 
 # Current implemented version (in the PnP Provisioning Engine) 
 
-[Version 201505](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2015-05.xsd)
+[Version 201508](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2015-08.xsd)
 
 ## Current approved versions
 
@@ -50,4 +50,5 @@ More information and documentation can be found here:
 
 * [Remote Provisioning Schema Documentation - 201505](ProvisioningSchema-2015-05.md)
 
+* [List of Tokens supported by the PnP Provisioning Engine](https://github.com/OfficeDev/PnP-Sites-Core/blob/master/Core/ProvisioningEngineTokens.md)
 
