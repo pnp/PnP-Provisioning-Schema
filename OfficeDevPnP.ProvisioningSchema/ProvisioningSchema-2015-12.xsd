@@ -151,6 +151,13 @@
               </xsd:documentation>
             </xsd:annotation>
           </xsd:attribute>
+          <xsd:attribute name="Name" type="xsd:string" use="required">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                The Name of a Localization Language, required attribute.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
           <xsd:attribute name="ResourceFile" type="xsd:string" use="required">
             <xsd:annotation>
               <xsd:documentation xml:lang="en">
@@ -3780,6 +3787,5 @@
       <xsd:enumeration value="Custom" />
     </xsd:restriction>
   </xsd:simpleType>
-
 
 </xsd:schema>

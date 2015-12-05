@@ -11,9 +11,12 @@
   </pnp:Preferences>
 
   <pnp:Localizations>
-    <pnp:Localization LCID="1033" ResourceFile="resources.en-us.resx" />
-    <pnp:Localization LCID="1040" ResourceFile="resources.it-it.resx" />
-    <pnp:Localization LCID="1031" ResourceFile="resources.de-de.resx" />
+    <pnp:Localization LCID="1033" Name="core" ResourceFile="resources-core.en-us.resx" />
+    <pnp:Localization LCID="1040" Name="core" ResourceFile="resources-core.it-it.resx" />
+    <pnp:Localization LCID="1031" Name="core" ResourceFile="resources-core.de-de.resx" />
+    <pnp:Localization LCID="1033" Name="intranet" ResourceFile="resources-intranet.en-us.resx" />
+    <pnp:Localization LCID="1040" Name="intranet" ResourceFile="resources-intranet.it-it.resx" />
+    <pnp:Localization LCID="1031" Name="intranet" ResourceFile="resources-intranet.de-de.resx" />
   </pnp:Localizations>
 
   <pnp:Templates ID="SAMPLE-TEMPLATES">
@@ -120,10 +123,10 @@
       </pnp:Security>
 
       <pnp:SiteFields>
-        <Field ID="{23203E97-3BFE-40CB-AFB4-07AA2B86BF45}" Type="Text" Name="ProjectID" DisplayName="{localization:ProjectID}" Group="Base.Foundation.Columns" MaxLength="255" AllowDeletion="TRUE" />
-        <Field ID="{B01B3DBC-4630-4ED1-B5BA-321BC7841E3D}" Type="Text" Name="ProjectName" DisplayName="{localization:ProjectName}" Group="Base.Foundation.Columns" MaxLength="255" AllowDeletion="TRUE" />
-        <Field ID="{A5DE9600-B7A6-42DD-A05E-10D4F1500208}" Type="Text" Name="ProjectManager" DisplayName="{localization:ProjectManager}" Group="Base.Foundation.Columns"  MaxLength="255" AllowDeletion="TRUE" />
-        <Field ID="{F1A1715E-6C52-40DE-8403-E9AAFD0470D0}" Type="Text" Name="DocumentDescription" DisplayName="{localization:ProjectDescription}" Group="Base.Foundation.Columns" MaxLength="255" AllowDeletion="TRUE" />
+        <Field ID="{23203E97-3BFE-40CB-AFB4-07AA2B86BF45}" Type="Text" Name="ProjectID" DisplayName="{localization:intranet:ProjectID}" Group="Base.Foundation.Columns" MaxLength="255" AllowDeletion="TRUE" />
+        <Field ID="{B01B3DBC-4630-4ED1-B5BA-321BC7841E3D}" Type="Text" Name="ProjectName" DisplayName="{localization:intranet:ProjectName}" Group="Base.Foundation.Columns" MaxLength="255" AllowDeletion="TRUE" />
+        <Field ID="{A5DE9600-B7A6-42DD-A05E-10D4F1500208}" Type="Text" Name="ProjectManager" DisplayName="{localization:intranet:ProjectManager}" Group="Base.Foundation.Columns"  MaxLength="255" AllowDeletion="TRUE" />
+        <Field ID="{F1A1715E-6C52-40DE-8403-E9AAFD0470D0}" Type="Text" Name="DocumentDescription" DisplayName="{localization:core:Description}" Group="Base.Foundation.Columns" MaxLength="255" AllowDeletion="TRUE" />
       </pnp:SiteFields>
 
       <pnp:ContentTypes>
@@ -191,7 +194,7 @@
       </pnp:ContentTypes>
 
       <pnp:Lists>
-        <pnp:ListInstance Title="{CompanyName} - Projects"
+        <pnp:ListInstance Title="{parameter:CompanyName} - Projects"
                     Description="Project Documents are stored here"
                     DocumentTemplate=""
                     OnQuickLaunch="true"
@@ -387,7 +390,7 @@ function showAlert(){alert("Hello!")};
       </pnp:Pages>
 
       <pnp:TermGroups>
-        <pnp:TermGroup ID="{0E8F395E-FF58-4D45-9FF7-E331AB728BEB}" Name="{CompanyName} TermSets">
+        <pnp:TermGroup ID="{0E8F395E-FF58-4D45-9FF7-E331AB728BEB}" Name="{parameter:CompanyName} TermSets">
           <pnp:TermSets>
             <pnp:TermSet Name="Projects" ID="{5880B01B-5D6F-4606-A492-3B03A2FB4DD7}" Language="1040">
               <pnp:Terms>
@@ -406,7 +409,7 @@ function showAlert(){alert("Hello!")};
                         <pnp:Label Language="1040" Value="Nuvola"/>
                       </pnp:Labels>
                     </pnp:Term>
-                    <pnp:Term Name="New Farm" ID="{C422BD0D-681D-448F-A41E-C71C473A95CC}">
+                    <pnp:Term Name="New Farm" ID="{C422BD0D-681D-448F-A41E-C71C473A95CC}" IsDeprecated="true">
                       <pnp:Labels>
                         <pnp:Label Language="1040" Value="Nuova Farm"/>
                       </pnp:Labels>
@@ -567,7 +570,7 @@ function showAlert(){alert("Hello!")};
                         PrimarySiteCollectionAdmin="john@contoso.com"
                         MembersCanShare="true"
                         TimeZone="1"
-                        Title="{CompanyName} Intranet"
+                        Title="{parameter:CompanyName} Intranet"
                         Url="https://{O365TenantName}.sharepoint.com/sites/Intranet">
       <pnp:Templates>
         <!-- And let's use the SPECIALTEAM SharePointProvisioningTemplate -->
@@ -579,7 +582,7 @@ function showAlert(){alert("Hello!")};
     <pnp:Site Language="1040"
               QuickLaunchEnabled="true"
               TimeZone="1"
-              Title="{CompanyName} Intranet Workflows"
+              Title="{parameter:CompanyName} Intranet Workflows"
               Url="Workflows"
               UseSamePermissionsAsParentSite="true">
       <pnp:Templates>
@@ -589,7 +592,7 @@ function showAlert(){alert("Hello!")};
 
     <!-- Provision the TermStore -->
     <pnp:TermStore Scope="Current">
-      <pnp:TermGroup ID="{0E8F395E-FF58-4D45-9FF7-E331AB728BEB}" Name="{CompanyName} TermSets">
+      <pnp:TermGroup ID="{0E8F395E-FF58-4D45-9FF7-E331AB728BEB}" Name="{parameter:CompanyName} TermSets">
         <pnp:TermSets>
           <pnp:TermSet Name="Projects" ID="{5880B01B-5D6F-4606-A492-3B03A2FB4DD7}">
             <pnp:Terms>

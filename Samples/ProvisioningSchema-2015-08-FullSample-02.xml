@@ -178,7 +178,7 @@
       </pnp:ContentTypes>
 
       <pnp:Lists>
-        <pnp:ListInstance Title="{CompanyName} - Projects"
+        <pnp:ListInstance Title="{parameter:CompanyName} - Projects"
                     Description="Project Documents are stored here"
                     DocumentTemplate=""
                     OnQuickLaunch="true"
@@ -298,7 +298,7 @@
       </pnp:Pages>
 
       <pnp:TermGroups>
-        <pnp:TermGroup ID="{0E8F395E-FF58-4D45-9FF7-E331AB728BEB}" Name="{CompanyName} TermSets">
+        <pnp:TermGroup ID="{0E8F395E-FF58-4D45-9FF7-E331AB728BEB}" Name="{parameter:CompanyName} TermSets">
           <pnp:TermSets>
             <pnp:TermSet Name="Projects" ID="{5880B01B-5D6F-4606-A492-3B03A2FB4DD7}" Language="1040">
               <pnp:Terms>
@@ -478,8 +478,8 @@
                         PrimarySiteCollectionAdmin="john@contoso.com"
                         MembersCanShare="true"
                         TimeZone="1"
-                        Title="{CompanyName} Intranet"
-                        Url="https://{O365TenantName}.sharepoint.com/sites/Intranet">
+                        Title="{parameter:CompanyName} Intranet"
+                        Url="https://{parameter:O365TenantName}.sharepoint.com/sites/Intranet">
       <pnp:Templates>
         <!-- And let's use the SPECIALTEAM SharePointProvisioningTemplate -->
         <pnp:ProvisioningTemplateReference ID="SPECIALTEAM" />
@@ -490,7 +490,7 @@
     <pnp:Site Language="1040"
               QuickLaunchEnabled="true"
               TimeZone="1"
-              Title="{CompanyName} Intranet Workflows"
+              Title="{parameter:CompanyName} Intranet Workflows"
               Url="Workflows"
               UseSamePermissionsAsParentSite="true">
       <pnp:Templates>
@@ -500,7 +500,7 @@
 
     <!-- Provision the TermStore -->
     <pnp:TermStore Scope="Current">
-      <pnp:TermGroup ID="{0E8F395E-FF58-4D45-9FF7-E331AB728BEB}" Name="{CompanyName} TermSets">
+      <pnp:TermGroup ID="{0E8F395E-FF58-4D45-9FF7-E331AB728BEB}" Name="{parameter:CompanyName} TermSets">
         <pnp:TermSets>
           <pnp:TermSet Name="Projects" ID="{5880B01B-5D6F-4606-A492-3B03A2FB4DD7}">
             <pnp:Terms>
