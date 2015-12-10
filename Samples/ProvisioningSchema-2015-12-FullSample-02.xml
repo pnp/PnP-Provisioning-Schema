@@ -35,8 +35,8 @@
 
       <pnp:SitePolicy>HBI</pnp:SitePolicy>
 
-      <pnp:WebSettings 
-        RequestAccessEmail="someone@company.com" 
+      <pnp:WebSettings
+        RequestAccessEmail="someone@company.com"
         NoCrawl="false"
         />
 
@@ -443,7 +443,7 @@ function showAlert(){alert("Hello!")};
         ColorFile="{sitecollection}/_catalogs/Theme/15/Custom.spcolor"
         FontFile="{sitecollection}/_catalogs/Theme/15/Custom.spfont"
         SiteLogo="{sitecollection}/SiteAssets/Logo.png" />
-
+      <!--
       <pnp:Workflows>
         <pnp:WorkflowDefinitions>
           <pnp:WorkflowDefinition Id="{72756D8D-2F0C-4DA0-83BB-4E496E60F443}"
@@ -468,8 +468,10 @@ function showAlert(){alert("Hello!")};
             DefinitionId="{72756D8D-2F0C-4DA0-83BB-4E496E60F443}"
             ListId="{listid:General Documents}"
             Enabled="true"
-            ItemAddedEvent="true" ItemUpdatedEvent="true" WorkflowStartEvent="true"
-            Name="Sample Workflow" StatusFieldName="SampleWorkflowStatus">
+            EventSourceId="{listid:General Documents}"
+            ItemAddedEvent="true" ItemUpdatedEvent="false" WorkflowStartEvent="true"
+            ManualStartBypassesActivationLimit="false"
+            Name="Sample Workflow" StatusFieldName="SampleWorkflowStatus" ParentContentTypeId="">
             <pnp:PropertyDefinitions>
               <pnp:PropertyDefinition Key="StatusColumnCreated" Value="0" />
               <pnp:PropertyDefinition Key="WSPublishState" Value="1" />
@@ -477,9 +479,9 @@ function showAlert(){alert("Hello!")};
             </pnp:PropertyDefinitions>
           </pnp:WorkflowSubscription>
         </pnp:WorkflowSubscriptions>
-
+        
       </pnp:Workflows>
-
+-->
       <pnp:SearchSettings>
         <SearchConfigurationSettings xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Microsoft.Office.Server.Search.Portability">
           <SearchQueryConfigurationSettings>
