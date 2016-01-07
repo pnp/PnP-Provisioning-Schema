@@ -315,7 +315,7 @@
           <pnp:CustomAction Name="CA_STDMENU_SITECLASSIFICATION" Description="Site Classification Application" Group="SiteActions" Location="Microsoft.SharePoint.StandardMenu" Title="Site Classification" Sequence="1000" Url="https://spmanaged.azurewebsites.net/pages/index.aspx?SPHostUrl={0}" Rights="31" Enabled="true"/>
         </pnp:SiteCustomActions>
         <pnp:WebCustomActions>
-          <pnp:CustomAction Name="CA_SUBSITE_OVERRIDE" Description="Override new sub-site link" Group="SiteTasks" Location="Microsoft.SharePoint.SiteSettings" Title="SubSite Overide" Sequence="1000" Url="https://spmanaged.azurewebsites.net/pages/index.aspx?SPHostUrl={0}" Rights="31" Enabled="true"/>
+          <pnp:CustomAction Name="CA_SUBSITE_OVERRIDE" Description="Override new sub-site link" Group="SiteTasks" Location="Microsoft.SharePoint.SiteSettings" Title="SubSite Overide" Sequence="1000" Url="https://spmanaged.azurewebsites.net/pages/index.aspx?SPHostUrl={0}" Rights="31" Enabled="true" />
         </pnp:WebCustomActions>
       </pnp:CustomActions>
 
