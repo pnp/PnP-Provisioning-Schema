@@ -21,7 +21,7 @@
 
   <pnp:Templates ID="SAMPLE-TEMPLATES">
 
-    <pnp:ProvisioningTemplateFile ID="WORKFLOWSITE" File="ProvisioningSchema-2015-05-ReferenceSample-01.xml" />
+    <pnp:ProvisioningTemplateFile ID="WORKFLOWSITE" File="ProvisioningSchema-2015-12-ReferenceSample-01.xml" />
 
     <pnp:ProvisioningTemplate ID="SPECIALTEAM" Version="1.0"
       ImagePreviewUrl="https://preview.png"
@@ -450,7 +450,7 @@
 
       <pnp:Workflows>
         <pnp:WorkflowDefinitions>
-          <pnp:WorkflowDefinition Id="07fb8ece-44f9-4e8c-a4e9-4538abf94b7b" Description="" DisplayName="Simple Offers Workflow" InitiationUrl="" Published="true" RequiresAssociationForm="false" RequiresInitiationForm="false" RestrictToScope="{listid:Offers}" RestrictToType="List" XamlPath="07fb8ece-44f9-4e8c-a4e9-4538abf94b7b.xaml">
+          <pnp:WorkflowDefinition Id="07fb8ece-44f9-4e8c-a4e9-4538abf94b7b" Description="" DisplayName="Simple Offers Workflow" InitiationUrl="" Published="true" RequiresAssociationForm="false" RequiresInitiationForm="false" RestrictToScope="{listid:Offers}" RestrictToType="List" XamlPath="SampleWorkflow.xaml">
             <pnp:Properties>
               <pnp:Property Key="WSPublishState" Value="3" />
               <pnp:Property Key="RestrictToScope" Value="{listid:Offers}" />

@@ -1,28 +1,11 @@
-﻿<?xml version="1.0"?>
-<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2015/05/ProvisioningSchema">
-  <pnp:Preferences Author="OfficeDev PnP" Generator="Human Being :-)" Version="1.0">
-  </pnp:Preferences>
-  <pnp:Templates>
+<?xml version="1.0"?>
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema">
+  <pnp:Preferences Generator="OfficeDevPnP.Core, Version=2.0.1601.0, Culture=neutral, PublicKeyToken=null" />
+  <pnp:Templates ID="CONTAINER-TAXONOMIESDEMO">
     <pnp:ProvisioningTemplate ID="TAXONOMIESDEMO" Version="1">
       <pnp:SiteFields>
-        <Field Type="Note"
-               DisplayName="Project_0"
-               StaticName="Project_Note"
-               Name="Project_Note"
-               ID="{D7917FD4-5EEF-4307-9EBF-372245389DF9}"
-               ShowInViewForms="FALSE"
-               Required="FALSE"
-               Hidden="TRUE"
-               CanToggleHidden="TRUE" />
-        <Field Type="TaxonomyFieldType"
-               DisplayName="Project"
-               Name="Project"
-               StaticName="Project"
-               ShowField="Term1033"
-               Required="FALSE"
-               EnforceUniqueValues="FALSE"
-               Group="PnP"
-               ID="{21515F04-1C08-4B94-A6ED-630436679ED3}">
+        <Field Type="Note" DisplayName="Project_0" StaticName="Project_Note" Name="Project_Note" ID="{D7917FD4-5EEF-4307-9EBF-372245389DF9}" ShowInViewForms="FALSE" Required="FALSE" Hidden="TRUE" CanToggleHidden="TRUE" />
+        <Field Type="TaxonomyFieldType" DisplayName="Project" Name="Project" StaticName="Project" ShowField="Term1033" Required="FALSE" EnforceUniqueValues="FALSE" Group="PnP" ID="{21515F04-1C08-4B94-A6ED-630436679ED3}">
           <Customization>
             <ArrayOfProperty>
               <Property>
@@ -49,17 +32,15 @@
           </Customization>
         </Field>
       </pnp:SiteFields>
-
       <pnp:ContentTypes>
         <pnp:ContentType ID="0x010100BA1C6566F0EA4F5288CC9E510660F752" Name="ProjectDocument" Description="Project's Document" Group="PnP Group">
           <pnp:FieldRefs>
-            <pnp:FieldRef ID="{21515F04-1C08-4B94-A6ED-630436679ED3}" Name="Project" Required="true" />
+            <pnp:FieldRef ID="21515f04-1c08-4b94-a6ed-630436679ed3" Name="Project" Required="true" />
           </pnp:FieldRefs>
         </pnp:ContentType>
       </pnp:ContentTypes>
-
       <pnp:Lists>
-        <pnp:ListInstance Title="Projects' Documents" Url="ProjectsDocuments" TemplateType="101" Description="Library of Documents related to Projects" ContentTypesEnabled="true" OnQuickLaunch="true" RemoveExistingContentTypes="true">
+        <pnp:ListInstance Title="Projects' Documents" Description="Library of Documents related to Projects" OnQuickLaunch="true" TemplateType="101" Url="ProjectsDocuments" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" RemoveExistingContentTypes="true" ContentTypesEnabled="true">
           <pnp:ContentTypeBindings>
             <pnp:ContentTypeBinding ContentTypeID="0x010100BA1C6566F0EA4F5288CC9E510660F752" />
           </pnp:ContentTypeBindings>
@@ -86,13 +67,24 @@
           </pnp:Views>
         </pnp:ListInstance>
       </pnp:Lists>
-
       <pnp:TermGroups>
-        <pnp:TermGroup ID="{0E8F395E-FF58-4D45-9FF7-E331AB728BEB}" Name="PnpTermSets">
+        <pnp:TermGroup Name="PnpTermSets" ID="0e8f395e-ff58-4d45-9ff7-e331ab728beb">
           <pnp:TermSets>
-            <pnp:TermSet Name="Projects" ID="{5880B01B-5D6F-4606-A492-3B03A2FB4DD7}" Language="1040">
+            <pnp:TermSet Name="Projects" ID="5880b01b-5d6f-4606-a492-3b03a2fb4dd7" Language="1040">
               <pnp:Terms>
-                <pnp:Term Name="IT Projects" ID="{3D212FC2-F176-4621-AED1-128219666D95}" IsAvailableForTagging="false">
+                <pnp:Term Name="IT Projects" ID="3d212fc2-f176-4621-aed1-128219666d95" IsAvailableForTagging="false">
+                  <pnp:Terms>
+                    <pnp:Term Name="Cloud" ID="87c55100-8316-4da0-97fd-feb5731880f6">
+                      <pnp:Labels>
+                        <pnp:Label Language="1040" Value="Nuvola" />
+                      </pnp:Labels>
+                    </pnp:Term>
+                    <pnp:Term Name="New Farm" ID="c422bd0d-681d-448f-a41e-c71c473a95cc">
+                      <pnp:Labels>
+                        <pnp:Label Language="1040" Value="Nuova Farm" />
+                      </pnp:Labels>
+                    </pnp:Term>
+                  </pnp:Terms>
                   <pnp:CustomProperties>
                     <pnp:Property Key="Property1" Value="Value1" />
                     <pnp:Property Key="Property2" Value="Value2" />
@@ -101,29 +93,17 @@
                     <pnp:Property Key="LocalProperty1" Value="Value1" />
                     <pnp:Property Key="LocalProperty2" Value="Value2" />
                   </pnp:LocalCustomProperties>
-                  <pnp:Terms>
-                    <pnp:Term Name="Cloud" ID="{87C55100-8316-4DA0-97FD-FEB5731880F6}">
-                      <pnp:Labels>
-                        <pnp:Label Language="1040" Value="Nuvola"/>
-                      </pnp:Labels>
-                    </pnp:Term>
-                    <pnp:Term Name="New Farm" ID="{C422BD0D-681D-448F-A41E-C71C473A95CC}">
-                      <pnp:Labels>
-                        <pnp:Label Language="1040" Value="Nuova Farm"/>
-                      </pnp:Labels>
-                    </pnp:Term>
-                  </pnp:Terms>
                 </pnp:Term>
-                <pnp:Term Name="HSE Projects" ID="{1F1B9EE8-74EA-4D89-B502-FEAA44340385}" IsAvailableForTagging="false">
+                <pnp:Term Name="HSE Projects" ID="1f1b9ee8-74ea-4d89-b502-feaa44340385" IsAvailableForTagging="false">
                   <pnp:Terms>
-                    <pnp:Term Name="Security Assessment" ID="{3279FE80-95DB-4D35-B235-A9B2F0FB6F9E}">
+                    <pnp:Term Name="Security Assessment" ID="3279fe80-95db-4d35-b235-a9b2f0fb6f9e">
                       <pnp:Labels>
-                        <pnp:Label Language="1040" Value="Valutazione Sicurezza"/>
+                        <pnp:Label Language="1040" Value="Valutazione Sicurezza" />
                       </pnp:Labels>
                     </pnp:Term>
-                    <pnp:Term Name="Safety Program" ID="{FBEA36EA-A750-4A97-9667-5D51A6C895AF}">
+                    <pnp:Term Name="Safety Program" ID="fbea36ea-a750-4a97-9667-5d51a6c895af">
                       <pnp:Labels>
-                        <pnp:Label Language="1040" Value="Programma Sicurezza"/>
+                        <pnp:Label Language="1040" Value="Programma Sicurezza" />
                       </pnp:Labels>
                     </pnp:Term>
                   </pnp:Terms>
@@ -133,7 +113,6 @@
           </pnp:TermSets>
         </pnp:TermGroup>
       </pnp:TermGroups>
-
     </pnp:ProvisioningTemplate>
   </pnp:Templates>
 </pnp:Provisioning>
