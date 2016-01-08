@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xsd:schema targetNamespace="http://schemas.dev.office.com/PnP/2015/08/ProvisioningSchema"
+<xsd:schema targetNamespace="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema"
     elementFormDefault="qualified"
-    xmlns="http://schemas.dev.office.com/PnP/2015/08/ProvisioningSchema"
-    xmlns:pnp="http://schemas.dev.office.com/PnP/2015/08/ProvisioningSchema"
+    xmlns="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema"
+    xmlns:pnp="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
   <!-- The main element -->
@@ -29,6 +29,13 @@
         <xsd:annotation>
           <xsd:documentation>
             The mandatory section of preferences for the current provisioning definition.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Localizations" type="pnp:Localizations" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation>
+            An optional list of localizations files to include.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -123,6 +130,46 @@
     </xsd:attribute>
   </xsd:complexType>
 
+  <xsd:complexType name="Localizations" >
+    <xsd:annotation>
+      <xsd:documentation>
+        An optional list of localizations files to include.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Localization" minOccurs="1" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation>
+            A Localization element
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:attribute name="LCID" type="xsd:int" use="required">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                The Locale ID of a Localization Language, required attribute.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+          <xsd:attribute name="Name" type="xsd:string" use="required">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                The Name of a Localization Language, required attribute.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+          <xsd:attribute name="ResourceFile" type="xsd:string" use="required">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                The path to the .RESX (XML) resource file for the current Localization, required attribute.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
   <xsd:complexType name="Templates">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
@@ -177,6 +224,14 @@
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
             The Site Policy of the Provisioning Template, optional element.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+
+      <xsd:element name="WebSettings" type="pnp:WebSettings" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            Section of Settings for the current Web Site, optional element.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -443,6 +498,88 @@
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="WebSettings">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        Section of Settings for the current Web Site, optional element.
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:attribute name="RequestAccessEmail" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The email address to which any access request will be sent, optinal attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="NoCrawl" type="xsd:boolean" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines whether the site has to be crawled or not, optinal attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="WelcomePage" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines the Welcome Page (Home Page) of the site to which the Provisioning Template is applied, optional attribute.
+          The page does not necessarily need to be in the current template, can be an already existing one.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="Title" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Title of the Site, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="Description" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Description of the Site, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="SiteLogo" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The SiteLogo of the Site, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="AlternateCSS" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The AlternateCSS of the Site, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="MasterPageUrl" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The MasterPage URL of the Site, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="CustomMasterPageUrl" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Custom MasterPage URL of the Site, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
   </xsd:complexType>
 
   <xsd:complexType name="RegionalSettings">
@@ -866,14 +1003,6 @@
       <xsd:element name="Page" type="pnp:Page"
                     minOccurs="1" maxOccurs="unbounded" />
     </xsd:sequence>
-
-    <xsd:attribute name="WelcomePage" type="xsd:string" use="optional">
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          Defines the Welcome Page (Home Page) of the site to which the Provisioning Template is applied, optional attribute.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
 
   </xsd:complexType>
 
@@ -1332,6 +1461,21 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+      <xsd:element name="Folders" minOccurs="0">
+
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            Defines a collection of folders (eventually nested) that will be provisioned into the target list/library, optional element.
+          </xsd:documentation>
+        </xsd:annotation>
+
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Folder" type="pnp:Folder" minOccurs="1" maxOccurs="unbounded" />
+          </xsd:sequence>
+        </xsd:complexType>
+
+      </xsd:element>
       <xsd:element name="FieldDefaults" maxOccurs="1" minOccurs="0">
 
         <xsd:annotation>
@@ -1505,6 +1649,40 @@
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           The EnableFolderCreation flag for the List Instance, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+  </xsd:complexType>
+
+  <xsd:complexType name="Folder">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        Defines a folder that will be provisioned into the target list/library.
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:sequence>
+      <xsd:element name="Folder" type="pnp:Folder" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            A child Folder of another Folder item, optional element.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="Security" type="pnp:ObjectSecurity" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            Defines the security rules for the row that will be added to the List Instance, optional element.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+
+    <xsd:attribute name="Name" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Name of the Folder, required attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -2087,6 +2265,22 @@
       </xsd:annotation>
     </xsd:attribute>
 
+    <xsd:attribute name="RegistrationId" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The RegistrationId of the CustomAction, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="RegistrationType" type="pnp:RegistrationType" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The RegistrationType of the CustomAction, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    
   </xsd:complexType>
 
   <xsd:complexType name="FileProperties">
@@ -2178,6 +2372,19 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+      <xsd:element name="Fields" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            The Fields to setup for the Page, optional collection of elements.
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Field" type="pnp:BaseFieldValue"
+                         minOccurs="1" maxOccurs="unbounded" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
       <xsd:element name="Security" type="pnp:ObjectSecurity" minOccurs="0" maxOccurs="1" />
     </xsd:all>
 
@@ -2214,12 +2421,17 @@
     </xsd:annotation>
 
     <xsd:all>
-      <xsd:element name="Contents" type="xsd:string" minOccurs="1" maxOccurs="1">
+      <xsd:element name="Contents" minOccurs="1" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
             Defines the WebPart XML, required element.
           </xsd:documentation>
         </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:any processContents="lax" namespace="##any" minOccurs="0" />
+          </xsd:sequence>
+        </xsd:complexType>
       </xsd:element>
     </xsd:all>
     <xsd:attribute name="Title" type="xsd:string" use="required">
@@ -2252,12 +2464,19 @@
       </xsd:documentation>
     </xsd:annotation>
     <xsd:all>
-      <xsd:element name="Contents" type="xsd:string" minOccurs="1" maxOccurs="1">
+      <xsd:element name="Contents" minOccurs="1" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
             Defines the WebPart XML, required element.
           </xsd:documentation>
         </xsd:annotation>
+
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:any processContents="lax" namespace="##any" minOccurs="0" />
+          </xsd:sequence>
+        </xsd:complexType>
+
       </xsd:element>
     </xsd:all>
     <xsd:attribute name="Title" type="xsd:string" use="required">
@@ -2318,30 +2537,6 @@
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           The BackgroundFile of the ComposedLook, optional attribute.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-
-    <xsd:attribute name="MasterPage" type="xsd:string" use="optional">
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          The MasterPage of the ComposedLook, required attribute.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-
-    <xsd:attribute name="SiteLogo" type="xsd:string" use="optional">
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          The SiteLogo of the ComposedLook, optional attribute.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-
-    <xsd:attribute name="AlternateCSS" type="xsd:string" use="optional">
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          The AlternateCSS of the ComposedLook, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -2665,6 +2860,7 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+
     </xsd:sequence>
 
   </xsd:complexType>
@@ -3442,6 +3638,34 @@
             </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <xsd:attribute name="IsReused" type="xsd:boolean" use="optional" default="false">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              Declares if this term is reused, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="IsSourceTerm" type="xsd:boolean" use="optional" default="true">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              If the IsReused property is set to false, the current Term is not reused and this property will always be true. If the current Term is reused (IsReused returns true), then this property should be set to true if it is the source Term.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="IsDeprecated" type="xsd:boolean" use="optional" default="false">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              Declares if this term is deprecated, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="SourceTermId" type="pnp:GUID" use="optional">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              The ID of the source term if this term is reused, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -3614,7 +3838,23 @@
       <xsd:enumeration value="ThreeColumns" />
       <xsd:enumeration value="ThreeColumnsHeader" />
       <xsd:enumeration value="ThreeColumnsHeaderFooter" />
+      <xsd:enumeration value="Custom" />
     </xsd:restriction>
   </xsd:simpleType>
 
+  <xsd:simpleType name="RegistrationType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        The Registration Type for Custom Action
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="None" />
+      <xsd:enumeration value="List" />
+      <xsd:enumeration value="ContentType" />
+      <xsd:enumeration value="ProgId" />
+      <xsd:enumeration value="FileType" />
+    </xsd:restriction>
+  </xsd:simpleType>
+  
 </xsd:schema>
