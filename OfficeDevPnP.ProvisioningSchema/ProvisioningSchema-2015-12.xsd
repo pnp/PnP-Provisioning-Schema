@@ -2217,10 +2217,10 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="Rights" type="xsd:int" use="optional">
+    <xsd:attribute name="Rights" type="xsd:string" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The Rights for the CustomAction, based on values from Microsoft.SharePoint.Client.BasePermissions, optional attribute.
+          The Rights for the CustomAction, based on values from Microsoft.SharePoint.Client.PermissionKind, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -2261,6 +2261,22 @@
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           The ScriptSrc of the CustomAction, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="RegistrationId" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The RegistrationId of the CustomAction, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="RegistrationType" type="pnp:RegistrationType" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The RegistrationType of the CustomAction, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -3823,6 +3839,21 @@
       <xsd:enumeration value="ThreeColumnsHeader" />
       <xsd:enumeration value="ThreeColumnsHeaderFooter" />
       <xsd:enumeration value="Custom" />
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="RegistrationType">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        The Registration Type for Custom Action
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="None" />
+      <xsd:enumeration value="List" />
+      <xsd:enumeration value="ContentType" />
+      <xsd:enumeration value="ProgId" />
+      <xsd:enumeration value="FileType" />
     </xsd:restriction>
   </xsd:simpleType>
 
