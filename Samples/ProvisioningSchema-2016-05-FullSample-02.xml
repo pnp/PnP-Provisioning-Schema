@@ -362,7 +362,7 @@
             </pnp:BreakRoleInheritance>
           </pnp:Security>
         </pnp:File>
-        <pnp:File Src="CustomMaster.master" Folder="_catalogs/MasterPage" Overwrite="true" />
+        <pnp:File Src="CustomMaster.master" Folder="_catalogs/MasterPage" Overwrite="true" Level="Published" />
         <pnp:File Src="Custom.spcolor" Folder="_catalogs/Theme/15" Overwrite="true" />
         <pnp:File Src="Custom.spfont" Folder="_catalogs/Theme/15" Overwrite="true" />
 

@@ -2613,6 +2613,14 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
+
+    <xsd:attribute name="Level" type="pnp:FileLevel" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Level status for the File, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
     
   </xsd:complexType>
 
@@ -4197,5 +4205,18 @@
       <xsd:enumeration value="FileType" />
     </xsd:restriction>
   </xsd:simpleType>
-  
+
+  <xsd:simpleType name="FileLevel">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        The File Level for a File element
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Published" />
+      <xsd:enumeration value="Draft" />
+      <xsd:enumeration value="Checkout" />
+    </xsd:restriction>
+  </xsd:simpleType>
+
 </xsd:schema>
