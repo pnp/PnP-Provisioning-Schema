@@ -1706,7 +1706,8 @@ Defines a File element, to describe a file that will be provisioned into the tar
 <pnp:File
       Src="xsd:string"
       Folder="xsd:string"
-      Overwrite="xsd:boolean">
+      Overwrite="xsd:boolean"
+      Level="pnp:FileLevel">
    <pnp:Properties />
    <pnp:WebParts />
    <pnp:Security />
@@ -1731,6 +1732,7 @@ Attibute|Type|Description
 Src|xsd:string|The Src of the File, required attribute.
 Folder|xsd:string|The TargetFolder of the File, required attribute.
 Overwrite|xsd:boolean|The Overwrite flag for the File, optional attribute.
+Level|FileLevel|The Level status for the File, optional attribute.
 <a name="webparts"></a>
 ###WebParts
 The webparts to add to the page, optional collection of elements.
