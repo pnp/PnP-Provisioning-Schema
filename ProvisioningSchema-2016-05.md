@@ -393,8 +393,8 @@ Here follow the available attributes for the WebSettings element.
 
 Attibute|Type|Description
 --------|----|-----------
-RequestAccessEmail|xsd:string|The email address to which any access request will be sent, optinal attribute.
-NoCrawl|xsd:boolean|Defines whether the site has to be crawled or not, optinal attribute.
+RequestAccessEmail|xsd:string|The email address to which any access request will be sent, optional attribute.
+NoCrawl|xsd:boolean|Defines whether the site has to be crawled or not, optional attribute.
 WelcomePage|xsd:string|Defines the Welcome Page (Home Page) of the site to which the Provisioning Template is applied, optional attribute. The page does not necessarily need to be in the current template, can be an already existing one.
 Title|xsd:string|The Title of the Site, optional attribute.
 Description|xsd:string|The Description of the Site, optional attribute.
@@ -430,19 +430,19 @@ Here follow the available attributes for the RegionalSettings element.
 
 Attibute|Type|Description
 --------|----|-----------
-AdjustHijriDays|xsd:int|The number of days to extend or reduce the current month in Hijri calendars, optinal attribute.
-AlternateCalendarType|CalendarType|The Alternate Calendar type that is used on the server, optinal attribute.
-CalendarType|CalendarType|The Calendar Type that is used on the server, optinal attribute.
-Collation|xsd:int|The Collation that is used on the site, optinal attribute.
-FirstDayOfWeek|DayOfWeek|The First Day of the Week used in calendars on the server, optinal attribute.
-FirstWeekOfYear|xsd:int|The First Week of the Year used in calendars on the server, optinal attribute.
-LocaleId|xsd:int|The Locale Identifier in use on the server, optinal attribute.
-ShowWeeks|xsd:boolean|Defines whether to display the week number in day or week views of a calendar, optinal attribute.
-Time24|xsd:boolean|Defines whether to use a 24-hour time format in representing the hours of the day, optinal attribute.
-TimeZone|ReplaceableInt|The Time Zone that is used on the server, optinal attribute.
-WorkDayEndHour|WorkHour|The the default hour at which the work day ends on the calendar that is in use on the server, optinal attribute.
-WorkDays|xsd:int|The work days of Web site calendars, optinal attribute.
-WorkDayStartHour|WorkHour|The the default hour at which the work day starts on the calendar that is in use on the server, optinal attribute.
+AdjustHijriDays|xsd:int|The number of days to extend or reduce the current month in Hijri calendars, optional attribute.
+AlternateCalendarType|CalendarType|The Alternate Calendar type that is used on the server, optional attribute.
+CalendarType|CalendarType|The Calendar Type that is used on the server, optional attribute.
+Collation|xsd:int|The Collation that is used on the site, optional attribute.
+FirstDayOfWeek|DayOfWeek|The First Day of the Week used in calendars on the server, optional attribute.
+FirstWeekOfYear|xsd:int|The First Week of the Year used in calendars on the server, optional attribute.
+LocaleId|xsd:int|The Locale Identifier in use on the server, optional attribute.
+ShowWeeks|xsd:boolean|Defines whether to display the week number in day or week views of a calendar, optional attribute.
+Time24|xsd:boolean|Defines whether to use a 24-hour time format in representing the hours of the day, optional attribute.
+TimeZone|ReplaceableInt|The Time Zone that is used on the server, optional attribute.
+WorkDayEndHour|WorkHour|The the default hour at which the work day ends on the calendar that is in use on the server, optional attribute.
+WorkDays|xsd:int|The work days of Web site calendars, optional attribute.
+WorkDayStartHour|WorkHour|The the default hour at which the work day starts on the calendar that is in use on the server, optional attribute.
 <a name="supporteduilanguages"></a>
 ###SupportedUILanguages
 Defines the Supported UI Languages for a site.
