@@ -1,4 +1,5 @@
-<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2015/08/ProvisioningSchema">
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2016/05/ProvisioningSchema">
+
   <pnp:Preferences Author="John White" Version="1.0" Generator="Human being :-)">
     <pnp:Parameters>
       <pnp:Parameter Key="O365TenantName">contoso</pnp:Parameter>
@@ -8,15 +9,26 @@
       <pnp:Parameter Key="CompanyName">Contoso Inc.</pnp:Parameter>
     </pnp:Parameters>
   </pnp:Preferences>
+
+  <pnp:Localizations>
+    <pnp:Localization LCID="1033" Name="core" ResourceFile="resources-core.en-us.resx" />
+    <pnp:Localization LCID="1040" Name="core" ResourceFile="resources-core.it-it.resx" />
+    <pnp:Localization LCID="1031" Name="core" ResourceFile="resources-core.de-de.resx" />
+    <pnp:Localization LCID="1033" Name="intranet" ResourceFile="resources-intranet.en-us.resx" />
+    <pnp:Localization LCID="1040" Name="intranet" ResourceFile="resources-intranet.it-it.resx" />
+    <pnp:Localization LCID="1031" Name="intranet" ResourceFile="resources-intranet.de-de.resx" />
+  </pnp:Localizations>
+
   <pnp:Templates ID="SAMPLE-TEMPLATES">
 
     <pnp:ProvisioningTemplateFile ID="WORKFLOWSITE" File="ProvisioningSchema-2015-05-ReferenceSample-01.xml" />
 
-    <pnp:ProvisioningTemplate ID="SPECIALTEAM" Version="1.0" 
-      ImagePreviewUrl="https://preview.png" 
-      DisplayName="Special Team Site" 
+    <pnp:ProvisioningTemplate ID="SPECIALTEAM" Version="1.0"
+      BaseSiteTemplate="STS#0"
+      ImagePreviewUrl="https://preview.png"
+      DisplayName="Special Team Site"
       Description="This is a Special Team Site for custom provisioning">
-        
+
       <pnp:Properties>
         <pnp:Property Key="Something" Value="One property" />
         <pnp:Property Key="SomethingElse" Value="Another property ... Who knows ..." />
@@ -24,7 +36,19 @@
 
       <pnp:SitePolicy>HBI</pnp:SitePolicy>
 
-      <pnp:RegionalSettings 
+      <pnp:WebSettings
+        RequestAccessEmail="someone@company.com"
+        NoCrawl="false"
+        WelcomePage="/Pages/Home.aspx"
+        Title="Site Title"
+        Description="Site Description"
+        SiteLogo="{sitecollection}/SiteAssets/Logo.png"
+        AlternateCSS="{sitecollection}/Resources/Themes/Contoso/Contoso.css"
+        MasterPageUrl="{sitecollection}/_catalogs/MasterPage/oslo.master"
+        CustomMasterPageUrl="{sitecollection}/_catalogs/MasterPage/CustomMaster.master"
+        />
+
+      <pnp:RegionalSettings
         AdjustHijriDays="1"
         AlternateCalendarType="Chinese Lunar"
         CalendarType="Hebrew"
@@ -43,7 +67,7 @@
       <pnp:SupportedUILanguages>
         <pnp:SupportedUILanguage LCID="1033"/>
         <pnp:SupportedUILanguage LCID="1040"/>
-        <pnp:SupportedUILanguage LCID="1052"/>
+        <pnp:SupportedUILanguage LCID="1031"/>
       </pnp:SupportedUILanguages>
 
       <pnp:AuditSettings AuditLogTrimmingRetention="50" TrimAuditLog="true">
@@ -52,13 +76,13 @@
         <pnp:Audit AuditFlag="Update" />
         <pnp:Audit AuditFlag="View" />
       </pnp:AuditSettings>
-      
+
       <pnp:PropertyBagEntries>
         <pnp:PropertyBagEntry Key="KEY1" Value ="value1" Overwrite="true" />
         <pnp:PropertyBagEntry Key="KEY2" Value ="value2" />
       </pnp:PropertyBagEntries>
 
-      <pnp:Security>
+      <pnp:Security BreakRoleInheritance="true" CopyRoleAssignments="false">
         <pnp:AdditionalAdministrators>
           <pnp:User Name="user@contoso.com"/>
           <pnp:User Name="U_SHAREPOINT_ADMINS"/>
@@ -84,7 +108,7 @@
               <pnp:User Name="user1@contoso.com" />
               <pnp:User Name="user2@contoso.com" />
               <pnp:User Name="user3@contoso.com" />
-            </pnp:Members>            
+            </pnp:Members>
           </pnp:SiteGroup>
         </pnp:SiteGroups>
         <pnp:Permissions>
@@ -106,11 +130,29 @@
         </pnp:Permissions>
       </pnp:Security>
 
+      <pnp:Navigation>
+        <pnp:GlobalNavigation NavigationType="Managed">
+          <pnp:ManagedNavigation
+            TermStoreId="{sitecollectiontermstoreid}"
+            TermSetId="{sitecollectionnavigationtermsetid}" />
+        </pnp:GlobalNavigation>
+        <pnp:CurrentNavigation NavigationType="Structural">
+          <pnp:StructuralNavigation RemoveExistingNodes="true">
+            <pnp:NavigationNode Title="Home" IsExternal="false" Url="Default.aspx" />
+            <pnp:NavigationNode Title="Libraries">
+              <pnp:NavigationNode Title="Invoices" IsExternal="false" Url="Invoices/Forms/AllItems.aspx" />
+              <pnp:NavigationNode Title="Offers" IsExternal="false" Url="Offers/Forms/AllItems.aspx" />
+            </pnp:NavigationNode>
+            <pnp:NavigationNode Title="Privacy" IsExternal="true" Url="http://www.company.com/privacy/" />
+          </pnp:StructuralNavigation>
+        </pnp:CurrentNavigation>
+      </pnp:Navigation>
+
       <pnp:SiteFields>
-        <Field ID="{23203E97-3BFE-40CB-AFB4-07AA2B86BF45}" Type="Text" Name="ProjectID" DisplayName="Project ID" Group="Base.Foundation.Columns" MaxLength="255" AllowDeletion="TRUE" />
-        <Field ID="{B01B3DBC-4630-4ED1-B5BA-321BC7841E3D}" Type="Text" Name="ProjectName" DisplayName="Project Name" Group="Base.Foundation.Columns" MaxLength="255" AllowDeletion="TRUE" />
-        <Field ID="{A5DE9600-B7A6-42DD-A05E-10D4F1500208}" Type="Text" Name="ProjectManager" DisplayName="Project Manager" Group="Base.Foundation.Columns"  MaxLength="255" AllowDeletion="TRUE" />
-        <Field ID="{F1A1715E-6C52-40DE-8403-E9AAFD0470D0}" Type="Text" Name="DocumentDescription" DisplayName="Document Description" Group="Base.Foundation.Columns" MaxLength="255" AllowDeletion="TRUE" />
+        <Field ID="{23203E97-3BFE-40CB-AFB4-07AA2B86BF45}" Type="Text" Name="ProjectID" DisplayName="{localization:intranet:ProjectID}" Group="Base.Foundation.Columns" MaxLength="255" AllowDeletion="TRUE" />
+        <Field ID="{B01B3DBC-4630-4ED1-B5BA-321BC7841E3D}" Type="Text" Name="ProjectName" DisplayName="{localization:intranet:ProjectName}" Group="Base.Foundation.Columns" MaxLength="255" AllowDeletion="TRUE" />
+        <Field ID="{A5DE9600-B7A6-42DD-A05E-10D4F1500208}" Type="Text" Name="ProjectManager" DisplayName="{localization:intranet:ProjectManager}" Group="Base.Foundation.Columns"  MaxLength="255" AllowDeletion="TRUE" />
+        <Field ID="{F1A1715E-6C52-40DE-8403-E9AAFD0470D0}" Type="Text" Name="DocumentDescription" DisplayName="{localization:core:Description}" Group="Base.Foundation.Columns" MaxLength="255" AllowDeletion="TRUE" />
       </pnp:SiteFields>
 
       <pnp:ContentTypes>
@@ -152,8 +194,8 @@
               <pnp:DefaultDocument Name="ProjectMainDocument.docx"
                                    ContentTypeID="0x01005D4F34E4BE7F4B6892AEBE088EDD215E"
                                    FileSourcePath="./ProjectDocumentSet/ProjectMainDocument.docx"/>
-              <pnp:DefaultDocument Name="Requirements.docx" 
-                                   ContentTypeID="0x0101" 
+              <pnp:DefaultDocument Name="Requirements.docx"
+                                   ContentTypeID="0x0101"
                                    FileSourcePath="./ProjectDocumentSet/Requirements.docx"/>
               <pnp:DefaultDocument Name="Tests/TestModel.docx"
                                    ContentTypeID="0x0101"
@@ -185,9 +227,11 @@
                     TemplateType="101"
                     Url="Lists/Projects"
                     EnableVersioning="true"
+                    ForceCheckout="true"
                     RemoveExistingContentTypes="false">
           <pnp:ContentTypeBindings>
             <pnp:ContentTypeBinding ContentTypeID="0x01005D4F34E4BE7F4B6892AEBE088EDD215E" Default="true"/>
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" Remove="true"/>
           </pnp:ContentTypeBindings>
           <pnp:DataRows>
             <pnp:DataRow>
@@ -204,7 +248,7 @@
               </pnp:Security>
             </pnp:DataRow>
             <pnp:DataRow>
-              <pnp:DataValue FieldName="ProjectID">PRJ02</pnp:DataValue>
+              <pnp:DataValue FieldName="ProjectID">PRJ021</pnp:DataValue>
               <pnp:DataValue FieldName="ProjectName">Sample Project 02</pnp:DataValue>
               <pnp:DataValue FieldName="ProjectManager">You</pnp:DataValue>
               <pnp:DataValue FieldName="ProjectDescription">This is another sample Project</pnp:DataValue>
@@ -228,6 +272,47 @@
               <pnp:RoleAssignment Principal="Guests" RoleDefinition="View Only"/>
             </pnp:BreakRoleInheritance>
           </pnp:Security>
+          <pnp:Folders>
+            <pnp:Folder Name="SubFolder-01">
+              <pnp:Folder Name="SubFolder-01-01">
+                <pnp:Folder Name="SubFolder-01-01-01"/>
+              </pnp:Folder>
+              <pnp:Security>
+                <pnp:BreakRoleInheritance CopyRoleAssignments="false" ClearSubscopes="true">
+                  <pnp:RoleAssignment Principal="user3@contoso.com" RoleDefinition="Full Control"/>
+                  <pnp:RoleAssignment Principal="user2@contoso.com" RoleDefinition="Edit"/>
+                  <pnp:RoleAssignment Principal="user1@contoso.com" RoleDefinition="View Only"/>
+                </pnp:BreakRoleInheritance>
+              </pnp:Security>
+            </pnp:Folder>
+            <pnp:Folder Name="SubFolder-02">
+              <pnp:Folder Name="SubFolder-02-01">
+                <pnp:Folder Name="SubFolder-02-01-01">
+                  <pnp:Security>
+                    <pnp:BreakRoleInheritance CopyRoleAssignments="false" ClearSubscopes="true">
+                      <pnp:RoleAssignment Principal="user3@contoso.com" RoleDefinition="Full Control"/>
+                      <pnp:RoleAssignment Principal="user2@contoso.com" RoleDefinition="Edit"/>
+                      <pnp:RoleAssignment Principal="user1@contoso.com" RoleDefinition="View Only"/>
+                    </pnp:BreakRoleInheritance>
+                  </pnp:Security>
+                </pnp:Folder>
+              </pnp:Folder>
+            </pnp:Folder>
+            <pnp:Folder Name="SubFolder-03" />
+          </pnp:Folders>
+          <pnp:UserCustomActions>
+            <pnp:CustomAction
+              Name="CA_LIST_ECB_ITEM"
+              Description="Custom Action for ECB in List"
+              RegistrationType="ContentType"
+              RegistrationId="0x01005D4F34E4BE7F4B6892AEBE088EDD215E"
+              Location="EditControlBlock"
+              Sequence="1000"
+              Rights="EditListItems,AddListItems,DeleteListItems"
+              Title="Sample Custom Action"
+              Url="https://spmanaged.azurewebsites.net/customAction/?ItemUrl={ItemUrl}&amp;ItemId={ItemId}&amp;ListId={ListId}&amp;SiteUrl={SiteUrl}"
+              Enabled="true" />
+          </pnp:UserCustomActions>
         </pnp:ListInstance>
         <pnp:ListInstance Title="General Documents"
                      Description="Project Documents are stored here"
@@ -277,15 +362,24 @@
             </pnp:BreakRoleInheritance>
           </pnp:Security>
         </pnp:File>
-        <pnp:File Src="CustomMaster.master" Folder="_catalogs/MasterPage" Overwrite="true" />
+        <pnp:File Src="CustomMaster.master" Folder="_catalogs/MasterPage" Overwrite="true" Level="Published" />
         <pnp:File Src="Custom.spcolor" Folder="_catalogs/Theme/15" Overwrite="true" />
         <pnp:File Src="Custom.spfont" Folder="_catalogs/Theme/15" Overwrite="true" />
 
         <!-- This is the custom WelcomePage for the ProjectDocumentSet ContentType -->
-        <pnp:File Src="ProjectHomePage.aspx" Folder="_cts/ProjectDocumentSet/" Overwrite="true" />      
+        <pnp:File Src="ProjectHomePage.aspx" Folder="_cts/ProjectDocumentSet/" Overwrite="true" />
+
+        <pnp:Directory Src="c:\LocalPath\StyleLibrary" Folder="Style%20Library" Overwrite="true"
+            Recursive="true" IncludedExtensions="*.css,*.js,*.woff" ExcludedExtensions="*.xml,*.json" />
+        <pnp:Directory Src=".\Invoices" Folder="Invoices" Overwrite="true"
+                    Recursive="false" MetadataMappingFile=".\InvoicesMetadata.json" />
+        <pnp:Directory Src="c:\LocalPath\Pages" Folder="{PagesLibrary}"
+                    Overwrite="true" Recursive="true"
+                    MetadataMappingFile="c:\LocalPath\PagesMetadata.json" />
+
       </pnp:Files>
 
-      <pnp:Pages WelcomePage="/Pages/Home.aspx">
+      <pnp:Pages>
         <pnp:Page Layout="TwoColumns" Overwrite="true" Url="{site}/SitePages/DemoWikiPage.aspx"></pnp:Page>
         <pnp:Page Layout="OneColumn" Overwrite="true" Url="{site}/SitePages/OneColumnPage.aspx">
           <pnp:Security>
@@ -294,6 +388,54 @@
               <pnp:RoleAssignment Principal="Guests" RoleDefinition="View Only"/>
             </pnp:BreakRoleInheritance>
           </pnp:Security>
+        </pnp:Page>
+        <pnp:Page Layout="Custom" Overwrite="true" Url="{site}/SitePages/AnotherWikiPage.aspx">
+          <pnp:Fields>
+            <pnp:Field FieldName="WikiField">
+              <![CDATA[
+              The Wiki page HTML code here!
+              ]]>
+            </pnp:Field>
+          </pnp:Fields>
+          <pnp:WebParts>
+            <pnp:WebPart Column="1" Row="1" Title="Script Editor">
+              <pnp:Contents>
+                <webParts>
+                  <webPart xmlns="http://schemas.microsoft.com/WebPart/v3"><metaData><type name="Microsoft.SharePoint.WebPartPages.ScriptEditorWebPart, Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" /><importErrorMessage>Cannot import this Web Part.</importErrorMessage></metaData>
+                    <data>
+                      <properties>
+                        <property name="ExportMode" type="exportmode">All</property>
+                        <property name="HelpUrl" type="string" />
+                        <property name="Hidden" type="bool">False</property>
+                        <property name="Description" type="string">Allows authors to insert HTML snippets or scripts.</property>
+                        <property name="Content" type="string"><![CDATA[
+                          <script type="text/javascript">
+                          function showAlert(){alert("Hello!")};
+                          </script><input type="button" onclick="showAlert();" value="Click me">]]>
+                        </property>
+                        <property name="CatalogIconImageUrl" type="string" />
+                        <property name="Title" type="string">Script Editor</property>
+                        <property name="AllowHide" type="bool">True</property>
+                        <property name="AllowMinimize" type="bool">True</property>
+                        <property name="AllowZoneChange" type="bool">True</property>
+                        <property name="TitleUrl" type="string" />
+                        <property name="ChromeType" type="chrometype">None</property>
+                        <property name="AllowConnect" type="bool">True</property>
+                        <property name="Width" type="unit" />
+                        <property name="Height" type="unit" />
+                        <property name="HelpMode" type="helpmode">Navigate</property>
+                        <property name="AllowEdit" type="bool">True</property>
+                        <property name="TitleIconImageUrl" type="string" />
+                        <property name="Direction" type="direction">NotSet</property>
+                        <property name="AllowClose" type="bool">True</property>
+                        <property name="ChromeState" type="chromestate">Normal</property>
+                      </properties>
+                    </data>
+                  </webPart>
+                </webParts>
+              </pnp:Contents>
+            </pnp:WebPart>
+          </pnp:WebParts>
         </pnp:Page>
       </pnp:Pages>
 
@@ -317,7 +459,7 @@
                         <pnp:Label Language="1040" Value="Nuvola"/>
                       </pnp:Labels>
                     </pnp:Term>
-                    <pnp:Term Name="New Farm" ID="{C422BD0D-681D-448F-A41E-C71C473A95CC}">
+                    <pnp:Term Name="New Farm" ID="{C422BD0D-681D-448F-A41E-C71C473A95CC}" IsDeprecated="true">
                       <pnp:Labels>
                         <pnp:Label Language="1040" Value="Nuova Farm"/>
                       </pnp:Labels>
@@ -346,12 +488,10 @@
 
       <pnp:ComposedLook Name="Custom Look" Version="1"
         BackgroundFile="{sitecollection}/Resources/Themes/Contoso/contosobg.jpg"
-        AlternateCSS="{sitecollection}/Resources/Themes/Contoso/Contoso.css"
-        MasterPage="{sitecollection}/_catalogs/MasterPage/CustomMaster.master"
         ColorFile="{sitecollection}/_catalogs/Theme/15/Custom.spcolor"
-        FontFile="{sitecollection}/_catalogs/Theme/15/Custom.spfont"
-        SiteLogo="{sitecollection}/SiteAssets/Logo.png" />
+        FontFile="{sitecollection}/_catalogs/Theme/15/Custom.spfont"/>
 
+<!--
       <pnp:Workflows>
         <pnp:WorkflowDefinitions>
           <pnp:WorkflowDefinition Id="{72756D8D-2F0C-4DA0-83BB-4E496E60F443}"
@@ -368,74 +508,78 @@
               XamlPath="SampleWorkflow.xaml">
             <pnp:FormField />
           </pnp:WorkflowDefinition>
-                                  
+
         </pnp:WorkflowDefinitions>
-      
+
         <pnp:WorkflowSubscriptions>
-          <pnp:WorkflowSubscription 
+          <pnp:WorkflowSubscription
             DefinitionId="{72756D8D-2F0C-4DA0-83BB-4E496E60F443}"
             ListId="{listid:General Documents}"
-            Enabled="true" 
-            ItemAddedEvent="true" ItemUpdatedEvent="true" WorkflowStartEvent="true"
-            Name="Sample Workflow" StatusFieldName="SampleWorkflowStatus">
+            Enabled="true"
+            EventSourceId="{listid:General Documents}"
+            ItemAddedEvent="true" ItemUpdatedEvent="false" WorkflowStartEvent="true"
+            ManualStartBypassesActivationLimit="false"
+            Name="Sample Workflow" StatusFieldName="SampleWorkflowStatus" ParentContentTypeId="">
             <pnp:PropertyDefinitions>
               <pnp:PropertyDefinition Key="StatusColumnCreated" Value="0" />
               <pnp:PropertyDefinition Key="WSPublishState" Value="1" />
               <pnp:PropertyDefinition Key="StatusFieldName" Value="SampleWorkflowStatus" />
             </pnp:PropertyDefinitions>
-          </pnp:WorkflowSubscription>          
+          </pnp:WorkflowSubscription>
         </pnp:WorkflowSubscriptions>
-
+        
       </pnp:Workflows>
-
+-->
       <pnp:SearchSettings>
-        <SearchConfigurationSettings xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Microsoft.Office.Server.Search.Portability">
-          <SearchQueryConfigurationSettings>
+        <pnp:SiteSearchSettings>
+          <SearchConfigurationSettings xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/Microsoft.Office.Server.Search.Portability">
             <SearchQueryConfigurationSettings>
-              <BestBets xmlns:d4p1="http://www.microsoft.com/sharepoint/search/KnownTypes/2008/08" />
-              <DefaultSourceId>00000000-0000-0000-0000-000000000000</DefaultSourceId>
-              <DefaultSourceIdSet>true</DefaultSourceIdSet>
-              <DeployToParent>false</DeployToParent>
-              <DisableInheritanceOnImport>false</DisableInheritanceOnImport>
-              <QueryRuleGroups xmlns:d4p1="http://www.microsoft.com/sharepoint/search/KnownTypes/2008/08" />
-              <QueryRules xmlns:d4p1="http://www.microsoft.com/sharepoint/search/KnownTypes/2008/08" />
-              <ResultTypes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Microsoft.Office.Server.Search.Administration" />
-              <Sources xmlns:d4p1="http://schemas.datacontract.org/2004/07/Microsoft.Office.Server.Search.Administration.Query" />
-              <UserSegments xmlns:d4p1="http://www.microsoft.com/sharepoint/search/KnownTypes/2008/08" />
+              <SearchQueryConfigurationSettings>
+                <BestBets xmlns:d4p1="http://www.microsoft.com/sharepoint/search/KnownTypes/2008/08" />
+                <DefaultSourceId>00000000-0000-0000-0000-000000000000</DefaultSourceId>
+                <DefaultSourceIdSet>true</DefaultSourceIdSet>
+                <DeployToParent>false</DeployToParent>
+                <DisableInheritanceOnImport>false</DisableInheritanceOnImport>
+                <QueryRuleGroups xmlns:d4p1="http://www.microsoft.com/sharepoint/search/KnownTypes/2008/08" />
+                <QueryRules xmlns:d4p1="http://www.microsoft.com/sharepoint/search/KnownTypes/2008/08" />
+                <ResultTypes xmlns:d4p1="http://schemas.datacontract.org/2004/07/Microsoft.Office.Server.Search.Administration" />
+                <Sources xmlns:d4p1="http://schemas.datacontract.org/2004/07/Microsoft.Office.Server.Search.Administration.Query" />
+                <UserSegments xmlns:d4p1="http://www.microsoft.com/sharepoint/search/KnownTypes/2008/08" />
+              </SearchQueryConfigurationSettings>
             </SearchQueryConfigurationSettings>
-          </SearchQueryConfigurationSettings>
-          <SearchRankingModelConfigurationSettings>
-            <RankingModels xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-          </SearchRankingModelConfigurationSettings>
-          <SearchSchemaConfigurationSettings>
-            <Aliases xmlns:d3p1="http://schemas.datacontract.org/2004/07/Microsoft.Office.Server.Search.Administration">
-              <d3p1:LastItemName i:nil="true" />
-              <d3p1:dictionary xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-            </Aliases>
-            <CategoriesAndCrawledProperties xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-            <CrawledProperties xmlns:d3p1="http://schemas.datacontract.org/2004/07/Microsoft.Office.Server.Search.Administration" i:nil="true" />
-            <ManagedProperties xmlns:d3p1="http://schemas.datacontract.org/2004/07/Microsoft.Office.Server.Search.Administration">
-              <d3p1:LastItemName i:nil="true" />
-              <d3p1:dictionary xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-              <d3p1:TotalCount>0</d3p1:TotalCount>
-            </ManagedProperties>
-            <Mappings xmlns:d3p1="http://schemas.datacontract.org/2004/07/Microsoft.Office.Server.Search.Administration">
-              <d3p1:LastItemName i:nil="true" />
-              <d3p1:dictionary xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-            </Mappings>
-            <Overrides xmlns:d3p1="http://schemas.datacontract.org/2004/07/Microsoft.Office.Server.Search.Administration">
-              <d3p1:LastItemName i:nil="true" />
-              <d3p1:dictionary xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-            </Overrides>
-          </SearchSchemaConfigurationSettings>
-        </SearchConfigurationSettings>
+            <SearchRankingModelConfigurationSettings>
+              <RankingModels xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+            </SearchRankingModelConfigurationSettings>
+            <SearchSchemaConfigurationSettings>
+              <Aliases xmlns:d3p1="http://schemas.datacontract.org/2004/07/Microsoft.Office.Server.Search.Administration">
+                <d3p1:LastItemName i:nil="true" />
+                <d3p1:dictionary xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+              </Aliases>
+              <CategoriesAndCrawledProperties xmlns:d3p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+              <CrawledProperties xmlns:d3p1="http://schemas.datacontract.org/2004/07/Microsoft.Office.Server.Search.Administration" i:nil="true" />
+              <ManagedProperties xmlns:d3p1="http://schemas.datacontract.org/2004/07/Microsoft.Office.Server.Search.Administration">
+                <d3p1:LastItemName i:nil="true" />
+                <d3p1:dictionary xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+                <d3p1:TotalCount>0</d3p1:TotalCount>
+              </ManagedProperties>
+              <Mappings xmlns:d3p1="http://schemas.datacontract.org/2004/07/Microsoft.Office.Server.Search.Administration">
+                <d3p1:LastItemName i:nil="true" />
+                <d3p1:dictionary xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+              </Mappings>
+              <Overrides xmlns:d3p1="http://schemas.datacontract.org/2004/07/Microsoft.Office.Server.Search.Administration">
+                <d3p1:LastItemName i:nil="true" />
+                <d3p1:dictionary xmlns:d4p1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+              </Overrides>
+            </SearchSchemaConfigurationSettings>
+          </SearchConfigurationSettings>
+        </pnp:SiteSearchSettings>
       </pnp:SearchSettings>
 
       <pnp:Publishing AutoCheckRequirements="MakeCompliant">
-        <pnp:DesignPackage DesignPackagePath="CustomDesign.wsp" 
-                           MajorVersion="1" 
-                           MinorVersion="0" 
-                           PackageGuid="{A3349210-5283-44A5-A23F-00F489EB690B}" 
+        <pnp:DesignPackage DesignPackagePath="CustomDesign.wsp"
+                           MajorVersion="1"
+                           MinorVersion="0"
+                           PackageGuid="{A3349210-5283-44A5-A23F-00F489EB690B}"
                            PackageName="Custom Design"/>
         <pnp:AvailableWebTemplates>
           <pnp:WebTemplate LanguageCode="1033" TemplateName="STS#0" />
@@ -451,7 +595,7 @@
       <pnp:AddIns>
         <pnp:Addin PackagePath="CustomSharePointAddin.app" Source="ObjectModel" />
       </pnp:AddIns>
-      
+
       <pnp:Providers>
         <pnp:Provider HandlerType="OfficeDev.PnP.Provisioning.Providers.FakeProvider, OfficeDev.PnP.Provisioning.Providers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" Enabled="true">
           <pnp:Configuration>
@@ -475,11 +619,12 @@
 
     <!-- Let's create a Site Collection -->
     <pnp:SiteCollection Language="1040"
+                        SiteTemplate="STS#0"
                         PrimarySiteCollectionAdmin="john@contoso.com"
                         MembersCanShare="true"
                         TimeZone="1"
                         Title="{parameter:CompanyName} Intranet"
-                        Url="https://{parameter:O365TenantName}.sharepoint.com/sites/Intranet">
+                        Url="https://{O365TenantName}.sharepoint.com/sites/Intranet">
       <pnp:Templates>
         <!-- And let's use the SPECIALTEAM SharePointProvisioningTemplate -->
         <pnp:ProvisioningTemplateReference ID="SPECIALTEAM" />
@@ -488,6 +633,7 @@
 
     <!-- Now create a Site into the previously created Site Collection -->
     <pnp:Site Language="1040"
+              SiteTemplate="STS#0"
               QuickLaunchEnabled="true"
               TimeZone="1"
               Title="{parameter:CompanyName} Intranet Workflows"

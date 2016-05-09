@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xsd:schema targetNamespace="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema"
+<xsd:schema targetNamespace="http://schemas.dev.office.com/PnP/2016/05/ProvisioningSchema"
     elementFormDefault="qualified"
-    xmlns="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema"
-    xmlns:pnp="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema"
+    xmlns="http://schemas.dev.office.com/PnP/2016/05/ProvisioningSchema"
+    xmlns:pnp="http://schemas.dev.office.com/PnP/2016/05/ProvisioningSchema"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
   <!-- The main element -->
@@ -276,6 +276,14 @@
         </xsd:annotation>
       </xsd:element>
 
+      <xsd:element name="Navigation" type="pnp:Navigation" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            The Navigation configurations of the Provisioning Template, optional collection of elements.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+
       <xsd:element name="SiteFields" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
@@ -344,6 +352,8 @@
           <xsd:sequence>
             <xsd:element name="File" type="pnp:File"
                           minOccurs="1" maxOccurs="unbounded" />
+            <xsd:element name="Directory" type="pnp:Directory"
+                          minOccurs="0" maxOccurs="unbounded" />
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -400,7 +410,30 @@
 
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:any minOccurs="0" maxOccurs="1" processContents="skip"  />
+            <xsd:element name="SiteSearchSettings" minOccurs="0">
+              <xsd:annotation>
+                <xsd:documentation xml:lang="en">
+                  The Search Settings for the Site Collection, optional element.
+                </xsd:documentation>
+              </xsd:annotation>
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:any minOccurs="0" maxOccurs="1" processContents="skip"  />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="WebSearchSettings" minOccurs="0">
+              <xsd:annotation>
+                <xsd:documentation xml:lang="en">
+                  The Search Settings for the Site, optional element.
+                </xsd:documentation>
+              </xsd:annotation>
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:any minOccurs="0" maxOccurs="1" processContents="skip"  />
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
           </xsd:sequence>
         </xsd:complexType>
 
@@ -456,6 +489,14 @@
       </xsd:annotation>
     </xsd:attribute>
 
+    <xsd:attribute name="BaseSiteTemplate" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Base SiteTemplate of the Provisioning Template, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
     <xsd:attribute name="ImagePreviewUrl" type="xsd:string" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
@@ -479,7 +520,6 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-
 
   </xsd:complexType>
 
@@ -943,8 +983,201 @@
         </xsd:complexType>
       </xsd:element>
     </xsd:sequence>
+    <xsd:attribute name="BreakRoleInheritance" type="xsd:boolean" use="optional" default="false">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Declares whether the to break role inheritance for the site, if it is a sub-site, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="CopyRoleAssignments" type="xsd:boolean" use="optional" default="false">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines whether to copy role assignments or not while breaking role inheritance, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
 
+  <xsd:complexType name="Navigation">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        The Navigation configurations of the Provisioning Template, optional collection of elements.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="GlobalNavigation" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            The Global Navigation settings for the Provisioning Template, optional element.
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="StructuralNavigation" type="pnp:StructuralNavigation" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="ManagedNavigation" type="pnp:ManagedNavigation" minOccurs="0" maxOccurs="1" />
+          </xsd:sequence>
+          <xsd:attribute name="NavigationType" use="optional" default="Inherit">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                Defines the type of Global Navigation, required attribute.
+              </xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:enumeration value="Inherit">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      The site inherits the Global Navigation settings from its parent.
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Structural">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      The site uses Structural Global Navigation.
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Managed">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      The site uses Managed Global Navigation.
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:enumeration>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:attribute>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CurrentNavigation" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            The Current Navigation settings for the Provisioning Template, optional element.
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="StructuralNavigation" type="pnp:StructuralNavigation" minOccurs="0" maxOccurs="1" />
+            <xsd:element name="ManagedNavigation" type="pnp:ManagedNavigation" minOccurs="0" maxOccurs="1" />
+          </xsd:sequence>
+          <xsd:attribute name="NavigationType" use="optional" default="Inherit">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                Defines the type of Current Navigation, required attribute.
+              </xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:enumeration value="Inherit">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      The site inherits the Current Navigation settings from its parent.
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Structural">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      The site uses Structural Current Navigation.
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="StructuralLocal">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      The site uses Structural Local Current Navigation.
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="Managed">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      The site uses Managed Current Navigation.
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:enumeration>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:attribute>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="ManagedNavigation">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        Defines the Managed Navigation settings of a site, optional element.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="TermStoreId" type="pnp:ReplaceableString" use="required">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines the TermStore ID for the Managed Navigation, required attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="TermSetId" type="pnp:ReplaceableString" use="required">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines the TermSet ID for the Managed Navigation, required attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+
+  <xsd:complexType name="StructuralNavigation">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        Defines the Structural Navigation settings of a site.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="NavigationNode" type="pnp:NavigationNode" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+    <xsd:attribute name="RemoveExistingNodes" type="xsd:boolean" use="required">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines whether to remove existing nodes before creating those described through this element, required attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+
+  <xsd:complexType name="NavigationNode">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        Defines a Navigation Node for the Structural Navigation of a site.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="NavigationNode" type="pnp:NavigationNode" minOccurs="0" maxOccurs="unbounded" />
+    </xsd:sequence>
+    <xsd:attribute name="Title" type="pnp:ReplaceableString" use="required">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines the Title of a Navigation Node for the Structural Navigation of a site.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="Url" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines the Url of a Navigation Node for the Structural Navigation of a site.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="IsExternal" type="xsd:boolean" use="optional" default="false">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines whether the Navigation Node for the Structural Navigation targets an External resource.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+  
   <xsd:complexType name="Features">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
@@ -1503,6 +1736,13 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="UserCustomActions" type="pnp:CustomActionsList" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            Defines any Custom Action for the List Instance, optional element.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
     </xsd:all>
 
     <xsd:attribute name="Title" type="xsd:string" use="required">
@@ -1550,6 +1790,14 @@
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           The Url of the List Instance, required attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="ForceCheckout" type="xsd:boolean" use="optional" default="false">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The ForceCheckout flag for the List Instance, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -1884,6 +2132,14 @@
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Declares if the Content Type should be the default Content Type in the list or library, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="Remove" type="xsd:boolean" use="optional" default="false">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Declares if the Content Type should be Removed from the list or library, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -2241,6 +2497,14 @@
       </xsd:annotation>
     </xsd:attribute>
 
+    <xsd:attribute name="Remove" type="xsd:boolean" use="optional" default="false">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          To Remove a CustomAction, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
     <xsd:attribute name="ScriptBlock" type="xsd:string" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
@@ -2349,6 +2613,84 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
+
+    <xsd:attribute name="Level" type="pnp:FileLevel" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Level status for the File, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    
+  </xsd:complexType>
+
+  <xsd:complexType name="Directory">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        Defines a Directory element, to describe a folder in the current repository that will be used to upload files into the target Site.
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:all>
+      <xsd:element name="Security" type="pnp:ObjectSecurity" minOccurs="0" maxOccurs="1" />
+    </xsd:all>
+
+    <xsd:attribute name="Src" type="pnp:ReplaceableString" use="required">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Src of the Directory, required attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="Folder" type="pnp:ReplaceableString" use="required">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The TargetFolder of the Directory, required attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="Overwrite" type="xsd:boolean" use="optional" default="false">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Overwrite flag for the File items in the Directory, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="Recursive" type="xsd:boolean" use="optional" default="false">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines whether to recursively browse through all the child folders of the Directory, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="IncludedExtensions" type="xsd:string" use="optional" default="*.*">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The file Extensions to include while uploading the Directory, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="ExcludedExtensions" type="xsd:string" use="optional" default="">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The file Extensions to exclude while uploading the Directory, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="MetadataMappingFile" type="pnp:ReplaceableString" use="optional" default="">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The file path of JSON mapping file with metadata for files to upload in the Directory, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
   </xsd:complexType>
 
   <xsd:complexType name="Page">
@@ -3350,6 +3692,13 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
+    <xsd:attribute name="SiteTemplate" type="xsd:string"  use="required">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          SiteTemplate of the site, required attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
     <xsd:attribute name="CustomJSUrl" type="pnp:ReplaceableString" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
@@ -3854,6 +4203,19 @@
       <xsd:enumeration value="ContentType" />
       <xsd:enumeration value="ProgId" />
       <xsd:enumeration value="FileType" />
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="FileLevel">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        The File Level for a File element
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Published" />
+      <xsd:enumeration value="Draft" />
+      <xsd:enumeration value="Checkout" />
     </xsd:restriction>
   </xsd:simpleType>
 
