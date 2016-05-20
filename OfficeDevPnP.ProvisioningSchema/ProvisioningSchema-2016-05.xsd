@@ -550,7 +550,7 @@
     <xsd:attribute name="RequestAccessEmail" type="xsd:string" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The email address to which any access request will be sent, optinal attribute.
+          The email address to which any access request will be sent, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -558,7 +558,7 @@
     <xsd:attribute name="NoCrawl" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          Defines whether the site has to be crawled or not, optinal attribute.
+          Defines whether the site has to be crawled or not, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -632,7 +632,7 @@
     <xsd:attribute name="AdjustHijriDays" type="xsd:int" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The number of days to extend or reduce the current month in Hijri calendars, optinal attribute.
+          The number of days to extend or reduce the current month in Hijri calendars, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -640,7 +640,7 @@
     <xsd:attribute name="AlternateCalendarType" type="pnp:CalendarType" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The Alternate Calendar type that is used on the server, optinal attribute.
+          The Alternate Calendar type that is used on the server, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -648,7 +648,7 @@
     <xsd:attribute name="CalendarType" type="pnp:CalendarType" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The Calendar Type that is used on the server, optinal attribute.
+          The Calendar Type that is used on the server, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -656,7 +656,7 @@
     <xsd:attribute name="Collation" type="xsd:int" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The Collation that is used on the site, optinal attribute.
+          The Collation that is used on the site, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -664,7 +664,7 @@
     <xsd:attribute name="FirstDayOfWeek" type="pnp:DayOfWeek" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The First Day of the Week used in calendars on the server, optinal attribute.
+          The First Day of the Week used in calendars on the server, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -672,7 +672,7 @@
     <xsd:attribute name="FirstWeekOfYear" type="xsd:int" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The First Week of the Year used in calendars on the server, optinal attribute.
+          The First Week of the Year used in calendars on the server, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -680,7 +680,7 @@
     <xsd:attribute name="LocaleId" type="xsd:int" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The Locale Identifier in use on the server, optinal attribute.
+          The Locale Identifier in use on the server, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -688,7 +688,7 @@
     <xsd:attribute name="ShowWeeks" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          Defines whether to display the week number in day or week views of a calendar, optinal attribute.
+          Defines whether to display the week number in day or week views of a calendar, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -696,7 +696,7 @@
     <xsd:attribute name="Time24" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          Defines whether to use a 24-hour time format in representing the hours of the day, optinal attribute.
+          Defines whether to use a 24-hour time format in representing the hours of the day, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -704,7 +704,7 @@
     <xsd:attribute name="TimeZone" type="pnp:ReplaceableInt" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The Time Zone that is used on the server, optinal attribute.
+          The Time Zone that is used on the server, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -712,7 +712,7 @@
     <xsd:attribute name="WorkDayEndHour" type="pnp:WorkHour" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The the default hour at which the work day ends on the calendar that is in use on the server, optinal attribute.
+          The the default hour at which the work day ends on the calendar that is in use on the server, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -720,7 +720,7 @@
     <xsd:attribute name="WorkDays" type="xsd:int" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The work days of Web site calendars, optinal attribute.
+          The work days of Web site calendars, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -728,7 +728,7 @@
     <xsd:attribute name="WorkDayStartHour" type="pnp:WorkHour" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The the default hour at which the work day starts on the calendar that is in use on the server, optinal attribute.
+          The the default hour at which the work day starts on the calendar that is in use on the server, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
