@@ -1584,7 +1584,7 @@ Attibute|Type|Description
 Name|xsd:string|The Name of the ComposedLook, required attribute.
 ColorFile|xsd:string|The ColorFile of the ComposedLook, required attribute.
 FontFile|xsd:string|The FontFile of the ComposedLook, required attribute.
-BackgroundFile|xsd:string|The BackgroundFile of the ComposedLook, optional attribute.
+BackgroundFile|xsd:string|The BackgroundFile of the ComposedLook, required attribute.
 MasterPage|xsd:string|The MasterPage of the ComposedLook, required attribute.
 SiteLogo|xsd:string|The SiteLogo of the ComposedLook, optional attribute.
 AlternateCSS|xsd:string|The AlternateCSS of the ComposedLook, optional attribute.
