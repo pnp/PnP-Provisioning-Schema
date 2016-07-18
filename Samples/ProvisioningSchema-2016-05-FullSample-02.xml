@@ -374,7 +374,7 @@
         <pnp:Directory Src=".\Invoices" Folder="Invoices" Overwrite="true"
                     Recursive="false" MetadataMappingFile=".\InvoicesMetadata.json" />
         <pnp:Directory Src="c:\LocalPath\Pages" Folder="{PagesLibrary}"
-                    Overwrite="true" Recursive="true"
+                    Overwrite="true" Recursive="true" Level="Published"
                     MetadataMappingFile="c:\LocalPath\PagesMetadata.json" />
 
       </pnp:Files>

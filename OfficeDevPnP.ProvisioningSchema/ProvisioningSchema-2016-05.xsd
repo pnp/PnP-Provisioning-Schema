@@ -2666,6 +2666,14 @@
       </xsd:annotation>
     </xsd:attribute>
 
+    <xsd:attribute name="Level" type="pnp:FileLevel" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Level status for the File, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
     <xsd:attribute name="Recursive" type="xsd:boolean" use="optional" default="false">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
@@ -2677,7 +2685,7 @@
     <xsd:attribute name="IncludedExtensions" type="xsd:string" use="optional" default="*.*">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The file Extensions to include while uploading the Directory, optional attribute.
+          The file Extensions (lower case) to include while uploading the Directory, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -2685,7 +2693,7 @@
     <xsd:attribute name="ExcludedExtensions" type="xsd:string" use="optional" default="">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The file Extensions to exclude while uploading the Directory, optional attribute.
+          The file Extensions (lower case) to exclude while uploading the Directory, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -3822,7 +3830,7 @@
             </xsd:annotation>
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="User" type="pnp:User" minOccurs="1" maxOccurs="unbounded">
+                <xsd:element name="User" type="pnp:User" minOccurs="0" maxOccurs="unbounded">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
                       A single TermGroup Contributor.
@@ -3840,7 +3848,7 @@
             </xsd:annotation>
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="User" type="pnp:User" minOccurs="1" maxOccurs="unbounded">
+                <xsd:element name="User" type="pnp:User" minOccurs="0" maxOccurs="unbounded">
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
                       A single TermGroup Member.
