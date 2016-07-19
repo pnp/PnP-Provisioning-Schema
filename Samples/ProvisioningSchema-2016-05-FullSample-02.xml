@@ -82,7 +82,7 @@
         <pnp:PropertyBagEntry Key="KEY2" Value ="value2" />
       </pnp:PropertyBagEntries>
 
-      <pnp:Security BreakRoleInheritance="true" CopyRoleAssignments="false">
+      <pnp:Security BreakRoleInheritance="true" CopyRoleAssignments="false" ClearSubscopes="true">
         <pnp:AdditionalAdministrators>
           <pnp:User Name="user@contoso.com"/>
           <pnp:User Name="U_SHAREPOINT_ADMINS"/>
@@ -374,7 +374,7 @@
         <pnp:Directory Src=".\Invoices" Folder="Invoices" Overwrite="true"
                     Recursive="false" MetadataMappingFile=".\InvoicesMetadata.json" />
         <pnp:Directory Src="c:\LocalPath\Pages" Folder="{PagesLibrary}"
-                    Overwrite="true" Recursive="true"
+                    Overwrite="true" Recursive="true" Level="Published"
                     MetadataMappingFile="c:\LocalPath\PagesMetadata.json" />
 
       </pnp:Files>
@@ -483,6 +483,13 @@
               </pnp:Terms>
             </pnp:TermSet>
           </pnp:TermSets>
+          <pnp:Contributors>
+            <pnp:User Name="user1@contoso.com"/>
+          </pnp:Contributors>
+          <pnp:Members>
+            <pnp:User Name="user2@contoso.com"/>
+            <pnp:User Name="user3@contoso.com"/>
+          </pnp:Members>
         </pnp:TermGroup>
       </pnp:TermGroups>
 
