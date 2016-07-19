@@ -1,7 +1,7 @@
 ﻿
 #PnP Provisioning Schema
 ----------
-*Topic automatically generated on 26/04/2016*
+*Topic automatically generated on 19/07/2016*
 
 ##Namespace
 The namespace of the PnP Provisioning Schema is:
@@ -545,7 +545,8 @@ The Security configurations of the Provisioning Template, optional collection of
 ```xml
 <pnp:Security
       BreakRoleInheritance="xsd:boolean"
-      CopyRoleAssignments="xsd:boolean">
+      CopyRoleAssignments="xsd:boolean"
+      ClearSubscopes="xsd:boolean">
    <pnp:AdditionalAdministrators />
    <pnp:AdditionalOwners />
    <pnp:AdditionalMembers />
@@ -575,6 +576,7 @@ Attibute|Type|Description
 --------|----|-----------
 BreakRoleInheritance|xsd:boolean|Declares whether the to break role inheritance for the site, if it is a sub-site, optional attribute.
 CopyRoleAssignments|xsd:boolean|Defines whether to copy role assignments or not while breaking role inheritance, optional attribute.
+ClearSubscopes|xsd:boolean|Defines whether to clear subscopes or not while breaking role inheritance, optional attribute.
 <a name="permissions"></a>
 ###Permissions
 
@@ -1759,6 +1761,7 @@ Defines a Directory element, to describe a folder in the current repository that
       Src="pnp:ReplaceableString"
       Folder="pnp:ReplaceableString"
       Overwrite="xsd:boolean"
+      Level="pnp:FileLevel"
       Recursive="xsd:boolean"
       IncludedExtensions="xsd:string"
       ExcludedExtensions="xsd:string"
@@ -1783,6 +1786,7 @@ Attibute|Type|Description
 Src|ReplaceableString|The Src of the Directory, required attribute.
 Folder|ReplaceableString|The TargetFolder of the Directory, required attribute.
 Overwrite|xsd:boolean|The Overwrite flag for the File items in the Directory, optional attribute.
+Level|FileLevel|The Level status for the File, optional attribute.
 Recursive|xsd:boolean|Defines whether to recursively browse through all the child folders of the Directory, optional attribute.
 IncludedExtensions|xsd:string|The file Extensions to include while uploading the Directory, optional attribute.
 ExcludedExtensions|xsd:string|The file Extensions to exclude while uploading the Directory, optional attribute.

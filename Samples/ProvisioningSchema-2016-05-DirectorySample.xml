@@ -1,0 +1,64 @@
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2016/05/ProvisioningSchema">
+
+  <pnp:Preferences Author="John White" Version="1.0" Generator="Human being :-)" />
+
+  <pnp:Templates ID="DIRECTORY-SAMPLE-TEMPLATES">
+
+    <pnp:ProvisioningTemplate ID="DIRECTORY-SAMPLE" Version="1.0"
+      BaseSiteTemplate="STS#0"
+      ImagePreviewUrl="https://preview.png"
+      DisplayName="Directory Sample"
+      Description="This is a sample about how to bulk upload a directory">
+
+      <pnp:Lists>
+        <pnp:ListInstance Title="BulkLoaded" Description="" DocumentTemplate="" TemplateType="101" Url="BulkLoaded" EnableVersioning="true" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-e717-4e80-aa17-d0c71b360101" EnableAttachments="false">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x0101" Default="true" />
+            <pnp:ContentTypeBinding ContentTypeID="0x0120" />
+          </pnp:ContentTypeBindings>
+          <pnp:Views>
+            <View Name="{8B9FA31A-BD32-4124-9A50-A691E134AD90}" DefaultView="TRUE" MobileView="TRUE" MobileDefaultView="TRUE" Type="HTML" DisplayName="All Documents" Url="/sites/7f9343ee-acc6-48a4-ad1e-d178b559c520/BulkLoaded/Forms/AllItems.aspx" Level="1" BaseViewID="1" ContentTypeID="0x" ImageUrl="/_layouts/15/images/dlicon.png?rev=43">
+              <Query>
+                <OrderBy>
+                  <FieldRef Name="FileLeafRef" />
+                </OrderBy>
+              </Query>
+              <ViewFields>
+                <FieldRef Name="DocIcon" />
+                <FieldRef Name="LinkFilename" />
+                <FieldRef Name="Modified" />
+                <FieldRef Name="Editor" />
+                <FieldRef Name="CustomNotes" />
+                <FieldRef Name="Number" />
+                <FieldRef Name="Money" />
+              </ViewFields>
+              <RowLimit Paged="TRUE">30</RowLimit>
+              <JSLink>clienttemplates.js</JSLink>
+            </View>
+          </pnp:Views>
+          <pnp:Fields>
+            <Field Type="Note" DisplayName="Notes" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" NumLines="6" Sortable="FALSE" ID="{34359210-7fd9-4807-8530-56782fff6b64}" SourceID="{{listid:BulkLoaded}}" StaticName="CustomNotes" Name="CustomNotes" ColName="ntext2" RowOrdinal="0" Version="1" />
+            <Field Type="Number" DisplayName="Number" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" ID="{26be316c-3932-4eaa-a636-d6138e01dd0d}" SourceID="{{listid:BulkLoaded}}" StaticName="Number" Name="Number" ColName="float1" RowOrdinal="0" Version="1" />
+            <Field Type="Currency" DisplayName="Money" Required="FALSE" EnforceUniqueValues="FALSE" Indexed="FALSE" LCID="1033" ID="{a4592c75-bd66-4b96-91ac-d939945e7ce7}" SourceID="{{listid:BulkLoaded}}" StaticName="Money" Name="Money" ColName="float2" RowOrdinal="0" Version="1" />
+          </pnp:Fields>
+          <pnp:FieldRefs>
+            <pnp:FieldRef ID="3881510a-4e4a-4ee8-b102-8ee8e2d0dd4b" Name="CheckoutUser" DisplayName="Checked Out To" />
+            <pnp:FieldRef ID="ccc1037f-f65e-434a-868e-8c98af31fe29" Name="_ComplianceFlags" DisplayName="Compliance Flags" />
+            <pnp:FieldRef ID="d4b6480a-4bed-4094-9a52-30181ea38f1d" Name="_ComplianceTag" DisplayName="Compliance Tag" />
+            <pnp:FieldRef ID="92be610e-ddbb-49f4-b3b1-5c2bc768df8f" Name="_ComplianceTagWrittenTime" DisplayName="Compliance Tag Modified Time" />
+            <pnp:FieldRef ID="418d7676-2d6f-42cf-a16a-e43d2971252a" Name="_ComplianceTagUserId" DisplayName="ID of the User who has the Set the Compliance Tag" />
+          </pnp:FieldRefs>
+        </pnp:ListInstance>
+      </pnp:Lists>
+
+      <pnp:Files>
+        <pnp:Directory Src=".\DirectoryBulkLoadSample" Folder="BulkLoaded" Overwrite="true"
+            Recursive="true" IncludedExtensions="*.docx,*.pdf" ExcludedExtensions="*.xml,*.txt"
+            MetadataMappingFile=".\BulkLoadedMetadata.json" />
+      </pnp:Files>
+
+    </pnp:ProvisioningTemplate>
+
+  </pnp:Templates>
+
+</pnp:Provisioning>
