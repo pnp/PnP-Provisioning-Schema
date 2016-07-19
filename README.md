@@ -14,13 +14,13 @@ which will provision SharePoint sites and other elements using this schema.
 
 # Current implemented version (in the PnP Provisioning Engine) 
 
-[Version 201512](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2015-12.xsd)
+[Version 201605](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2016-05.xsd)
 
 ## Current approved versions
 
 [Version 201605](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2016-05.xsd)
 
-In order to reference the schema version 201512 you can use the following syntax:
+In order to reference the schema version 201605 you can use the following syntax:
 
 ```xml
 <pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2016/05/ProvisioningSchema"
