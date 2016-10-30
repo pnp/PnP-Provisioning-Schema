@@ -1737,7 +1737,7 @@ Attibute|Type|Description
 Name|xsd:string|The Name of the ComposedLook, required attribute.
 ColorFile|xsd:string|The ColorFile of the ComposedLook, required attribute.
 FontFile|xsd:string|The FontFile of the ComposedLook, required attribute.
-BackgroundFile|xsd:string|The BackgroundFile of the ComposedLook, optional attribute.
+BackgroundFile|xsd:string|The BackgroundFile of the ComposedLook, required attribute.
 Version|xsd:int|The Version of the ComposedLook, optional attribute.
 <a name="workflows"></a>
 ###Workflows
