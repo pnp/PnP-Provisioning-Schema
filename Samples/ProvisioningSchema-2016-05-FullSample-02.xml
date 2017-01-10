@@ -486,10 +486,10 @@
           <pnp:Contributors>
             <pnp:User Name="user1@contoso.com"/>
           </pnp:Contributors>
-          <pnp:Members>
+          <pnp:Managers>
             <pnp:User Name="user2@contoso.com"/>
             <pnp:User Name="user3@contoso.com"/>
-          </pnp:Members>
+          </pnp:Managers>
         </pnp:TermGroup>
       </pnp:TermGroups>
 
