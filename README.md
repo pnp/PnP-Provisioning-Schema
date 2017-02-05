@@ -1,5 +1,5 @@
 # Remote Provisioning Schema
-## by Office 365 Patterns and Practices
+## by SharePoint Patterns and Practices (PnP)
 This is the Community Source Code location for the PnP remote provisioning schema designed to be used as remote 
 creation instructions for remote provisioning engine towards Office 365. 
 
@@ -7,8 +7,10 @@ This is community driven effort for designing one schema which can be used to de
 Initial versions will concentrate on SharePoint, but target is to define also other services using this same structure. 
 
 This effort is closely related on the work being done in the 
-[Office 365 Developer Patterns and Practices repository](https://github.com/OfficeDev/PnP-Sites-Core) on actual engine, 
+[SharePoint Patterns and Practices CSOM Core repository](https://github.com/SharePoint/PnP-Sites-Core) on actual engine, 
 which will provision SharePoint sites and other elements using this schema. 
+
+![SharePoint Patterns and Practices](https://devofficecdn.azureedge.net/media/Default/PnP/sppnp.png)
 
 # Version
 
