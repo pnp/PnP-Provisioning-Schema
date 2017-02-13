@@ -235,6 +235,20 @@
         </xsd:complexType>
       </xsd:element>
 
+      <xsd:element name="SiteFieldsLocalizations" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            Site Column localizations, optional element.
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Localization" type="pnp:LocalizationField"
+                                      minOccurs="0" maxOccurs="unbounded" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
       <xsd:element name="ContentTypes" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
@@ -1240,6 +1254,32 @@
     </xsd:annotation>
 
     <xsd:all>
+      <xsd:element name="Localizations" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            The Localizations entries of the List Instance, optional collection of elements.
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Localization" type="pnp:LocalizationBase"
+                         minOccurs="1" maxOccurs="unbounded" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="FieldLocalizations" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            The Localizations entries of the List Fields, optional collection of elements.
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Localization" type="pnp:LocalizationField"
+                         minOccurs="1" maxOccurs="unbounded" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
       <xsd:element name="ContentTypeBindings" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
@@ -1593,6 +1633,19 @@
         </xsd:annotation>
       </xsd:element>
 
+      <xsd:element name="Localizations" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            The Localizations entries of the ContentType, optional collection of elements.
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Localization" type="pnp:LocalizationBase"
+                         minOccurs="1" maxOccurs="unbounded" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
     </xsd:all>
 
     <xsd:attribute name="ID" type="pnp:ContentTypeId" use="required">
@@ -1861,6 +1914,44 @@
       </xsd:annotation>
     </xsd:attribute>
 
+  </xsd:complexType>
+
+  <xsd:complexType name="LocalizationBase">
+    <xsd:attribute name="CultureName" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          CultureName eg. en-us or da-dk
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="TitleResource" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Title for the specified Culture
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="DescriptionResource" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Description for the specified Culture
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  </xsd:complexType>
+
+  <xsd:complexType name="LocalizationField">
+    <xsd:complexContent>
+      <xsd:extension base="pnp:LocalizationBase">
+        <xsd:attribute name="ID" type="pnp:GUID" use="required">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              The value of the field ID to bind, required attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
   </xsd:complexType>
 
   <xsd:complexType name="FieldRefBase">
@@ -2805,6 +2896,21 @@
                 </xsd:attribute>
               </xsd:complexType>
             </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+      <xsd:element name="SiteFieldLocalizations" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            Defines the Title and Description translations for site columns
+          </xsd:documentation>
+        </xsd:annotation>
+
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="SiteFieldLocalization" type="pnp:LocalizationField"
+                         minOccurs="1" maxOccurs="unbounded" />
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
