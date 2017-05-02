@@ -471,6 +471,15 @@
 
       </xsd:element>
 
+      <xsd:element name="SiteWebhooks" minOccurs="0" maxOccurs="1" type="pnp:SiteWebhooksList">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Defines any list of Webhooks for the current site.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+
     </xsd:all>
 
     <xsd:attribute name="ID" type="xsd:ID" use="required">
@@ -1798,6 +1807,14 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="Webhooks" type="pnp:WebhooksList" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Defines any Webhook for the current list instance.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
     </xsd:all>
 
     <xsd:attribute name="Title" type="xsd:string" use="required">
@@ -1992,40 +2009,6 @@
             <xsd:annotation>
               <xsd:documentation xml:lang="en">
                 The Modern experience will be forced for the current list.
-              </xsd:documentation>
-            </xsd:annotation>
-          </xsd:enumeration>
-        </xsd:restriction>
-      </xsd:simpleType>
-    </xsd:attribute>
-          
-    <xsd:attribute name="TenantCdnType" use="optional" default="None">
-      <xsd:annotation>
-        <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
-        <xsd:documentation xml:lang="en">
-          Defines if the current library has to be configured as a CDN Origin, optional attribute (valid for SPO only).
-        </xsd:documentation>
-      </xsd:annotation>
-      <xsd:simpleType>
-        <xsd:restriction base="xsd:string">
-          <xsd:enumeration value="None">
-            <xsd:annotation>
-              <xsd:documentation xml:lang="en">
-                No CDN Origin for this library, it is the default value
-              </xsd:documentation>
-            </xsd:annotation>
-          </xsd:enumeration>
-          <xsd:enumeration value="Private">
-            <xsd:annotation>
-              <xsd:documentation xml:lang="en">
-                Private CDN Origin for this library, it is the default value
-              </xsd:documentation>
-            </xsd:annotation>
-          </xsd:enumeration>
-          <xsd:enumeration value="Public">
-            <xsd:annotation>
-              <xsd:documentation xml:lang="en">
-                Public CDN Origin for this library, it is the default value
               </xsd:documentation>
             </xsd:annotation>
           </xsd:enumeration>
@@ -2694,6 +2677,116 @@
       </xsd:annotation>
     </xsd:attribute>
 
+  </xsd:complexType>
+
+  <xsd:complexType name="SiteWebhooksList">
+    <xsd:annotation>
+      <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+      <xsd:documentation xml:lang="en">
+        Defines a collection of elements of type SiteWebhook.
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:sequence>
+      <xsd:element name="Webhook" type="pnp:SiteWebhook"
+                   minOccurs="1" maxOccurs="unbounded" />
+    </xsd:sequence>
+
+  </xsd:complexType>
+
+  <xsd:complexType name="WebhooksList">
+    <xsd:annotation>
+      <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+      <xsd:documentation xml:lang="en">
+        Defines a collection of elements of type Webhook.
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:sequence>
+      <xsd:element name="Webhook" type="pnp:Webhook"
+                   minOccurs="1" maxOccurs="unbounded" />
+    </xsd:sequence>
+
+  </xsd:complexType>
+
+  <xsd:complexType name="Webhook">
+    <xsd:annotation>
+      <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+      <xsd:documentation xml:lang="en">
+        Defines a single element of type Webhook.
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:attribute name="ServerNotificationUrl" type="pnp:ReplaceableString" use="required">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Server Notification URL of the Webhook, required attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="ExpirationDate" type="pnp:ReplaceableString" use="required">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The expiration date for the subscription of the Webhook, required attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+  </xsd:complexType>
+  
+  <xsd:complexType name="SiteWebhook">
+    <xsd:annotation>
+      <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+      <xsd:documentation xml:lang="en">
+        Defines a single element of type SiteWebhook.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="pnp:Webhook">
+        <xsd:attribute name="SiteWebhookType">
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:enumeration value="WebCreated">
+                <xsd:annotation>
+                  <xsd:documentation xml:lang="en">
+                    A WebHook for the WebCreated event of Site.
+                  </xsd:documentation>
+                </xsd:annotation>
+              </xsd:enumeration>
+              <xsd:enumeration value="WebMoved">
+                <xsd:annotation>
+                  <xsd:documentation xml:lang="en">
+                    A WebHook for the WebMoved event of Site.
+                  </xsd:documentation>
+                </xsd:annotation>
+              </xsd:enumeration>
+              <xsd:enumeration value="WebDeleted">
+                <xsd:annotation>
+                  <xsd:documentation xml:lang="en">
+                    A WebHook for the WebDeleted event of Site.
+                  </xsd:documentation>
+                </xsd:annotation>
+              </xsd:enumeration>
+              <xsd:enumeration value="ListAdded">
+                <xsd:annotation>
+                  <xsd:documentation xml:lang="en">
+                    A WebHook for the ListAdded event of Site.
+                  </xsd:documentation>
+                </xsd:annotation>
+              </xsd:enumeration>
+              <xsd:enumeration value="ListCreated">
+                <xsd:annotation>
+                  <xsd:documentation xml:lang="en">
+                    A WebHook for the ListCreated event of Site.
+                  </xsd:documentation>
+                </xsd:annotation>
+              </xsd:enumeration>
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
   </xsd:complexType>
 
   <xsd:complexType name="FileProperties">
