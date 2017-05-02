@@ -3663,6 +3663,53 @@
         </xsd:complexType>
       </xsd:element>
 
+      <xsd:element name="ImageRenditions" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Defines the Image Renditions for the current Publishing site, optional collection of elements.
+          </xsd:documentation>
+        </xsd:annotation>
+
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ImageRendition" minOccurs="0" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:documentation xml:lang="en">
+                  Defines an available Image Rendition for the current Publishing site.
+                </xsd:documentation>
+              </xsd:annotation>
+
+              <xsd:complexType>
+                <xsd:attribute name="Name" type="pnp:ReplaceableString" use="required">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      Defines the name of the Image Rendition for the current Publishing site, required attribute.
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="Width" type="pnp:ReplaceableInt" use="required">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      Defines the width of the Image Rendition for the current Publishing site, required attribute.
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="Height" type="pnp:ReplaceableInt" use="required">
+                  <xsd:annotation>
+                    <xsd:documentation xml:lang="en">
+                      Defines the height of the Image Rendition for the current Publishing site, required attribute.
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+              </xsd:complexType>
+
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+        
+      </xsd:element>
+
     </xsd:sequence>
 
     <xsd:attribute name="AutoCheckRequirements" use="required">
