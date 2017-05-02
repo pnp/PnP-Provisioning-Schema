@@ -1965,6 +1965,74 @@
       </xsd:annotation>
     </xsd:attribute>
 
+    <xsd:attribute name="ListExperience" use="optional" default="Auto">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines the current list UI/UX experience (valid for SPO only).
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Auto">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                SPO will automatically define the right experience based on the settings of the current list, it is the default value.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="ClassicExperience">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                The Classic experience will be forced for the current list.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="NewExperience">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                The Modern experience will be forced for the current list.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+          
+    <xsd:attribute name="TenantCdnType" use="optional" default="None">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines if the current library has to be configured as a CDN Origin, optional attribute (valid for SPO only).
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="None">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                No CDN Origin for this library, it is the default value
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="Private">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                Private CDN Origin for this library, it is the default value
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="Public">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                Public CDN Origin for this library, it is the default value
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+
   </xsd:complexType>
 
   <xsd:complexType name="Folder">
