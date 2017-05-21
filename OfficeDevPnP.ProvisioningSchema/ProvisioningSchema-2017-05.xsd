@@ -1832,6 +1832,14 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="IRMSettings" type="pnp:IRMSettings" minOccurs="0" maxOccurs="1">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              Declares the Information Rights Management settings for the list or library.
+            </xsd:documentation>
+          </xsd:annotation>
+      </xsd:element>
     </xsd:all>
 
     <xsd:attribute name="Title" type="xsd:string" use="required">
@@ -2035,6 +2043,136 @@
 
   </xsd:complexType>
 
+  <xsd:complexType name="IRMSettings">
+    <xsd:annotation>
+      <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+      <xsd:documentation xml:lang="en">
+        Declares the Information Rights Management settings for the list or library.
+      </xsd:documentation>
+    </xsd:annotation>
+  
+    <xsd:attribute name="Enabled" type="xsd:boolean" use="required">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines whether the IRM settings have to be enabled or not.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="AllowPrint" type="xsd:boolean" use="optional" default="true">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines whether a viewer can print the downloaded document.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="AllowScript" type="xsd:boolean" use="optional" default="true">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines whether a viewer can run a script on the downloaded document.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="AllowWriteCopy" type="xsd:boolean" use="optional" default="true">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines whether a viewer can write on a copy of the downloaded document.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="DisableDocumentBrowserView" type="xsd:boolean" use="optional" default="true">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines whether to block Office Web Application Companion applications (WACs) from showing this document.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    
+    <xsd:attribute name="DocumentAccessExpireDays" type="xsd:int" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines the number of days after which the downloaded document will expire.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  
+    <xsd:attribute name="DocumentLibraryProtectionExpireDate" type="xsd:dateTime" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines the date that the Information Rights Management (IRM) protection of this document library will expire.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="EnableDocumentAccessExpire" type="xsd:boolean" use="optional" default="false">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines whether the downloaded document will expire.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="EnableDocumentBrowserPublishingView" type="xsd:boolean" use="optional" default="true">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines whether to enable Office Web Application Companion applications (WACs) to publishing view.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="EnableGroupProtection" type="xsd:boolean" use="optional" default="true">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines whether the permission of the downloaded document is applicable to a group.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="EnableLicenseCacheExpire" type="xsd:boolean" use="optional" default="false">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines whether a user must verify their credentials after some interval.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  
+    <xsd:attribute name="GroupName" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines the group name (email address) that the permission is also applicable to.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="LicenseCacheExpireDays" type="xsd:int" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines the number of days that the application that opens the document caches the IRM license. When these elapse, the application will connect to the IRM server to validate the license.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="PolicyDescription" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines the permission policy description.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  
+    <xsd:attribute name="PolicyTitle" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines the permission policy title.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+          
+  </xsd:complexType>
+    
   <xsd:complexType name="Folder">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
