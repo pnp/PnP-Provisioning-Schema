@@ -539,6 +539,34 @@
       </xsd:annotation>
     </xsd:attribute>
 
+    <xsd:attribute name="Scope" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Declares the target scope of the current Provisioning Template
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="RootSite">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                The scope is a Root web of a Site Collection
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="Web">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                The scope is a child Web of a Site Collection
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
+    
+    </xsd:attribute>
+
   </xsd:complexType>
 
   <xsd:complexType name="ProvisioningTemplateProperties">
@@ -1585,6 +1613,15 @@
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Defines the Role to which the assignment will apply, required attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="Remove" type="xsd:boolean" use="optional" default="false">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Allows to remove a role assignment, instead of adding it. It is an optional attribute, and by default it assumes a value of false.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
