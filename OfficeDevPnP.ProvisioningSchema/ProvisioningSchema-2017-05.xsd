@@ -2078,6 +2078,76 @@
       </xsd:simpleType>
     </xsd:attribute>
 
+    <xsd:attribute name="DefaultDisplayFormUrl" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines a value that specifies the location of the default display form for the list.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="DefaultEditFormUrl" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines a value that specifies the URL of the edit form to use for list items in the list.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="DefaultNewFormUrl" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines a value that specifies the location of the default new form for the list.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="Direction" use="optional" default="NONE">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines a value that specifies the reading order of the list.
+        </xsd:documentation>
+      </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="NONE">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                None
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="LTR">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                Left to Right
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="RTL">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                Right to Left
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+
+    <xsd:attribute name="ImageUrl" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines a value that specifies the URI for the icon of the list, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
   </xsd:complexType>
 
   <xsd:complexType name="IRMSettings">
