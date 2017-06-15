@@ -480,6 +480,15 @@
         </xsd:annotation>
       </xsd:element>
 
+      <xsd:element name="ClientSidePages" type="pnp:ClientSidePages" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            The Client-side Pages to provision into the target Site through the Provisioning Template, optional element.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+
     </xsd:all>
 
     <xsd:attribute name="ID" type="xsd:ID" use="required">
@@ -2148,6 +2157,60 @@
       </xsd:annotation>
     </xsd:attribute>
 
+    <xsd:attribute name="IrmExpire" type="xsd:boolean" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines if IRM Expire property, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="IrmReject" type="xsd:boolean" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines the IRM Reject property, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="IsApplicationList" type="xsd:boolean" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines a value that specifies a flag that a client application can use to determine whether to display the list, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="ReadSecurity" type="xsd:int" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines the Read Security property, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="ValidationFormula" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines a value that specifies the data validation criteria for a list item, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="ValidationMessage" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines a value that specifies the error message returned when data validation fails for a list item, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
   </xsd:complexType>
 
   <xsd:complexType name="IRMSettings">
@@ -2206,10 +2269,10 @@
       </xsd:annotation>
     </xsd:attribute>
   
-    <xsd:attribute name="DocumentLibraryProtectionExpireDate" type="xsd:dateTime" use="optional">
+    <xsd:attribute name="DocumentLibraryProtectionExpiresInDays" type="pnp:ReplaceableInt" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          Defines the date that the Information Rights Management (IRM) protection of this document library will expire.
+          Defines the expire days for the Information Rights Management (IRM) protection of this document library will expire.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -2957,6 +3020,22 @@
       </xsd:annotation>
     </xsd:attribute>
 
+    <xsd:attribute name="ClientSideComponentId" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Client-Side Component Id of a customizer, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="ClientSideComponentProperties" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Client-Side Component Properties of a customizer, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
   </xsd:complexType>
 
   <xsd:complexType name="SiteWebhooksList">
@@ -2973,7 +3052,7 @@
     </xsd:sequence>
 
   </xsd:complexType>
-
+  
   <xsd:complexType name="WebhooksList">
     <xsd:annotation>
       <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
@@ -3005,10 +3084,10 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="ExpirationDate" type="pnp:ReplaceableString" use="required">
+    <xsd:attribute name="ExpiresInDays" type="pnp:ReplaceableInt" use="required">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The expiration date for the subscription of the Webhook, required attribute.
+          The expire days for the subscription of the Webhook, required attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -3067,6 +3146,322 @@
         </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="ClientSidePages">
+    <xsd:annotation>
+      <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+      <xsd:documentation xml:lang="en">
+        Defines a collection of elements of type ClientSidePage.
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:sequence>
+      <xsd:element name="ClientSidePage" type="pnp:ClientSidePage"
+                   minOccurs="1" maxOccurs="unbounded" />
+    </xsd:sequence>
+
+  </xsd:complexType>
+
+  <xsd:complexType name="ClientSidePage">
+    <xsd:annotation>
+      <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+      <xsd:documentation xml:lang="en">
+        Defines a single element of type ClientSidePage.
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:sequence>
+
+      <xsd:element name="Zones" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            Defines the Canvas Zones for a single ClientSidePage.
+          </xsd:documentation>
+        </xsd:annotation>
+
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Zone" type="pnp:CanvasZone" minOccurs="0" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:documentation xml:lang="en">
+                  Defines a Canvas Zone for a single ClientSidePage.
+                </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element> 
+          </xsd:sequence>
+        </xsd:complexType>
+        
+      </xsd:element>
+
+    </xsd:sequence>
+
+    <xsd:attribute name="PagesLibrary" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines the target Pages Library for a single ClientSidePage.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="PromoteAsNewsArticle" type="xsd:boolean" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Declares to promote the page as a news article.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+  </xsd:complexType>
+
+  <xsd:complexType name="CanvasZone">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        A Canvas Zone for a Client-side Page.
+      </xsd:documentation>
+    </xsd:annotation>
+    
+    <xsd:sequence>
+      <xsd:element name="Controls" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            A collection of Canvas Controls for a Client-side Page.
+          </xsd:documentation>
+        </xsd:annotation>
+
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CanvasControl" type="pnp:CanvasControl" minOccurs="0" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:documentation xml:lang="en">
+                  A single Canvas Control for a Client-side Page.
+                </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+
+    <xsd:attribute name="Order" type="xsd:int" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The order of the Canvas Zone for a Client-side Page.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    
+    <xsd:attribute name="Type">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The type of the Canvas Zone for a Client-side Page.
+        </xsd:documentation>
+      </xsd:annotation>
+
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="OneColumn">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                One column
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="OneColumnFullWidth">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                One column, full browser width. This one only works for communication sites in combination with image or hero webparts
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="TwoColumn">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                Two columns of the same size
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="ThreeColumn">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                Three columns of the same size
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="TwoColumnLeft">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                Two columns, left one is 2/3, right one 1/3
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="TwoColumnRight">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                Two columns, left one is 1/3, right one 2/3
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    
+  </xsd:complexType>
+
+  <xsd:complexType name="CanvasControl">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        Defines a Canvas Control for a Client-side Page.
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:sequence>
+      <xsd:element name="CanvasControlProperties">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            Custom properties for the client-side web part control.
+          </xsd:documentation>
+        </xsd:annotation>
+
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CanvasControlProperty" type="pnp:StringDictionaryItem" minOccurs="0" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:documentation xml:lang="en">
+                  A single property of a client-side web part control.
+                </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+
+    <xsd:attribute name="WebPartType" use="required">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Type of Client-side Web Part.
+        </xsd:documentation>
+      </xsd:annotation>
+
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Custom" />
+          <xsd:enumeration value="ContentRollup" />
+          <xsd:enumeration value="BingMap" />
+          <xsd:enumeration value="ContentEmbed" />
+          <xsd:enumeration value="DocumentEmbed" />
+          <xsd:enumeration value="Image" />
+          <xsd:enumeration value="ImageGallery" />
+          <xsd:enumeration value="LinkPreview" />
+          <xsd:enumeration value="NewsFeed" />
+          <xsd:enumeration value="NewsReel" />
+          <xsd:enumeration value="PowerBIReportEmbed" />
+          <xsd:enumeration value="QuickChart" />
+          <xsd:enumeration value="SiteActivity" />
+          <xsd:enumeration value="VideoEmbed" />
+          <xsd:enumeration value="YammerEmbed" />
+          <xsd:enumeration value="Events" />
+          <xsd:enumeration value="GroupCalendar" />
+          <xsd:enumeration value="Hero" />
+          <xsd:enumeration value="List" />
+          <xsd:enumeration value="PageTitle" />
+          <xsd:enumeration value="People" />
+          <xsd:enumeration value="QuickLinks" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      
+    </xsd:attribute>
+
+    <xsd:attribute name="CustomWebPartName" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Name of the client-side web part if the WebPartType attribute has a value of "Custom".
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="JsonControlData" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The JSON Control Data for Canvas Control of a Client-side Page.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="ControlId" type="pnp:GUID" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Instance Id for Canvas Control of a Client-side Page.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="Order" type="xsd:int" use="optional" default="0">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The order of the Canvas Control for a Client-side Page.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="Section" type="xsd:int" use="optional" default="0">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Section of the Zone in which the Canvas Control will be inserted. Optional, default 0.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+  </xsd:complexType>
+
+  <xsd:complexType name="CanvasSection">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        Defines a Canvas Zone for a Client-side Page.
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:sequence>
+      <xsd:element name="Controls" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            A collection of Canvas Controls for a Client-side Page.
+          </xsd:documentation>
+        </xsd:annotation>
+
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CanvasControl" type="pnp:CanvasControl" minOccurs="0" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:documentation xml:lang="en">
+                  A single Canvas Control for a Client-side Page.
+                </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+
+    <xsd:attribute name="Order" type="xsd:int" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The order of the Canvas Zone for a Client-side Page.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="SectionFactor" type="xsd:int" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Section Factor for Canvas Section of a Client-side Page.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
   </xsd:complexType>
 
   <xsd:complexType name="FileProperties">
