@@ -1,20 +1,20 @@
 ﻿
-#PnP Provisioning Schema
+# PnP Provisioning Schema
 ----------
-*Topic automatically generated on 6/15/2017*
+* Topic automatically generated on 6/15/2017*
 
-##Namespace
+## Namespace
 The namespace of the PnP Provisioning Schema is:
 
 http://schemas.dev.office.com/PnP/2017/05/ProvisioningSchema
 
 All the elements have to be declared with that namespace reference.
 
-##Root Elements
+## Root Elements
 Here follows the list of root elements available in the PnP Provisioning Schema.
   
 <a name="provisioning"></a>
-###Provisioning
+### Provisioning
 
 
 ```xml
@@ -40,7 +40,7 @@ Templates|[Templates](#templates)|An optional section made of provisioning templ
 Sequence|[Sequence](#sequence)|An optional section made of provisioning sequences, which can include Sites, Site Collections, Taxonomies, Provisioning Templates, etc.
 ImportSequence|[ImportSequence](#importsequence)|Imports sequences from an external file. All current properties should be sent to that file.
 <a name="provisioningtemplate"></a>
-###ProvisioningTemplate
+### ProvisioningTemplate
 Represents the root element of the SharePoint Provisioning Template.
 
 ```xml
@@ -129,10 +129,10 @@ TemplateCultureInfo|ReplaceableString|The default CultureInfo of the Provisionin
 Scope||Declares the target scope of the current Provisioning Template
 
 
-##Child Elements and Complex Types
+## Child Elements and Complex Types
 Here follows the list of all the other child elements and complex types that can be used in the PnP Provisioning Schema.
 <a name="preferences"></a>
-###Preferences
+### Preferences
 General settings for a Provisioning file.
 
 ```xml
@@ -161,7 +161,7 @@ Version|xsd:string|Provisioning File Version number, optional attribute.
 Author|xsd:string|Provisioning File Author name, optional attribute.
 Generator|xsd:string|Name of the tool generating this Provisioning File, optional attribute.
 <a name="parameters"></a>
-###Parameters
+### Parameters
 Definition of parameters that can be used as replacement within templates and provisioning objects.
 
 ```xml
@@ -178,7 +178,7 @@ Element|Type|Description
 -------|----|-----------
 Parameter|[Parameter](#parameter)|A Parameter that can be used as a replacement within templates and provisioning objects.
 <a name="localizations"></a>
-###Localizations
+### Localizations
 An optional list of localizations files to include.
 
 ```xml
@@ -195,7 +195,7 @@ Element|Type|Description
 -------|----|-----------
 Localization|[Localization](#localization)|A Localization element
 <a name="localization"></a>
-###Localization
+### Localization
 A Localization element
 
 ```xml
@@ -216,7 +216,7 @@ LCID|xsd:int|The Locale ID of a Localization Language, required attribute.
 Name|xsd:string|The Name of a Localization Language, required attribute.
 ResourceFile|xsd:string|The path to the .RESX (XML) resource file for the current Localization, required attribute.
 <a name="templates"></a>
-###Templates
+### Templates
 SharePoint Templates, which can be inline or references to external files.
 
 ```xml
@@ -245,7 +245,7 @@ Attibute|Type|Description
 --------|----|-----------
 ID|xsd:ID|A unique identifier of the Templates collection, optional attribute.
 <a name="sitefields"></a>
-###SiteFields
+### SiteFields
 The Site Columns of the Provisioning Template, optional element.
 
 ```xml
@@ -255,7 +255,7 @@ The Site Columns of the Provisioning Template, optional element.
 ```
 
 <a name="contenttypes"></a>
-###ContentTypes
+### ContentTypes
 The Content Types of the Provisioning Template, optional element.
 
 ```xml
@@ -272,7 +272,7 @@ Element|Type|Description
 -------|----|-----------
 ContentType|[ContentType](#contenttype)|
 <a name="lists"></a>
-###Lists
+### Lists
 The Lists instances of the Provisioning Template, optional element.
 
 ```xml
@@ -289,7 +289,7 @@ Element|Type|Description
 -------|----|-----------
 ListInstance|[ListInstance](#listinstance)|
 <a name="files"></a>
-###Files
+### Files
 The Files to provision into the target Site through the Provisioning Template, optional element.
 
 ```xml
@@ -308,7 +308,7 @@ Element|Type|Description
 File|[File](#file)|
 Directory|[Directory](#directory)|
 <a name="termgroups"></a>
-###TermGroups
+### TermGroups
 The TermGroups element allows provisioning one or more TermGroups into the target Site, optional element.
 
 ```xml
@@ -325,7 +325,7 @@ Element|Type|Description
 -------|----|-----------
 TermGroup|[TermGroup](#termgroup)|The TermGroup element to provision into the target Site through the Provisioning Template, optional element.
 <a name="searchsettings"></a>
-###SearchSettings
+### SearchSettings
 The Search Settings for the Provisioning Template, optional element.
 
 ```xml
@@ -344,7 +344,7 @@ Element|Type|Description
 SiteSearchSettings|[SiteSearchSettings](#sitesearchsettings)|The Search Settings for the Site Collection, optional element.
 WebSearchSettings|[WebSearchSettings](#websearchsettings)|The Search Settings for the Site, optional element.
 <a name="providers"></a>
-###Providers
+### Providers
 The Extensiblity Providers to invoke while applying the Provisioning Template, optional collection of elements.
 
 ```xml
@@ -361,7 +361,7 @@ Element|Type|Description
 -------|----|-----------
 Provider|[Provider](#provider)|
 <a name="provisioningtemplateproperties"></a>
-###ProvisioningTemplateProperties
+### ProvisioningTemplateProperties
 A set of custom Properties for the Provisioning Template.
 
 ```xml
@@ -378,7 +378,7 @@ Element|Type|Description
 -------|----|-----------
 Property|[StringDictionaryItem](#stringdictionaryitem)|A custom Property for the Provisioning Template, collection of elements.
 <a name="websettings"></a>
-###WebSettings
+### WebSettings
 Section of Settings for the current Web Site, optional element.
 
 ```xml
@@ -411,7 +411,7 @@ AlternateCSS|xsd:string|The AlternateCSS of the Site, optional attribute.
 MasterPageUrl|xsd:string|The MasterPage URL of the Site, optional attribute.
 CustomMasterPageUrl|xsd:string|The Custom MasterPage URL of the Site, optional attribute.
 <a name="regionalsettings"></a>
-###RegionalSettings
+### RegionalSettings
 Defines the Regional Settings for a site.
 
 ```xml
@@ -452,7 +452,7 @@ WorkDayEndHour|WorkHour|The the default hour at which the work day ends on the c
 WorkDays|xsd:int|The work days of Web site calendars, optional attribute.
 WorkDayStartHour|WorkHour|The the default hour at which the work day starts on the calendar that is in use on the server, optional attribute.
 <a name="supporteduilanguages"></a>
-###SupportedUILanguages
+### SupportedUILanguages
 Defines the Supported UI Languages for a site.
 
 ```xml
@@ -469,7 +469,7 @@ Element|Type|Description
 -------|----|-----------
 SupportedUILanguage|[SupportedUILanguage](#supporteduilanguage)|Defines a single Supported UI Language for a site.
 <a name="supporteduilanguage"></a>
-###SupportedUILanguage
+### SupportedUILanguage
 Defines a single Supported UI Language for a site.
 
 ```xml
@@ -486,7 +486,7 @@ Attibute|Type|Description
 --------|----|-----------
 LCID|xsd:int|The Locale ID of a Supported UI Language, required attribute.
 <a name="auditsettings"></a>
-###AuditSettings
+### AuditSettings
 The Audit Settings for the Provisioning Template, optional collection of elements.
 
 ```xml
@@ -513,7 +513,7 @@ Attibute|Type|Description
 AuditLogTrimmingRetention|xsd:int|The Audit Log Trimming Retention for Audits, optional attribute.
 TrimAuditLog|xsd:boolean|A flag to enable Audit Log Trimming, optional attribute.
 <a name="audit"></a>
-###Audit
+### Audit
 A single Audit setting defined by an AuditFlag.
 
 ```xml
@@ -530,7 +530,7 @@ Attibute|Type|Description
 --------|----|-----------
 AuditFlag||An Audit Flag for a single Audit setting, required attribute.
 <a name="propertybagentries"></a>
-###PropertyBagEntries
+### PropertyBagEntries
 The Property Bag entries of the Provisioning Template, optional collection of elements.
 
 ```xml
@@ -547,7 +547,7 @@ Element|Type|Description
 -------|----|-----------
 PropertyBagEntry|[PropertyBagEntry](#propertybagentry)|
 <a name="security"></a>
-###Security
+### Security
 The Security configurations of the Provisioning Template, optional collection of elements.
 
 ```xml
@@ -586,7 +586,7 @@ BreakRoleInheritance|xsd:boolean|Declares whether the to break role inheritance 
 CopyRoleAssignments|xsd:boolean|Defines whether to copy role assignments or not while breaking role inheritance, optional attribute.
 ClearSubscopes|xsd:boolean|Defines whether to clear subscopes or not while breaking role inheritance for the site, optional attribute.
 <a name="permissions"></a>
-###Permissions
+### Permissions
 
 
 ```xml
@@ -605,7 +605,7 @@ Element|Type|Description
 RoleDefinitions|[RoleDefinitions](#roledefinitions)|List of Role Definitions for the Site, optional collection of elements.
 RoleAssignments|[RoleAssignments](#roleassignments)|List of Role Assignments for the Site, optional collection of elements.
 <a name="navigation"></a>
-###Navigation
+### Navigation
 The Navigation configurations of the Provisioning Template, optional collection of elements.
 
 ```xml
@@ -632,7 +632,7 @@ Attibute|Type|Description
 --------|----|-----------
 EnableTreeView|xsd:boolean|Declares whether the tree view has to be enabled at the site level or not, optional attribute.
 <a name="globalnavigation"></a>
-###GlobalNavigation
+### GlobalNavigation
 The Global Navigation settings for the Provisioning Template, optional element.
 
 ```xml
@@ -659,7 +659,7 @@ Attibute|Type|Description
 --------|----|-----------
 NavigationType||Defines the type of Global Navigation, required attribute.
 <a name="currentnavigation"></a>
-###CurrentNavigation
+### CurrentNavigation
 The Current Navigation settings for the Provisioning Template, optional element.
 
 ```xml
@@ -686,7 +686,7 @@ Attibute|Type|Description
 --------|----|-----------
 NavigationType||Defines the type of Current Navigation, required attribute.
 <a name="managednavigation"></a>
-###ManagedNavigation
+### ManagedNavigation
 Defines the Managed Navigation settings of a site, optional element.
 
 ```xml
@@ -705,7 +705,7 @@ Attibute|Type|Description
 TermStoreId|ReplaceableString|Defines the TermStore ID for the Managed Navigation, required attribute.
 TermSetId|ReplaceableString|Defines the TermSet ID for the Managed Navigation, required attribute.
 <a name="structuralnavigation"></a>
-###StructuralNavigation
+### StructuralNavigation
 Defines the Structural Navigation settings of a site.
 
 ```xml
@@ -730,7 +730,7 @@ Attibute|Type|Description
 --------|----|-----------
 RemoveExistingNodes|xsd:boolean|Defines whether to remove existing nodes before creating those described through this element, required attribute.
 <a name="navigationnode"></a>
-###NavigationNode
+### NavigationNode
 Defines a Navigation Node for the Structural Navigation of a site.
 
 ```xml
@@ -761,7 +761,7 @@ Url|ReplaceableString|Defines the Url of a Navigation Node for the Structural Na
 IsExternal|xsd:boolean|Defines whether the Navigation Node for the Structural Navigation targets an External resource.
 IsVisible|xsd:boolean|Defines whether the Navigation Node for the Structural Navigation is visible or not.
 <a name="features"></a>
-###Features
+### Features
 The Features (Site or Web) to activate or deactivate while applying the Provisioning Template, optional collection of elements.
 
 ```xml
@@ -780,7 +780,7 @@ Element|Type|Description
 SiteFeatures|[FeaturesList](#featureslist)|The Site Features to activate or deactivate while applying the Provisioning Template, optional collection of elements.
 WebFeatures|[FeaturesList](#featureslist)|The Web Features to activate or deactivate while applying the Provisioning Template, optional collection of elements.
 <a name="customactions"></a>
-###CustomActions
+### CustomActions
 The Custom Actions (Site or Web) to provision with the Provisioning Template, optional element.
 
 ```xml
@@ -799,7 +799,7 @@ Element|Type|Description
 SiteCustomActions|[CustomActionsList](#customactionslist)|The Site Custom Actions to provision while applying the Provisioning Template, optional collection of elements.
 WebCustomActions|[CustomActionsList](#customactionslist)|The Web Custom Actions to provision while applying the Provisioning Template, optional collection of elements.
 <a name="pages"></a>
-###Pages
+### Pages
 The Pages to provision into the target Site through the Provisioning Template, optional collection of elements.
 
 ```xml
@@ -816,7 +816,7 @@ Element|Type|Description
 -------|----|-----------
 Page|[Page](#page)|
 <a name="propertybagentry"></a>
-###PropertyBagEntry
+### PropertyBagEntry
 The Property Bag Entry of the Provisioning Template.
 
 ```xml
@@ -835,7 +835,7 @@ Attibute|Type|Description
 Overwrite|xsd:boolean|Declares whether the Property Bag Entry has to overwrite an already existing entry, optional attribute.
 Indexed|xsd:boolean|Declares whether the Property Bag Entry has to be indexed, optional attribute.
 <a name="stringdictionaryitem"></a>
-###StringDictionaryItem
+### StringDictionaryItem
 Defines a StringDictionary element.
 
 ```xml
@@ -854,7 +854,7 @@ Attibute|Type|Description
 Key|xsd:string|The Key of the property to store in the StringDictionary, required attribute.
 Value|xsd:string|The Value of the property to store in the StringDictionary, required attribute.
 <a name="userslist"></a>
-###UsersList
+### UsersList
 List of Users for the Site Security, collection of elements.
 
 ```xml
@@ -871,7 +871,7 @@ Element|Type|Description
 -------|----|-----------
 User|[User](#user)|
 <a name="user"></a>
-###User
+### User
 The base type for a User element.
 
 ```xml
@@ -888,7 +888,7 @@ Attibute|Type|Description
 --------|----|-----------
 Name|xsd:string|The Name of the User, required attribute.
 <a name="sitegroups"></a>
-###SiteGroups
+### SiteGroups
 List of Site Groups for the Site Security, collection of elements.
 
 ```xml
@@ -905,7 +905,7 @@ Element|Type|Description
 -------|----|-----------
 SiteGroup|[SiteGroup](#sitegroup)|
 <a name="sitegroup"></a>
-###SiteGroup
+### SiteGroup
 The base type for a Site Group element.
 
 ```xml
@@ -944,7 +944,7 @@ AutoAcceptRequestToJoinLeave|xsd:boolean|Defines whether to auto-accept requests
 OnlyAllowMembersViewMembership|xsd:boolean|Defines whether to allow members only to view the membership of the Site Group, optional attribute.
 RequestToJoinLeaveEmailSetting|xsd:string|Defines the email address used for membership requests to join or leave will be sent for the Site Group, optional attribute.
 <a name="roledefinitions"></a>
-###RoleDefinitions
+### RoleDefinitions
 List of Role Definitions for a target RoleAssignment, collection of elements.
 
 ```xml
@@ -961,7 +961,7 @@ Element|Type|Description
 -------|----|-----------
 RoleDefinition|[RoleDefinition](#roledefinition)|
 <a name="roledefinition"></a>
-###RoleDefinition
+### RoleDefinition
 
 
 ```xml
@@ -988,7 +988,7 @@ Attibute|Type|Description
 Name|xsd:string|Defines the Name of the Role Definition, required attribute.
 Description|xsd:string|Defines the Description of the Role Definition, optional attribute.
 <a name="permissions"></a>
-###Permissions
+### Permissions
 Defines the Permissions of the Role Definition, required element.
 
 ```xml
@@ -1005,7 +1005,7 @@ Element|Type|Description
 -------|----|-----------
 Permission|[Permission](#permission)|Defines a Permission for a Role Definition.
 <a name="roleassignments"></a>
-###RoleAssignments
+### RoleAssignments
 List of Role Assignments for a target Principal, collection of elements.
 
 ```xml
@@ -1022,7 +1022,7 @@ Element|Type|Description
 -------|----|-----------
 RoleAssignment|[RoleAssignment](#roleassignment)|
 <a name="roleassignment"></a>
-###RoleAssignment
+### RoleAssignment
 
 
 ```xml
@@ -1043,7 +1043,7 @@ Principal|xsd:string|Defines the Role to which the assignment will apply, requir
 RoleDefinition|xsd:string|Defines the Role to which the assignment will apply, required attribute.
 Remove|xsd:boolean|Allows to remove a role assignment, instead of adding it. It is an optional attribute, and by default it assumes a value of false.
 <a name="objectsecurity"></a>
-###ObjectSecurity
+### ObjectSecurity
 Defines a set of Role Assignments for specific principals.
 
 ```xml
@@ -1060,7 +1060,7 @@ Element|Type|Description
 -------|----|-----------
 BreakRoleInheritance|[BreakRoleInheritance](#breakroleinheritance)|
 <a name="breakroleinheritance"></a>
-###BreakRoleInheritance
+### BreakRoleInheritance
 Declares a section of custom permissions, breaking role inheritance from parent.
 
 ```xml
@@ -1087,7 +1087,7 @@ Attibute|Type|Description
 CopyRoleAssignments|xsd:boolean|Defines whether to copy role assignments or not while breaking role inheritance, required attribute.
 ClearSubscopes|xsd:boolean|Defines whether to clear subscopes or not while breaking role inheritance, required attribute.
 <a name="listinstance"></a>
-###ListInstance
+### ListInstance
 Defines a ListInstance element
 
 ```xml
@@ -1194,7 +1194,7 @@ ReadSecurity|xsd:int|Defines the Read Security property, optional attribute.
 ValidationFormula|xsd:string|Defines a value that specifies the data validation criteria for a list item, optional attribute.
 ValidationMessage|xsd:string|Defines a value that specifies the error message returned when data validation fails for a list item, optional attribute.
 <a name="contenttypebindings"></a>
-###ContentTypeBindings
+### ContentTypeBindings
 The ContentTypeBindings entries of the List Instance, optional collection of elements.
 
 ```xml
@@ -1211,7 +1211,7 @@ Element|Type|Description
 -------|----|-----------
 ContentTypeBinding|[ContentTypeBinding](#contenttypebinding)|
 <a name="views"></a>
-###Views
+### Views
 The Views entries of the List Instance, optional collection of elements.
 
 ```xml
@@ -1229,7 +1229,7 @@ Attibute|Type|Description
 --------|----|-----------
 RemoveExistingViews|xsd:boolean|A flag to declare if the existing views of the List Instance have to be removed, before adding the custom views, optional attribute.
 <a name="fields"></a>
-###Fields
+### Fields
 The Fields entries of the List Instance, optional collection of elements.
 
 ```xml
@@ -1239,7 +1239,7 @@ The Fields entries of the List Instance, optional collection of elements.
 ```
 
 <a name="fieldrefs"></a>
-###FieldRefs
+### FieldRefs
 The FieldRefs entries of the List Instance, optional collection of elements.
 
 ```xml
@@ -1256,7 +1256,7 @@ Element|Type|Description
 -------|----|-----------
 FieldRef|[ListInstanceFieldRef](#listinstancefieldref)|
 <a name="datarows"></a>
-###DataRows
+### DataRows
 Defines a collection of rows that will be added to the List Instance, optional element.
 
 ```xml
@@ -1283,7 +1283,7 @@ Attibute|Type|Description
 KeyColumn|xsd:string|Optional attribute to declare the name of the Key Column, if any, used to identify any already existing DataRows. If this attribute has a value and the target list already has items with matching KeyColumn values, the engine will handle the matching DataRows based on the value of the UpdateBehavior attribute. If UpdateBehavior has a value of Skip, the DataRows will be skipped. If UpdateBehavior has a value of Overwrite, the existing items will be updated with the values defined in the DataRows.
 UpdateBehavior||If the DataRow already exists on target list, this attribute defines whether the DataRow will be overwritten or skipped.
 <a name="folders"></a>
-###Folders
+### Folders
 Defines a collection of folders (eventually nested) that will be provisioned into the target list/library, optional element.
 
 ```xml
@@ -1300,7 +1300,7 @@ Element|Type|Description
 -------|----|-----------
 Folder|[Folder](#folder)|
 <a name="fielddefaults"></a>
-###FieldDefaults
+### FieldDefaults
 Defines a list of default values for the Fields of the List Instance, optional collection of elements.
 
 ```xml
@@ -1317,7 +1317,7 @@ Element|Type|Description
 -------|----|-----------
 FieldDefault|[FieldDefault](#fielddefault)|Defines a default value for a Field of the List Instance.
 <a name="irmsettings"></a>
-###IRMSettings
+### IRMSettings
 Declares the Information Rights Management settings for the list or library.
 
 ```xml
@@ -1362,7 +1362,7 @@ LicenseCacheExpireDays|xsd:int|Defines the number of days that the application t
 PolicyDescription|xsd:string|Defines the permission policy description.
 PolicyTitle|xsd:string|Defines the permission policy title.
 <a name="folder"></a>
-###Folder
+### Folder
 Defines a folder that will be provisioned into the target list/library.
 
 ```xml
@@ -1391,7 +1391,7 @@ Attibute|Type|Description
 --------|----|-----------
 Name|xsd:string|The Name of the Folder, required attribute.
 <a name="datavalue"></a>
-###DataValue
+### DataValue
 The DataValue of a single field of a row to insert into a target ListInstance.
 
 ```xml
@@ -1400,7 +1400,7 @@ The DataValue of a single field of a row to insert into a target ListInstance.
 ```
 
 <a name="fielddefault"></a>
-###FieldDefault
+### FieldDefault
 The FieldDefault of a single field of list or library for target ListInstance.
 
 ```xml
@@ -1409,7 +1409,7 @@ The FieldDefault of a single field of list or library for target ListInstance.
 ```
 
 <a name="contenttype"></a>
-###ContentType
+### ContentType
 Defines a Content Type.
 
 ```xml
@@ -1458,7 +1458,7 @@ NewFormUrl|xsd:string|Specifies the URL of a custom new form to use for list ite
 EditFormUrl|xsd:string|Specifies the URL of a custom edit form to use for list items that have been assigned the content type, optional attribute.
 DisplayFormUrl|xsd:string|Specifies the URL of a custom display form to use for list items that have been assigned the content type, optional attribute.
 <a name="fieldrefs"></a>
-###FieldRefs
+### FieldRefs
 The FieldRefs entries of the List Instance, optional collection of elements.
 
 ```xml
@@ -1475,7 +1475,7 @@ Element|Type|Description
 -------|----|-----------
 FieldRef|[ContentTypeFieldRef](#contenttypefieldref)|
 <a name="documenttemplate"></a>
-###DocumentTemplate
+### DocumentTemplate
 Specifies the document template for the content type. This is the file which SharePoint Foundation opens as a template when a user requests a new item of this content type.
 
 ```xml
@@ -1492,7 +1492,7 @@ Attibute|Type|Description
 --------|----|-----------
 TargetName|xsd:string|The value of the Content Type ID, required attribute.
 <a name="contenttypebinding"></a>
-###ContentTypeBinding
+### ContentTypeBinding
 Defines the binding between a ListInstance and a ContentType.
 
 ```xml
@@ -1515,7 +1515,7 @@ Default|xsd:boolean|Declares if the Content Type should be the default Content T
 Remove|xsd:boolean|Declares if the Content Type should be Removed from the list or library, optional attribute.
 Hidden|xsd:boolean|Declares if the Content Type should be Hidden from New button of the list or library, optional attribute.
 <a name="documentsettemplate"></a>
-###DocumentSetTemplate
+### DocumentSetTemplate
 Defines a DocumentSet Template for creating multiple DocumentSet instances.
 
 ```xml
@@ -1546,7 +1546,7 @@ Attibute|Type|Description
 --------|----|-----------
 WelcomePage|xsd:string|Defines the custom WelcomePage for the Document Set, optional attribute.
 <a name="allowedcontenttypes"></a>
-###AllowedContentTypes
+### AllowedContentTypes
 The list of allowed Content Types for the Document Set, optional element.
 
 ```xml
@@ -1571,7 +1571,7 @@ Attibute|Type|Description
 --------|----|-----------
 RemoveExistingContentTypes|xsd:boolean|The RemoveExistingContentTypes flag for the Allowed Content Types of the current Document Set, optional attribute.
 <a name="defaultdocuments"></a>
-###DefaultDocuments
+### DefaultDocuments
 The list of default Documents for the Document Set, optional element.
 
 ```xml
@@ -1588,7 +1588,7 @@ Element|Type|Description
 -------|----|-----------
 DefaultDocument|[DefaultDocument](#defaultdocument)|
 <a name="sharedfields"></a>
-###SharedFields
+### SharedFields
 The list of Shared Fields for the Document Set, optional element.
 
 ```xml
@@ -1605,7 +1605,7 @@ Element|Type|Description
 -------|----|-----------
 SharedField|[DocumentSetFieldRef](#documentsetfieldref)|
 <a name="welcomepagefields"></a>
-###WelcomePageFields
+### WelcomePageFields
 The list of Welcome Page Fields for the Document Set, optional element.
 
 ```xml
@@ -1622,7 +1622,7 @@ Element|Type|Description
 -------|----|-----------
 WelcomePageField|[DocumentSetFieldRef](#documentsetfieldref)|
 <a name="featureslist"></a>
-###FeaturesList
+### FeaturesList
 Defines a collection of elements of type Feature.
 
 ```xml
@@ -1639,7 +1639,7 @@ Element|Type|Description
 -------|----|-----------
 Feature|[Feature](#feature)|
 <a name="feature"></a>
-###Feature
+### Feature
 Defines a single Site or Web Feature, which will be activated or deactivated while applying the Provisioning Template.
 
 ```xml
@@ -1660,7 +1660,7 @@ ID|GUID|The unique ID of the Feature, required attribute.
 Deactivate|xsd:boolean|Defines if the feature has to be deactivated or activated while applying the Provisioning Template, optional attribute.
 Description|xsd:string|The Description of the feature, optional attribute.
 <a name="fieldrefbase"></a>
-###FieldRefBase
+### FieldRefBase
 
 
 ```xml
@@ -1677,7 +1677,7 @@ Attibute|Type|Description
 --------|----|-----------
 ID|GUID|The value of the field ID to bind, required attribute.
 <a name="fieldreffull"></a>
-###FieldRefFull
+### FieldRefFull
 
 
 ```xml
@@ -1686,7 +1686,7 @@ ID|GUID|The value of the field ID to bind, required attribute.
 ```
 
 <a name="listinstancefieldref"></a>
-###ListInstanceFieldRef
+### ListInstanceFieldRef
 Defines the binding between a ListInstance and a Field.
 
 ```xml
@@ -1705,7 +1705,7 @@ Attibute|Type|Description
 DisplayName|xsd:string|The display name of the field to bind, only applicable to fields that will be added to lists, optional attribute.
 Remove|xsd:boolean|Declares if the FieldRef should be Removed from the list or library, optional attribute.
 <a name="contenttypefieldref"></a>
-###ContentTypeFieldRef
+### ContentTypeFieldRef
 Defines the binding between a ContentType and a Field.
 
 ```xml
@@ -1714,7 +1714,7 @@ Defines the binding between a ContentType and a Field.
 ```
 
 <a name="documentsetfieldref"></a>
-###DocumentSetFieldRef
+### DocumentSetFieldRef
 Defines the binding between a Document Set and a Field.
 
 ```xml
@@ -1723,7 +1723,7 @@ Defines the binding between a Document Set and a Field.
 ```
 
 <a name="customactionslist"></a>
-###CustomActionsList
+### CustomActionsList
 Defines a collection of elements of type CustomAction.
 
 ```xml
@@ -1740,7 +1740,7 @@ Element|Type|Description
 -------|----|-----------
 CustomAction|[CustomAction](#customaction)|
 <a name="customaction"></a>
-###CustomAction
+### CustomAction
 Defines a Custom Action, which will be provisioned while applying the Provisioning Template.
 
 ```xml
@@ -1797,7 +1797,7 @@ RegistrationType|RegistrationType|The RegistrationType of the CustomAction, opti
 ClientSideComponentId|xsd:string|The Client-Side Component Id of a customizer, optional attribute.
 ClientSideComponentProperties|xsd:string|The Client-Side Component Properties of a customizer, optional attribute.
 <a name="commanduiextension"></a>
-###CommandUIExtension
+### CommandUIExtension
 Defines the Custom UI Extension XML, optional element.
 
 ```xml
@@ -1807,7 +1807,7 @@ Defines the Custom UI Extension XML, optional element.
 ```
 
 <a name="sitewebhookslist"></a>
-###SiteWebhooksList
+### SiteWebhooksList
 Defines a collection of elements of type SiteWebhook.
 
 ```xml
@@ -1824,7 +1824,7 @@ Element|Type|Description
 -------|----|-----------
 Webhook|[SiteWebhook](#sitewebhook)|
 <a name="webhookslist"></a>
-###WebhooksList
+### WebhooksList
 Defines a collection of elements of type Webhook.
 
 ```xml
@@ -1841,7 +1841,7 @@ Element|Type|Description
 -------|----|-----------
 Webhook|[Webhook](#webhook)|
 <a name="webhook"></a>
-###Webhook
+### Webhook
 Defines a single element of type Webhook.
 
 ```xml
@@ -1860,7 +1860,7 @@ Attibute|Type|Description
 ServerNotificationUrl|ReplaceableString|The Server Notification URL of the Webhook, required attribute.
 ExpiresInDays|ReplaceableInt|The expire days for the subscription of the Webhook, required attribute.
 <a name="sitewebhook"></a>
-###SiteWebhook
+### SiteWebhook
 Defines a single element of type SiteWebhook.
 
 ```xml
@@ -1877,7 +1877,7 @@ Attibute|Type|Description
 --------|----|-----------
 SiteWebhookType||
 <a name="clientsidepages"></a>
-###ClientSidePages
+### ClientSidePages
 Defines a collection of elements of type ClientSidePage.
 
 ```xml
@@ -1894,7 +1894,7 @@ Element|Type|Description
 -------|----|-----------
 ClientSidePage|[ClientSidePage](#clientsidepage)|
 <a name="clientsidepage"></a>
-###ClientSidePage
+### ClientSidePage
 Defines a single element of type ClientSidePage.
 
 ```xml
@@ -1921,7 +1921,7 @@ Attibute|Type|Description
 PagesLibrary|xsd:string|Defines the target Pages Library for a single ClientSidePage.
 PromoteAsNewsArticle|xsd:boolean|Declares to promote the page as a news article.
 <a name="zones"></a>
-###Zones
+### Zones
 Defines the Canvas Zones for a single ClientSidePage.
 
 ```xml
@@ -1938,7 +1938,7 @@ Element|Type|Description
 -------|----|-----------
 Zone|[CanvasZone](#canvaszone)|Defines a Canvas Zone for a single ClientSidePage.
 <a name="canvaszone"></a>
-###CanvasZone
+### CanvasZone
 A Canvas Zone for a Client-side Page.
 
 ```xml
@@ -1965,7 +1965,7 @@ Attibute|Type|Description
 Order|xsd:int|The order of the Canvas Zone for a Client-side Page.
 Type||The type of the Canvas Zone for a Client-side Page.
 <a name="controls"></a>
-###Controls
+### Controls
 A collection of Canvas Controls for a Client-side Page.
 
 ```xml
@@ -1982,7 +1982,7 @@ Element|Type|Description
 -------|----|-----------
 CanvasControl|[CanvasControl](#canvascontrol)|A single Canvas Control for a Client-side Page.
 <a name="canvascontrol"></a>
-###CanvasControl
+### CanvasControl
 Defines a Canvas Control for a Client-side Page.
 
 ```xml
@@ -2017,7 +2017,7 @@ ControlId|GUID|The Instance Id for Canvas Control of a Client-side Page.
 Order|xsd:int|The order of the Canvas Control for a Client-side Page.
 Section|xsd:int|The Section of the Zone in which the Canvas Control will be inserted. Optional, default 0.
 <a name="canvascontrolproperties"></a>
-###CanvasControlProperties
+### CanvasControlProperties
 Custom properties for the client-side web part control.
 
 ```xml
@@ -2034,7 +2034,7 @@ Element|Type|Description
 -------|----|-----------
 CanvasControlProperty|[StringDictionaryItem](#stringdictionaryitem)|A single property of a client-side web part control.
 <a name="canvassection"></a>
-###CanvasSection
+### CanvasSection
 Defines a Canvas Zone for a Client-side Page.
 
 ```xml
@@ -2061,7 +2061,7 @@ Attibute|Type|Description
 Order|xsd:int|The order of the Canvas Zone for a Client-side Page.
 SectionFactor|xsd:int|The Section Factor for Canvas Section of a Client-side Page.
 <a name="controls"></a>
-###Controls
+### Controls
 A collection of Canvas Controls for a Client-side Page.
 
 ```xml
@@ -2078,7 +2078,7 @@ Element|Type|Description
 -------|----|-----------
 CanvasControl|[CanvasControl](#canvascontrol)|A single Canvas Control for a Client-side Page.
 <a name="fileproperties"></a>
-###FileProperties
+### FileProperties
 A collection of File Properties.
 
 ```xml
@@ -2095,7 +2095,7 @@ Element|Type|Description
 -------|----|-----------
 Property|[StringDictionaryItem](#stringdictionaryitem)|
 <a name="file"></a>
-###File
+### File
 Defines a File element, to describe a file that will be provisioned into the target Site.
 
 ```xml
@@ -2132,7 +2132,7 @@ Overwrite|xsd:boolean|The Overwrite flag for the File, optional attribute.
 Level|FileLevel|The Level status for the File, optional attribute.
 TargetFileName|ReplaceableString|The Target file name for the File, optional attribute. If missing, the original file name will be used.
 <a name="webparts"></a>
-###WebParts
+### WebParts
 The webparts to add to the page, optional collection of elements.
 
 ```xml
@@ -2149,7 +2149,7 @@ Element|Type|Description
 -------|----|-----------
 WebPart|[WebPartPageWebPart](#webpartpagewebpart)|
 <a name="directory"></a>
-###Directory
+### Directory
 Defines a Directory element, to describe a folder in the current repository that will be used to upload files into the target Site.
 
 ```xml
@@ -2188,7 +2188,7 @@ IncludedExtensions|xsd:string|The file Extensions (lower case) to include while 
 ExcludedExtensions|xsd:string|The file Extensions (lower case) to exclude while uploading the Directory, optional attribute.
 MetadataMappingFile|ReplaceableString|The file path of JSON mapping file with metadata for files to upload in the Directory, optional attribute.
 <a name="page"></a>
-###Page
+### Page
 Defines a Page element, to describe a page that will be provisioned into the target Site. Because of the Layout attribute, the assumption is made that you're referring/creating a WikiPage.
 
 ```xml
@@ -2221,7 +2221,7 @@ Url|xsd:string|The server relative url of the page, supports tokens, required at
 Overwrite|xsd:boolean|If set, overwrites an existing page in the case of a wikipage, optional attribute.
 Layout|WikiPageLayout|Defines the layout of the wikipage, required attribute.
 <a name="webparts"></a>
-###WebParts
+### WebParts
 The webparts to add to the page, optional collection of elements.
 
 ```xml
@@ -2238,7 +2238,7 @@ Element|Type|Description
 -------|----|-----------
 WebPart|[WikiPageWebPart](#wikipagewebpart)|
 <a name="fields"></a>
-###Fields
+### Fields
 The Fields to setup for the Page, optional collection of elements.
 
 ```xml
@@ -2255,7 +2255,7 @@ Element|Type|Description
 -------|----|-----------
 Field|[BaseFieldValue](#basefieldvalue)|
 <a name="wikipagewebpart"></a>
-###WikiPageWebPart
+### WikiPageWebPart
 Defines a WebPart to be added to a WikiPage.
 
 ```xml
@@ -2284,7 +2284,7 @@ Title|xsd:string|Defines the title of the WebPart, required attribute.
 Row|xsd:int|Defines the row to add the WebPart to, required attribute.
 Column|xsd:int|Defines the column to add the WebPart to, required attribute.
 <a name="contents"></a>
-###Contents
+### Contents
 Defines the WebPart XML, required element.
 
 ```xml
@@ -2294,7 +2294,7 @@ Defines the WebPart XML, required element.
 ```
 
 <a name="webpartpagewebpart"></a>
-###WebPartPageWebPart
+### WebPartPageWebPart
 Defines a webpart to be added to a WebPart Page.
 
 ```xml
@@ -2323,7 +2323,7 @@ Title|xsd:string|Defines the title of the WebPart, required attribute.
 Zone|xsd:string|Defines the zone of a WebPart Page to add the webpart to, required attribute.
 Order|xsd:int|Defines the index of the WebPart in the zone, required attribute.
 <a name="contents"></a>
-###Contents
+### Contents
 Defines the WebPart XML, required element.
 
 ```xml
@@ -2333,7 +2333,7 @@ Defines the WebPart XML, required element.
 ```
 
 <a name="composedlook"></a>
-###ComposedLook
+### ComposedLook
 Defines a ComposedLook element.
 
 ```xml
@@ -2358,7 +2358,7 @@ FontFile|xsd:string|The FontFile of the ComposedLook, required attribute.
 BackgroundFile|xsd:string|The BackgroundFile of the ComposedLook, optional attribute.
 Version|xsd:int|The Version of the ComposedLook, optional attribute.
 <a name="workflows"></a>
-###Workflows
+### Workflows
 Defines the Workflows to provision.
 
 ```xml
@@ -2377,7 +2377,7 @@ Element|Type|Description
 WorkflowDefinitions|[WorkflowDefinitions](#workflowdefinitions)|
 WorkflowSubscriptions|[WorkflowSubscriptions](#workflowsubscriptions)|
 <a name="workflowdefinitions"></a>
-###WorkflowDefinitions
+### WorkflowDefinitions
 Defines the Workflows Definitions to provision.
 
 ```xml
@@ -2394,7 +2394,7 @@ Element|Type|Description
 -------|----|-----------
 WorkflowDefinition|[WorkflowDefinition](#workflowdefinition)|
 <a name="workflowsubscriptions"></a>
-###WorkflowSubscriptions
+### WorkflowSubscriptions
 Defines the Workflows Subscriptions to provision.
 
 ```xml
@@ -2411,7 +2411,7 @@ Element|Type|Description
 -------|----|-----------
 WorkflowSubscription|[WorkflowSubscription](#workflowsubscription)|
 <a name="addins"></a>
-###AddIns
+### AddIns
 Defines the SharePoint Add-ins to provision, collection of elements.
 
 ```xml
@@ -2428,7 +2428,7 @@ Element|Type|Description
 -------|----|-----------
 Addin|[Addin](#addin)|
 <a name="addin"></a>
-###Addin
+### Addin
 
 
 ```xml
@@ -2447,7 +2447,7 @@ Attibute|Type|Description
 PackagePath|xsd:string|Defines the .app file of the SharePoint Add-in to provision, required attribute.
 Source||Defines the Source of the SharePoint Add-in to provision, required attribute.
 <a name="publishing"></a>
-###Publishing
+### Publishing
 Defines the Publishing configuration to provision.
 
 ```xml
@@ -2478,7 +2478,7 @@ Attibute|Type|Description
 --------|----|-----------
 AutoCheckRequirements||Defines how an engine should behave if the requirements for provisioning publishing capabilities are not satisfied by the target site, required attribute.
 <a name="designpackage"></a>
-###DesignPackage
+### DesignPackage
 Defines a Design Package to import into the current Publishing site, optional element.
 
 ```xml
@@ -2503,7 +2503,7 @@ MinorVersion|xsd:int|The Minor Version of the Design Package to import into the 
 PackageGuid|GUID|The ID of the Design Package to import into the current Publishing site, optional attribute.
 PackageName|xsd:string|The Name of the Design Package to import into the current Publishing site, required attribute.
 <a name="availablewebtemplates"></a>
-###AvailableWebTemplates
+### AvailableWebTemplates
 Defines the Available Web Templates for the current Publishing site, optional collection of elements.
 
 ```xml
@@ -2520,7 +2520,7 @@ Element|Type|Description
 -------|----|-----------
 WebTemplate|[WebTemplate](#webtemplate)|Defines an available Web Template for the current Publishing site.
 <a name="pagelayouts"></a>
-###PageLayouts
+### PageLayouts
 Defines the Available Page Layouts for the current Publishing site, optional collection of elements.
 
 ```xml
@@ -2545,7 +2545,7 @@ Attibute|Type|Description
 --------|----|-----------
 Default|xsd:string|Defines the URL of the Default Page Layout for the current Publishing site, if any. Optional attribute.
 <a name="imagerenditions"></a>
-###ImageRenditions
+### ImageRenditions
 Defines the Image Renditions for the current Publishing site, optional collection of elements.
 
 ```xml
@@ -2562,7 +2562,7 @@ Element|Type|Description
 -------|----|-----------
 ImageRendition|[ImageRendition](#imagerendition)|Defines an available Image Rendition for the current Publishing site.
 <a name="provider"></a>
-###Provider
+### Provider
 Defines an Extensibility Provider.
 
 ```xml
@@ -2589,7 +2589,7 @@ Attibute|Type|Description
 Enabled|xsd:boolean|Defines whether the Extensibility Provider is enabled or not, optional attribute.
 HandlerType|xsd:string|The type of the handler. It can be a FQN of a .NET type, the URL of a node.js file, or whatever else, required attribute.
 <a name="configuration"></a>
-###Configuration
+### Configuration
 Defines an optional configuration section for the Extensibility Provider. The configuration section can be any XML.
 
 ```xml
@@ -2599,7 +2599,7 @@ Defines an optional configuration section for the Extensibility Provider. The co
 ```
 
 <a name="provisioningtemplatefile"></a>
-###ProvisioningTemplateFile
+### ProvisioningTemplateFile
 An element that references an external file.
 
 ```xml
@@ -2618,7 +2618,7 @@ Attibute|Type|Description
 File|xsd:string|Absolute or relative path to the file, required attribute.
 ID|xsd:ID|ID of the referenced template, required attribute.
 <a name="provisioningtemplatereference"></a>
-###ProvisioningTemplateReference
+### ProvisioningTemplateReference
 An element that references an external file.
 
 ```xml
@@ -2635,7 +2635,7 @@ Attibute|Type|Description
 --------|----|-----------
 ID|xsd:IDREF|ID of the referenced template, required attribute.
 <a name="sequence"></a>
-###Sequence
+### Sequence
 Each Provisioning file is split into a set of Sequence elements. The Sequence element groups the artefacts to be provisioned into groups. The Sequences must be evaluated by the provisioning engine in the order in which they appear.
 
 ```xml
@@ -2668,7 +2668,7 @@ Attibute|Type|Description
 SequenceType||Instructions to the Provisioning engine on how the Containers within the Sequence can be provisioned.
 ID|xsd:ID|A unique identifier of the Sequence, required attribute.
 <a name="sitecollection"></a>
-###SiteCollection
+### SiteCollection
 Defines a SiteCollection that will be created into the target tenant/farm.
 
 ```xml
@@ -2693,7 +2693,7 @@ Attibute|Type|Description
 --------|----|-----------
 Url|ReplaceableString|Absolute Url to the site, required attribute.
 <a name="site"></a>
-###Site
+### Site
 Defines a Site that will be created into a target Site Collection.
 
 ```xml
@@ -2720,7 +2720,7 @@ Attibute|Type|Description
 UseSamePermissionsAsParentSite|xsd:boolean|
 Url|ReplaceableString|Relative Url to the site, required attribute.
 <a name="termstore"></a>
-###TermStore
+### TermStore
 A TermStore to use for provisioning of TermGroups.
 
 ```xml
@@ -2745,7 +2745,7 @@ Attibute|Type|Description
 --------|----|-----------
 Scope||The scope of the term store, required attribute.
 <a name="termgroup"></a>
-###TermGroup
+### TermGroup
 A TermGroup to use for provisioning of TermSets and Terms.
 
 ```xml
@@ -2770,7 +2770,7 @@ UpdateBehavior||If the TermGroup already exists on target, this attribute define
 Name|xsd:string|The Name of the Taxonomy Item, required attribute.
 ID|GUID|The ID of the Taxonomy Item, optional attribute.
 <a name="termsetitem"></a>
-###TermSetItem
+### TermSetItem
 Base type for TermSets and Terms
 
 ```xml
@@ -2791,7 +2791,7 @@ Owner|xsd:string|The Owner of the Term Set Item, optional attribute.
 Description|xsd:string|The Description of the Term Set Item, optional attribute.
 IsAvailableForTagging|xsd:boolean|Declares whether the Term Set Item is available for tagging, optional attribute.
 <a name="termset"></a>
-###TermSet
+### TermSet
 A TermSet to provision.
 
 ```xml
@@ -2810,7 +2810,7 @@ Attibute|Type|Description
 Language|xsd:int|The reference Language for the Term Set, optional attribute.
 IsOpenForTermCreation|xsd:boolean|Declares whether the Term Set is open for terms creation or not, optional attribute.
 <a name="term"></a>
-###Term
+### Term
 A Term to provision into a TermSet or a hyerarchical Term.
 
 ```xml
@@ -2837,7 +2837,7 @@ IsSourceTerm|xsd:boolean|If the IsReused property is set to false, the current T
 IsDeprecated|xsd:boolean|Declares if this term is deprecated, optional attribute.
 SourceTermId|GUID|The ID of the source term if this term is reused, optional attribute.
 <a name="taxonomyitemproperties"></a>
-###TaxonomyItemProperties
+### TaxonomyItemProperties
 A collection of Term Properties.
 
 ```xml
@@ -2854,7 +2854,7 @@ Element|Type|Description
 -------|----|-----------
 Property|[StringDictionaryItem](#stringdictionaryitem)|A Term Property, collection of elements.
 <a name="termlabels"></a>
-###TermLabels
+### TermLabels
 A collection of Term Labels, in order to support multi-language terms.
 
 ```xml
@@ -2871,7 +2871,7 @@ Element|Type|Description
 -------|----|-----------
 Label|[Label](#label)|
 <a name="label"></a>
-###Label
+### Label
 
 
 ```xml
@@ -2892,7 +2892,7 @@ Language|xsd:int|The reference Language for the Term Label, required attribute.
 Value|xsd:string|The Value for the Term Label, required attribute.
 IsDefaultForLanguage|xsd:boolean|Declares whether the current Label is the default for the specific Language, optional attribute.
 <a name="termsets"></a>
-###TermSets
+### TermSets
 A collection of TermSets to provision.
 
 ```xml
@@ -2909,7 +2909,7 @@ Element|Type|Description
 -------|----|-----------
 TermSet|[TermSet](#termset)|A Term Set, optional collection of elements.
 <a name="extensions"></a>
-###Extensions
+### Extensions
 Extensions are custom XML elements and instructions that can be extensions of this default schema or vendor or engine specific extensions.
 
 ```xml
@@ -2919,7 +2919,7 @@ Extensions are custom XML elements and instructions that can be extensions of th
 ```
 
 <a name="importsequence"></a>
-###ImportSequence
+### ImportSequence
 Imports sequences from an external file. All current properties should be sent to that file.
 
 ```xml
