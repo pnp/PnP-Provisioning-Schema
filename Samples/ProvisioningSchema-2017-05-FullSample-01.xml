@@ -404,7 +404,7 @@
       </pnp:CustomActions>
 
       <pnp:Files>
-        <pnp:File Src="Logo.png" Folder="SiteAssets" Overwrite="true" />
+        <pnp:File Src="Logo.png" Folder="SiteAssets" Overwrite="true" TargetFileName="CompanyLogo.png" />
         <pnp:File Src="CustomPage.aspx" Folder="SitePages" Overwrite="true">
           <pnp:Security>
             <pnp:BreakRoleInheritance CopyRoleAssignments="true" ClearSubscopes="true">
@@ -653,6 +653,10 @@
           <pnp:PageLayout Path="SimplePage.aspx" />
           <pnp:PageLayout Path="Product.aspx" />
         </pnp:PageLayouts>
+        <pnp:ImageRenditions>
+          <pnp:ImageRendition Width="100" Height="100" Name="SmallSquare"/>
+          <pnp:ImageRendition Width="500" Height="200" Name="SmallRectangle"/>
+        </pnp:ImageRenditions>
       </pnp:Publishing>
 
       <pnp:AddIns>
@@ -700,7 +704,7 @@
           </pnp:Zones>
         </pnp:ClientSidePage>
       </pnp:ClientSidePages>
-
+     
     </pnp:ProvisioningTemplate>
 
   </pnp:Templates>
