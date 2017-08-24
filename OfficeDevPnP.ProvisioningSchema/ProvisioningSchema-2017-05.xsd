@@ -557,6 +557,13 @@
       </xsd:annotation>
       <xsd:simpleType>
         <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Undefined">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                Scope was not defined
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
           <xsd:enumeration value="RootSite">
             <xsd:annotation>
               <xsd:documentation xml:lang="en">
@@ -3181,34 +3188,34 @@
 
     <xsd:sequence>
 
-      <xsd:element name="Zones" minOccurs="0" maxOccurs="1">
+      <xsd:element name="Sections" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
-            Defines the Canvas Zones for a single ClientSidePage.
+            Defines the Canvas sections for a single ClientSidePage.
           </xsd:documentation>
         </xsd:annotation>
 
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="Zone" type="pnp:CanvasZone" minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="Section" type="pnp:CanvasSection" minOccurs="0" maxOccurs="unbounded">
               <xsd:annotation>
                 <xsd:documentation xml:lang="en">
-                  Defines a Canvas Zone for a single ClientSidePage.
+                  Defines a Canvas section for a single ClientSidePage.
                 </xsd:documentation>
               </xsd:annotation>
-            </xsd:element> 
+            </xsd:element>
           </xsd:sequence>
         </xsd:complexType>
-        
+
       </xsd:element>
 
     </xsd:sequence>
 
-    <xsd:attribute name="PagesLibrary" type="xsd:string" use="required">
+    <xsd:attribute name="PageName" type="xsd:string" use="required">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
         <xsd:documentation xml:lang="en">
-          Defines the target Pages Library for a single ClientSidePage.
+          Defines the page name for a single ClientSidePage.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -3222,15 +3229,24 @@
       </xsd:annotation>
     </xsd:attribute>
 
+    <xsd:attribute name="Overwrite" type="xsd:boolean" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Can the page be overwritten if it exists.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
   </xsd:complexType>
 
-  <xsd:complexType name="CanvasZone">
+  <xsd:complexType name="CanvasSection">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
-        A Canvas Zone for a Client-side Page.
+        A Canvas Section for a Client-side Page.
       </xsd:documentation>
     </xsd:annotation>
-    
+
     <xsd:sequence>
       <xsd:element name="Controls" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
@@ -3256,15 +3272,15 @@
     <xsd:attribute name="Order" type="xsd:int" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The order of the Canvas Zone for a Client-side Page.
+          The order of the Canvas Section for a Client-side Page.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    
+
     <xsd:attribute name="Type">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The type of the Canvas Zone for a Client-side Page.
+          The type of the Canvas Section for a Client-side Page.
         </xsd:documentation>
       </xsd:annotation>
 
@@ -3315,7 +3331,7 @@
         </xsd:restriction>
       </xsd:simpleType>
     </xsd:attribute>
-    
+
   </xsd:complexType>
 
   <xsd:complexType name="CanvasControl">
@@ -3326,7 +3342,7 @@
     </xsd:annotation>
 
     <xsd:sequence>
-      <xsd:element name="CanvasControlProperties">
+      <xsd:element name="CanvasControlProperties" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
             Custom properties for the client-side web part control.
@@ -3357,6 +3373,7 @@
       <xsd:simpleType>
         <xsd:restriction base="xsd:string">
           <xsd:enumeration value="Custom" />
+          <xsd:enumeration value="Text" />
           <xsd:enumeration value="ContentRollup" />
           <xsd:enumeration value="BingMap" />
           <xsd:enumeration value="ContentEmbed" />
@@ -3380,7 +3397,7 @@
           <xsd:enumeration value="QuickLinks" />
         </xsd:restriction>
       </xsd:simpleType>
-      
+
     </xsd:attribute>
 
     <xsd:attribute name="CustomWebPartName" type="xsd:string" use="optional">
@@ -3415,20 +3432,20 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="Section" type="xsd:int" use="optional" default="0">
+    <xsd:attribute name="Column" type="xsd:int" use="optional" default="0">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The Section of the Zone in which the Canvas Control will be inserted. Optional, default 0.
+          The Column of the Section in which the Canvas Control will be inserted. Optional, default 0.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
 
   </xsd:complexType>
 
-  <xsd:complexType name="CanvasSection">
+  <xsd:complexType name="CanvasColumn">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
-        Defines a Canvas Zone for a Client-side Page.
+        Defines a Canvas Section for a Client-side Page.
       </xsd:documentation>
     </xsd:annotation>
 
@@ -3457,21 +3474,21 @@
     <xsd:attribute name="Order" type="xsd:int" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The order of the Canvas Zone for a Client-side Page.
+          The order of the Canvas section for a Client-side Page.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="SectionFactor" type="xsd:int" use="optional">
+    <xsd:attribute name="ColumnFactor" type="xsd:int" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The Section Factor for Canvas Section of a Client-side Page.
+          The column Factor for Canvas column of a Client-side Page.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
 
   </xsd:complexType>
-
+  
   <xsd:complexType name="FileProperties">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
