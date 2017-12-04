@@ -1893,7 +1893,28 @@
         </xsd:complexType>
 
       </xsd:element>
-      <xsd:element name="FieldDefaults" maxOccurs="1" minOccurs="0">
+
+      <xsd:element name="MetadataDefaults" maxOccurs="1" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            Defines a list of default values for the columns at the root folder (column default values), optional collection of elements.
+          </xsd:documentation>
+        </xsd:annotation>
+
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="MetadataDefault" maxOccurs="unbounded" minOccurs="1" type="pnp:MetadataDefault">
+              <xsd:annotation>
+                <xsd:documentation xml:lang="en">
+                  Defines a default value in the root folder for a Field of the List Instance.
+                </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
+  <xsd:element name="FieldDefaults" maxOccurs="1" minOccurs="0">
 
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
@@ -2430,6 +2451,29 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      
+      
+      <xsd:element name="MetadataDefaults" maxOccurs="1" minOccurs="0">
+
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            Defines a list of default values for the columns at the folder location (column default values), optional collection of elements.
+          </xsd:documentation>
+        </xsd:annotation>
+
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="MetadataDefault" maxOccurs="unbounded" minOccurs="1" type="pnp:MetadataDefault">
+              <xsd:annotation>
+                <xsd:documentation xml:lang="en">
+                  Defines a default value in the root folder for a Field of the List Instance.
+                </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
     </xsd:sequence>
 
     <xsd:attribute name="Name" type="xsd:string" use="required">
@@ -2474,6 +2518,32 @@
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="BaseFieldValue" />
+    </xsd:complexContent>
+  </xsd:complexType>
+  
+  <xsd:complexType name="MetadataDefault">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        The MetadataDefault of a single field in a folder of list or library for target ListInstance.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:complexContent>
+      <xsd:extension base="BaseFieldValue">
+        <xsd:attribute name="Remove" type="xsd:boolean" use="optional" default="false">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              Defines whether to remove a metadata default value for the column, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Overwrite" type="xsd:boolean" use="optional" default="false">
+          <xsd:annotation>
+            <xsd:documentation xml:lang="en">
+              Declares whether the metadata default will overwrite an already existing entry, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
 
