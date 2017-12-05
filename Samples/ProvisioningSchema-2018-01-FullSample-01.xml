@@ -159,7 +159,7 @@
         </pnp:Permissions>
       </pnp:Security>
 
-      <pnp:Navigation EnableTreeView="true">
+      <pnp:Navigation EnableTreeView="true" AddNewPagesToNavigation="true" CreateFriendlyUrlsForNewPages="true">
         <pnp:GlobalNavigation NavigationType="Managed">
           <pnp:ManagedNavigation
             TermStoreId="{sitecollectiontermstoreid}"
@@ -265,7 +265,7 @@
                     DefaultEditFormUrl="./Forms/Edit.aspx"
                     DefaultNewFormUrl="./Forms/NewItem.aspx"
                     Direction="LTR"
-                    DraftVersionVisibility=""
+                    DraftVersionVisibility="1"
                     EnableAttachments="false"
                     EnableFolderCreation="true"
                     EnableMinorVersions="true"
@@ -567,10 +567,10 @@
           <pnp:Contributors>
             <pnp:User Name="user1@contoso.com"/>
           </pnp:Contributors>
-          <pnp:Members>
+          <pnp:Managers>
             <pnp:User Name="user2@contoso.com"/>
             <pnp:User Name="user3@contoso.com"/>
-          </pnp:Members>
+          </pnp:Managers>
         </pnp:TermGroup>
       </pnp:TermGroups>
 
@@ -719,24 +719,23 @@
       </pnp:SiteWebhooks>
 
       <pnp:ClientSidePages>
-        <pnp:ClientSidePage PagesLibrary="Pages" PromoteAsNewsArticle="true">
-          <pnp:Zones>
-            <pnp:Zone Type="OneColumn" Order="1">
+        <pnp:ClientSidePage PageName="SamplePage" PromoteAsNewsArticle="true" Overwrite="true" Publish="true" Layout="Article">
+          <pnp:Sections>
+            <pnp:Section Order="1" Type="OneColumn">
               <pnp:Controls>
-                <pnp:CanvasControl 
+                <pnp:CanvasControl
                   WebPartType="Image"
                   CustomWebPartName="..."
                   JsonControlData="{}"
                   ControlId="0eaba53f-55d8-44b5-9f7c-61301c7f1e0e"
-                  Order="1"
-                  Section="0">
-                    <pnp:CanvasControlProperties>
-                      <pnp:CanvasControlProperty Key="" Value="{token}" />
-                    </pnp:CanvasControlProperties>
-                  </pnp:CanvasControl>
+                  Order="1">
+                  <pnp:CanvasControlProperties>
+                    <pnp:CanvasControlProperty Key="" Value="{token}" />
+                  </pnp:CanvasControlProperties>
+                </pnp:CanvasControl>
               </pnp:Controls>
-            </pnp:Zone>
-          </pnp:Zones>
+            </pnp:Section>
+          </pnp:Sections>
         </pnp:ClientSidePage>
       </pnp:ClientSidePages>
      
