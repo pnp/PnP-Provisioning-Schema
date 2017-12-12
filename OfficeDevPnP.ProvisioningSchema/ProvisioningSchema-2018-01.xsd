@@ -1894,7 +1894,7 @@
 
       </xsd:element>
 
-      <xsd:element name="MetadataDefaults" maxOccurs="1" minOccurs="0">
+      <xsd:element name="ColumnDefaults" maxOccurs="1" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
             Defines a list of default values for the columns at the root folder (column default values), optional collection of elements.
@@ -1903,7 +1903,7 @@
 
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="MetadataDefault" maxOccurs="unbounded" minOccurs="1" type="pnp:MetadataDefault">
+            <xsd:element name="ColumnDefault" maxOccurs="unbounded" minOccurs="1" type="pnp:ColumnDefault">
               <xsd:annotation>
                 <xsd:documentation xml:lang="en">
                   Defines a default value in the root folder for a Field of the List Instance.
@@ -2453,7 +2453,7 @@
       </xsd:element>
       
       
-      <xsd:element name="MetadataDefaults" maxOccurs="1" minOccurs="0">
+      <xsd:element name="ColumnDefaults" maxOccurs="1" minOccurs="0">
 
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
@@ -2463,7 +2463,7 @@
 
         <xsd:complexType>
           <xsd:sequence>
-            <xsd:element name="MetadataDefault" maxOccurs="unbounded" minOccurs="1" type="pnp:MetadataDefault">
+            <xsd:element name="ColumnDefault" maxOccurs="unbounded" minOccurs="1" type="pnp:ColumnDefault">
               <xsd:annotation>
                 <xsd:documentation xml:lang="en">
                   Defines a default value in the root folder for a Field of the List Instance.
@@ -2521,10 +2521,10 @@
     </xsd:complexContent>
   </xsd:complexType>
   
-  <xsd:complexType name="MetadataDefault">
+  <xsd:complexType name="ColumnDefault">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
-        The MetadataDefault of a single field in a folder of list or library for target ListInstance.
+        The ColumnDefault of a single field in a folder of list or library for target ListInstance.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
