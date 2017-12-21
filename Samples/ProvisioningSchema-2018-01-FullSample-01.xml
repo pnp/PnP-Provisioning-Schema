@@ -160,6 +160,20 @@
       </pnp:Security>
 
       <pnp:Navigation EnableTreeView="true" AddNewPagesToNavigation="true" CreateFriendlyUrlsForNewPages="true">
+        <pnp:ModernNavigation>
+          <pnp:Quicklaunch RemoveExistingNodes="false">
+            <pnp:NavigationNode Title="Home" Url="{site}" />
+            <pnp:NavigationNode Title="Conversations" Url="https://outlook.office365.com/owa/?path=/group/templateSourceTeam@M365x721636.onmicrosoft.com/mail" IsExternal="true" />
+            <pnp:NavigationNode Title="Google" Url="https://www.google.com" IsExternal="true">
+              <pnp:NavigationNode Title="Bing" Url="https://www.bing.com" IsExternal="true" />
+              <pnp:NavigationNode Title="Documents" Url="{site}/Shared Documents/Forms/AllItems.aspx" />
+              <pnp:NavigationNode Title="Duck Duck Go" Url="https://duckduckgo.com" IsExternal="true" />
+            </pnp:NavigationNode>
+            <pnp:NavigationNode Title="Notebook" Url="{site}/_layouts/15/groupstatus.aspx?Target=NOTEBOOK" IsExternal="true" />
+            <pnp:NavigationNode Title="Pages" Url="{site}/SitePages/Forms/ByAuthor.aspx" />
+            <pnp:NavigationNode Title="Site contents" Url="{site}/_layouts/15/viewlsts.aspx" IsExternal="true" />
+          </pnp:Quicklaunch>
+        </pnp:ModernNavigation>
         <pnp:GlobalNavigation NavigationType="Managed">
           <pnp:ManagedNavigation
             TermStoreId="{sitecollectiontermstoreid}"
