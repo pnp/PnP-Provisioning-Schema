@@ -1108,6 +1108,27 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
+      <xsd:attribute name="AssociatedOwnersGroup" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Specifies the default owners group for this site.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="AssociatedMembersGroup" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Specifies the default members group for this site.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="AssociatedVisitorsGroup" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Specifies the default visitors group for this site.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
 
   <xsd:complexType name="Navigation">
