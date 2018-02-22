@@ -1094,6 +1094,13 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
+    <xsd:attribute name="ResetRoleInheritance" type="xsd:boolean" use="optional" default="false">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Declares whether to reset the role inheritance or not for the site, if it is a sub-site, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>    
     <xsd:attribute name="CopyRoleAssignments" type="xsd:boolean" use="optional" default="false">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
@@ -1111,7 +1118,7 @@
     <xsd:attribute name="KeepExistingUniqueRoleAssignments" type="xsd:boolean" use="optional">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
-        Defines whether to keep unique role assignments if the site already breaks role inheritance. If false or not specified all existing unique role assignments on the site will be removed.
+        Defines whether to keep unique role assignments if the site already breaks role inheritance. If false or not specified all existing unique role assignments on the site will be removed if BreakRoleInheritance is true.
       </xsd:documentation>
     </xsd:annotation>
   </xsd:attribute>
@@ -1716,8 +1723,16 @@
       </xsd:documentation>
     </xsd:annotation>
 
+    <xsd:attribute name="ResetRoleInheritance" type="xsd:boolean" use="optional" default="false">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Declares whether to reset the role inheritance or not for the object, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>    
+
     <xsd:sequence>
-      <xsd:element name="BreakRoleInheritance" minOccurs="1" maxOccurs="1">
+      <xsd:element name="BreakRoleInheritance" minOccurs="0" maxOccurs="1">
         <xsd:complexType>
           <xsd:annotation>
             <xsd:documentation xml:lang="en">
