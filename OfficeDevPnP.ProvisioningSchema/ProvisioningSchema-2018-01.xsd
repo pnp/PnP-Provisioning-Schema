@@ -1108,6 +1108,13 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
+    <xsd:attribute name="KeepExistingUniqueRoleAssignments" type="xsd:boolean" use="optional">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        Defines whether to keep unique role assignments if the site already breaks role inheritance. If false or not specified all existing unique role assignments on the site will be removed.
+      </xsd:documentation>
+    </xsd:annotation>
+  </xsd:attribute>
   </xsd:complexType>
 
   <xsd:complexType name="Navigation">
@@ -1734,6 +1741,14 @@
             <xsd:annotation>
               <xsd:documentation xml:lang="en">
                 Defines whether to clear subscopes or not while breaking role inheritance, required attribute.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+
+          <xsd:attribute name="KeepExistingUniqueRoleAssignments" type="xsd:boolean" use="optional">
+            <xsd:annotation>
+              <xsd:documentation xml:lang="en">
+                Defines whether to keep unique role assignments if the object already breaks role inheritance. If false or not specified all existing unique role assignments on the object will be removed.
               </xsd:documentation>
             </xsd:annotation>
           </xsd:attribute>
