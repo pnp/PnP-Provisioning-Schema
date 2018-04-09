@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xsd:schema targetNamespace="http://schemas.dev.office.com/PnP/vNext/ProvisioningSchema"
+<xsd:schema targetNamespace="http://schemas.dev.office.com/PnP/2018/05/ProvisioningSchema"
     elementFormDefault="qualified"
-    xmlns="http://schemas.dev.office.com/PnP/vNext/ProvisioningSchema"
-    xmlns:pnp="http://schemas.dev.office.com/PnP/vNext/ProvisioningSchema"
+    xmlns="http://schemas.dev.office.com/PnP/2018/05/ProvisioningSchema"
+    xmlns:pnp="http://schemas.dev.office.com/PnP/2018/05/ProvisioningSchema"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
   <!-- The main element -->
@@ -206,10 +206,252 @@
         </xsd:annotation>
       </xsd:element>
 
+      <xsd:element name="SiteDesigns" type="pnp:SiteDesigns" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Entry point for the tenant-wide Site Designs
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+
+      <xsd:element name="SiteScripts" type="pnp:SiteScripts" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Entry point for the tenant-wide Site Scripts
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+
+      <xsd:element name="StorageEntities" type="pnp:StorageEntities" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Entry point for the tenant-wide properties (Storage Entities)
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+
     </xsd:sequence>
 
   </xsd:complexType>
 
+  <xsd:complexType name="SiteDesigns">
+    <xsd:annotation>
+      <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+      <xsd:documentation xml:lang="en">
+        Collection of tenant-wide Site Designs
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:sequence>
+      <xsd:element name="SiteDesign" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Defines a single tenant-wide Site Design
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+
+          <xsd:sequence>
+            <xsd:element name="SiteScripts">
+              <xsd:annotation>
+                <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+                <xsd:documentation xml:lang="en">
+                  A collection of Site Scripts references for the current Site Design
+                </xsd:documentation>
+              </xsd:annotation>
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="SiteScriptRef" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:annotation>
+                      <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+                      <xsd:documentation xml:lang="en">
+                        Reference to a Site Script to be used by the current Site Design
+                      </xsd:documentation>
+                    </xsd:annotation>
+                    <xsd:complexType>
+                      <xsd:attribute name="ID" type="pnp:ReplaceableString" use="required">
+                        <xsd:annotation>
+                          <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+                          <xsd:documentation xml:lang="en">
+                            Reference to the ID of a Site Script to be used by the current Site Design, required attribute. It can be a token like {SiteScriptID:[Title]}.
+                          </xsd:documentation>
+                        </xsd:annotation>
+                      </xsd:attribute>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:sequence>
+          
+          <xsd:attribute name="Title" type="xsd:string" use="required">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                The Title of the Site Design
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+          <xsd:attribute name="Description" type="xsd:string" use="optional">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                The Description of the Site Design, optional attribute.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+          <xsd:attribute name="IsDefault" type="xsd:boolean" use="optional" default="false">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Defines whether the Site Design is default or not, optional attribute (default: false).
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+          <xsd:attribute name="WebTemplate" use="required">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Defines whether the Site Design is default or not, required attribute.
+              </xsd:documentation>
+            </xsd:annotation>
+            <xsd:simpleType>
+              <xsd:restriction base="xsd:string">
+                <xsd:enumeration value="TeamSite">
+                  <xsd:annotation>
+                    <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+                    <xsd:documentation xml:lang="en">
+                      Declares that the Site Design targets a "modern" Team Site
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:enumeration>
+                <xsd:enumeration value="CommunicationSite">
+                  <xsd:annotation>
+                    <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+                    <xsd:documentation xml:lang="en">
+                      Declares that the Site Design targets a "modern" Communication Site
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:enumeration>
+              </xsd:restriction>
+            </xsd:simpleType>
+          </xsd:attribute>
+          <xsd:attribute name="PreviewImageUrl" type="xsd:string" use="optional">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                The URL of the preview image for the Site Design, optional attribute.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+          <xsd:attribute name="PreviewImageAltText" type="xsd:string" use="optional">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                The alternate text for the preview image of the Site Design, optional attribute.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+        
+  </xsd:complexType>
+
+  <xsd:complexType name="SiteScripts">
+    <xsd:annotation>
+      <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+      <xsd:documentation xml:lang="en">
+        Collection of tenant-wide Site Scripts
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:sequence>
+      <xsd:element name="SiteScript" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Defines a single tenant-wide Site Script
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:attribute name="Title" type="xsd:string" use="required">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                The Title of the Site Script, required attribute.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+          <xsd:attribute name="Description" type="xsd:string" use="required">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                The Description of the Site Script, required attribute.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+          <xsd:attribute name="JsonFilePath" type="xsd:string" use="required">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                The path of the JSON file defining the Site Script, required attribute.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+        </xsd:complexType>
+
+      </xsd:element>
+    </xsd:sequence>
+    
+  </xsd:complexType>
+
+  <xsd:complexType name="StorageEntities">
+    <xsd:annotation>
+      <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+      <xsd:documentation xml:lang="en">
+        Collection of tenant-wide properties (Storage Entities)
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:sequence>      
+      <xsd:element name="StorageEntity" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Defines a single tenant-wide property (Storage Entity)
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:complexContent>
+            <xsd:extension base="pnp:StringDictionaryItem">
+              <xsd:attribute name="Comment" type="xsd:string" use="optional">
+                <xsd:annotation>
+                  <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+                  <xsd:documentation xml:lang="en">
+                    The Comment of the tenant-wide property, optional attribute.
+                  </xsd:documentation>
+                </xsd:annotation>
+              </xsd:attribute>
+              <xsd:attribute name="Description" type="xsd:string" use="optional">
+                <xsd:annotation>
+                  <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+                  <xsd:documentation xml:lang="en">
+                    The Description of the tenant-wide property, optional attribute.
+                  </xsd:documentation>
+                </xsd:annotation>
+              </xsd:attribute>
+            </xsd:extension>
+          </xsd:complexContent>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:sequence>
+
+  </xsd:complexType>
 
   <xsd:complexType name="Templates">
     <xsd:annotation>
@@ -724,6 +966,24 @@
       </xsd:annotation>
     </xsd:attribute>
 
+    <xsd:attribute name="HubSiteUrl" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          The URL of the Hub Site to associate the site to, optional attribute. If it is empty, you disassociate it from any Hub Site.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="CommentsOnSitePagesDisabled" type="xsd:boolean" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Enables or disables comments on client side pages.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    
   </xsd:complexType>
 
   <xsd:complexType name="RegionalSettings">
@@ -1959,6 +2219,27 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="DataSource" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Allows defining the Data Source for an external list, optional element.
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="DataSourceItem" type="pnp:StringDictionaryItem" minOccurs="0" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+                <xsd:documentation xml:lang="en">
+                  A single data source property for an external list.
+                </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      
     </xsd:all>
 
     <xsd:attribute name="Title" type="xsd:string" use="required">
@@ -2262,6 +2543,15 @@
         <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
         <xsd:documentation xml:lang="en">
           Defines the Read Security property, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="WriteSecurity" type="xsd:int" use="optional" default="1">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines the Write Security property, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -2778,6 +3068,27 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+      <xsd:element name="XmlDocuments" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Defines any custom XmlDocument section for the DocumentSet, it is optional.
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:any minOccurs="0" maxOccurs="unbounded" processContents="skip">
+              <xsd:annotation>
+                <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+                <xsd:documentation xml:lang="en">
+                  Any XmlDocument element to define custom settings for the DocumentSet
+                </xsd:documentation>
+              </xsd:annotation>
+            </xsd:any>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      
     </xsd:sequence>
 
     <xsd:attribute name="WelcomePage" type="xsd:string" use="optional">
@@ -2838,7 +3149,7 @@
   </xsd:complexType>
 
   <xsd:complexType name="FieldRefBase">
-    <xsd:attribute name="ID" type="pnp:GUID" use="required">
+    <xsd:attribute name="ID" type="pnp:ReplaceableString" use="required">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           The value of the field ID to bind, required attribute.
@@ -3319,6 +3630,33 @@
         <xsd:appinfo>Added with schema version 201801</xsd:appinfo>
         <xsd:documentation xml:lang="en">
           Defines whether the page will have comments enabled or not, optional attribute (default: true).
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="Description" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines the Description of the page, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="BannerImageUrl" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines the BannerImageUrl of the page, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="Title" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines the Title of the page, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
