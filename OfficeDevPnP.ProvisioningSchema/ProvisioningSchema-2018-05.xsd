@@ -1428,6 +1428,14 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
+    <xsd:attribute name="ResetRoleInheritance" type="xsd:boolean" use="optional" default="false">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Declares whether to reset the role inheritance or not for the site, if it is a sub-site, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>        
     <xsd:attribute name="CopyRoleAssignments" type="xsd:boolean" use="optional" default="false">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
@@ -1439,6 +1447,14 @@
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Defines whether to clear subscopes or not while breaking role inheritance for the site, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="RemoveExistingUniqueRoleAssignments" type="xsd:boolean" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines whether to remove unique role assignments or not if the site already breaks role inheritance. If true all existing unique role assignments on the site will be removed if BreakRoleInheritance also is true.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -2044,7 +2060,7 @@
     </xsd:annotation>
 
     <xsd:sequence>
-      <xsd:element name="BreakRoleInheritance" minOccurs="1" maxOccurs="1">
+      <xsd:element name="BreakRoleInheritance" minOccurs="0" maxOccurs="1">
         <xsd:complexType>
           <xsd:annotation>
             <xsd:documentation xml:lang="en">
@@ -2072,11 +2088,28 @@
             </xsd:annotation>
           </xsd:attribute>
 
+          <xsd:attribute name="RemoveExistingUniqueRoleAssignments" type="xsd:boolean" use="optional">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Defines whether to remove unique role assignments if the object already breaks role inheritance. If true all existing unique role assignments on the object will be removed.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+
         </xsd:complexType>
       </xsd:element>
     </xsd:sequence>
 
-
+    <xsd:attribute name="ResetRoleInheritance" type="xsd:boolean" use="optional" default="false">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Declares whether to reset the role inheritance or not for the object, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    
   </xsd:complexType>
 
   <xsd:complexType name="ListInstance">
