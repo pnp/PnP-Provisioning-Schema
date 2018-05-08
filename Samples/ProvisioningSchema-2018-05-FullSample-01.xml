@@ -1,4 +1,4 @@
-<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2018/01/ProvisioningSchema">
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2018/05/ProvisioningSchema">
 
   <pnp:Preferences Author="John Black" Version="1.0" Generator="Human being :-)">
     <pnp:Parameters>
@@ -20,11 +20,38 @@
   </pnp:Localizations>
 
   <pnp:Tenant>
+    <pnp:SiteDesigns>
+      <pnp:SiteDesign IsDefault="true" Title="PnP Site Design" Description="Just a sample" PreviewImageUrl="PnPSiteDesign.png" PreviewImageAltText="PnP Site Design Preview" WebTemplate="CommunicationSite" Overwrite="false">
+        <pnp:SiteScripts>
+          <pnp:SiteScriptRef ID="{SiteScriptID:PnP Site Script 01}"/>
+          <pnp:SiteScriptRef ID="{SiteScriptID:PnP Site Script 03}"/>
+        </pnp:SiteScripts>
+        <pnp:Grants>
+          <pnp:Grant Principal="user1@contoso.com" Right="View" />
+          <pnp:Grant Principal="user2@contoso.com" Right="View" />
+          <pnp:Grant Principal="user3@contoso.com" Right="None" />
+        </pnp:Grants>
+      </pnp:SiteDesign>
+    </pnp:SiteDesigns>
+    <pnp:SiteScripts>
+      <pnp:SiteScript Title="PnP Site Script 01" Description="PnP Site Script Sample 01" JsonFilePath=".\pnp-site-script-01.json" Overwrite="true" />
+      <pnp:SiteScript Title="PnP Site Script 02" Description="PnP Site Script Sample 02" JsonFilePath=".\pnp-site-script-02.json" Overwrite="false" />
+      <pnp:SiteScript Title="PnP Site Script 03" Description="PnP Site Script Sample 03" JsonFilePath=".\pnp-site-script-03.json" />
+    </pnp:SiteScripts>
+    <pnp:StorageEntities>
+      <pnp:StorageEntity Key="PnPKey01" Value="My custom tenant-wide value 01" Comment="Comment 01" Description="Description 01" />
+      <pnp:StorageEntity Key="PnPKey02" Value="{ Id: 1, Property: 'Some text here'}" Description="Description 02" />
+    </pnp:StorageEntities>
     <pnp:AppCatalog>
       <pnp:Package Src="solution\spfx-discuss-now.sppkg" Action="UploadAndPublish" SkipFeatureDeployment="true" Overwrite="true" />
       <pnp:Package PackageId="d0816f0a-fda4-4a98-8e61-1bbe1f2b5b27" Action="Publish" />
       <pnp:Package PackageId="9672a07b-c111-4a12-bb5b-8d43c2ddd256" Action="Remove" />
     </pnp:AppCatalog>
+    <pnp:WebApiPermissions>
+      <pnp:WebApiPermission Resource="Microsoft.Graph" Scope="User.ReadBasic.All"/>
+      <pnp:WebApiPermission Resource="Microsoft.Graph" Scope="Group.ReadWrite.All"/>
+      <pnp:WebApiPermission Resource="MyCustomEnterpriseAPI" Scope="Invoke.Custom.Action"/>
+    </pnp:WebApiPermissions>
     <pnp:ContentDeliveryNetwork>
       <pnp:Public Enabled="true">
         <pnp:Origins>
@@ -44,7 +71,7 @@
       </pnp:Private>
     </pnp:ContentDeliveryNetwork>
   </pnp:Tenant>
-  
+
   <pnp:Templates ID="SAMPLE-TEMPLATES">
 
     <pnp:ProvisioningTemplateFile ID="WORKFLOWSITE" File="ProvisioningSchema-2015-05-ReferenceSample-01.xml" />
@@ -74,6 +101,8 @@
         AlternateCSS="{sitecollection}/Resources/Themes/Contoso/Contoso.css"
         MasterPageUrl="{sitecollection}/_catalogs/MasterPage/oslo.master"
         CustomMasterPageUrl="{sitecollection}/_catalogs/MasterPage/CustomMaster.master"
+        HubSiteUrl="/sites/hubsite"
+        CommentsOnSitePagesDisabled="false"
         />
 
       <pnp:RegionalSettings
@@ -243,6 +272,26 @@
               <pnp:WelcomePageField ID="{B01B3DBC-4630-4ED1-B5BA-321BC7841E3D}" />
               <pnp:WelcomePageField ID="{A5DE9600-B7A6-42DD-A05E-10D4F1500208}" />
             </pnp:WelcomePageFields>
+            <pnp:XmlDocuments>
+              <XmlDocument NamespaceURI="http://schemas.microsoft.com/office/documentsets/defaultdocuments">
+                <DefaultDocuments xmlns="http://schemas.microsoft.com/office/documentsets/defaultdocuments" LastModified="1/1/1 0:00:01 AM" AddSetName="" />
+              </XmlDocument>
+              <XmlDocument NamespaceURI="http://schemas.microsoft.com/office/documentsets/welcomepageview">
+                <WelcomePageView xmlns="http://schemas.microsoft.com/office/documentsets/welcomepageview" LastModified="1/1/1 0:00:01 AM" />
+              </XmlDocument>
+              <XmlDocument NamespaceURI="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+                <FormTemplates xmlns="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms">
+                  <Display>ListForm</Display>
+                  <Edit>ListForm</Edit>
+                  <New>DocSetDisplayForm</New>
+                </FormTemplates>
+              </XmlDocument>
+              <XmlDocument NamespaceURI="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms/url">
+                <FormUrls xmlns="http://schemas.microsoft.com/sharepoint/v3/contenttype/forms/url">
+                  <New>_layouts/15/NewDocSet.aspx</New>
+                </FormUrls>
+              </XmlDocument>
+            </pnp:XmlDocuments>
           </pnp:DocumentSetTemplate>
         </pnp:ContentType>
 
@@ -331,7 +380,7 @@
                   <pnp:PropertyBagEntries>
                     <pnp:PropertyBagEntry Key="Key1" Value="Value1" Indexed="false" Overwrite="true"/>
                   </pnp:PropertyBagEntries>
-                </pnp:Folder>                  
+                </pnp:Folder>
               </pnp:Folder>
               <pnp:Security>
                 <pnp:BreakRoleInheritance CopyRoleAssignments="false" ClearSubscopes="true">
@@ -391,16 +440,30 @@
             />
         </pnp:ListInstance>
         <pnp:ListInstance Title="General Documents"
-                     Description="Project Documents are stored here"
-                     DocumentTemplate=""
-                     OnQuickLaunch="true"
-                     TemplateType="101"
-                     Url="Lists/GeneralDocuments"
-                     EnableVersioning="true"
-                     RemoveExistingContentTypes="true">
+                    Description="Project Documents are stored here"
+                    DocumentTemplate=""
+                    OnQuickLaunch="true"
+                    TemplateType="101"
+                    Url="Lists/GeneralDocuments"
+                    ReadSecurity="11"
+                    WriteSecurity="11"
+                    EnableVersioning="true"
+                    RemoveExistingContentTypes="true">
           <pnp:ContentTypeBindings>
             <pnp:ContentTypeBinding ContentTypeID="0x01005D4F34E4BE7F4B6892AEBE088EDD215E" Default="true"/>
           </pnp:ContentTypeBindings>
+        </pnp:ListInstance>
+        <pnp:ListInstance Title="Sample BCS List"
+                          Description="List with data via BCS"
+                          OnQuickLaunch="true"
+                          TemplateType="101"
+                          Url="Lists/SampleBCS">
+          <pnp:DataSource>
+            <pnp:DataSourceItem Key="LobSystemInstance" Value="ODS" />
+            <pnp:DataSourceItem Key="EntityNamespace" Value="https://sample.contoso.com/ODS" />
+            <pnp:DataSourceItem Key="Entity" Value="ODS.Customer" />
+            <pnp:DataSourceItem Key="SpecificFinder" Value="CustomerRead Item" />
+          </pnp:DataSource>
         </pnp:ListInstance>
       </pnp:Lists>
 
@@ -719,7 +782,12 @@
       </pnp:SiteWebhooks>
 
       <pnp:ClientSidePages>
-        <pnp:ClientSidePage PageName="SamplePage" PromoteAsNewsArticle="true" Overwrite="true" Publish="true" Layout="Article" EnableComments="true">
+        <pnp:ClientSidePage PageName="SamplePage" PromoteAsNewsArticle="true" Overwrite="true" Publish="true" Layout="Article" EnableComments="true" Title="Client Side Page Title">
+          <pnp:Header Type="Custom"
+              ServerRelativeImageUrl="./site%20assets/picture.png"
+              TranslateX="10.56"
+              TranslateY="15.12345"
+            />
           <pnp:Sections>
             <pnp:Section Order="1" Type="OneColumn">
               <pnp:Controls>
@@ -738,7 +806,7 @@
           </pnp:Sections>
         </pnp:ClientSidePage>
       </pnp:ClientSidePages>
-     
+
     </pnp:ProvisioningTemplate>
 
   </pnp:Templates>

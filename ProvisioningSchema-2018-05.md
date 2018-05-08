@@ -1,12 +1,12 @@
 ﻿
 # PnP Provisioning Schema
 ----------
-* Topic automatically generated on 12/27/2017*
+* Topic automatically generated on 5/3/2018*
 
 ## Namespace
 The namespace of the PnP Provisioning Schema is:
 
-http://schemas.dev.office.com/PnP/2018/01/ProvisioningSchema
+http://schemas.dev.office.com/PnP/2018/05/ProvisioningSchema
 
 All the elements have to be declared with that namespace reference.
 
@@ -19,7 +19,7 @@ Here follows the list of root elements available in the PnP Provisioning Schema.
 
 ```xml
 <pnp:Provisioning
-      xmlns:pnp="http://schemas.dev.office.com/PnP/2018/01/ProvisioningSchema">
+      xmlns:pnp="http://schemas.dev.office.com/PnP/2018/05/ProvisioningSchema">
    <pnp:Preferences />
    <pnp:Localizations />
    <pnp:Tenant />
@@ -47,7 +47,7 @@ Represents the root element of the SharePoint Provisioning Template.
 
 ```xml
 <pnp:ProvisioningTemplate
-      xmlns:pnp="http://schemas.dev.office.com/PnP/2018/01/ProvisioningSchema"
+      xmlns:pnp="http://schemas.dev.office.com/PnP/2018/05/ProvisioningSchema"
       ID="xsd:ID"
       Version="xsd:decimal"
       BaseSiteTemplate="xsd:string"
@@ -224,7 +224,11 @@ Element to manage tenant-wide settings.
 ```xml
 <pnp:Tenant>
    <pnp:AppCatalog />
+   <pnp:WebApiPermissions />
    <pnp:ContentDeliveryNetwork />
+   <pnp:SiteDesigns />
+   <pnp:SiteScripts />
+   <pnp:StorageEntities />
 </pnp:Tenant>
 ```
 
@@ -235,7 +239,189 @@ Here follow the available child elements for the Tenant element.
 Element|Type|Description
 -------|----|-----------
 AppCatalog|[AppCatalog](#appcatalog)|Entry point for the tenant-wide AppCatalog
+WebApiPermissions|[WebApiPermissions](#webapipermissions)|Entry point for the tenant-wide Web API permissions
 ContentDeliveryNetwork|[ContentDeliveryNetwork](#contentdeliverynetwork)|Entry point for the tenant-wide Content Delivery Network
+SiteDesigns|[SiteDesigns](#sitedesigns)|Entry point for the tenant-wide Site Designs
+SiteScripts|[SiteScripts](#sitescripts)|Entry point for the tenant-wide Site Scripts
+StorageEntities|[StorageEntities](#storageentities)|Entry point for the tenant-wide properties (Storage Entities)
+<a name="webapipermissions"></a>
+### WebApiPermissions
+Collection of tenant-wide Web API permissions.
+
+```xml
+<pnp:WebApiPermissions>
+   <pnp:WebApiPermission />
+</pnp:WebApiPermissions>
+```
+
+
+Here follow the available child elements for the WebApiPermissions element.
+
+
+Element|Type|Description
+-------|----|-----------
+WebApiPermission|[WebApiPermission](#webapipermission)|
+<a name="webapipermission"></a>
+### WebApiPermission
+A single tenant-wide Web API permission.
+
+```xml
+<pnp:WebApiPermission
+      Resource="xsd:string"
+      Scope="xsd:string">
+</pnp:WebApiPermission>
+```
+
+
+Here follow the available attributes for the  element.
+
+
+Attibute|Type|Description
+--------|----|-----------
+Resource|xsd:string|The target resource for a Web API permission, required attribute.
+Scope|xsd:string|The target resource for a Web API permission, required attribute.
+<a name="sitedesigns"></a>
+### SiteDesigns
+Collection of tenant-wide Site Designs
+
+```xml
+<pnp:SiteDesigns>
+   <pnp:SiteDesign />
+</pnp:SiteDesigns>
+```
+
+
+Here follow the available child elements for the SiteDesigns element.
+
+
+Element|Type|Description
+-------|----|-----------
+SiteDesign|[SiteDesign](#sitedesign)|Defines a single tenant-wide Site Design
+<a name="sitedesign"></a>
+### SiteDesign
+Defines a single tenant-wide Site Design
+
+```xml
+<pnp:SiteDesign
+      Title="xsd:string"
+      Description="xsd:string"
+      IsDefault="xsd:boolean"
+      WebTemplate=""
+      PreviewImageUrl="xsd:string"
+      PreviewImageAltText="xsd:string"
+      Overwrite="xsd:boolean">
+   <pnp:SiteScripts />
+   <pnp:Grants />
+</pnp:SiteDesign>
+```
+
+
+Here follow the available child elements for the  element.
+
+
+Element|Type|Description
+-------|----|-----------
+SiteScripts|[SiteScripts](#sitescripts)|A collection of Site Scripts references for the current Site Design
+Grants|[Grants](#grants)|A collection of Grants for the Site Design
+
+Here follow the available attributes for the  element.
+
+
+Attibute|Type|Description
+--------|----|-----------
+Title|xsd:string|The Title of the Site Design
+Description|xsd:string|The Description of the Site Design, optional attribute.
+IsDefault|xsd:boolean|Defines whether the Site Design is default or not, optional attribute (default: false).
+WebTemplate||Defines whether the Site Design is default or not, required attribute.
+PreviewImageUrl|xsd:string|The URL of the preview image for the Site Design, optional attribute.
+PreviewImageAltText|xsd:string|The alternate text for the preview image of the Site Design, optional attribute.
+Overwrite|xsd:boolean|Defines whether the Site Design should be overwritten in case of existence, optional attribute (default:true).
+<a name="sitescripts"></a>
+### SiteScripts
+Collection of tenant-wide Site Scripts
+
+```xml
+<pnp:SiteScripts>
+   <pnp:SiteScript />
+</pnp:SiteScripts>
+```
+
+
+Here follow the available child elements for the SiteScripts element.
+
+
+Element|Type|Description
+-------|----|-----------
+SiteScript|[SiteScript](#sitescript)|Defines a single tenant-wide Site Script
+<a name="sitescript"></a>
+### SiteScript
+Defines a single tenant-wide Site Script
+
+```xml
+<pnp:SiteScript
+      Title="xsd:string"
+      Description="xsd:string"
+      JsonFilePath="xsd:string"
+      Overwrite="xsd:boolean">
+</pnp:SiteScript>
+```
+
+
+Here follow the available attributes for the  element.
+
+
+Attibute|Type|Description
+--------|----|-----------
+Title|xsd:string|The Title of the Site Script, required attribute.
+Description|xsd:string|The Description of the Site Script, required attribute.
+JsonFilePath|xsd:string|The path of the JSON file defining the Site Script, required attribute.
+Overwrite|xsd:boolean|Defines whether the Site Script should be overwritten in case of existence, optional attribute (default:true).
+<a name="storageentities"></a>
+### StorageEntities
+Collection of tenant-wide properties (Storage Entities)
+
+```xml
+<pnp:StorageEntities
+      Comment="xsd:string"
+      Description="xsd:string">
+   <pnp:StorageEntity />
+</pnp:StorageEntities>
+```
+
+
+Here follow the available child elements for the StorageEntities element.
+
+
+Element|Type|Description
+-------|----|-----------
+StorageEntity|[StorageEntity](#storageentity)|Defines a single tenant-wide property (Storage Entity)
+
+Here follow the available attributes for the StorageEntities element.
+
+
+Attibute|Type|Description
+--------|----|-----------
+Comment|xsd:string|The Comment of the tenant-wide property, optional attribute.
+Description|xsd:string|The Description of the tenant-wide property, optional attribute.
+<a name="storageentity"></a>
+### StorageEntity
+Defines a single tenant-wide property (Storage Entity)
+
+```xml
+<pnp:StorageEntity
+      Comment="xsd:string"
+      Description="xsd:string">
+</pnp:StorageEntity>
+```
+
+
+Here follow the available attributes for the  element.
+
+
+Attibute|Type|Description
+--------|----|-----------
+Comment|xsd:string|The Comment of the tenant-wide property, optional attribute.
+Description|xsd:string|The Description of the tenant-wide property, optional attribute.
 <a name="templates"></a>
 ### Templates
 SharePoint Templates, which can be inline or references to external files.
@@ -412,7 +598,9 @@ Section of Settings for the current Web Site, optional element.
       SiteLogo="xsd:string"
       AlternateCSS="xsd:string"
       MasterPageUrl="xsd:string"
-      CustomMasterPageUrl="xsd:string">
+      CustomMasterPageUrl="xsd:string"
+      HubSiteUrl="xsd:string"
+      CommentsOnSitePagesDisabled="xsd:boolean">
 </pnp:WebSettings>
 ```
 
@@ -431,6 +619,8 @@ SiteLogo|xsd:string|The SiteLogo of the Site, optional attribute.
 AlternateCSS|xsd:string|The AlternateCSS of the Site, optional attribute.
 MasterPageUrl|xsd:string|The MasterPage URL of the Site, optional attribute.
 CustomMasterPageUrl|xsd:string|The Custom MasterPage URL of the Site, optional attribute.
+HubSiteUrl|xsd:string|The URL of the Hub Site to associate the site to, optional attribute. If it is empty, you disassociate it from any Hub Site.
+CommentsOnSitePagesDisabled|xsd:boolean|Enables or disables comments on client side pages.
 <a name="regionalsettings"></a>
 ### RegionalSettings
 Defines the Regional Settings for a site.
@@ -1147,6 +1337,7 @@ Defines a ListInstance element
       IrmReject="xsd:boolean"
       IsApplicationList="xsd:boolean"
       ReadSecurity="xsd:int"
+      WriteSecurity="xsd:int"
       ValidationFormula="xsd:string"
       ValidationMessage="xsd:string">
    <pnp:ContentTypeBindings />
@@ -1160,6 +1351,7 @@ Defines a ListInstance element
    <pnp:UserCustomActions />
    <pnp:Webhooks />
    <pnp:IRMSettings />
+   <pnp:DataSource />
 </pnp:ListInstance>
 ```
 
@@ -1180,6 +1372,7 @@ Security|[ObjectSecurity](#objectsecurity)|Defines the Security rules for the Li
 UserCustomActions|[CustomActionsList](#customactionslist)|Defines any Custom Action for the List Instance, optional element.
 Webhooks|[WebhooksList](#webhookslist)|Defines any Webhook for the current list instance.
 IRMSettings|[IRMSettings](#irmsettings)|Declares the Information Rights Management settings for the list or library.
+DataSource|[DataSource](#datasource)|Allows defining the Data Source for an external list, optional element.
 
 Here follow the available attributes for the ListInstance element.
 
@@ -1216,6 +1409,7 @@ IrmExpire|xsd:boolean|Defines if IRM Expire property, optional attribute.
 IrmReject|xsd:boolean|Defines the IRM Reject property, optional attribute.
 IsApplicationList|xsd:boolean|Defines a value that specifies a flag that a client application can use to determine whether to display the list, optional attribute.
 ReadSecurity|xsd:int|Defines the Read Security property, optional attribute.
+WriteSecurity|xsd:int|Defines the Write Security property, optional attribute.
 ValidationFormula|xsd:string|Defines a value that specifies the data validation criteria for a list item, optional attribute.
 ValidationMessage|xsd:string|Defines a value that specifies the error message returned when data validation fails for a list item, optional attribute.
 <a name="contenttypebindings"></a>
@@ -1341,6 +1535,23 @@ Here follow the available child elements for the  element.
 Element|Type|Description
 -------|----|-----------
 FieldDefault|[FieldDefault](#fielddefault)|Defines a default value for a Field of the List Instance.
+<a name="datasource"></a>
+### DataSource
+Allows defining the Data Source for an external list, optional element.
+
+```xml
+<pnp:DataSource>
+   <pnp:DataSourceItem />
+</pnp:DataSource>
+```
+
+
+Here follow the available child elements for the  element.
+
+
+Element|Type|Description
+-------|----|-----------
+DataSourceItem|[StringDictionaryItem](#stringdictionaryitem)|A single data source property for an external list.
 <a name="irmsettings"></a>
 ### IRMSettings
 Declares the Information Rights Management settings for the list or library.
@@ -1550,6 +1761,7 @@ Defines a DocumentSet Template for creating multiple DocumentSet instances.
    <pnp:DefaultDocuments />
    <pnp:SharedFields />
    <pnp:WelcomePageFields />
+   <pnp:XmlDocuments />
 </pnp:DocumentSetTemplate>
 ```
 
@@ -1563,6 +1775,7 @@ AllowedContentTypes|[AllowedContentTypes](#allowedcontenttypes)|
 DefaultDocuments|[DefaultDocuments](#defaultdocuments)|
 SharedFields|[SharedFields](#sharedfields)|
 WelcomePageFields|[WelcomePageFields](#welcomepagefields)|
+XmlDocuments|[XmlDocuments](#xmldocuments)|Defines any custom XmlDocument section for the DocumentSet, it is optional.
 
 Here follow the available attributes for the DocumentSetTemplate element.
 
@@ -1646,6 +1859,16 @@ Here follow the available child elements for the  element.
 Element|Type|Description
 -------|----|-----------
 WelcomePageField|[DocumentSetFieldRef](#documentsetfieldref)|
+<a name="xmldocuments"></a>
+### XmlDocuments
+Defines any custom XmlDocument section for the DocumentSet, it is optional.
+
+```xml
+<pnp:XmlDocuments>
+   <!-- Any other XML content -->
+</pnp:XmlDocuments>
+```
+
 <a name="featureslist"></a>
 ### FeaturesList
 Defines a collection of elements of type Feature.
@@ -1690,7 +1913,7 @@ Description|xsd:string|The Description of the feature, optional attribute.
 
 ```xml
 <pnp:FieldRefBase
-      ID="pnp:GUID">
+      ID="pnp:ReplaceableString">
 </pnp:FieldRefBase>
 ```
 
@@ -1700,7 +1923,7 @@ Here follow the available attributes for the FieldRefBase element.
 
 Attibute|Type|Description
 --------|----|-----------
-ID|GUID|The value of the field ID to bind, required attribute.
+ID|ReplaceableString|The value of the field ID to bind, required attribute.
 <a name="fieldreffull"></a>
 ### FieldRefFull
 
@@ -1929,8 +2152,10 @@ Defines a single element of type ClientSidePage.
       Overwrite="xsd:boolean"
       Layout="xsd:string"
       Publish="xsd:boolean"
-      EnableComments="xsd:boolean">
+      EnableComments="xsd:boolean"
+      Title="xsd:string">
    <pnp:Sections />
+   <pnp:Header />
 </pnp:ClientSidePage>
 ```
 
@@ -1941,6 +2166,7 @@ Here follow the available child elements for the ClientSidePage element.
 Element|Type|Description
 -------|----|-----------
 Sections|[Sections](#sections)|Defines the Canvas sections for a single ClientSidePage.
+Header|[Header](#header)|Defines the layout of the Header for the current client side page
 
 Here follow the available attributes for the ClientSidePage element.
 
@@ -1953,6 +2179,7 @@ Overwrite|xsd:boolean|Can the page be overwritten if it exists.
 Layout|xsd:string|Defines the target layout for the client-side page, optional attribute (default: Article).
 Publish|xsd:boolean|Defines whether the page will be published or not, optional attribute (default: true).
 EnableComments|xsd:boolean|Defines whether the page will have comments enabled or not, optional attribute (default: true).
+Title|xsd:string|Defines the Title of the page, optional attribute.
 <a name="sections"></a>
 ### Sections
 Defines the Canvas sections for a single ClientSidePage.
@@ -1970,6 +2197,29 @@ Here follow the available child elements for the  element.
 Element|Type|Description
 -------|----|-----------
 Section|[CanvasSection](#canvassection)|Defines a Canvas section for a single ClientSidePage.
+<a name="header"></a>
+### Header
+Defines the layout of the Header for the current client side page
+
+```xml
+<pnp:Header
+      Type=""
+      ServerRelativeImageUrl="xsd:string"
+      TranslateX="xsd:double"
+      TranslateY="xsd:double">
+</pnp:Header>
+```
+
+
+Here follow the available attributes for the  element.
+
+
+Attibute|Type|Description
+--------|----|-----------
+Type||Defines the layout of the Header for the current client side page
+ServerRelativeImageUrl|xsd:string|Defines the server-relative URL of the image for the header of the current client side page.
+TranslateX|xsd:double|Defines the x-translate of the image for the header of the current client side page.
+TranslateY|xsd:double|Defines the y-translate of of the image for the header of the current client side page.
 <a name="canvassection"></a>
 ### CanvasSection
 A Canvas Section for a Client-side Page.
