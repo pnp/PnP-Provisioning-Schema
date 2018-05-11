@@ -1493,6 +1493,39 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
+    <xsd:attribute name="AssociatedGroups" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Specifies the list of groups that are associated with the Web site. Groups in this list will appear under the Groups section in the People and Groups page.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="AssociatedOwnerGroup" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Specifies the default owners group for this site. The group will automatically be added to the end of the Associated Groups list.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="AssociatedMemberGroup" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Specifies the default members group for this site. The group will automatically be added to the top of the Associated Groups list.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="AssociatedVisitorGroup" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Specifies the default visitors group for this site. The group will automatically be added to the end of the Associated Groups list.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
   </xsd:complexType>
 
   <xsd:complexType name="Navigation">
