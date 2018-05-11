@@ -2138,6 +2138,15 @@
     </xsd:annotation>
 
     <xsd:all>
+      <xsd:element name="PropertyBagEntries" type="pnp:PropertyBagEntries" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            The Property Bag entries of the root folder, optional collection of elements.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+
       <xsd:element name="ContentTypeBindings" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
