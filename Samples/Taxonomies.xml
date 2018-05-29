@@ -4,8 +4,8 @@
   <pnp:Templates ID="CONTAINER-TAXONOMIESDEMO">
     <pnp:ProvisioningTemplate ID="TAXONOMIESDEMO" Version="1">
       <pnp:SiteFields>
-        <Field Type="Note" DisplayName="Project_0" StaticName="Project_Note" Name="Project_Note" ID="{D7917FD4-5EEF-4307-9EBF-372245389DF9}" ShowInViewForms="FALSE" Required="FALSE" Hidden="TRUE" CanToggleHidden="TRUE" />
-        <Field Type="TaxonomyFieldType" DisplayName="Project" Name="Project" StaticName="Project" ShowField="Term1033" Required="FALSE" EnforceUniqueValues="FALSE" Group="PnP" ID="{21515F04-1C08-4B94-A6ED-630436679ED3}">
+        <Field Type="Note" DisplayName="Project_0" StaticName="ProjectTaxHTField0" Name="ProjectTaxHTField0" ID="{d7917fd4-5eef-4307-9ebf-372245389df9}" ShowInViewForms="FALSE" Required="FALSE" Hidden="TRUE" CanToggleHidden="TRUE" />
+        <Field Type="TaxonomyFieldType" DisplayName="Project" Name="Project" StaticName="Project" ShowField="Term1033" Required="FALSE" EnforceUniqueValues="FALSE" Group="PnP" ID="{21515f04-1c08-4b94-a6ed-630436679ed3}">
           <Customization>
             <ArrayOfProperty>
               <Property>
@@ -18,7 +18,7 @@
               </Property>
               <Property>
                 <Name>TextField</Name>
-                <Value xmlns:q6="http://www.w3.org/2001/XMLSchema" p4:type="q6:string" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">D7917FD4-5EEF-4307-9EBF-372245389DF9</Value>
+                <Value xmlns:q6="http://www.w3.org/2001/XMLSchema" p4:type="q6:string" xmlns:p4="http://www.w3.org/2001/XMLSchema-instance">d7917fd4-5eef-4307-9ebf-372245389df9</Value>
               </Property>
               <Property>
                 <Name>IsPathRendered</Name>
