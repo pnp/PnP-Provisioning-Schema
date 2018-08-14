@@ -831,19 +831,20 @@
         <!-- And let's use the SPECIALTEAM SharePointProvisioningTemplate -->
         <pnp:ProvisioningTemplateReference ID="SPECIALTEAM" />
       </pnp:Templates>
+      <pnp:Sites>
+        <!-- Now create a Site into the previously created Site Collection -->
+        <pnp:Site Language="1040"
+                  SiteTemplate="TeamNoGroup"
+                  QuickLaunchEnabled="true"
+                  Title="{parameter:CompanyName} Intranet Workflows"
+                  Alias="{parameter:SitePrefix}-Workflows"
+                  UseSamePermissionsAsParentSite="true">
+          <pnp:Templates>
+            <pnp:ProvisioningTemplateReference ID="WORKFLOWSITE" />
+          </pnp:Templates>
+        </pnp:Site>
+      </pnp:Sites>
     </pnp:SiteCollection>
-
-    <!-- Now create a Site into the previously created Site Collection -->
-    <pnp:Site Language="1040"
-              SiteTemplate="TeamNoGroup"
-              QuickLaunchEnabled="true"
-              Title="{parameter:CompanyName} Intranet Workflows"
-              Alias="{parameter:SitePrefix}-Workflows"
-              UseSamePermissionsAsParentSite="true">
-      <pnp:Templates>
-        <pnp:ProvisioningTemplateReference ID="WORKFLOWSITE" />
-      </pnp:Templates>
-    </pnp:Site>
 
     <!-- Provision the TermStore -->
     <pnp:TermStore Scope="Current">
