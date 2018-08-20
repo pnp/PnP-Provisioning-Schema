@@ -62,13 +62,6 @@
             </xsd:documentation>
           </xsd:annotation>
         </xsd:element>
-        <xsd:element name="ImportSequence" type="pnp:ImportSequence" minOccurs="0">
-          <xsd:annotation>
-            <xsd:documentation xml:lang="en">
-              Imports sequences from an external file. All current properties should be sent to that file.
-            </xsd:documentation>
-          </xsd:annotation>
-        </xsd:element>
       </xsd:sequence>
     </xsd:sequence>
   </xsd:complexType>
@@ -5586,14 +5579,6 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="Extensions" type="pnp:Extensions" minOccurs="0" maxOccurs="1">
-        <xsd:annotation>
-          <xsd:documentation xml:lang="en">
-            Any Extension to provision through a Sequence, optional element.
-          </xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <!-- TODO: add more top level items here-->
     </xsd:sequence>
     <xsd:attribute name="ID" type="xsd:ID" use="required">
       <xsd:annotation>
@@ -5752,7 +5737,13 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="UseSamePermissionsAsParentSite" type="xsd:boolean" use="optional"/>
+    <xsd:attribute name="UseSamePermissionsAsParentSite" type="xsd:boolean" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines whether to use the same permissions of the parent site or not, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:attributeGroup>
 
   <xsd:attributeGroup name="SiteAttributes">
@@ -5800,19 +5791,6 @@
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
-    <xsd:attribute name="Scope" use="required">
-      <xsd:annotation>
-        <xsd:documentation>
-          The scope of the term store, required attribute.
-        </xsd:documentation>
-      </xsd:annotation>
-      <xsd:simpleType>
-        <xsd:restriction base="xsd:string">
-          <xsd:enumeration value="Default"/>
-          <xsd:enumeration value="Current"/>
-        </xsd:restriction>
-      </xsd:simpleType>
-    </xsd:attribute>
   </xsd:complexType>
 
   <xsd:complexType name="TermGroup">
@@ -6209,32 +6187,6 @@
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
-  </xsd:complexType>
-
-  <xsd:complexType name="Extensions">
-    <xsd:annotation>
-      <xsd:documentation xml:lang="en">
-        Extensions are custom XML elements and instructions that can be extensions of this default schema or vendor or engine specific extensions.
-      </xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence minOccurs="0" maxOccurs="unbounded">
-      <xsd:any processContents="lax" namespace="##other"/>
-    </xsd:sequence>
-  </xsd:complexType>
-
-  <xsd:complexType name="ImportSequence">
-    <xsd:annotation>
-      <xsd:documentation xml:lang="en">
-        Imports sequences from an external file. All current properties should be sent to that file.
-      </xsd:documentation>
-    </xsd:annotation>
-    <xsd:attribute name="File" type="xsd:string" use="required">
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          Absolute or relative path to the file, required attribute.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
   </xsd:complexType>
 
   <xsd:simpleType name="GUID">

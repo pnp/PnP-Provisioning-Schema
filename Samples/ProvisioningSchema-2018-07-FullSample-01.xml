@@ -103,6 +103,7 @@
         CustomMasterPageUrl="{sitecollection}/_catalogs/MasterPage/CustomMaster.master"
         HubSiteUrl="/sites/hubsite"
         CommentsOnSitePagesDisabled="false"
+        QuickLaunchEnabled="true"
         />
 
       <pnp:RegionalSettings
@@ -139,7 +140,15 @@
         <pnp:PropertyBagEntry Key="KEY2" Value ="value2" />
       </pnp:PropertyBagEntries>
 
-      <pnp:Security BreakRoleInheritance="true" CopyRoleAssignments="false" ClearSubscopes="true">
+      <pnp:Security BreakRoleInheritance="true"
+                    CopyRoleAssignments="false"
+                    ClearSubscopes="true"
+                    AssociatedGroups="Test Value"
+                    AssociatedMemberGroup="{parameter:AssociatedMemberGroup}"
+                    AssociatedOwnerGroup="{parameter:AssociatedOwnerGroup}"
+                    AssociatedVisitorGroup="{parameter:AssociatedVisitorGroup}"
+                    RemoveExistingUniqueRoleAssignments="true"
+                    ResetRoleInheritance="true" >
         <pnp:AdditionalAdministrators>
           <pnp:User Name="user@contoso.com"/>
           <pnp:User Name="U_SHAREPOINT_ADMINS"/>
@@ -330,6 +339,11 @@
                     TemplateFeatureID="81a7b6a8-c0e9-4819-aea1-8fc8894d3c43"
                     ValidationFormula="sample formula here"
                     ValidationMessage="validation message here">
+          <pnp:PropertyBagEntries>
+            <pnp:PropertyBagEntry Key="Key1" Value="Value1" />
+            <pnp:PropertyBagEntry Key="Key2" Value="Value2" Indexed="true" Overwrite="false" />
+            <pnp:PropertyBagEntry Key="Key3" Value="Value3" Indexed="false" />
+          </pnp:PropertyBagEntries>
           <pnp:ContentTypeBindings>
             <pnp:ContentTypeBinding ContentTypeID="0x01005D4F34E4BE7F4B6892AEBE088EDD215E" Default="true"/>
             <pnp:ContentTypeBinding ContentTypeID="0x0120" Remove="true"/>
@@ -381,7 +395,8 @@
                     <pnp:PropertyBagEntry Key="Key1" Value="Value1" Indexed="false" Overwrite="true"/>
                   </pnp:PropertyBagEntries>
                   <pnp:DefaultColumnValues>
-                    <pnp:DefaultColumnValue Key="Field1" Value="Custom Value" />
+                    <pnp:DefaultColumnValue Key="Field1" Value="Custom Value 1" />
+                    <pnp:DefaultColumnValue Key="Field2" Value="Custom Value 2" />
                   </pnp:DefaultColumnValues>
                 </pnp:Folder>
               </pnp:Folder>
@@ -847,7 +862,7 @@
     </pnp:SiteCollection>
 
     <!-- Provision the TermStore -->
-    <pnp:TermStore Scope="Current">
+    <pnp:TermStore>
       <pnp:TermGroup ID="{0E8F395E-FF58-4D45-9FF7-E331AB728BEB}" Name="{parameter:CompanyName} TermSets">
         <pnp:TermSets>
           <pnp:TermSet Name="Projects" ID="{5880B01B-5D6F-4606-A492-3B03A2FB4DD7}">
@@ -894,13 +909,6 @@
       </pnp:TermGroup>
     </pnp:TermStore>
 
-    <pnp:Extensions>
-      <my:CustomExtension xmlns:my="http://tempuri"/>
-      <my2:AnotherExtension xmlns:my2="http://tempuri2"/>
-    </pnp:Extensions>
-
   </pnp:Sequence>
-
-  <pnp:ImportSequence File="AnotherSequence.xml" />
 
 </pnp:Provisioning>
