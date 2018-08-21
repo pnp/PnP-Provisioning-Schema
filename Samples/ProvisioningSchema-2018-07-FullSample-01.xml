@@ -1,4 +1,10 @@
-<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2018/07/ProvisioningSchema">
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2018/07/ProvisioningSchema"
+                  Author="John White"
+                  Generator="Human being"
+                  Version="1.0"
+                  Description="A sample Provisioning document"
+                  DisplayName="Sample Provisioning"
+                  ImagePreviewUrl="https://sharepointpnp.com/ImagePreview.png">
 
   <pnp:Preferences Author="John Black" Version="1.0" Generator="Human being :-)">
     <pnp:Parameters>
@@ -836,29 +842,61 @@
   <pnp:Sequence ID="SAMPLE-SEQUENCE">
 
     <!-- Let's create a Site Collection -->
-    <pnp:SiteCollection Language="1040"
-                        SiteTemplate="Team"
-                        Owners="{parameter:CommunicationSiteOwners}"
-                        IsHubSite="true"
+    <pnp:SiteCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="pnp:CommunicationSite"
+                        Url="https://{parameter:O365TenantName}.sharepoint.com/sites/CommSite"
                         Title="{parameter:CompanyName} Intranet"
-                        Alias="{parameter:SitePrefix}-Intranet">
+                        Owner="{parameter:CommunicationSiteOwner}"
+                        SiteDesign="{SiteDesignId:PnP Site Design}"
+                        AllowFileSharingForGuestUsers="true"
+                        IsHubSite="true"
+                        Classification="HBI"
+                        Description="{parameter:CompanyName} Intranet"
+                        Language="1040">
       <pnp:Templates>
         <!-- And let's use the SPECIALTEAM SharePointProvisioningTemplate -->
         <pnp:ProvisioningTemplateReference ID="SPECIALTEAM" />
       </pnp:Templates>
       <pnp:Sites>
         <!-- Now create a Site into the previously created Site Collection -->
-        <pnp:Site Language="1040"
-                  SiteTemplate="TeamNoGroup"
-                  QuickLaunchEnabled="true"
+        <pnp:Site xsi:type="pnp:TeamSubSiteNoGroup"
+                  Url="{parameter:SitePrefix}-Workflows"
                   Title="{parameter:CompanyName} Intranet Workflows"
-                  Alias="{parameter:SitePrefix}-Workflows"
+                  Description="{parameter:CompanyName} Intranet Workflows"
+                  TimeZoneId="4"
+                  Language="1040" 
+                  QuickLaunchEnabled="true"
                   UseSamePermissionsAsParentSite="true">
           <pnp:Templates>
             <pnp:ProvisioningTemplateReference ID="WORKFLOWSITE" />
           </pnp:Templates>
         </pnp:Site>
       </pnp:Sites>
+    </pnp:SiteCollection>
+    
+    <pnp:SiteCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="pnp:TeamSite"
+                        Title="{parameter:CompanyName} Projects"
+                        Alias="Projects"
+                        DisplayName="{parameter:CompanyName} Projects"
+                        IsPublic="true"
+                        IsHubSite="true"
+                        Description="{parameter:CompanyName} Projects"
+                        Classification="MBI">
+      <pnp:Templates>
+        <pnp:ProvisioningTemplateFile ID="ProjectsTemplate" File="ProjectsTemplate.xml" />
+      </pnp:Templates>
+    </pnp:SiteCollection>
+    
+    <pnp:SiteCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="pnp:TeamSiteNoGroup"
+                        Title="{parameter:CompanyName} Meetings"
+                        Url="https://{parameter:O365TenantName}.sharepoint.com/sites/Meetings"
+                        Owner="{parameter:TeamSiteNoGroupOwner}"
+                        Description="{parameter:CompanyName} Intranet Meetings"
+                        IsHubSite="false"
+                        Language="1040"
+                        TimeZoneId="4">
+      <pnp:Templates>
+        <pnp:ProvisioningTemplateFile ID="MeetingsTemplate" File="MeetingsTemplate.xml" />
+      </pnp:Templates>
     </pnp:SiteCollection>
 
     <!-- Provision the TermStore -->
