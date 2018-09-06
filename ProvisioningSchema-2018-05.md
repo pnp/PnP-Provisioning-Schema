@@ -3097,17 +3097,26 @@ AlternateCssUrl|pnp:ReplaceableString|Alternate CSS URL, optional attribute.
 CustomJSUrl|pnp:ReplaceableString|Custom JavaScript URL, optional attribute.
 Language|pnp:ReplaceableString|Language of the target Site, optional attribute.
 MembersCanShare|xsd:boolean|Defines whether the Site's members can share or not contents, optional attribute.
+QuickLaunchEnabled|xsd:boolean|Absolute Url to the site, required attribute.
 SiteTemplate|xsd:string|SiteTemplate of the site, required attribute.
 TimeZone|pnp:ReplaceableInt|Time zone of the site, optional attribute.
 Title|pnp:ReplaceableString|Title of the site, required attribute.
 Url|pnp:ReplaceableString|Absolute Url to the site, required attribute.
-QuickLaunchEnabled|xsd:boolean|Absolute Url to the site, required attribute.
 <a name="site"></a>
 ### Site
 Defines a Site that will be created into a target Site Collection.
 
 ```xml
 <pnp:Site
+      AllowDesigner="xsd:boolean"
+      AlternateCssUrl="pnp:ReplaceableString"
+      CustomJSUrl="pnp:ReplaceableString"
+      Language="pnp:ReplaceableString"
+      MembersCanShare="xsd:boolean"
+      QuickLaunchEnabled=""xsd:boolean
+      SiteTemplate="xsd:string"
+      TimeZone="pnp:ReplaceableInt"
+      Title="pnp:ReplaceableString"
       UseSamePermissionsAsParentSite="xsd:boolean"
       Url="pnp:ReplaceableString">
    <pnp:Templates />
@@ -3127,8 +3136,17 @@ Here follow the available attributes for the Site element.
 
 Attibute|Type|Description
 --------|----|-----------
+AllowDesigner|xsd:boolean|Defines whether SharePoint Designer is allowed or not for the target Site, optional attribute.
+AlternateCssUrl|pnp:ReplaceableString|Alternate CSS URL, optional attribute.
+CustomJSUrl|pnp:ReplaceableString|Custom JavaScript URL, optional attribute.
+Language|pnp:ReplaceableString|Language of the target Site, optional attribute.
+MembersCanShare|xsd:boolean|Defines whether the Site's members can share or not contents, optional attribute.
+QuickLaunchEnabled|xsd:boolean|Absolute Url to the site, required attribute.
+SiteTemplate|xsd:string|SiteTemplate of the site, required attribute.
+TimeZone|pnp:ReplaceableInt|Time zone of the site, optional attribute.
+Title|pnp:ReplaceableString|Title of the site, required attribute.
 UseSamePermissionsAsParentSite|xsd:boolean|
-Url|ReplaceableString|Relative Url to the site, required attribute.
+Url|pnp:ReplaceableString|Relative Url to the site, required attribute.
 <a name="termstore"></a>
 ### TermStore
 A TermStore to use for provisioning of TermGroups.
