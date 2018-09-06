@@ -3065,6 +3065,15 @@ Defines a SiteCollection that will be created into the target tenant/farm.
 
 ```xml
 <pnp:SiteCollection
+      AllowDesigner="xsd:boolean"
+      AlternateCssUrl="pnp:ReplaceableString"
+      CustomJSUrl="pnp:ReplaceableString"
+      Language="pnp:ReplaceableString"
+      MembersCanShare="xsd:boolean"
+      QuickLaunchEnabled=""xsd:boolean
+      SiteTemplate="xsd:string"
+      TimeZone="pnp:ReplaceableInt"
+      Title="pnp:ReplaceableString"
       Url="pnp:ReplaceableString">
    <pnp:Templates />
 </pnp:SiteCollection>
@@ -3083,7 +3092,16 @@ Here follow the available attributes for the SiteCollection element.
 
 Attibute|Type|Description
 --------|----|-----------
-Url|ReplaceableString|Absolute Url to the site, required attribute.
+AllowDesigner|xsd:boolean|Defines whether SharePoint Designer is allowed or not for the target Site, optional attribute.
+AlternateCssUrl|pnp:ReplaceableString|Alternate CSS URL, optional attribute.
+CustomJSUrl|pnp:ReplaceableString|Custom JavaScript URL, optional attribute.
+Language|pnp:ReplaceableString|Language of the target Site, optional attribute.
+MembersCanShare|xsd:boolean|Defines whether the Site's members can share or not contents, optional attribute.
+SiteTemplate|xsd:string|SiteTemplate of the site, required attribute.
+TimeZone|pnp:ReplaceableInt|Time zone of the site, optional attribute.
+Title|pnp:ReplaceableString|Title of the site, required attribute.
+Url|pnp:ReplaceableString|Absolute Url to the site, required attribute.
+QuickLaunchEnabled|xsd:boolean|Absolute Url to the site, required attribute.
 <a name="site"></a>
 ### Site
 Defines a Site that will be created into a target Site Collection.
