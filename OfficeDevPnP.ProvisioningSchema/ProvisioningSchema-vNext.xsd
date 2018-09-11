@@ -62,15 +62,57 @@
             </xsd:documentation>
           </xsd:annotation>
         </xsd:element>
-        <xsd:element name="ImportSequence" type="pnp:ImportSequence" minOccurs="0">
-          <xsd:annotation>
-            <xsd:documentation xml:lang="en">
-              Imports sequences from an external file. All current properties should be sent to that file.
-            </xsd:documentation>
-          </xsd:annotation>
-        </xsd:element>
       </xsd:sequence>
     </xsd:sequence>
+
+    <xsd:attribute name="Version" type="xsd:decimal" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Version of the Provisioning Template, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="Author" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Author of the Provisioning Template, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="Generator" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Name of the tool generating this Provisioning File, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="ImagePreviewUrl" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Image Preview Url of the Provisioning File, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="DisplayName" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Display Name of the Provisioning File, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="Description" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Description of the Provisioning file, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
   </xsd:complexType>
 
   <xsd:complexType name="Preferences" >
@@ -281,11 +323,11 @@
               </xsd:documentation>
             </xsd:annotation>
           </xsd:attribute>
-        
+
         </xsd:complexType>
       </xsd:element>
     </xsd:sequence>
-    
+
   </xsd:complexType>
 
   <xsd:complexType name="SiteDesigns">
@@ -1109,6 +1151,15 @@
       </xsd:annotation>
     </xsd:attribute>
 
+    <xsd:attribute name="QuickLaunchEnabled" type="xsd:boolean" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Enables or disables the QuickLaunch for the site.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
   </xsd:complexType>
 
   <xsd:complexType name="RegionalSettings">
@@ -1479,6 +1530,14 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
+    <xsd:attribute name="ResetRoleInheritance" type="xsd:boolean" use="optional" default="false">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Declares whether to reset the role inheritance or not for the site, if it is a sub-site, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
     <xsd:attribute name="CopyRoleAssignments" type="xsd:boolean" use="optional" default="false">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
@@ -1486,10 +1545,51 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
+    <xsd:attribute name="RemoveExistingUniqueRoleAssignments" type="xsd:boolean" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines whether to remove unique role assignments or not if the site already breaks role inheritance. If true all existing unique role assignments on the site will be removed if BreakRoleInheritance also is true.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
     <xsd:attribute name="ClearSubscopes" type="xsd:boolean" use="optional" default="false">
       <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
         <xsd:documentation xml:lang="en">
           Defines whether to clear subscopes or not while breaking role inheritance for the site, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="AssociatedGroups" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Specifies the list of groups that are associated with the Web site. Groups in this list will appear under the Groups section in the People and Groups page.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="AssociatedOwnerGroup" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Specifies the default owners group for this site. The group will automatically be added to the end of the Associated Groups list.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="AssociatedMemberGroup" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Specifies the default members group for this site. The group will automatically be added to the top of the Associated Groups list.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="AssociatedVisitorGroup" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Specifies the default visitors group for this site. The group will automatically be added to the end of the Associated Groups list.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -2138,6 +2238,14 @@
     </xsd:annotation>
 
     <xsd:all>
+      <xsd:element name="PropertyBagEntries" type="pnp:PropertyBagEntries" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            The Property Bag entries of the root folder, optional collection of elements.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
       <xsd:element name="ContentTypeBindings" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
@@ -2861,6 +2969,25 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="DefaultColumnValues" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            The Default Columne Values entries of the Folder, optional collection of elements.
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="DefaultColumnValue" type="pnp:StringDictionaryItem" minOccurs="1" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:documentation xml:lang="en">
+                  A custom Default Column Value for the Provisioning Template, collection of elements.
+                </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
     </xsd:sequence>
 
     <xsd:attribute name="Name" type="xsd:string" use="required">
@@ -3332,7 +3459,7 @@
     </xsd:annotation>
     <xsd:complexContent>
       <xsd:extension base="pnp:FieldRefFull">
-        <xsd:attribute name="DisplayName" type="xsd:string" use="optional">
+        <xsd:attribute name="DisplayName" type="xsd:string" use="required">
           <xsd:annotation>
             <xsd:documentation xml:lang="en">
               The display name of the field to bind, only applicable to fields that will be added to lists, optional attribute.
@@ -3777,6 +3904,27 @@
 
       </xsd:element>
 
+      <xsd:element name="FieldValues" minOccurs="0">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Defines the page fields values, if any.
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="FieldValue" type="pnp:StringDictionaryItem" minOccurs="1" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+                <xsd:documentation xml:lang="en">
+                  A custom field for the current Client Page
+                </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+
     </xsd:all>
 
     <xsd:attribute name="PageName" type="xsd:string" use="required">
@@ -3838,6 +3986,15 @@
         <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
         <xsd:documentation xml:lang="en">
           Defines the Title of the page, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="ContentTypeID" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines the Content Type ID for the page, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -5456,62 +5613,33 @@
         The Sequences must be evaluated by the provisioning engine in the order in which they appear.
       </xsd:documentation>
     </xsd:annotation>
-    <xsd:sequence maxOccurs="unbounded">
-      <xsd:element name="SiteCollection" type="pnp:SiteCollection" minOccurs="0">
+    <xsd:sequence>
+      <xsd:element name="SiteCollections" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
-            A Site Collection to provision through a Sequence, optional element.
+            A collection of Site Collection elements to provision through a Sequence, optional element.
           </xsd:documentation>
         </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="SiteCollection" type="pnp:SiteCollection" minOccurs="0" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:documentation xml:lang="en">
+                  A Site Collection to provision through a Sequence, optional element.
+                </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
       </xsd:element>
-      <xsd:element name="Site" type="pnp:Site"  minOccurs="0">
-        <xsd:annotation>
-          <xsd:documentation xml:lang="en">
-            A Site to provision through a Sequence, optional element.
-          </xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <xsd:element name="TermStore" type="pnp:TermStore"  minOccurs="0">
+      <xsd:element name="TermStore" type="pnp:TermStore" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
             A Term Store to provision through a Sequence, optional element.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="Extensions" type="pnp:Extensions" minOccurs="0" maxOccurs="1">
-        <xsd:annotation>
-          <xsd:documentation xml:lang="en">
-            Any Extension to provision through a Sequence, optional element.
-          </xsd:documentation>
-        </xsd:annotation>
-      </xsd:element>
-      <!-- TODO: add more top level items here-->
     </xsd:sequence>
-    <xsd:attribute name="SequenceType" default="Synchronous" use="optional">
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          Instructions to the Provisioning engine on how the Containers within the Sequence can be provisioned.
-        </xsd:documentation>
-      </xsd:annotation>
-      <xsd:simpleType>
-        <xsd:restriction base="xsd:string">
-          <xsd:enumeration value="Synchronous">
-            <xsd:annotation>
-              <xsd:documentation xml:lang="en">
-                The Containers within this Sequence has to be provisioned Synchronous in the order that they appear.
-              </xsd:documentation>
-            </xsd:annotation>
-          </xsd:enumeration>
-          <xsd:enumeration value="Asynchronous">
-            <xsd:annotation>
-              <xsd:documentation xml:lang="en">
-                The Containers within this Sequence can be provisioned Asynchronously.
-              </xsd:documentation>
-            </xsd:annotation>
-          </xsd:enumeration>
-        </xsd:restriction>
-      </xsd:simpleType>
-    </xsd:attribute>
     <xsd:attribute name="ID" type="xsd:ID" use="required">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
@@ -5521,56 +5649,272 @@
     </xsd:attribute>
   </xsd:complexType>
 
-  <xsd:complexType name="SiteCollection">
+  <xsd:complexType abstract="true" name="SiteCollection">
     <xsd:annotation>
+      <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
       <xsd:documentation xml:lang="en">
-        Defines a SiteCollection that will be created into the target tenant/farm.
+        Defines the base element for a SiteCollection that will be created into the target tenant/farm.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="Templates" type="pnp:Templates" minOccurs="0">
+      <xsd:element name="Templates" minOccurs="0">
         <xsd:annotation>
           <xsd:documentation xml:lang="en">
             Templates that can be provisioned together with the Site Collection, optional collection of elements.
           </xsd:documentation>
         </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ProvisioningTemplateReference" type="pnp:ProvisioningTemplateReference" minOccurs="1" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+                <xsd:documentation xml:lang="en">
+                  Defines a reference to a Provisioning Template defined or imported in the current Provisioning File
+                </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Sites" minOccurs="0">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Allows to create sub-Sites under the current site
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Site" type="pnp:Site" minOccurs="1" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+                <xsd:documentation xml:lang="en">
+                  A Site to provision through a Sequence, optional element.
+                </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
       </xsd:element>
     </xsd:sequence>
-    <xsd:attributeGroup ref="pnp:SiteCollectionAttributes"/>
     <xsd:attributeGroup ref="pnp:SiteAttributes"/>
-    <xsd:attribute name="Url" type="pnp:ReplaceableString" use="required">
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          Absolute Url to the site, required attribute.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
+    <xsd:attributeGroup ref="pnp:SiteCollectionAttributes"/>
   </xsd:complexType>
 
-  <xsd:complexType name="Site">
+  <xsd:complexType name="CommunicationSite">
+    <xsd:complexContent>
+      <xsd:extension base="pnp:SiteCollection">
+        <xsd:attribute name="Url" type="pnp:ReplaceableString" use="required">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              The URL of the target Site, required attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Owner" type="pnp:ReplaceableString" use="required">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              Primary Owner of the target Site, required attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="SiteDesign" type="pnp:ReplaceableString" use="optional">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              The ID of the SiteDesign, if any, to apply to the target Site, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="AllowFileSharingForGuestUsers" type="xsd:boolean" use="optional">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              Defines whether the target Site can be shared to guest users or not, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Classification" type="pnp:ReplaceableString" use="optional">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              The Classification of the target Site, if any, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Language" type="pnp:ReplaceableString" use="optional">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              Language of the target Site, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="TeamSite">
+    <xsd:complexContent>
+      <xsd:extension base="pnp:SiteCollection">
+        <xsd:attribute name="Alias" type="pnp:ReplaceableString" use="required">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              The Alias of the target Site, required attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="DisplayName" type="pnp:ReplaceableString" use="required">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              The DisplayName of the target Site, required attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="IsPublic" type="xsd:boolean" use="required">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              Defines whether the Office 365 Group for the target Site is Public or Private, required attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Classification" type="pnp:ReplaceableString" use="optional">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              The Classification of the target Site, if any, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:complexType name="TeamSiteNoGroup">
+    <xsd:complexContent>
+      <xsd:extension base="pnp:SiteCollection">
+        <xsd:attribute name="Url" type="pnp:ReplaceableString" use="required">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              The URL of the target Site, required attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Owner" type="pnp:ReplaceableString" use="required">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              Primary Owner of the target Site, required attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="TimeZoneId" type="pnp:ReplaceableString" use="optional">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              TimeZone of the target Site, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Language" type="pnp:ReplaceableString" use="optional">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              Language of the target Site, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
+  </xsd:complexType>
+
+  <xsd:complexType abstract="true" name="Site">
     <xsd:annotation>
+      <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
       <xsd:documentation xml:lang="en">
         Defines a Site that will be created into a target Site Collection.
       </xsd:documentation>
     </xsd:annotation>
     <xsd:sequence>
-      <xsd:element name="Templates" type="pnp:Templates" minOccurs="0">
+      <xsd:element name="Sites" minOccurs="0">
         <xsd:annotation>
+          <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
           <xsd:documentation xml:lang="en">
-            Templates that can be provisioned together with the Site, optional collection of elements.
+            Allows to create sub-Sites under the current site
           </xsd:documentation>
         </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Site" type="pnp:Site" minOccurs="1" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+                <xsd:documentation xml:lang="en">
+                  A Site to provision through a Sequence, optional element.
+                </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="Templates" minOccurs="0">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            Templates that can be provisioned together with the Site Collection, optional collection of elements.
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ProvisioningTemplateReference" type="pnp:ProvisioningTemplateReference" minOccurs="1" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+                <xsd:documentation xml:lang="en">
+                  Defines a reference to a Provisioning Template defined or imported in the current Provisioning File
+                </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
       </xsd:element>
     </xsd:sequence>
+    <xsd:attributeGroup ref="pnp:SubSiteAttributes"/>
     <xsd:attributeGroup ref="pnp:SiteAttributes"/>
-    <xsd:attribute name="UseSamePermissionsAsParentSite" type="xsd:boolean" use="optional"/>
-    <xsd:attribute name="Url" type="pnp:ReplaceableString" use="required">
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          Relative Url to the site, required attribute.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
+  </xsd:complexType>
+
+  <xsd:complexType name="TeamSubSiteNoGroup">
+    <xsd:complexContent>
+      <xsd:extension base="pnp:Site">
+        <xsd:attribute name="Url" type="pnp:ReplaceableString" use="required">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              The URL of the target Site, required attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="TimeZoneId" type="pnp:ReplaceableString" use="optional">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              TimeZone of the target Site, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Language" type="pnp:ReplaceableString" use="optional">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              Language of the target Site, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
+    </xsd:complexContent>
   </xsd:complexType>
 
   <xsd:attributeGroup name="SiteCollectionAttributes">
@@ -5579,45 +5923,35 @@
         Common set of attributes for any Site Collection
       </xsd:documentation>
     </xsd:annotation>
-    <xsd:attribute name="StorageMaximumLevel" type="pnp:ReplaceableInt" use="optional">
+    <xsd:attribute name="IsHubSite" type="xsd:boolean" use="optional">
       <xsd:annotation>
-        <xsd:documentation>
-          Maximum Storage Level, in Megabytes, optional attribute.
+        <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Declares whether the current Site Collection is the Hub Site of a new Hub
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="StorageWarningLevel" type="pnp:ReplaceableInt" use="optional">
+  </xsd:attributeGroup>
+
+  <xsd:attributeGroup name="SubSiteAttributes">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        Common set of attributes for any Sub-Site
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:attribute name="UseSamePermissionsAsParentSite" type="xsd:boolean" use="required">
       <xsd:annotation>
-        <xsd:documentation>
-          Warning Storage Level, in Megabytes, optional attribute.
+        <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines whether to inherit permissions from the parent Site or not, required attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="UserCodeMaximumLevel" type="pnp:ReplaceableInt" use="optional">
+    <xsd:attribute name="QuickLaunchEnabled" type="xsd:boolean" use="optional">
       <xsd:annotation>
-        <xsd:documentation>
-          Maximum Resource usage, in points, optional attribute.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="UserCodeWarningLevel" type="pnp:ReplaceableInt" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>
-          Warning Resource usage, in points, optional attribute.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="PrimarySiteCollectionAdmin" type="pnp:ReplaceableString" use="required">
-      <xsd:annotation>
-        <xsd:documentation>
-          ID of the Primary Site Collection Admin, required attribute.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="SecondarySiteCollectionAdmin" type="pnp:ReplaceableString" use="optional">
-      <xsd:annotation>
-        <xsd:documentation>
-          ID of the Secondary Site Collection Admin, optional attribute.
+        <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines whether to enable QuickLaunch or not, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -5631,64 +5965,17 @@
     </xsd:annotation>
     <xsd:attribute name="Title" type="pnp:ReplaceableString"  use="required">
       <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
         <xsd:documentation xml:lang="en">
           Title of the site, required attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="SiteTemplate" type="xsd:string"  use="required">
+    <xsd:attribute name="Description" type="pnp:ReplaceableString"  use="required">
       <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
         <xsd:documentation xml:lang="en">
-          SiteTemplate of the site, required attribute.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="CustomJSUrl" type="pnp:ReplaceableString" use="optional">
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          Custom JavaScript URL, optional attribute.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="QuickLaunchEnabled" type="xsd:boolean" use="optional">
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          Is the Quick launch enabled, optional attribute.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="AlternateCssUrl" type="pnp:ReplaceableString" use="optional">
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          Alternat CSS URL, optional attribute.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="Language" type="pnp:ReplaceableString" use="optional">
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          Language of the target Site, optional attribute.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="AllowDesigner" type="xsd:boolean" use="optional">
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          Defines whether SharePoint Designer is allowed or not for the target Site, optional attribute.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="MembersCanShare" type="xsd:boolean" use="optional">
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          Defines whether the Site's members can share or not contents, optional attribute.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-    <xsd:attribute name="TimeZone" type="pnp:ReplaceableInt" use="optional" >
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          Time zone of the site, optional attribute.
+          Title of the site, required attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -5709,19 +5996,6 @@
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
-    <xsd:attribute name="Scope" use="required">
-      <xsd:annotation>
-        <xsd:documentation>
-          The scope of the term store, required attribute.
-        </xsd:documentation>
-      </xsd:annotation>
-      <xsd:simpleType>
-        <xsd:restriction base="xsd:string">
-          <xsd:enumeration value="Default"/>
-          <xsd:enumeration value="Current"/>
-        </xsd:restriction>
-      </xsd:simpleType>
-    </xsd:attribute>
   </xsd:complexType>
 
   <xsd:complexType name="TermGroup">
@@ -6022,6 +6296,30 @@
             </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <xsd:attribute name="ReuseChildren" type="xsd:boolean" use="optional" default="false">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              Declares if children of the source term should be reused, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="IsPinned" type="xsd:boolean" use="optional" default="false">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              Declares if this term is pinned, optional attribute. Requires IsReused set to true.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="IsPinnedRoot" type="xsd:boolean" use="optional" default="false">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              Declares if this term is the root of the pinned hierarchy, optional attribute. Requires IsPinned and IsReused set to true.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -6094,32 +6392,6 @@
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
-  </xsd:complexType>
-
-  <xsd:complexType name="Extensions">
-    <xsd:annotation>
-      <xsd:documentation xml:lang="en">
-        Extensions are custom XML elements and instructions that can be extensions of this default schema or vendor or engine specific extensions.
-      </xsd:documentation>
-    </xsd:annotation>
-    <xsd:sequence minOccurs="0" maxOccurs="unbounded">
-      <xsd:any processContents="lax" namespace="##other"/>
-    </xsd:sequence>
-  </xsd:complexType>
-
-  <xsd:complexType name="ImportSequence">
-    <xsd:annotation>
-      <xsd:documentation xml:lang="en">
-        Imports sequences from an external file. All current properties should be sent to that file.
-      </xsd:documentation>
-    </xsd:annotation>
-    <xsd:attribute name="File" type="xsd:string" use="required">
-      <xsd:annotation>
-        <xsd:documentation xml:lang="en">
-          Absolute or relative path to the file, required attribute.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
   </xsd:complexType>
 
   <xsd:simpleType name="GUID">
