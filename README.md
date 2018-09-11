@@ -20,6 +20,18 @@ which will provision SharePoint sites and other elements using this schema.
 
 ## Current approved versions
 
+[Version 201807](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2018-07.xsd)
+
+In order to reference the schema version 201807 you can use the following syntax:
+
+```xml
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2018/07/ProvisioningSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2018/07/ProvisioningSchema https://raw.githubusercontent.com/OfficeDev/PnP-Provisioning-Schema/master/OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2018-07.xsd">
+	<!-- All the schema contents -->
+</pnp:Provisioning>
+```
+
 [Version 201805](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2018-05.xsd)
 
 In order to reference the schema version 201805 you can use the following syntax:
@@ -97,6 +109,8 @@ In order to reference the schema version 201508 you can use the following syntax
 
 ## More information
 More information and documentation can be found here:
+
+* [Remote Provisioning Schema Documentation - 201807](ProvisioningSchema-2018-07.md)
 
 * [Remote Provisioning Schema Documentation - 201805](ProvisioningSchema-2018-05.md)
 
