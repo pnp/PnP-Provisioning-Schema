@@ -25,6 +25,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 - Added attribute QuickLaunchEnabled to WebSettings
 - Added attribute ContentTypeID to ClientSidePage
 - Added element FieldsValues to ClientSidePage
+- Added elements to support Themes ad Tenant level
+- Added attribute to support Theme at SiteCollection and Site level in Sequences
 
 ### Changed
 - Changed the DisplayName attribute of FieldRef for ListInstance to required
