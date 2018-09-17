@@ -105,7 +105,7 @@
         "bodyText": "#020202"
         }
       </pnp:Theme>
-      <pnp:Theme Name="CustomBlue" IsInverted="false">
+      <pnp:Theme Name="CustomBlue" IsInverted="true">
         {
         "themePrimary": "#316bcf",
         "themeLighterAlt": "#f5f8fd",
