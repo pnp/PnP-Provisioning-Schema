@@ -3973,6 +3973,8 @@
         </xsd:complexType>
       </xsd:element>
 
+      <xsd:element name="Security" type="pnp:ObjectSecurity" minOccurs="0" maxOccurs="1" />
+
     </xsd:all>
 
     <xsd:attribute name="PageName" type="xsd:string" use="required">
