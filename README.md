@@ -16,7 +16,7 @@ which will provision SharePoint sites and other elements using this schema.
 
 # Current default implemented version (in the PnP Provisioning Engine) 
 
-[Version 201805](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2018-05.xsd)
+[Version 201807](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2018-07.xsd)
 
 ## Current approved versions
 
