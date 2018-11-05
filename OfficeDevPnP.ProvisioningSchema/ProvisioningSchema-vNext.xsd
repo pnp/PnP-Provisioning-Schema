@@ -3449,6 +3449,13 @@
       </xsd:annotation>
     </xsd:attribute>
 
+    <xsd:attribute name="Remove" type="xsd:boolean" use="optional" default="false">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Declares if the field binding should be removed, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:attributeGroup>
 
   <xsd:complexType name="ListInstanceFieldRef">
@@ -3463,14 +3470,6 @@
           <xsd:annotation>
             <xsd:documentation xml:lang="en">
               The display name of the field to bind, only applicable to fields that will be added to lists, optional attribute.
-            </xsd:documentation>
-          </xsd:annotation>
-        </xsd:attribute>
-        <xsd:attribute name="Remove" type="xsd:boolean" use="optional" default="false">
-          <xsd:annotation>
-            <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
-            <xsd:documentation xml:lang="en">
-              Declares if the FieldRef should be Removed from the list or library, optional attribute.
             </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
