@@ -3728,6 +3728,13 @@
       </xsd:annotation>
     </xsd:attribute>
 
+    <xsd:attribute name="ClientState" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          An opaque string passed back to the client on all notifications.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
 
   <xsd:complexType name="SiteWebhook">
