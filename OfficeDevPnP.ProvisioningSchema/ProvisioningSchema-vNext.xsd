@@ -1993,10 +1993,10 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="Owner" type="xsd:string" use="required">
+    <xsd:attribute name="Owner" type="xsd:string" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The Owner of the Site Group, required attribute.
+          The Owner of the Site Group, optional attribute. If not specified SharePoint will assign the user provisioning the schema as the group owner when creating a new group.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
