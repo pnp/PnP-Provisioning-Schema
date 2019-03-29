@@ -978,6 +978,7 @@
                           SiteDesign="{SiteDesignId:PnP Site Design}"
                           AllowFileSharingForGuestUsers="true"
                           IsHubSite="true"
+                          HubSiteLogo="logo.png"
                           Classification="HBI"
                           Theme="CustomOrange"
                           Description="{parameter:CompanyName} Intranet"
