@@ -4090,7 +4090,7 @@
                   <xsd:annotation>
                     <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
                     <xsd:documentation xml:lang="en">
-                      Align Center
+                      Align Left
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:enumeration>
@@ -4450,7 +4450,7 @@
         <xsd:annotation>
           <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
           <xsd:documentation xml:lang="en">
-            Defines a childe Footer Link for the current Footer Link (which represents an header).
+            Defines a collection of children Footer Link for the current Footer Link (which represents an header).
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
@@ -6583,7 +6583,7 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="HubSiteLogo" type="xsd:string" use="optional">
+    <xsd:attribute name="HubSiteLogoUrl" type="xsd:string" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -7854,6 +7854,14 @@
 
             <xsd:simpleType>
               <xsd:restriction base="xsd:string">
+                <xsd:enumeration value="Generic">
+                  <xsd:annotation>
+                    <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
+                    <xsd:documentation xml:lang="en">
+                      Defines a Generic resource type.
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:enumeration>
                 <xsd:enumeration value="Notebook">
                   <xsd:annotation>
                     <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
@@ -7996,7 +8004,7 @@
         <xsd:complexType>
 
           <xsd:sequence>
-            <xsd:element name="passwordProfile" minOccurs="1" maxOccurs="1">
+            <xsd:element name="PasswordProfile" minOccurs="1" maxOccurs="1">
               <xsd:annotation>
                 <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
                 <xsd:documentation xml:lang="en">
@@ -8058,11 +8066,11 @@
             <xsd:annotation>
               <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
               <xsd:documentation xml:lang="en">
-                The Display Name of the user, required attribute.
+                The Mail Nickname of the user, required attribute.
               </xsd:documentation>
             </xsd:annotation>
           </xsd:attribute>
-          <xsd:attribute name="PasswordPolicies	" type="xsd:string" use="optional">
+          <xsd:attribute name="PasswordPolicies" type="xsd:string" use="optional">
             <xsd:annotation>
               <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
               <xsd:documentation xml:lang="en">
@@ -8070,7 +8078,7 @@
               </xsd:documentation>
             </xsd:annotation>
           </xsd:attribute>
-          <xsd:attribute name="UserPrincipalName	" type="xsd:string" use="required">
+          <xsd:attribute name="UserPrincipalName" type="pnp:ReplaceableString" use="required">
             <xsd:annotation>
               <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
               <xsd:documentation xml:lang="en">

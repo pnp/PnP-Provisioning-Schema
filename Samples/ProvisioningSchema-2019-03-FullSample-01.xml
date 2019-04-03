@@ -318,7 +318,7 @@
                          ReadOnly="false" Sealed="false" Overwrite="false">
           <pnp:FieldRefs>
             <!-- Project ID -->
-            <pnp:FieldRef ID="{23203E97-3BFE-40CB-AFB4-07AA2B86BF45}" />
+            <pnp:FieldRef ID="{23203E97-3BFE-40CB-AFB4-07AA2B86BF45}" UpdateChildren="true" />
             <!-- Project Name -->
             <pnp:FieldRef ID="{B01B3DBC-4630-4ED1-B5BA-321BC7841E3D}" />
             <!-- Project Manager -->
@@ -410,7 +410,8 @@
                     ReadSecurity="11"
                     TemplateFeatureID="81a7b6a8-c0e9-4819-aea1-8fc8894d3c43"
                     ValidationFormula="sample formula here"
-                    ValidationMessage="validation message here">
+                    ValidationMessage="validation message here"
+                    TemplateInternalName="fake-template.stp">
           <pnp:PropertyBagEntries>
             <pnp:PropertyBagEntry Key="Key1" Value="Value1" />
             <pnp:PropertyBagEntry Key="Key2" Value="Value2" Indexed="true" Overwrite="false" />
@@ -978,7 +979,7 @@
                           SiteDesign="{SiteDesignId:PnP Site Design}"
                           AllowFileSharingForGuestUsers="true"
                           IsHubSite="true"
-                          HubSiteLogo="logo.png"
+                          HubSiteLogoUrl="logo.png"
                           Classification="HBI"
                           Theme="CustomOrange"
                           Description="{parameter:CompanyName} Intranet"
@@ -1257,15 +1258,15 @@
       <pnp:User AccountEnabled="true"
                 DisplayName="John White"
                 MailNickname="john.white"
-                UserPrincipalName="john.white@contoso.onmicrosoft.com">
-        <pnp:passwordProfile ForceChangePasswordNextSignIn="true"
+                UserPrincipalName="john.white@{parameter:domain}.onmicrosoft.com">
+        <pnp:PasswordProfile ForceChangePasswordNextSignIn="true"
                              Password="Pass@w0rd"/>        
       </pnp:User>
       <pnp:User AccountEnabled="true"
                 DisplayName="Jim Black"
                 MailNickname="jim.black"
                 UserPrincipalName="jim.black@contoso.onmicrosoft.com">
-        <pnp:passwordProfile ForceChangePasswordNextSignIn="true"
+        <pnp:PasswordProfile ForceChangePasswordNextSignIn="true"
                              Password="Pass@w0rd"/>
       </pnp:User>
     </pnp:Users>
