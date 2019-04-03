@@ -30,6 +30,7 @@ In order to reference the schema version 201807 you can use the following syntax
                   xsi:schemaLocation="http://schemas.dev.office.com/PnP/2019/03/ProvisioningSchema https://raw.githubusercontent.com/OfficeDev/PnP-Provisioning-Schema/master/OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2019-03.xsd">
 	<!-- All the schema contents -->
 </pnp:Provisioning>
+```
 
 [Version 201807](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2018-07.xsd)
 
