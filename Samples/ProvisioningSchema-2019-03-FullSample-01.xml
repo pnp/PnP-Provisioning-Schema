@@ -1155,7 +1155,7 @@
         </pnp:Members>
       </pnp:Security>
     </pnp:Team>
-    <pnp:Team DisplayName="Sample Team 02" Description="This is just a sample Team 02" Classification="Private"
+    <pnp:Team GroupId="{groupid:DisplayName}" DisplayName="Sample Team 02" Description="This is just a sample Team 02" Classification="Private"
               Specialization="EducationStandard" Visibility="Public" Archived="false">
       <pnp:FunSettings AllowGiphy="true" GiphyContentRating="Strict"
                        AllowStickersAndMemes="true" AllowCustomMemes="true"/>

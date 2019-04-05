@@ -7508,6 +7508,15 @@
 
         </xsd:all>
 
+        <xsd:attribute name="GroupId" type="pnp:ReplaceableString" use="optional">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              Declares the ID of the targt Group/Team to update, optional attribute. Cannot be used together with CloneFrom.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+
         <xsd:attribute name="Specialization" use="optional">
           <xsd:annotation>
             <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
