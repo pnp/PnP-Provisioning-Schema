@@ -923,7 +923,7 @@
         </pnp:ClientSidePage>
       </pnp:ClientSidePages>
 
-      <pnp:Header Layout="Standard" MenuStyle="MegaMenu" BackgroundEmphasis="2" />
+      <pnp:Header Layout="Standard" MenuStyle="MegaMenu" BackgroundEmphasis="Soft" />
       
       <pnp:Footer Enabled="true" Logo="logo.png" NameVisibility="true" RemoveExistingNodes="true">
         <pnp:FooterLinks>
