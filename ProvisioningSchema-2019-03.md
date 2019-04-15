@@ -1,7 +1,7 @@
 ﻿
 # PnP Provisioning Schema
 ----------
-* Topic automatically generated on 4/11/2019*
+* Topic automatically generated on 4/15/2019*
 
 ## Namespace
 The namespace of the PnP Provisioning Schema is:
@@ -3649,7 +3649,7 @@ Base type for TermSets and Terms
 
 ```xml
 <pnp:TermSetItem
-      Owner="xsd:string"
+      Owner="pnp:ReplaceableString"
       Description="xsd:string"
       IsAvailableForTagging="xsd:boolean">
 </pnp:TermSetItem>
@@ -3661,7 +3661,7 @@ Here follow the available attributes for the TermSetItem element.
 
 Attibute|Type|Description
 --------|----|-----------
-Owner|xsd:string|The Owner of the Term Set Item, optional attribute.
+Owner|ReplaceableString|The Owner of the Term Set Item, optional attribute.
 Description|xsd:string|The Description of the Term Set Item, optional attribute.
 IsAvailableForTagging|xsd:boolean|Declares whether the Term Set Item is available for tagging, optional attribute.
 <a name="termset"></a>
