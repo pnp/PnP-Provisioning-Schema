@@ -8133,7 +8133,7 @@
 
               <xsd:complexType>
                 <xsd:sequence>
-                  <xsd:element name="License">
+                  <xsd:element name="License" minOccurs="0" maxOccurs="unbounded">
                     <xsd:annotation>
                       <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
                       <xsd:documentation xml:lang="en">
