@@ -1146,7 +1146,7 @@
     </pnp:TeamTemplate>
     
     <pnp:Team DisplayName="Sample Team 01" Description="This is just a sample Team 01"
-              CloneFrom="{TeamId:GroupMailNickname}">
+              Visibility="Public" CloneFrom="{o365groupid:GroupMailNickname}">
       <pnp:Security>
         <pnp:Owners ClearExistingItems="true">
           <pnp:User UserPrincipalName="owner01@domain.onmicrosoft.com" />
@@ -1159,7 +1159,7 @@
         </pnp:Members>
       </pnp:Security>
     </pnp:Team>
-    <pnp:Team GroupId="{groupid:DisplayName}" DisplayName="Sample Team 02" Description="This is just a sample Team 02" Classification="Private"
+    <pnp:Team GroupId="{o365groupid:GroupMailNickname}" DisplayName="Sample Team 02" Description="This is just a sample Team 02" Classification="Private"
               Specialization="EducationStandard" Visibility="Public" Archived="false" MailNickname="sample-team-02">
       <pnp:FunSettings AllowGiphy="true" GiphyContentRating="Strict"
                        AllowStickersAndMemes="true" AllowCustomMemes="true"/>
