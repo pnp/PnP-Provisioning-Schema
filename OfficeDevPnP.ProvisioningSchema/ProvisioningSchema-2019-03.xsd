@@ -7228,7 +7228,16 @@
       </xsd:simpleType>
 
     </xsd:attribute>
-  
+
+    <xsd:attribute name="Photo" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Declares the Photo for the Team, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
   </xsd:complexType>
                      
   <xsd:complexType name="TeamTemplate">
@@ -7629,7 +7638,7 @@
           </xsd:annotation>
         </xsd:attribute>
 
-        <xsd:attribute name="MailNickname" type="xsd:string" use="optional">
+        <xsd:attribute name="MailNickname" type="pnp:ReplaceableString" use="optional">
           <xsd:annotation>
             <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
             <xsd:documentation xml:lang="en">
