@@ -893,7 +893,7 @@
         </pnp:Provider>
         <pnp:Provider HandlerType="MySampleProviderNode.js" Enabled="true">
           <pnp:Configuration>
-            <AnotherConfiguration id="AnotherConfig" xmlns="http://schemas.othercompany.com/AnotherConfiguration" />
+            fsdfsdfsd
           </pnp:Configuration>
         </pnp:Provider>
       </pnp:Providers>

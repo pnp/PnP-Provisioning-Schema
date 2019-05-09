@@ -25,7 +25,7 @@
 
   <xsd:complexType name="Provisioning">
     <xsd:sequence>
-      <xsd:element name="Preferences" type="pnp:Preferences" minOccurs="1" maxOccurs="1">
+      <xsd:element name="Preferences" type="pnp:Preferences" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:documentation>
             The mandatory section of preferences for the current provisioning definition.
