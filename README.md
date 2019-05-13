@@ -16,13 +16,13 @@ which will provision SharePoint sites and other elements using this schema.
 
 # Current default implemented version (in the PnP Provisioning Engine) 
 
-[Version 201807](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2018-07.xsd)
+[Version 201903](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2019-03.xsd)
 
 ## Current approved versions
 
 [Version 201903](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2019-03.xsd)
 
-In order to reference the schema version 201807 you can use the following syntax:
+In order to reference the schema version 201903 you can use the following syntax:
 
 ```xml
 <pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2019/03/ProvisioningSchema"
