@@ -14,6 +14,31 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 ### Changed
 -
 
+## [2019-03]
+
+### Added
+- Support for provisioning of Teams in Microsoft Teams
+- Support for provisioning of Users in Azure Active Directory
+- Support for Theme local to a Site Collection
+- Support for Site Header in modern sites
+- Support for Site Footer in modern sites
+- Support for provisioning Webhooks
+- Support for Search Navigation in sites
+- Attribute ClearExistingItems for users list
+- Attribute TemplateInternalName for list templates
+- Attribute UpdateChildren for FieldRef in content types
+- Support for Layout of Header for Client Side Pages 
+- Support for TextAlignment of Header for Client Side Pages 
+- Attributes ShowTopicHeader, ShowPublishDate, TopicHeader, AlternativeText, Authors, AuthorByLine, AuthorByLineId of Header for Client Side Pages 
+- Support for Properties in Client Side Pages
+- Attribute PromoteAsTemplate in Client Side Pages
+- Attribute MenuStyle for Site Header in modern sites
+- Attribute BackgroundEmphasis for Site Header in modern sites
+- Support for FooterLinks for Site Footer in modern sites
+- Attributes Logo, Name, Enabled, RemoveExistingNodes for Site Footer in modern sites
+- Attribute NoDefaultOrigins for CDN settings
+- Attribute HubSiteLogoUrl for a Hub Site
+
 ## [2018-07]
 
 ### Added
