@@ -4837,7 +4837,8 @@
           <xsd:enumeration value="MarkDown" />
           <xsd:enumeration value="MicrosoftForms" />
           <xsd:enumeration value="MyDocuments" />
-          <xsd:enumeration value="NewsFeed" />
+          <xsd:enumeration value="News" />
+		  <xsd:enumeration value="NewsFeed" />
           <xsd:enumeration value="NewsReel" />
           <xsd:enumeration value="PageFields" />
           <xsd:enumeration value="PageTitle" />
