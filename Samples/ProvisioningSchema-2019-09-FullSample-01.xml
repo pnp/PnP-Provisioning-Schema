@@ -1328,5 +1328,49 @@
       </pnp:User>
     </pnp:Users>
   </pnp:AzureActiveDirectory>
+
+  <pnp:OneDrive>
+    <pnp:Drives DriveUrl="/users/jim.black@contoso.onmicrosoft.com/drive">
+      <pnp:DriveItems>
+        <pnp:DriveFolder Name="Projects" Src="OneDrive/Jim.Black/Projects" />
+        <pnp:DriveFolder Name="ExpenseReports">
+          <pnp:DriveFolder Name="FY2018">
+            <pnp:DriveFile Name="Expense-Report-Jan2018.xlsx" Src="OneDrive/Jim.Black/ExpenseReports/FY2019/Expense-Report-Jan2018.xlsx"/>
+            <pnp:DriveFile Name="Expense-Report-Feb2018.xlsx" Src="OneDrive/Jim.Black/ExpenseReports/FY2019/Expense-Report-Feb2018.xlsx"/>
+            <pnp:DriveFile Name="Expense-Report-Mar2018.xlsx" Src="OneDrive/Jim.Black/ExpenseReports/FY2019/Expense-Report-Mar2018.xlsx"/>
+            <pnp:DriveFile Name="Expense-Report-Apr2018.xlsx" Src="OneDrive/Jim.Black/ExpenseReports/FY2019/Expense-Report-Apr2018.xlsx"/>
+            <pnp:DriveFile Name="Expense-Report-May2018.xlsx" Src="OneDrive/Jim.Black/ExpenseReports/FY2019/Expense-Report-May2018.xlsx"/>
+            <pnp:DriveFile Name="Expense-Report-Jun2018.xlsx" Src="OneDrive/Jim.Black/ExpenseReports/FY2019/Expense-Report-Jun2018.xlsx"/>
+            <pnp:DriveFile Name="Expense-Report-Jul2018.xlsx" Src="OneDrive/Jim.Black/ExpenseReports/FY2019/Expense-Report-Jul2018.xlsx"/>
+            <pnp:DriveFile Name="Expense-Report-Aug2018.xlsx" Src="OneDrive/Jim.Black/ExpenseReports/FY2019/Expense-Report-Aug2018.xlsx"/>
+            <pnp:DriveFile Name="Expense-Report-Sep2018.xlsx" Src="OneDrive/Jim.Black/ExpenseReports/FY2019/Expense-Report-Sep2018.xlsx"/>
+            <pnp:DriveFile Name="Expense-Report-Oct2018.xlsx" Src="OneDrive/Jim.Black/ExpenseReports/FY2019/Expense-Report-Oct2018.xlsx"/>
+            <pnp:DriveFile Name="Expense-Report-Nov2018.xlsx" Src="OneDrive/Jim.Black/ExpenseReports/FY2019/Expense-Report-Nov2018.xlsx"/>
+            <pnp:DriveFile Name="Expense-Report-Dec2018.xlsx" Src="OneDrive/Jim.Black/ExpenseReports/FY2019/Expense-Report-Dec2018.xlsx"/>
+          </pnp:DriveFolder>
+          <pnp:DriveFolder Name="FY2019">
+            <pnp:DriveFile Name="Expense-Report-Jan2019.xlsx" Src="OneDrive/Jim.Black/ExpenseReports/FY2019/Expense-Report-Jan2019.xlsx"/>
+            <pnp:DriveFile Name="Expense-Report-Feb2019.xlsx" Src="OneDrive/Jim.Black/ExpenseReports/FY2019/Expense-Report-Feb2019.xlsx"/>
+            <pnp:DriveFile Name="Expense-Report-Mar2019.xlsx" Src="OneDrive/Jim.Black/ExpenseReports/FY2019/Expense-Report-Mar2019.xlsx"/>
+            <pnp:DriveFile Name="Expense-Report-Apr2019.xlsx" Src="OneDrive/Jim.Black/ExpenseReports/FY2019/Expense-Report-Apr2019.xlsx"/>
+            <pnp:DriveFile Name="Expense-Report-May2019.xlsx" Src="OneDrive/Jim.Black/ExpenseReports/FY2019/Expense-Report-May2019.xlsx"/>
+            <pnp:DriveFile Name="Expense-Report-Jun2019.xlsx" Src="OneDrive/Jim.Black/ExpenseReports/FY2019/Expense-Report-Jun2019.xlsx"/>
+            <pnp:DriveFile Name="Expense-Report-Jul2019.xlsx" Src="OneDrive/Jim.Black/ExpenseReports/FY2019/Expense-Report-Jul2019.xlsx"/>
+            <pnp:DriveFile Name="Expense-Report-Aug2019.xlsx" Src="OneDrive/Jim.Black/ExpenseReports/FY2019/Expense-Report-Aug2019.xlsx"/>
+            <pnp:DriveFile Name="Expense-Report-Sep2019.xlsx" Src="OneDrive/Jim.Black/ExpenseReports/FY2019/Expense-Report-Sep2019.xlsx"/>
+          </pnp:DriveFolder>            
+        </pnp:DriveFolder>
+        <pnp:DriveFile Name="MyFavoriteSlides.pptx" Src="OneDrive/Jim.Black/MyFavoriteSlides.pptx"/>
+        <pnp:DriveFile Name="Jim-Black-Resume.docx" Src="OneDrive/Jim.Black/Jim-Black-Resume.docx"/>
+      </pnp:DriveItems>
+    </pnp:Drives>
+    <pnp:Drives DriveUrl="/users/john.white@{parameter:O365TenantName}.onmicrosoft.com/drive">
+      <pnp:DriveItems>
+        <pnp:DriveFolder Name="Documents" Src="OneDrive/John.White/Documents" 
+            Recursive="true" IncludedExtensions="*.pdf,*.docx" ExcludedExtensions="*.xlsx,*.pptx"/>
+        <pnp:DriveFile Name="John-White-Resume.docx" Src="OneDrive/John.White/JWResume.docx"/>
+      </pnp:DriveItems>
+    </pnp:Drives>
+  </pnp:OneDrive>
   
 </pnp:Provisioning>

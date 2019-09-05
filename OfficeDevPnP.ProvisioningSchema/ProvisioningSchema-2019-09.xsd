@@ -79,6 +79,14 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
+      <xsd:element name="OneDrive" type="pnp:OneDrive" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Entry point to manage OneDrive for Business provisioning.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
     </xsd:sequence>
 
     <xsd:attribute name="Version" type="xsd:decimal" use="optional">
@@ -8292,6 +8300,204 @@
   
   </xsd:complexType>
 
+  <xsd:complexType name="OneDrive">
+    <xsd:annotation>
+      <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+      <xsd:documentation xml:lang="en">
+        Entry point to manage OneDrive for Business provisioning.
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:sequence>
+      <xsd:element name="Drives" type="pnp:Drives" minOccurs="0" maxOccurs="unbounded">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Defines a list of Drives in the target OneDrive for Business
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+    
+  </xsd:complexType>
+
+  <xsd:complexType name="Drives">
+    <xsd:annotation>
+      <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+      <xsd:documentation xml:lang="en">
+        Entry point to manage OneDrive for Business Drives provisioning.
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:sequence>
+      <xsd:element name="DriveItems" type="pnp:DriveItems" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Defines a list of DriveItems to be uploaded/updated in the target OneDrive for Business drive
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+
+    <xsd:attribute name="DriveUrl" type="pnp:ReplaceableString" use="required">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines the relative URL of the target Drive item in OneDrive for Business.
+          The target Drive must exist and will not be created by the Provisioning Engine.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+  
+  </xsd:complexType>
+
+  <xsd:complexType name="DriveItems">
+    <xsd:annotation>
+      <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+      <xsd:documentation xml:lang="en">
+        Entry point to define a collection of DriveItems in the OneDrive for Business provisioning.
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:choice minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="DriveFolder" type="pnp:DriveFolder" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Defines DriveItem to be uploaded/updated in the target OneDrive for Business drive
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="DriveFile" type="pnp:DriveFile" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Defines DriveItem to be uploaded/updated in the target OneDrive for Business drive
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:choice>
+
+  </xsd:complexType>
+
+  <xsd:complexType name="DriveFolder">
+    <xsd:annotation>
+      <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+      <xsd:documentation xml:lang="en">
+        Entry point to define a Folder in the OneDrive for Business provisioning.
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:choice minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="DriveFolder" type="pnp:DriveFolder" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Defines DriveItem to be uploaded/updated in the target OneDrive for Business drive
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="DriveFile" type="pnp:DriveFile" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Defines DriveItem to be uploaded/updated in the target OneDrive for Business drive
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:choice>
+
+
+    <xsd:attribute name="Name" type="pnp:ReplaceableString" use="required">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines the Name of the Folder in OneDrive for Business.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="Src" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines the Source path of the folder in OneDrive for Business.
+          If provided, the whole folder will be uploaded.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="Overwrite" type="xsd:boolean" use="optional" default="false">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Overwrite flag for the File items in the Directory, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="Recursive" type="xsd:boolean" use="optional" default="false">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines whether to recursively browse through all the child folders of the source Folder, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="IncludedExtensions" type="xsd:string" use="optional" default="*.*">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The file Extensions (lower case) to include while uploading the source Folder, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="ExcludedExtensions" type="xsd:string" use="optional" default="">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The file Extensions (lower case) to exclude while uploading the source Folder, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+  </xsd:complexType>
+
+  <xsd:complexType name="DriveFile">
+    <xsd:annotation>
+      <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+      <xsd:documentation xml:lang="en">
+        Entry point to define a DriveItem in the OneDrive for Business provisioning.
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:attribute name="Name" type="pnp:ReplaceableString" use="required">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines the Name of the DriveItem in OneDrive for Business.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="Src" type="pnp:ReplaceableString" use="required">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines the Source path of the file in OneDrive for Business.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="Overwrite" type="xsd:boolean" use="optional" default="false">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Overwrite flag for the File items in the Directory, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+  </xsd:complexType>
+  
   <xsd:simpleType name="GUID">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
