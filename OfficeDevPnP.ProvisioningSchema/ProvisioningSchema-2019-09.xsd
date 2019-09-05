@@ -4372,7 +4372,7 @@
       </xsd:simpleType>
     </xsd:attribute>
 
-    <xsd:attribute name="BackgroundEmphasis" type="pnp:BackgroundEmphasis" use="optional" default="None">
+    <xsd:attribute name="BackgroundEmphasis" type="pnp:Emphasis" use="optional" default="None">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -4721,6 +4721,7 @@
 
     <xsd:attribute name="Type">
       <xsd:annotation>
+        <xsd:appinfo>Updated with schema version 201909</xsd:appinfo>
         <xsd:documentation xml:lang="en">
           The type of the Canvas Section for a Client-side Page.
         </xsd:documentation>
@@ -4770,13 +4771,62 @@
               </xsd:documentation>
             </xsd:annotation>
           </xsd:enumeration>
+          <xsd:enumeration value="OneColumnVerticalSection">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                One column, and a vertical section
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="TwoColumnVerticalSection">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Two columns of the same size, and a vertical section
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="ThreeColumnVerticalSection">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Three columns of the same size, and a vertical section
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="TwoColumnLeftVerticalSection">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Two columns, left one is 2/3, right one 1/3, and a vertical section
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="TwoColumnRightVerticalSection">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Two columns, left one is 1/3, right one 2/3, and a vertical section
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
         </xsd:restriction>
       </xsd:simpleType>
     </xsd:attribute>
 
-    <xsd:attribute name="BackgroundEmphasis" type="pnp:BackgroundEmphasis" use="optional" default="None">
+    <xsd:attribute name="BackgroundEmphasis" type="pnp:Emphasis" use="optional" default="None">
       <xsd:annotation>
-        <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
+        <xsd:appinfo>Updated with schema version 201909</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          The emphasis color of the Canvas Section for a Client-side Page.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="VerticalSectionEmphasis" type="pnp:Emphasis" use="optional" default="None">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
         <xsd:documentation xml:lang="en">
           The emphasis color of the Canvas Section for a Client-side Page.
         </xsd:documentation>
@@ -7245,6 +7295,15 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
+    
+    <xsd:attribute name="InternalId" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Declares the InternalId for the Team, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
 
   </xsd:complexType>
                      
@@ -7495,6 +7554,29 @@
                 Defines the Security settings for the Team, optional element.
               </xsd:documentation>
             </xsd:annotation>
+          </xsd:element>
+
+          <xsd:element name="DiscoverySettings" minOccurs="0" maxOccurs="1">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                The Discovery Settings for the Team, optional element.
+              </xsd:documentation>
+            </xsd:annotation>
+
+            <xsd:complexType>
+
+              <xsd:attribute name="ShowInTeamsSearchAndSuggestions" type="xsd:boolean" use="optional" default="true">
+                <xsd:annotation>
+                  <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+                  <xsd:documentation xml:lang="en">
+                    Defines whether the Team is visible via search and suggestions from the Teams client, optional attribute.
+                  </xsd:documentation>
+                </xsd:annotation>
+              </xsd:attribute>
+              
+            </xsd:complexType>
+
           </xsd:element>
 
           <xsd:element name="Channels" minOccurs="0" maxOccurs="1">
@@ -7795,7 +7877,16 @@
           Defines whether the Channel is Favorite by default for all members of the Team, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
-    </xsd:attribute>  
+    </xsd:attribute>
+
+    <xsd:attribute name="InternalId" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Declares the InternalId for the Channel, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
 
   </xsd:complexType>
   
@@ -7869,7 +7960,7 @@
                       Url for showing Tab contents outside of Teams, required attribute.
                     </xsd:documentation>
                   </xsd:annotation>
-                </xsd:attribute>  
+                </xsd:attribute>
 
               </xsd:complexType>
             
@@ -7892,7 +7983,16 @@
                 App definition identifier of the tab, required attribute.
               </xsd:documentation>
             </xsd:annotation>
-          </xsd:attribute>  
+          </xsd:attribute>
+
+          <xsd:attribute name="InternalId" type="pnp:ReplaceableString" use="optional">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Declares the InternalId for the Tab, optional attribute.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
 
         </xsd:complexType>
       </xsd:element>
@@ -8602,11 +8702,11 @@
     </xsd:restriction>
   </xsd:simpleType>
 
-  <xsd:simpleType name="BackgroundEmphasis">
+  <xsd:simpleType name="Emphasis">
     <xsd:restriction base="xsd:string">
       <xsd:enumeration value="None">
         <xsd:annotation>
-          <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
+          <xsd:appinfo>Updated with schema version 201909</xsd:appinfo>
           <xsd:documentation xml:lang="en">
             Defines No emphasis for the Site Header.
           </xsd:documentation>
