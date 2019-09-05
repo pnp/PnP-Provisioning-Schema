@@ -1330,7 +1330,7 @@
   </pnp:AzureActiveDirectory>
 
   <pnp:OneDrive>
-    <pnp:Drives DriveUrl="/users/jim.black@contoso.onmicrosoft.com/drive">
+    <pnp:Drive DriveUrl="/users/jim.black@contoso.onmicrosoft.com/drive">
       <pnp:DriveItems>
         <pnp:DriveFolder Name="Projects" Src="OneDrive/Jim.Black/Projects" />
         <pnp:DriveFolder Name="ExpenseReports">
@@ -1363,14 +1363,14 @@
         <pnp:DriveFile Name="MyFavoriteSlides.pptx" Src="OneDrive/Jim.Black/MyFavoriteSlides.pptx"/>
         <pnp:DriveFile Name="Jim-Black-Resume.docx" Src="OneDrive/Jim.Black/Jim-Black-Resume.docx"/>
       </pnp:DriveItems>
-    </pnp:Drives>
-    <pnp:Drives DriveUrl="/users/john.white@{parameter:O365TenantName}.onmicrosoft.com/drive">
+    </pnp:Drive>
+    <pnp:Drive DriveUrl="/users/john.white@{parameter:O365TenantName}.onmicrosoft.com/drive">
       <pnp:DriveItems>
         <pnp:DriveFolder Name="Documents" Src="OneDrive/John.White/Documents" 
             Recursive="true" IncludedExtensions="*.pdf,*.docx" ExcludedExtensions="*.xlsx,*.pptx"/>
         <pnp:DriveFile Name="John-White-Resume.docx" Src="OneDrive/John.White/JWResume.docx"/>
       </pnp:DriveItems>
-    </pnp:Drives>
+    </pnp:Drive>
   </pnp:OneDrive>
   
 </pnp:Provisioning>
