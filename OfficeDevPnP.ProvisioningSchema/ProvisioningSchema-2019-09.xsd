@@ -8309,7 +8309,7 @@
     </xsd:annotation>
 
     <xsd:sequence>
-      <xsd:element name="Drives" type="pnp:Drives" minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="Drive" type="pnp:Drive" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
           <xsd:documentation xml:lang="en">
@@ -8321,7 +8321,7 @@
     
   </xsd:complexType>
 
-  <xsd:complexType name="Drives">
+  <xsd:complexType name="Drive">
     <xsd:annotation>
       <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
       <xsd:documentation xml:lang="en">
