@@ -3066,6 +3066,18 @@
 
   </xsd:complexType>
 
+  <xsd:complexType name="FolderProperties">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        A collection of Folder Properties.
+      </xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="Property" type="pnp:StringDictionaryItem"
+                    minOccurs="1" maxOccurs="unbounded" />
+    </xsd:sequence>
+  </xsd:complexType>
+
   <xsd:complexType name="Folder">
     <xsd:annotation>
       <xsd:documentation xml:lang="en">
@@ -3115,6 +3127,13 @@
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
+      <xsd:element name="Properties" type="pnp:FolderProperties" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:documentation xml:lang="en">
+            The Folder Properties, optional collection of elements.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
     </xsd:sequence>
 
     <xsd:attribute name="Name" type="xsd:string" use="required">
@@ -3124,7 +3143,14 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-
+    
+    <xsd:attribute name="ContentTypeID" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          Defines the Content Type ID for the Folder in order to support OneNote, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
 
   <xsd:complexType name="BaseFieldValue">
@@ -4999,7 +5025,7 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-
+    
     <xsd:attribute name="Folder" type="xsd:string" use="required">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
