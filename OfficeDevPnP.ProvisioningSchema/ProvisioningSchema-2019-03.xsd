@@ -2450,6 +2450,13 @@
                       </xsd:documentation>
                     </xsd:annotation>
                   </xsd:element>
+                  <xsd:element name="Attachments" type="pnp:Attachment" minOccurs="0" maxOccurs="1">
+                    <xsd:annotation>
+                      <xsd:documentation xml:lang="en">
+                        Defines the Attachments for this DataRow.
+                      </xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
                 </xsd:sequence>
                 <xsd:attribute name="Key" type="xsd:string" use="optional">
                   <xsd:annotation>
@@ -3126,6 +3133,40 @@
     </xsd:attribute>
 
   </xsd:complexType>
+
+  <xsd:complexType name="Attachment">
+    <xsd:annotation>
+      <xsd:documentation xml:lang="en">
+        Defines a Attachment element, to describe a attachment that will be provisioned into a ListRow in the target Site.
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:attribute name="Src" type="xsd:string" use="required">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Src of the File, required attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="Overwrite" type="xsd:boolean" use="optional" default="false">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Overwrite flag for the File, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="TargetFileName" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:documentation xml:lang="en">
+          The Target file name for the File, optional attribute. If missing, the original file name will be used.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+  </xsd:complexType>
+
 
   <xsd:complexType name="BaseFieldValue">
     <xsd:annotation>
