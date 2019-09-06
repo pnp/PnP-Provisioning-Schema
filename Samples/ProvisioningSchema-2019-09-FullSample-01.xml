@@ -134,6 +134,35 @@
         }
       </pnp:Theme>
     </pnp:Themes>
+    <pnp:UsersProfiles>
+      <pnp:UserProfile TargetUser="user1@contoso.com">
+        <pnp:Property Key="Department" Value="IT"/>
+        <pnp:Property Key="OfficeLocation" Value="Milan, Italy"/>
+        <pnp:Property Key="PhoneNumber" Value="+39-030-123456"/>
+      </pnp:UserProfile>
+      <pnp:UserProfile TargetUser="user2@{parameter:O365TenantName}.onmicrosoft.com">
+        <pnp:Property Key="Department" Value="HR"/>
+        <pnp:Property Key="OfficeLocation" Value="Seattle, WS"/>
+        <pnp:Property Key="PhoneNumber" Value="+1-321-123456"/>
+      </pnp:UserProfile>
+      <pnp:UserProfile TargetUser="group01@contoso.com">
+        <pnp:Property Key="Department" Value="R&amp;D"/>
+        <pnp:Property Key="OfficeLocation" Value="New York, NY"/>
+        <pnp:Property Key="PhoneNumber" Value="+1-456-123456"/>
+      </pnp:UserProfile>
+      <pnp:UserProfile TargetUser="group02@{parameter:O365TenantName}.onmicrosoft.com">
+        <pnp:Property Key="Department" Value="Production"/>
+        <pnp:Property Key="OfficeLocation" Value="Washington, DC"/>
+        <pnp:Property Key="PhoneNumber" Value="+1-789-123456"/>
+      </pnp:UserProfile>
+    </pnp:UsersProfiles>
+    <pnp:GroupLifecyclePolicies>
+      <pnp:GroupLifecyclePolicy 
+        ID="GROUP_LIFECYCLE_01"
+        GroupLifetimeInDays="180"
+        AlternateNotificationEmails="admin01@contoso.com,admin02@{parameter:O365TenantName}.onmicrosoft.com"
+        ManagedGroupTypes="Selected "/>
+    </pnp:GroupLifecyclePolicies>
   </pnp:Tenant>
 
   <pnp:Templates ID="SAMPLE-TEMPLATES">
@@ -172,6 +201,20 @@
         HubSiteUrl="/sites/hubsite"
         CommentsOnSitePagesDisabled="false"
         QuickLaunchEnabled="true"
+        MembersCanShare="true"
+        ExcludeFromOfflineClient="true"
+        DisableFlows="false"
+        DisableAppViews="false"
+        HorizontalQuickLaunch="true"
+        SearchScope="Hub"
+        />
+
+      <pnp:SiteSettings
+        AllowDesigner="true"
+        AllowCreateDeclarativeWorkflow="false"
+        AllowSaveDeclarativeWorkflowAsTemplate="false"
+        AllowSavePublishDeclarativeWorkflow="false"
+        SocialBarOnSitePagesDisabled="true"
         />
 
       <!--<pnp:Theme Name="CustomOrange" IsInverted="false">
@@ -465,6 +508,10 @@
                   <pnp:RoleAssignment Principal="user3@contoso.com" RoleDefinition="View Only"/>
                 </pnp:BreakRoleInheritance>
               </pnp:Security>
+              <pnp:Attachments>
+                <pnp:Attachment Name="OneAttachment.docx" Src="./Attachments/OneAttachment.docx"/>
+                <pnp:Attachment Name="AnotherAttachment.pptx" Src="./Attachments/AnotherAttachment.pptx"/>
+              </pnp:Attachments>
             </pnp:DataRow>
             <pnp:DataRow>
               <pnp:DataValue FieldName="ProjectID">PRJ021</pnp:DataValue>
@@ -526,6 +573,12 @@
               </pnp:Folder>
             </pnp:Folder>
             <pnp:Folder Name="SubFolder-03" />
+            <pnp:Folder Name="Sample-DocumentSet" ContentTypeID="0x0120001234567890">
+              <pnp:Properties>
+                <pnp:Property Key="CustomProperty01" Value="CustomValue01"/>
+                <pnp:Property Key="CustomProperty02" Value="CustomValue02"/>
+              </pnp:Properties>
+            </pnp:Folder>
           </pnp:Folders>
           <pnp:UserCustomActions>
             <pnp:CustomAction
@@ -622,6 +675,10 @@
               <pnp:RoleAssignment Principal="Power Users" RoleDefinition="Full Control"/>
             </pnp:BreakRoleInheritance>
           </pnp:Security>
+          <pnp:Properties>
+            <pnp:Property Key="CustomProperty01" Value="CustomValue01"/>
+            <pnp:Property Key="CustomProperty02" Value="CustomValue02"/>
+          </pnp:Properties>
         </pnp:File>
         <pnp:File Src="CustomMaster.master" Folder="_catalogs/MasterPage" Overwrite="true" Level="Published" />
         <pnp:File Src="Custom.spcolor" Folder="_catalogs/Theme/15" Overwrite="true" />
@@ -1127,7 +1184,8 @@
                           IsPublic="true"
                           IsHubSite="true"
                           Description="{parameter:CompanyName} Projects"
-                          Classification="MBI">
+                          Classification="MBI"
+                          GroupLifecyclePolicyId="GROUP_LIFECYCLE_01">
         <pnp:Templates>
           <pnp:ProvisioningTemplateReference ID="ProjectsTemplate" />
         </pnp:Templates>
@@ -1223,7 +1281,7 @@
       </pnp:Security>
     </pnp:Team>
     <pnp:Team GroupId="{o365groupid:GroupMailNickname}" DisplayName="Sample Team 02" Description="This is just a sample Team 02" Classification="Private"
-              Specialization="EducationStandard" Visibility="Public" Archived="false" MailNickname="sample-team-02" Photo="photo.jpg">
+              Specialization="EducationStandard" TargetSiteUrl="{sequenceSiteUrl:Id}" ProvisioningTemplateId="SPECIALTEAM" Visibility="Public" Archived="false" MailNickname="sample-team-02" Photo="photo.jpg">
       <pnp:FunSettings AllowGiphy="true" GiphyContentRating="Strict"
                        AllowStickersAndMemes="true" AllowCustomMemes="true"/>
       <pnp:GuestSettings AllowCreateUpdateChannels="true" AllowDeleteChannels="false"/>
