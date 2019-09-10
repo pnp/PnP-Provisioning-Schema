@@ -163,6 +163,12 @@
         AlternateNotificationEmails="admin01@contoso.com,admin02@{parameter:O365TenantName}.onmicrosoft.com"
         ManagedGroupTypes="Selected "/>
     </pnp:GroupLifecyclePolicies>
+    <pnp:UnifiedGroupsSettings>
+      <pnp:Property Key="UsageGuidelinesUrl" Value="http://aka.ms/SharePointPnP" />
+      <pnp:Property Key="ClassificationList" Value="HBI,MBI,LBI,GDPR,TopSecret" />
+      <pnp:Property Key="EnableGroupCreation" Value="true" />
+      <pnp:Property Key="DefaultClassification" Value="MBI" />
+    </pnp:UnifiedGroupsSettings>
   </pnp:Tenant>
 
   <pnp:Templates ID="SAMPLE-TEMPLATES">
