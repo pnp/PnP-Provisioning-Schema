@@ -134,41 +134,41 @@
         }
       </pnp:Theme>
     </pnp:Themes>
-    <pnp:UsersProfiles>
-      <pnp:UserProfile TargetUser="user1@contoso.com">
+    <pnp:SPUsersProfiles>
+      <pnp:SPUserProfile TargetUser="user1@contoso.com">
         <pnp:Property Key="Department" Value="IT"/>
         <pnp:Property Key="OfficeLocation" Value="Milan, Italy"/>
         <pnp:Property Key="PhoneNumber" Value="+39-030-123456"/>
-      </pnp:UserProfile>
-      <pnp:UserProfile TargetUser="user2@{parameter:O365TenantName}.onmicrosoft.com">
+      </pnp:SPUserProfile>
+      <pnp:SPUserProfile TargetUser="user2@{parameter:O365TenantName}.onmicrosoft.com">
         <pnp:Property Key="Department" Value="HR"/>
         <pnp:Property Key="OfficeLocation" Value="Seattle, WS"/>
         <pnp:Property Key="PhoneNumber" Value="+1-321-123456"/>
-      </pnp:UserProfile>
-      <pnp:UserProfile TargetUser="group01@contoso.com">
+      </pnp:SPUserProfile>
+      <pnp:SPUserProfile TargetUser="group01@contoso.com">
         <pnp:Property Key="Department" Value="R&amp;D"/>
         <pnp:Property Key="OfficeLocation" Value="New York, NY"/>
         <pnp:Property Key="PhoneNumber" Value="+1-456-123456"/>
-      </pnp:UserProfile>
-      <pnp:UserProfile TargetUser="group02@{parameter:O365TenantName}.onmicrosoft.com">
+      </pnp:SPUserProfile>
+      <pnp:SPUserProfile TargetUser="group02@{parameter:O365TenantName}.onmicrosoft.com">
         <pnp:Property Key="Department" Value="Production"/>
         <pnp:Property Key="OfficeLocation" Value="Washington, DC"/>
         <pnp:Property Key="PhoneNumber" Value="+1-789-123456"/>
-      </pnp:UserProfile>
-    </pnp:UsersProfiles>
-    <pnp:GroupLifecyclePolicies>
-      <pnp:GroupLifecyclePolicy 
+      </pnp:SPUserProfile>
+    </pnp:SPUsersProfiles>
+    <pnp:Office365GroupLifecyclePolicies>
+      <pnp:Office365GroupLifecyclePolicy
         ID="GROUP_LIFECYCLE_01"
         GroupLifetimeInDays="180"
         AlternateNotificationEmails="admin01@contoso.com,admin02@{parameter:O365TenantName}.onmicrosoft.com"
         ManagedGroupTypes="Selected "/>
-    </pnp:GroupLifecyclePolicies>
-    <pnp:UnifiedGroupsSettings>
+    </pnp:Office365GroupLifecyclePolicies>
+    <pnp:Office365GroupsSettings>
       <pnp:Property Key="UsageGuidelinesUrl" Value="http://aka.ms/SharePointPnP" />
       <pnp:Property Key="ClassificationList" Value="HBI,MBI,LBI,GDPR,TopSecret" />
       <pnp:Property Key="EnableGroupCreation" Value="true" />
       <pnp:Property Key="DefaultClassification" Value="MBI" />
-    </pnp:UnifiedGroupsSettings>
+    </pnp:Office365GroupsSettings>
   </pnp:Tenant>
 
   <pnp:Templates ID="SAMPLE-TEMPLATES">
@@ -1191,6 +1191,8 @@
                           IsHubSite="true"
                           Description="{parameter:CompanyName} Projects"
                           Classification="MBI"
+                          Teamify="false"
+                          HideTeamify="true"
                           GroupLifecyclePolicyId="GROUP_LIFECYCLE_01">
         <pnp:Templates>
           <pnp:ProvisioningTemplateReference ID="ProjectsTemplate" />
@@ -1426,8 +1428,8 @@
     </pnp:Users>
   </pnp:AzureActiveDirectory>
 
-  <pnp:OneDrive>
-    <pnp:Drive DriveUrl="/users/jim.black@contoso.onmicrosoft.com/drive">
+  <pnp:Drive>
+    <pnp:DriveRoot DriveUrl="/users/jim.black@contoso.onmicrosoft.com/drive">
       <pnp:DriveItems>
         <pnp:DriveFolder Name="Projects" Src="OneDrive/Jim.Black/Projects" />
         <pnp:DriveFolder Name="ExpenseReports">
@@ -1460,14 +1462,14 @@
         <pnp:DriveFile Name="MyFavoriteSlides.pptx" Src="OneDrive/Jim.Black/MyFavoriteSlides.pptx"/>
         <pnp:DriveFile Name="Jim-Black-Resume.docx" Src="OneDrive/Jim.Black/Jim-Black-Resume.docx"/>
       </pnp:DriveItems>
-    </pnp:Drive>
-    <pnp:Drive DriveUrl="/users/john.white@{parameter:O365TenantName}.onmicrosoft.com/drive">
+    </pnp:DriveRoot>
+    <pnp:DriveRoot DriveUrl="/users/john.white@{parameter:O365TenantName}.onmicrosoft.com/drive">
       <pnp:DriveItems>
         <pnp:DriveFolder Name="Documents" Src="OneDrive/John.White/Documents" 
             Recursive="true" IncludedExtensions="*.pdf,*.docx" ExcludedExtensions="*.xlsx,*.pptx"/>
         <pnp:DriveFile Name="John-White-Resume.docx" Src="OneDrive/John.White/JWResume.docx"/>
       </pnp:DriveItems>
-    </pnp:Drive>
-  </pnp:OneDrive>
+    </pnp:DriveRoot>
+  </pnp:Drive>
   
 </pnp:Provisioning>

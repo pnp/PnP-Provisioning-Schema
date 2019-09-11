@@ -17,7 +17,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 ## [2019-09]
 
 ### Added
-- Support for OneDrive provisioning
+- Support for Drive (OneDrive for Business and SharePoint Online) provisioning
 - Support for User Profile provisioning
 - Support for Group Lifecycle Policies provisioning
 - Support for Unified Groups Settings provisioning
@@ -33,6 +33,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 ### Changed
 - WebSettings section, adding more properties
 - Updated list of native Client Side Web Parts
+
 ## [2019-03]
 
 ### Added

@@ -79,7 +79,7 @@
           </xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="OneDrive" type="pnp:OneDrive" minOccurs="0" maxOccurs="1">
+      <xsd:element name="Drive" type="pnp:Drive" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
           <xsd:documentation xml:lang="en">
@@ -317,7 +317,7 @@
         </xsd:annotation>
       </xsd:element>
 
-      <xsd:element name="UsersProfiles" type="pnp:UsersProfiles" minOccurs="0" maxOccurs="1">
+      <xsd:element name="SPUsersProfiles" type="pnp:SPUsersProfiles" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
           <xsd:documentation xml:lang="en">
@@ -326,7 +326,7 @@
         </xsd:annotation>
       </xsd:element>
 
-      <xsd:element name="GroupLifecyclePolicies" type="pnp:GroupLifecyclePolicies" minOccurs="0" maxOccurs="1">
+      <xsd:element name="Office365GroupLifecyclePolicies" type="pnp:Office365GroupLifecyclePolicies" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
           <xsd:documentation xml:lang="en">
@@ -335,7 +335,7 @@
         </xsd:annotation>
       </xsd:element>
 
-      <xsd:element name="UnifiedGroupsSettings" minOccurs="0" maxOccurs="1">
+      <xsd:element name="Office365GroupsSettings" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
           <xsd:documentation xml:lang="en">
@@ -740,7 +740,7 @@
     </xsd:attribute>
   </xsd:complexType>
 
-  <xsd:complexType name="UsersProfiles">
+  <xsd:complexType name="SPUsersProfiles">
     <xsd:annotation>
       <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
       <xsd:documentation xml:lang="en">
@@ -749,7 +749,7 @@
     </xsd:annotation>
 
     <xsd:sequence>
-      <xsd:element name="UserProfile" type="pnp:UserProfile" minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="SPUserProfile" type="pnp:SPUserProfile" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:appinfo>Updated with schema version 201909</xsd:appinfo>
           <xsd:documentation xml:lang="en">
@@ -761,7 +761,7 @@
 
   </xsd:complexType>
 
-  <xsd:complexType name="UserProfile">
+  <xsd:complexType name="SPUserProfile">
     <xsd:annotation>
       <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
       <xsd:documentation xml:lang="en">
@@ -798,7 +798,7 @@
     </xsd:attribute>
   </xsd:complexType>
 
-  <xsd:complexType name="GroupLifecyclePolicies">
+  <xsd:complexType name="Office365GroupLifecyclePolicies">
     <xsd:annotation>
       <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
       <xsd:documentation xml:lang="en">
@@ -807,7 +807,7 @@
     </xsd:annotation>
 
     <xsd:sequence>
-      <xsd:element name="GroupLifecyclePolicy" type="pnp:GroupLifecyclePolicy" minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="Office365GroupLifecyclePolicy" type="pnp:Office365GroupLifecyclePolicy" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:appinfo>Updated with schema version 201909</xsd:appinfo>
           <xsd:documentation xml:lang="en">
@@ -819,7 +819,7 @@
 
   </xsd:complexType>
 
-  <xsd:complexType name="GroupLifecyclePolicy">
+  <xsd:complexType name="Office365GroupLifecyclePolicy">
     <xsd:annotation>
       <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
       <xsd:documentation xml:lang="en">
@@ -8842,7 +8842,7 @@
   
   </xsd:complexType>
 
-  <xsd:complexType name="OneDrive">
+  <xsd:complexType name="Drive">
     <xsd:annotation>
       <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
       <xsd:documentation xml:lang="en">
@@ -8851,7 +8851,7 @@
     </xsd:annotation>
 
     <xsd:sequence>
-      <xsd:element name="Drive" type="pnp:Drive" minOccurs="0" maxOccurs="unbounded">
+      <xsd:element name="DriveRoot" type="pnp:DriveRoot" minOccurs="0" maxOccurs="unbounded">
         <xsd:annotation>
           <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
           <xsd:documentation xml:lang="en">
@@ -8863,7 +8863,7 @@
     
   </xsd:complexType>
 
-  <xsd:complexType name="Drive">
+  <xsd:complexType name="DriveRoot">
     <xsd:annotation>
       <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
       <xsd:documentation xml:lang="en">
