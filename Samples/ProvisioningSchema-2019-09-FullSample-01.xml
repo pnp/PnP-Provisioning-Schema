@@ -77,7 +77,7 @@
       </pnp:Private>
     </pnp:ContentDeliveryNetwork>
     <pnp:Themes>
-      <pnp:Theme Name="CustomOrange" IsInverted="false">
+      <pnp:Theme Name="CustomOrange" IsInverted="false" Overwrite="false">
         {
         "themePrimary": "#ecb534",
         "themeLighterAlt": "#fefcf6",
@@ -515,8 +515,8 @@
                 </pnp:BreakRoleInheritance>
               </pnp:Security>
               <pnp:Attachments>
-                <pnp:Attachment Name="OneAttachment.docx" Src="./Attachments/OneAttachment.docx"/>
-                <pnp:Attachment Name="AnotherAttachment.pptx" Src="./Attachments/AnotherAttachment.pptx"/>
+                <pnp:Attachment Name="OneAttachment.docx" Src="./Attachments/OneAttachment.docx" />
+                <pnp:Attachment Name="AnotherAttachment.pptx" Src="./Attachments/AnotherAttachment.pptx" Overwrite="true" />
               </pnp:Attachments>
             </pnp:DataRow>
             <pnp:DataRow>
@@ -600,7 +600,7 @@
               Enabled="true" />
           </pnp:UserCustomActions>
           <pnp:Webhooks>
-            <pnp:Webhook ExpiresInDays="120" ServerNotificationUrl="http://myapp.azurewebsites.net/WebHookListener" />
+            <pnp:Webhook ExpiresInDays="120" ServerNotificationUrl="http://myapp.azurewebsites.net/WebHookListener" ClientState="ABC" />
           </pnp:Webhooks>
           <pnp:IRMSettings
             AllowPrint="true"
@@ -962,7 +962,7 @@
       </pnp:Providers>
 
       <pnp:SiteWebhooks>
-        <pnp:Webhook ServerNotificationUrl="http://myapp.azurewebsites.net/WebHookListener" ExpiresInDays="120" SiteWebhookType="WebCreated" />
+        <pnp:Webhook ServerNotificationUrl="http://myapp.azurewebsites.net/WebHookListener" ExpiresInDays="120" SiteWebhookType="WebCreated" ClientState="DEF" />
         <pnp:Webhook ServerNotificationUrl="http://myapp.azurewebsites.net/WebHookListener" ExpiresInDays="120" SiteWebhookType="WebDeleted" />
       </pnp:SiteWebhooks>
 
