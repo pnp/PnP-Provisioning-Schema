@@ -68,6 +68,8 @@ In order to reference the schema version 201805 you can use the following syntax
 </pnp:Provisioning>
 ```
 
+## Deprecated schema versions
+
 [Version 201801](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2018-01.xsd)
 
 In order to reference the schema version 201801 you can use the following syntax:
@@ -91,8 +93,6 @@ In order to reference the schema version 201705 you can use the following syntax
 	<!-- All the schema contents -->
 </pnp:Provisioning>
 ```
-
-## Deprecated schema versions
 
 [Version 201605](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2016-05.xsd)
 
