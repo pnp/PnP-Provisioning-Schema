@@ -20,7 +20,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 - Support for Drive (OneDrive for Business and SharePoint Online) provisioning
 - Support for User Profile provisioning
 - Support for Group Lifecycle Policies provisioning
-- Support for Unified Groups Settings provisioning
+- Support for Office 365 Groups Settings provisioning
 - SiteSettings section
 - Support for Attachments in DataRows for list items
 - Properties for Folders, to support DataSets
@@ -29,6 +29,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 - GroupLifecyclePolicyId attribute for Site Collections in sequences
 - DiscoverySettings to Teams
 - IDs for Tabs and Channels in Teams
+- Attribute AllowToAddGuests to pnp:TeamSecurity complex type
 
 ### Changed
 - WebSettings section, adding more properties

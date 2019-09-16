@@ -1,7 +1,7 @@
 ﻿
 # PnP Provisioning Schema
 ----------
-* Topic automatically generated on 9/11/2019*
+* Topic automatically generated on 9/16/2019*
 
 ## Namespace
 The namespace of the PnP Provisioning Schema is:
@@ -503,7 +503,8 @@ Defines a single Theme
 ```xml
 <pnp:Theme
       Name="xsd:string"
-      IsInverted="xsd:boolean">
+      IsInverted="xsd:boolean"
+      Overwrite="xsd:boolean">
 </pnp:Theme>
 ```
 
@@ -515,6 +516,7 @@ Attibute|Type|Description
 --------|----|-----------
 Name|xsd:string|Defines the name of the tenant-wide Theme
 IsInverted|xsd:boolean|Defines the name of the tenant-wide Theme
+Overwrite|xsd:boolean|Defines whether to overwrite an already existing theme, optional attribute.
 <a name="spusersprofiles"></a>
 ### SPUsersProfiles
 Collection of UserProfile objects with custom properties
@@ -2366,7 +2368,8 @@ Defines a single element of type Webhook.
 ```xml
 <pnp:Webhook
       ServerNotificationUrl="pnp:ReplaceableString"
-      ExpiresInDays="pnp:ReplaceableInt">
+      ExpiresInDays="pnp:ReplaceableInt"
+      ClientState="pnp:ReplaceableString">
 </pnp:Webhook>
 ```
 
@@ -2378,6 +2381,7 @@ Attibute|Type|Description
 --------|----|-----------
 ServerNotificationUrl|ReplaceableString|The Server Notification URL of the Webhook, required attribute.
 ExpiresInDays|ReplaceableInt|The expire days for the subscription of the Webhook, required attribute.
+ClientState|ReplaceableString|An opaque string passed back to the client on all notifications, optional attribute.
 <a name="sitewebhook"></a>
 ### SiteWebhook
 Defines a single element of type SiteWebhook.
@@ -4037,7 +4041,8 @@ MailNickname|ReplaceableString|Declares the nickname for the Team, optional attr
 Defines the Security settings for the Team, optional element.
 
 ```xml
-<pnp:TeamSecurity>
+<pnp:TeamSecurity
+      AllowToAddGuests="xsd:boolean">
    <pnp:Owners />
    <pnp:Members />
 </pnp:TeamSecurity>
@@ -4051,6 +4056,13 @@ Element|Type|Description
 -------|----|-----------
 Owners|[TeamSecurityUsers](#teamsecurityusers)|Defines the Owners of the Team, optional element.
 Members|[TeamSecurityUsers](#teamsecurityusers)|Defines the Members of the Team, optional element.
+
+Here follow the available attributes for the TeamSecurity element.
+
+
+Attibute|Type|Description
+--------|----|-----------
+AllowToAddGuests|xsd:boolean|Defines whether guests are allowed in the Team, optional attribute.
 <a name="teamsecurityusers"></a>
 ### TeamSecurityUsers
 Defines a list of users for a the Team, optional element.
