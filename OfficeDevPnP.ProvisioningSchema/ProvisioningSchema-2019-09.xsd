@@ -5301,6 +5301,22 @@
           <xsd:enumeration value="Custom" />
           <xsd:enumeration value="Text" />
           <xsd:enumeration value="BingMap" />
+          <xsd:enumeration value="Button">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Button Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="CallToAction">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                CallToAction Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
           <xsd:enumeration value="ClientWebPart" />
           <xsd:enumeration value="CodeSnippet" />
           <xsd:enumeration value="ContentEmbed" />
@@ -5339,6 +5355,14 @@
           <xsd:enumeration value="QuickChart" />
           <xsd:enumeration value="QuickLinks" />
           <xsd:enumeration value="SiteActivity" />
+          <xsd:enumeration value="Sites">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Sites Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
           <xsd:enumeration value="Spacer" />
           <xsd:enumeration value="ThirdParty" />
           <xsd:enumeration value="VideoEmbed" />
