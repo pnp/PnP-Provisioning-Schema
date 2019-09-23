@@ -21,6 +21,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 - Support for User Profile provisioning
 - Support for Group Lifecycle Policies provisioning
 - Support for Office 365 Groups Settings provisioning
+- Alternate UI Cultures for WebSettings and modern multi-linguage experience
 - SiteSettings section
 - Support for Attachments in DataRows for list items
 - Properties for Folders, to support DataSets
