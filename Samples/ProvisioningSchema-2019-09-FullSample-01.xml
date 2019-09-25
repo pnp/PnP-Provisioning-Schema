@@ -974,7 +974,7 @@
       </pnp:SiteWebhooks>
 
       <pnp:ClientSidePages>
-        <pnp:ClientSidePage PageName="SamplePage" PromoteAsTemplate="true" PromoteAsNewsArticle="true" Overwrite="true" Publish="true" Layout="Article" EnableComments="true" Title="Client Side Page Title" ContentTypeID="0x01010012345" CreateTranslations="true">
+        <pnp:ClientSidePage PageName="SamplePage" PromoteAsTemplate="true" PromoteAsNewsArticle="true" Overwrite="true" Publish="true" Layout="Article" EnableComments="true" Title="Client Side Page Title" ContentTypeID="0x01010012345" CreateTranslations="true" ThumbnailUrl="images/pageThumbnail.png">
           <pnp:Header Type="Custom"
               ServerRelativeImageUrl="./site%20assets/picture.png"
               TranslateX="10.56"
@@ -1084,7 +1084,7 @@
 
       <pnp:ProvisioningTemplateWebhooks>
         <pnp:ProvisioningTemplateWebhook Url="https://mywebhook.azurefunctions.net/function01?par1={WebhookParam:Param01}&amp;site={sitecollection}&amp;par2={WebhookParam:Param02}&amp;par3={WebhookParam:Param03}"
-                                         Method="GET" Kind="ProvisioningStarted">
+                                         Method="GET" Kind="ProvisioningTemplateStarted">
           <pnp:Parameters>
             <pnp:Parameter Key="Param01" Value="Value01"/>
             <pnp:Parameter Key="Param02" Value="Value02"/>
@@ -1092,7 +1092,7 @@
           </pnp:Parameters>
         </pnp:ProvisioningTemplateWebhook>
         <pnp:ProvisioningTemplateWebhook Url="https://mywebhook.azurefunctions.net/function01"
-                                         Method="POST" Kind="ProvisioningCompleted" BodyFormat="Json" Async="true">
+                                         Method="POST" Kind="ProvisioningTemplateCompleted" BodyFormat="Json" Async="true">
           <pnp:Parameters>
             <pnp:Parameter Key="Param01" Value="Value01"/>
             <pnp:Parameter Key="Site" Value="{sitecollection}"/>
@@ -1478,5 +1478,22 @@
       </pnp:DriveItems>
     </pnp:DriveRoot>
   </pnp:Drive>
-  
+
+  <pnp:ProvisioningWebhooks>
+    <pnp:ProvisioningWebhook Url="https://mywebhook.azurefunctions.net/function01"
+                                     Method="POST" Kind="ProvisioningStarted" BodyFormat="Json" Async="true">
+      <pnp:Parameters>
+        <pnp:Parameter Key="Param01" Value="Value01"/>
+        <pnp:Parameter Key="Site" Value="{sitecollection}"/>
+      </pnp:Parameters>
+    </pnp:ProvisioningWebhook>
+    <pnp:ProvisioningWebhook Url="https://mywebhook.azurefunctions.net/function01"
+                                     Method="POST" Kind="ProvisioningCompleted" BodyFormat="Json" Async="true">
+      <pnp:Parameters>
+        <pnp:Parameter Key="Param01" Value="Value01"/>
+        <pnp:Parameter Key="Site" Value="{sitecollection}"/>
+      </pnp:Parameters>
+    </pnp:ProvisioningWebhook>
+  </pnp:ProvisioningWebhooks>
+
 </pnp:Provisioning>
