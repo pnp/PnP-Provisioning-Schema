@@ -972,9 +972,9 @@
         <pnp:Webhook ServerNotificationUrl="http://myapp.azurewebsites.net/WebHookListener" ExpiresInDays="120" SiteWebhookType="WebCreated" ClientState="DEF" />
         <pnp:Webhook ServerNotificationUrl="http://myapp.azurewebsites.net/WebHookListener" ExpiresInDays="120" SiteWebhookType="WebDeleted" />
       </pnp:SiteWebhooks>
-
+        
       <pnp:ClientSidePages>
-        <pnp:ClientSidePage PageName="SamplePage" PromoteAsTemplate="true" PromoteAsNewsArticle="true" Overwrite="true" Publish="true" Layout="Article" EnableComments="true" Title="Client Side Page Title" ContentTypeID="0x01010012345" CreateTranslations="true" ThumbnailUrl="images/pageThumbnail.png">
+        <pnp:ClientSidePage PageName="SamplePage" PromoteAsTemplate="true" PromoteAsNewsArticle="true" Overwrite="true" Publish="true" Layout="Article" EnableComments="true" Title="Client Side Page Title" ContentTypeID="0x01010012345" ThumbnailUrl="images/pageThumbnail.png" CreateTranslations="true">
           <pnp:Header Type="Custom"
               ServerRelativeImageUrl="./site%20assets/picture.png"
               TranslateX="10.56"
@@ -1021,6 +1021,13 @@
             <pnp:Property Key="Key02" Value="Value 02" />
             <pnp:Property Key="Key03" Value="Value 03" />
           </pnp:Properties>
+          <pnp:Translations>
+            <pnp:ClientSidePage LCID="1036">
+              <pnp:Header Type="Default" LayoutType="NoImage" />
+            </pnp:ClientSidePage>
+            <pnp:ClientSidePage LCID="1040" />
+            <pnp:ClientSidePage LCID="1035" />
+          </pnp:Translations>
         </pnp:ClientSidePage>
         <pnp:ClientSidePage PageName="SamplePageWithVerticalSection" PromoteAsTemplate="true" PromoteAsNewsArticle="true" Overwrite="true" Publish="true" Layout="Article" EnableComments="true" Title="Client Side Page Title" ContentTypeID="0x01010012345">
           <pnp:Header Type="Custom"
