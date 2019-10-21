@@ -1117,7 +1117,9 @@ The Property Bag Entry of the Provisioning Template.
 ```xml
 <pnp:PropertyBagEntry
       Overwrite="xsd:boolean"
-      Indexed="xsd:boolean">
+      Indexed="xsd:boolean"
+      Key="xsd:string"
+      Value="xsd:string">
 </pnp:PropertyBagEntry>
 ```
 
@@ -1127,6 +1129,8 @@ Here follow the available attributes for the PropertyBagEntry element.
 
 Attibute|Type|Description
 --------|----|-----------
+Key|xsd:string|The Key of the property to store in the StringDictionary, required attribute.
+Value|xsd:string|The Value of the property to store in the StringDictionary, required attribute.
 Overwrite|xsd:boolean|Declares whether the Property Bag Entry has to overwrite an already existing entry, optional attribute.
 Indexed|xsd:boolean|Declares whether the Property Bag Entry has to be indexed, optional attribute.
 <a name="stringdictionaryitem"></a>
