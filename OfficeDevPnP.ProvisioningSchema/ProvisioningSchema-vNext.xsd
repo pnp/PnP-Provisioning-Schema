@@ -3165,7 +3165,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="ListExperience" use="optional" default="Auto">
+    <xsd:attribute name="ListExperience" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -3351,7 +3351,7 @@
       </xsd:documentation>
     </xsd:annotation>
 
-    <xsd:attribute name="Enabled" type="xsd:boolean" use="required">
+    <xsd:attribute name="Enabled" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Defines whether the IRM settings have to be enabled or not.
@@ -3743,7 +3743,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="Default" type="xsd:boolean" use="optional">
+    <xsd:attribute name="Default" type="xsd:boolean" use="optional" default="false">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Declares if the Content Type should be the default Content Type in the list or library, optional attribute.
@@ -4512,7 +4512,7 @@
               </xsd:restriction>
             </xsd:simpleType>
           </xsd:attribute>
-          <xsd:attribute name="TextAlignment" use="optional">
+          <xsd:attribute name="TextAlignment" use="optional" default="Left">
             <xsd:annotation>
               <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
               <xsd:documentation xml:lang="en">
