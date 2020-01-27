@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xsd:schema targetNamespace="http://schemas.dev.office.com/PnP/vNext/ProvisioningSchema"
+<xsd:schema targetNamespace="http://schemas.dev.office.com/PnP/2020/02/ProvisioningSchema"
     elementFormDefault="qualified"
-    xmlns="http://schemas.dev.office.com/PnP/vNext/ProvisioningSchema"
-    xmlns:pnp="http://schemas.dev.office.com/PnP/vNext/ProvisioningSchema"
+    xmlns="http://schemas.dev.office.com/PnP/2020/02/ProvisioningSchema"
+    xmlns:pnp="http://schemas.dev.office.com/PnP/2020/02/ProvisioningSchema"
     xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 
   <!-- The main element -->

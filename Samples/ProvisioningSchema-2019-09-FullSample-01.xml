@@ -161,7 +161,7 @@
         ID="GROUP_LIFECYCLE_01"
         GroupLifetimeInDays="180"
         AlternateNotificationEmails="admin01@contoso.com,admin02@{parameter:O365TenantName}.onmicrosoft.com"
-        ManagedGroupTypes="Selected "/>
+        ManagedGroupTypes="Selected"/>
     </pnp:Office365GroupLifecyclePolicies>
     <pnp:Office365GroupsSettings>
       <pnp:Property Key="UsageGuidelinesUrl" Value="http://aka.ms/SharePointPnP" />
@@ -204,7 +204,7 @@
         AlternateCSS="{sitecollection}/Resources/Themes/Contoso/Contoso.css"
         MasterPageUrl="{sitecollection}/_catalogs/MasterPage/oslo.master"
         CustomMasterPageUrl="{sitecollection}/_catalogs/MasterPage/CustomMaster.master"
-        HubSiteUrl="/sites/hubsite"
+        HubSiteUrl="https://contoso.sharepoint.com/sites/hubsite"
         CommentsOnSitePagesDisabled="false"
         QuickLaunchEnabled="true"
         MembersCanShare="true"
