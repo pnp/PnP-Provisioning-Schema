@@ -1546,7 +1546,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="ExcludeFromOfflineClient" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="ExcludeFromOfflineClient" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -1555,7 +1555,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="MembersCanShare" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="MembersCanShare" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -1564,7 +1564,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="DisableFlows" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="DisableFlows" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -1573,7 +1573,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="DisableAppViews" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="DisableAppViews" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -1582,7 +1582,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="HorizontalQuickLaunch" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="HorizontalQuickLaunch" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -1666,7 +1666,7 @@
       </xsd:documentation>
     </xsd:annotation>
 
-    <xsd:attribute name="AllowDesigner" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="AllowDesigner" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -1675,7 +1675,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="AllowCreateDeclarativeWorkflow" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="AllowCreateDeclarativeWorkflow" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -1684,7 +1684,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="AllowSaveDeclarativeWorkflowAsTemplate" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="AllowSaveDeclarativeWorkflowAsTemplate" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -1693,7 +1693,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="AllowSavePublishDeclarativeWorkflow" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="AllowSavePublishDeclarativeWorkflow" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -1702,7 +1702,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="SocialBarOnSitePagesDisabled" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="SocialBarOnSitePagesDisabled" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -2259,7 +2259,7 @@
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
-    <xsd:attribute name="EnableTreeView" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="EnableTreeView" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -2267,7 +2267,7 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="AddNewPagesToNavigation" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="AddNewPagesToNavigation" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201801</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -2275,7 +2275,7 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-    <xsd:attribute name="CreateFriendlyUrlsForNewPages" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="CreateFriendlyUrlsForNewPages" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201801</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -2433,7 +2433,7 @@
             </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute name="Indexed" type="xsd:boolean" use="optional" default="false">
+        <xsd:attribute name="Indexed" type="xsd:boolean" use="optional">
           <xsd:annotation>
             <xsd:documentation xml:lang="en">
               Declares whether the Property Bag Entry has to be indexed, optional attribute.
@@ -3106,7 +3106,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="OnQuickLaunch" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="OnQuickLaunch" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           The OnQuickLaunch flag for the List Instance, optional attribute.
@@ -3131,7 +3131,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="ForceCheckout" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="ForceCheckout" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           The ForceCheckout flag for the List Instance, optional attribute.
@@ -3139,7 +3139,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="EnableVersioning" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="EnableVersioning" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           The EnableVersioning flag for the List Instance, optional attribute.
@@ -3147,7 +3147,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="EnableMinorVersions" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="EnableMinorVersions" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           The EnableMinorVersions flag for the List Instance, optional attribute.
@@ -3155,7 +3155,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="EnableModeration" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="EnableModeration" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           The EnableModeration flag for the List Instance, optional attribute.
@@ -3206,7 +3206,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="ContentTypesEnabled" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="ContentTypesEnabled" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           The ContentTypesEnabled flag for the List Instance, optional attribute.
@@ -3214,7 +3214,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="Hidden" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="Hidden" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           The Hidden flag for the List Instance, optional attribute.
@@ -3222,7 +3222,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="EnableAttachments" type="xsd:boolean" use="optional" default="true">
+    <xsd:attribute name="EnableAttachments" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           The EnableAttachments flag for the List Instance, optional attribute.
@@ -3230,7 +3230,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="EnableFolderCreation" type="xsd:boolean" use="optional" default="true">
+    <xsd:attribute name="EnableFolderCreation" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           The EnableFolderCreation flag for the List Instance, optional attribute.
@@ -3238,7 +3238,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="NoCrawl" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="NoCrawl" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -3247,7 +3247,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="ListExperience" use="optional" default="Auto">
+    <xsd:attribute name="ListExperience" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -3308,7 +3308,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="Direction" use="optional" default="NONE">
+    <xsd:attribute name="Direction" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -3378,7 +3378,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="ReadSecurity" type="xsd:int" use="optional" default="1">
+    <xsd:attribute name="ReadSecurity" type="xsd:int" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -3387,7 +3387,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="WriteSecurity" type="xsd:int" use="optional" default="1">
+    <xsd:attribute name="WriteSecurity" type="xsd:int" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201805</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -3433,7 +3433,7 @@
       </xsd:documentation>
     </xsd:annotation>
 
-    <xsd:attribute name="Enabled" type="xsd:boolean" use="required">
+    <xsd:attribute name="Enabled" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Defines whether the IRM settings have to be enabled or not.
@@ -3441,7 +3441,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="AllowPrint" type="xsd:boolean" use="optional" default="true">
+    <xsd:attribute name="AllowPrint" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Defines whether a viewer can print the downloaded document.
@@ -3449,7 +3449,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="AllowScript" type="xsd:boolean" use="optional" default="true">
+    <xsd:attribute name="AllowScript" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Defines whether a viewer can run a script on the downloaded document.
@@ -3457,7 +3457,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="AllowWriteCopy" type="xsd:boolean" use="optional" default="true">
+    <xsd:attribute name="AllowWriteCopy" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Defines whether a viewer can write on a copy of the downloaded document.
@@ -3465,7 +3465,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="DisableDocumentBrowserView" type="xsd:boolean" use="optional" default="true">
+    <xsd:attribute name="DisableDocumentBrowserView" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Defines whether to block Office Web Application Companion applications (WACs) from showing this document.
@@ -3489,7 +3489,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="EnableDocumentAccessExpire" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="EnableDocumentAccessExpire" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Defines whether the downloaded document will expire.
@@ -3497,7 +3497,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="EnableDocumentBrowserPublishingView" type="xsd:boolean" use="optional" default="true">
+    <xsd:attribute name="EnableDocumentBrowserPublishingView" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Defines whether to enable Office Web Application Companion applications (WACs) to publishing view.
@@ -3505,7 +3505,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="EnableGroupProtection" type="xsd:boolean" use="optional" default="true">
+    <xsd:attribute name="EnableGroupProtection" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Defines whether the permission of the downloaded document is applicable to a group.
@@ -3513,7 +3513,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="EnableLicenseCacheExpire" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="EnableLicenseCacheExpire" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Defines whether a user must verify their credentials after some interval.
@@ -3750,7 +3750,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="Hidden" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="Hidden" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Optional Boolean. True to define the content type as hidden. If you define a content type as hidden, SharePoint Foundation does not display that content type on the New button in list views.
@@ -3758,7 +3758,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="Sealed" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="Sealed" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Optional Boolean. True to prevent changes to this content type. You cannot change the value of this attribute through the user interface, but you can change it in code if you have sufficient rights. You must have site collection administrator rights to unseal a content type.
@@ -3766,7 +3766,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="ReadOnly" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="ReadOnly" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Optional Boolean. TRUE to specify that the content type cannot be edited without explicitly removing the read-only setting. This can be done either in the user interface or in code.
@@ -3841,7 +3841,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="Hidden" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="Hidden" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201705</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -4067,7 +4067,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="Required" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="Required" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           The Required flag for the field to bind, optional attribute.
@@ -4075,7 +4075,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="Hidden" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="Hidden" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           The Hidden flag for the field to bind, optional attribute.
@@ -4755,7 +4755,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="Layout" type="xsd:string" use="optional" default="Article">
+    <xsd:attribute name="Layout" type="xsd:string" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201801</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -4773,7 +4773,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="EnableComments" type="xsd:boolean" use="optional" default="true">
+    <xsd:attribute name="EnableComments" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201801</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -4943,7 +4943,7 @@
       </xsd:simpleType>
     </xsd:attribute>
 
-    <xsd:attribute name="MenuStyle" use="optional" default="Cascading">
+    <xsd:attribute name="MenuStyle" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -4973,7 +4973,7 @@
       </xsd:simpleType>
     </xsd:attribute>
 
-    <xsd:attribute name="BackgroundEmphasis" type="pnp:Emphasis" use="optional" default="None">
+    <xsd:attribute name="BackgroundEmphasis" type="pnp:Emphasis" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -7612,7 +7612,7 @@
             </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute name="IsAvailableForTagging" type="xsd:boolean" use="optional" default="true">
+        <xsd:attribute name="IsAvailableForTagging" type="xsd:boolean" use="optional">
           <xsd:annotation>
             <xsd:documentation xml:lang="en">
               Declares whether the Term Set Item is available for tagging, optional attribute.
@@ -7660,7 +7660,7 @@
             </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
-        <xsd:attribute name="IsOpenForTermCreation" type="xsd:boolean" use="optional" default="false">
+        <xsd:attribute name="IsOpenForTermCreation" type="xsd:boolean" use="optional">
           <xsd:annotation>
             <xsd:documentation xml:lang="en">
               Declares whether the Term Set is open for terms creation or not, optional attribute.
@@ -8002,7 +8002,7 @@
 
             <xsd:complexType>
 
-              <xsd:attribute name="AllowGiphy" type="xsd:boolean" use="optional" default="true">
+              <xsd:attribute name="AllowGiphy" type="xsd:boolean" use="optional">
                 <xsd:annotation>
                   <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
                   <xsd:documentation xml:lang="en">
@@ -8042,7 +8042,7 @@
 
               </xsd:attribute>
 
-              <xsd:attribute name="AllowStickersAndMemes" type="xsd:boolean" use="optional" default="true">
+              <xsd:attribute name="AllowStickersAndMemes" type="xsd:boolean" use="optional">
                 <xsd:annotation>
                   <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
                   <xsd:documentation xml:lang="en">
@@ -8051,7 +8051,7 @@
                 </xsd:annotation>
               </xsd:attribute>
 
-              <xsd:attribute name="AllowCustomMemes" type="xsd:boolean" use="optional" default="true">
+              <xsd:attribute name="AllowCustomMemes" type="xsd:boolean" use="optional">
                 <xsd:annotation>
                   <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
                   <xsd:documentation xml:lang="en">
@@ -8074,7 +8074,7 @@
 
             <xsd:complexType>
 
-              <xsd:attribute name="AllowCreateUpdateChannels" type="xsd:boolean" use="optional" default="true">
+              <xsd:attribute name="AllowCreateUpdateChannels" type="xsd:boolean" use="optional">
                 <xsd:annotation>
                   <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
                   <xsd:documentation xml:lang="en">
@@ -8083,7 +8083,7 @@
                 </xsd:annotation>
               </xsd:attribute>
 
-              <xsd:attribute name="AllowDeleteChannels" type="xsd:boolean" use="optional" default="false">
+              <xsd:attribute name="AllowDeleteChannels" type="xsd:boolean" use="optional">
                 <xsd:annotation>
                   <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
                   <xsd:documentation xml:lang="en">
@@ -8106,7 +8106,7 @@
 
             <xsd:complexType>
 
-              <xsd:attribute name="AllowCreateUpdateChannels" type="xsd:boolean" use="optional" default="true">
+              <xsd:attribute name="AllowCreateUpdateChannels" type="xsd:boolean" use="optional">
                 <xsd:annotation>
                   <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
                   <xsd:documentation xml:lang="en">
@@ -8115,7 +8115,7 @@
                 </xsd:annotation>
               </xsd:attribute>
 
-              <xsd:attribute name="AllowDeleteChannels" type="xsd:boolean" use="optional" default="true">
+              <xsd:attribute name="AllowDeleteChannels" type="xsd:boolean" use="optional">
                 <xsd:annotation>
                   <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
                   <xsd:documentation xml:lang="en">
@@ -8124,7 +8124,7 @@
                 </xsd:annotation>
               </xsd:attribute>
 
-              <xsd:attribute name="AllowAddRemoveApps" type="xsd:boolean" use="optional" default="true">
+              <xsd:attribute name="AllowAddRemoveApps" type="xsd:boolean" use="optional">
                 <xsd:annotation>
                   <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
                   <xsd:documentation xml:lang="en">
@@ -8133,7 +8133,7 @@
                 </xsd:annotation>
               </xsd:attribute>
 
-              <xsd:attribute name="AllowCreateUpdateRemoveTabs" type="xsd:boolean" use="optional" default="true">
+              <xsd:attribute name="AllowCreateUpdateRemoveTabs" type="xsd:boolean" use="optional">
                 <xsd:annotation>
                   <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
                   <xsd:documentation xml:lang="en">
@@ -8142,7 +8142,7 @@
                 </xsd:annotation>
               </xsd:attribute>
 
-              <xsd:attribute name="AllowCreateUpdateRemoveConnectors" type="xsd:boolean" use="optional" default="true">
+              <xsd:attribute name="AllowCreateUpdateRemoveConnectors" type="xsd:boolean" use="optional">
                 <xsd:annotation>
                   <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
                   <xsd:documentation xml:lang="en">
@@ -8165,7 +8165,7 @@
 
             <xsd:complexType>
 
-              <xsd:attribute name="AllowUserEditMessages" type="xsd:boolean" use="optional" default="true">
+              <xsd:attribute name="AllowUserEditMessages" type="xsd:boolean" use="optional">
                 <xsd:annotation>
                   <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
                   <xsd:documentation xml:lang="en">
@@ -8174,7 +8174,7 @@
                 </xsd:annotation>
               </xsd:attribute>
 
-              <xsd:attribute name="AllowUserDeleteMessages" type="xsd:boolean" use="optional" default="true">
+              <xsd:attribute name="AllowUserDeleteMessages" type="xsd:boolean" use="optional">
                 <xsd:annotation>
                   <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
                   <xsd:documentation xml:lang="en">
@@ -8183,7 +8183,7 @@
                 </xsd:annotation>
               </xsd:attribute>
 
-              <xsd:attribute name="AllowOwnerDeleteMessages" type="xsd:boolean" use="optional" default="true">
+              <xsd:attribute name="AllowOwnerDeleteMessages" type="xsd:boolean" use="optional">
                 <xsd:annotation>
                   <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
                   <xsd:documentation xml:lang="en">
@@ -8192,7 +8192,7 @@
                 </xsd:annotation>
               </xsd:attribute>
 
-              <xsd:attribute name="AllowTeamMentions" type="xsd:boolean" use="optional" default="true">
+              <xsd:attribute name="AllowTeamMentions" type="xsd:boolean" use="optional">
                 <xsd:annotation>
                   <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
                   <xsd:documentation xml:lang="en">
@@ -8201,7 +8201,7 @@
                 </xsd:annotation>
               </xsd:attribute>
 
-              <xsd:attribute name="AllowChannelMentions" type="xsd:boolean" use="optional" default="true">
+              <xsd:attribute name="AllowChannelMentions" type="xsd:boolean" use="optional">
                 <xsd:annotation>
                   <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
                   <xsd:documentation xml:lang="en">
@@ -8233,7 +8233,7 @@
 
             <xsd:complexType>
 
-              <xsd:attribute name="ShowInTeamsSearchAndSuggestions" type="xsd:boolean" use="optional" default="true">
+              <xsd:attribute name="ShowInTeamsSearchAndSuggestions" type="xsd:boolean" use="optional">
                 <xsd:annotation>
                   <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
                   <xsd:documentation xml:lang="en">
@@ -8404,7 +8404,7 @@
           </xsd:annotation>
         </xsd:attribute>
 
-        <xsd:attribute name="Archived" type="xsd:boolean" use="optional" default="false">
+        <xsd:attribute name="Archived" type="xsd:boolean" use="optional">
           <xsd:annotation>
             <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
             <xsd:documentation xml:lang="en">
@@ -8454,7 +8454,7 @@
       </xsd:element>
     </xsd:sequence>
 
-    <xsd:attribute name="AllowToAddGuests" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="AllowToAddGuests" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -8564,7 +8564,7 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="IsFavoriteByDefault" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="IsFavoriteByDefault" type="xsd:boolean" use="optional">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
         <xsd:documentation xml:lang="en">
@@ -8894,7 +8894,7 @@
 
               <xsd:complexType>
 
-                <xsd:attribute name="ForceChangePasswordNextSignIn" type="xsd:boolean" use="optional" default="false">
+                <xsd:attribute name="ForceChangePasswordNextSignIn" type="xsd:boolean" use="optional">
                   <xsd:annotation>
                     <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
                     <xsd:documentation xml:lang="en">
@@ -8903,7 +8903,7 @@
                   </xsd:annotation>
                 </xsd:attribute>
 
-                <xsd:attribute name="ForceChangePasswordNextSignInWithMfa" type="xsd:boolean" use="optional" default="false">
+                <xsd:attribute name="ForceChangePasswordNextSignInWithMfa" type="xsd:boolean" use="optional">
                   <xsd:annotation>
                     <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
                     <xsd:documentation xml:lang="en">
