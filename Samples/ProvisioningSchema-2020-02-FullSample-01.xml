@@ -227,7 +227,8 @@
         SearchScope="Hub"
         IsMultilingual="true"
         OverwriteTranslationsOnChange="true"
-        SearchBoxInNavBar="AllPages">
+        SearchBoxInNavBar="AllPages"
+        SearchCenterUrl="https://contoso.sharepoint.com/sites/SearchCenter">
         <pnp:AlternateUICultures>
           <pnp:AlternateUICulture LCID="1033"/>
           <pnp:AlternateUICulture LCID="1040"/>
@@ -242,6 +243,7 @@
         AllowSavePublishDeclarativeWorkflow="false"
         SocialBarOnSitePagesDisabled="true"
         SearchBoxInNavBar="ModernOnly"
+        SearchCenterUrl="https://contoso.sharepoint.com/sites/SearchCenter"
         />
 
       <!--<pnp:Theme Name="CustomOrange" IsInverted="false">
@@ -1223,7 +1225,8 @@
                           Teamify="false"
                           HideTeamify="true"
                           Language="1033"
-                          GroupLifecyclePolicyId="GROUP_LIFECYCLE_01">
+                          GroupLifecyclePolicyId="GROUP_LIFECYCLE_01"
+                          SiteDesign="Demo Site Design ID">
         <pnp:Templates>
           <pnp:ProvisioningTemplateReference ID="ProjectsTemplate" />
         </pnp:Templates>
@@ -1238,7 +1241,12 @@
                           IsHubSite="false"
                           Language="1040"
                           Theme="CustomOrange"
-                          TimeZoneId="4">
+                          TimeZoneId="4"
+                          Groupify="true"
+                          Alias="{parameter:CompanyName}Meetings"
+                          Classification="HBI"
+                          IsPublic="true"
+                          KeepOldHomePage="false">
         <pnp:Templates>
           <pnp:ProvisioningTemplateReference ID="MeetingsTemplate" />
         </pnp:Templates>
@@ -1326,7 +1334,8 @@
       <pnp:MembersSettings AllowCreateUpdateChannels="true" AllowDeleteChannels="false"
                            AllowAddRemoveApps="true" 
                            AllowCreateUpdateRemoveConnectors="true" 
-                           AllowCreateUpdateRemoveTabs="false" />
+                           AllowCreateUpdateRemoveTabs="false"
+                           AllowCreatePrivateChannels="true" />
       <pnp:MessagingSettings AllowUserEditMessages="true" AllowUserDeleteMessages="true"
                              AllowOwnerDeleteMessages="false"
                              AllowTeamMentions="true"
