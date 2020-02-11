@@ -366,6 +366,15 @@
 
       </xsd:element>
 
+      <xsd:element name="SharingSettings" type="pnp:SharingSettings" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Defines the tenant-level sharing settings, optional element.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+
     </xsd:all>
 
   </xsd:complexType>
@@ -832,6 +841,212 @@
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
+
+  </xsd:complexType>
+
+  <xsd:complexType name="SharingSettings">
+    <xsd:annotation>
+      <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+      <xsd:documentation xml:lang="en">
+        Defines the tenant-level sharing settings
+      </xsd:documentation>
+    </xsd:annotation>
+
+    <xsd:attribute name="SharingCapability" use="required">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Configures the sharing capability for the tenant, required attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Disabled">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Don't allow sharing outside your organization
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="ExternalUserSharingOnly">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Allow external users who accept sharing invitations and sign in as authenticated users
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="ExternalUserAndGuestSharing">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Allow sharing with all external users, and by using anonymous access links
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="ExistingExternalUserSharingOnly">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Allow sharing only with the external users that already exist in your organization's directory
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
+
+    </xsd:attribute>
+
+    <xsd:attribute name="RequireAnonymousLinksExpireInDays" type="xsd:int" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Number of days before expiration of anonymous sharing links, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="FileAnonymousLinkType" type="pnp:AnonymousLinkType" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines the permissions for anonymous links for files, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="FolderAnonymousLinkType" type="pnp:AnonymousLinkType" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines the permissions for anonymous links for folders, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="DefaultSharingLinkType" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines the default type of a sharing link, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="None">
+            <xsd:annotation>
+              <xsd:appinfo>Updated with schema version 202002</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                None
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="Direct">
+            <xsd:annotation>
+              <xsd:appinfo>Updated with schema version 202002</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Direct - only people who have permission
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="Internal">
+            <xsd:annotation>
+              <xsd:appinfo>Updated with schema version 202002</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Internal -  only people in the organization
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="AnonymousAccess">
+            <xsd:annotation>
+              <xsd:appinfo>Updated with schema version 202002</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                AnonymousAccess - anyone with the link
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
+
+    </xsd:attribute>
+
+    <xsd:attribute name="PreventExternalUsersFromResharing" type="xsd:boolean" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines whether external users are allowed to reshare the content, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="RequireAcceptingAccountMatchInvitedAccount" type="xsd:boolean" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines whether invited external users need to use the same account used as the target for the invite, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="SharingDomainRestrictionMode" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines domains restrictions for sharing, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="None">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                There are no domain restrictions in place
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="AllowList">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                The domain restrictions are based on an allowed domains list
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="BlockList">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                The domain restrictions are based on an blocked domains list
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
+
+    </xsd:attribute>
+
+    <xsd:attribute name="AllowedDomainList" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines a comma separated list of allowed domains for sharing, optional attribute. It is considered if and only if SharingDomainRestrictionMode=AllowList.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="BlockedDomainList" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines a comma separated list of blocked domains for sharing, optional attribute. It is considered if and only if SharingDomainRestrictionMode=BlockList.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
 
   </xsd:complexType>
 
@@ -1656,6 +1871,24 @@
       </xsd:annotation>
     </xsd:attribute>
 
+    <xsd:attribute name="SearchBoxInNavBar" type="pnp:SearchBoxInNavBar" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines how the searchbox in navbar will be rendered, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="SearchCenterUrl" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines the Search Center URL, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
   </xsd:complexType>
 
   <xsd:complexType name="SiteSettings">
@@ -1707,6 +1940,24 @@
         <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
         <xsd:documentation xml:lang="en">
           Defines whether social bar is disabled on Site Pages in this site collection, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="SearchBoxInNavBar" type="pnp:SearchBoxInNavBar" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines how the searchbox in navbar will be rendered, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="SearchCenterUrl" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines the Search Center URL, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -2554,10 +2805,10 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="Owner" type="xsd:string" use="required">
+    <xsd:attribute name="Owner" type="xsd:string" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
-          The Owner of the Site Group, required attribute.
+          The Owner of the Site Group, optional attribute. If not specified SharePoint will assign the user provisioning the schema as the group owner when creating a new group.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -7220,6 +7471,14 @@
             </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <xsd:attribute name="SiteDesign" type="pnp:ReplaceableString" use="optional">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              The ID of the SiteDesign, if any, to apply to the target Site, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -7256,6 +7515,14 @@
             <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
             <xsd:documentation xml:lang="en">
               Language of the target Site, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Groupify" type="xsd:boolean" use="optional">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              Declare whether to groupify the team site after creation or not, optional attribute.
             </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
@@ -8147,6 +8414,15 @@
                   <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
                   <xsd:documentation xml:lang="en">
                     Defines if members can add, update, and remove connectors, optional attribute.
+                  </xsd:documentation>
+                </xsd:annotation>
+              </xsd:attribute>
+
+              <xsd:attribute name="AllowCreatePrivateChannels" type="xsd:boolean" use="optional" default="true">
+                <xsd:annotation>
+                  <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+                  <xsd:documentation xml:lang="en">
+                    Defines if members can create private channels, optional attribute.
                   </xsd:documentation>
                 </xsd:annotation>
               </xsd:attribute>
@@ -9447,6 +9723,72 @@
           <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
           <xsd:documentation xml:lang="en">
             Defines the Strong emphasis for the Site Header.
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="AnonymousLinkType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="None">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            No anonymous link type
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="View">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            View permissions for anonymous links
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="Edit">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Edit permissions for anonymous links
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+    </xsd:restriction>
+  </xsd:simpleType>
+
+  <xsd:simpleType name="SearchBoxInNavBar">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="Inherit">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Inherits the behavior from parent
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="AllPages">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Show the searchbox in navbar for all pages
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="ModernOnly">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Show the searchbox in navbar for modern pages only
+          </xsd:documentation>
+        </xsd:annotation>
+      </xsd:enumeration>
+      <xsd:enumeration value="Hidden">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            Do not show the searchbox in navbar
           </xsd:documentation>
         </xsd:annotation>
       </xsd:enumeration>

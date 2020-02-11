@@ -101,7 +101,7 @@
         AlternateCSS="{sitecollection}/Resources/Themes/Contoso/Contoso.css"
         MasterPageUrl="{sitecollection}/_catalogs/MasterPage/oslo.master"
         CustomMasterPageUrl="{sitecollection}/_catalogs/MasterPage/CustomMaster.master"
-        HubSiteUrl="/sites/hubsite"
+        HubSiteUrl="https://contoso.sharepoint.com/sites/hubsite"
         CommentsOnSitePagesDisabled="false"
         />
 
