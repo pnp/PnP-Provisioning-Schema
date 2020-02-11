@@ -154,7 +154,7 @@ More information and documentation can be found here:
 
 * [Remote Provisioning Schema Documentation - 201807](ProvisioningSchema-2018-07.md)
 
-* [Remote Provisioning Schema Documentation - 201805 - Deprecated]](ProvisioningSchema-2018-05.md)
+* [Remote Provisioning Schema Documentation - 201805 - Deprecated](ProvisioningSchema-2018-05.md)
 
 * [Remote Provisioning Schema Documentation - 201801 - Deprecated](ProvisioningSchema-2018-01.md)
 
