@@ -3050,6 +3050,25 @@
     </xsd:annotation>
 
     <xsd:all>
+      <xsd:element name="DefaultColumnValues" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 2020xx</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            The Default Columne Values entries of the Folder, optional collection of elements.
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="DefaultColumnValue" type="pnp:StringDictionaryItem" minOccurs="1" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:documentation xml:lang="en">
+                  A custom Default Column Value for the Provisioning Template, collection of elements.
+                </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
       <xsd:element name="PropertyBagEntries" type="pnp:PropertyBagEntries" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
