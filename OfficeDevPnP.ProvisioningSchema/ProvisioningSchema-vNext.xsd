@@ -7526,6 +7526,38 @@
             </xsd:documentation>
           </xsd:annotation>
         </xsd:attribute>
+        <xsd:attribute name="Alias" type="pnp:ReplaceableString" use="optional">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              The Alias of the target Office 365 Group backing the Site, optional attribute. It is used if and only if the Groupify attribute has a value of True.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Classification" type="pnp:ReplaceableString" use="optional">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              The Classification of the target groupified Site, if any, optional attribute. It is used if and only if the Groupify attribute has a value of True.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="IsPublic" type="xsd:boolean" use="optional" default="true">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              Defines whether the Office 365 Group for the target groupified Site is Public or Private, optional attribute. It is used if and only if the Groupify attribute has a value of True.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="KeepOldHomePage" type="xsd:boolean" use="optional" default="false">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              Defines whether to keep the old home page of the site after it gets groupified, optional attribute. It is used if and only if the Groupify attribute has a value of True.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
       </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
@@ -8960,6 +8992,15 @@
               <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
               <xsd:documentation xml:lang="en">
                 Declares the ID for the Tab, optional attribute.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:attribute>
+
+          <xsd:attribute name="Remove" type="xsd:boolean" use="optional">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Allows to remove an already existing Tab, optional attribute.
               </xsd:documentation>
             </xsd:annotation>
           </xsd:attribute>
