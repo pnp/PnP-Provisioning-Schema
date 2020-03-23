@@ -23,6 +23,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 - SiteDesing attribute for modern Team site provisioning
 - Groupify attribute for STS#03 no-group Team site provisioning
 - AllowCreatePrivateChannels in MembersSettings for Team provisioning
+- Support for creating Private channels in Teams
 
 ### Changed
 - 
