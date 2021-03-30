@@ -250,6 +250,14 @@
         </xsd:complexType>
       </xsd:element>
     </xsd:sequence>
+    <xsd:attribute name="DefaultLCID" type="xsd:int" use="optional" default="1033">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          The default Locale ID for the current template, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
   </xsd:complexType>
 
   <xsd:complexType name="Tenant">
@@ -3050,6 +3058,25 @@
     </xsd:annotation>
 
     <xsd:all>
+      <xsd:element name="DefaultColumnValues" minOccurs="0" maxOccurs="1">
+        <xsd:annotation>
+          <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+          <xsd:documentation xml:lang="en">
+            The Default Columne Values entries of the Folder, optional collection of elements.
+          </xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="DefaultColumnValue" type="pnp:StringDictionaryItem" minOccurs="1" maxOccurs="unbounded">
+              <xsd:annotation>
+                <xsd:documentation xml:lang="en">
+                  A custom Default Column Value for the Provisioning Template, collection of elements.
+                </xsd:documentation>
+              </xsd:annotation>
+            </xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
       <xsd:element name="PropertyBagEntries" type="pnp:PropertyBagEntries" minOccurs="0" maxOccurs="1">
         <xsd:annotation>
           <xsd:appinfo>Added with schema version 201807</xsd:appinfo>
@@ -4057,6 +4084,15 @@
       </xsd:annotation>
     </xsd:attribute>
 
+    <xsd:attribute name="UpdateChildren" type="xsd:boolean" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Declares whether changes to the content type will be udpated on inherited content types, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
     <xsd:anyAttribute processContents="skip"/>
 
   </xsd:complexType>
@@ -4125,6 +4161,22 @@
                   <xsd:annotation>
                     <xsd:documentation xml:lang="en">
                       The value of the ContentTypeID to allow for the Document Set, required attribute.
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="Name" type="xsd:string" use="optional">
+                  <xsd:annotation>
+                    <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+                    <xsd:documentation xml:lang="en">
+                      The name of the Content Type. This is for reference/readibility only. Optional attribute.
+                    </xsd:documentation>
+                  </xsd:annotation>
+                </xsd:attribute>
+                <xsd:attribute name="Remove" type="xsd:boolean" use="optional" default="false">
+                  <xsd:annotation>
+                    <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+                    <xsd:documentation xml:lang="en">
+                      Declares if the Content Type should be Removed from the Document Set, optional attribute.
                     </xsd:documentation>
                   </xsd:annotation>
                 </xsd:attribute>
@@ -4232,6 +4284,15 @@
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           Defines the custom WelcomePage for the Document Set, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="UpdateChildren" type="xsd:boolean" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Declares whether changes to the content type will be udpated on inherited content types, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -4390,7 +4451,24 @@
       </xsd:documentation>
     </xsd:annotation>
     <xsd:complexContent>
-      <xsd:extension base="pnp:FieldRefBase" />
+      <xsd:extension base="pnp:FieldRefBase">
+        <xsd:attribute name="Name" type="xsd:string" use="optional">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              The name of the field used in the field reference. This is for reference/readibility only. Optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Remove" type="xsd:boolean" use="optional" default="false">
+          <xsd:annotation>
+            <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+            <xsd:documentation xml:lang="en">
+              Declares if the field should be Removed from the field reference, optional attribute.
+            </xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:extension>
     </xsd:complexContent>
   </xsd:complexType>
 
@@ -6647,6 +6725,14 @@
                           </xsd:documentation>
                         </xsd:annotation>
                       </xsd:enumeration>
+                      <xsd:enumeration value="InstallOrUpdate">
+                        <xsd:annotation>
+                          <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+                          <xsd:documentation xml:lang="en">
+                            Instructs the engine to install or update the package in the site collection.
+                          </xsd:documentation>
+                        </xsd:annotation>
+                      </xsd:enumeration>
                     </xsd:restriction>
                   </xsd:simpleType>
 
@@ -8267,6 +8353,15 @@
         <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
         <xsd:documentation xml:lang="en">
           Declares the Photo for the Team, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="HiddenGroupMembershipEnabled" type="xsd:boolean" use="optional" default="false">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Specifies whether to hide the members of the Microsoft 365 Group from users who aren't members of the group, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
