@@ -22,7 +22,7 @@ which will provision SharePoint sites and other elements using this schema.
 
 [Version 202002](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2020-02.xsd)
 
-In order to reference the schema version 201909 you can use the following syntax:
+In order to reference the schema version 202002 you can use the following syntax:
 
 ```xml
 <pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2020/02/ProvisioningSchema"
