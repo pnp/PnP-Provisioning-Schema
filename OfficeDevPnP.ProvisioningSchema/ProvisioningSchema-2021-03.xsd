@@ -4644,6 +4644,15 @@
       </xsd:annotation>
     </xsd:attribute>
 
+    <xsd:attribute name="ClientSideHostProperties" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          The Client Side Host Properties of a customizer, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    
   </xsd:complexType>
 
   <xsd:complexType name="SiteWebhooksList">
@@ -5878,6 +5887,126 @@
           <xsd:enumeration value="YammerEmbed" />
           <xsd:enumeration value="YammerFullFeed" />
           <xsd:enumeration value="YouTube" />
+          <xsd:enumeration value="Kindle">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Kindle Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="MyFeed">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                MyFeed Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="OrgChart">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                OrgChart Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="SavedForLater">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                SavedForLater Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="Twitter">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Twitter Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="WorldClock">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                WorldClock Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="SpacesDocLib">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                SpacesDocLib Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="SpacesFileViewer">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                SpacesFileViewer Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="SpacesImageViewer">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                SpacesImageViewer Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="SpacesModelViewer">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                SpacesModelViewer Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="SpacesImageThreeSixty">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                SpacesImageThreeSixty Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="SpacesVideoThreeSixty">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                SpacesVideoThreeSixty Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="SpacesText2D">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                SpacesText2D Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="SpacesVideoPlayer">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                SpacesVideoPlayer Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="SpacesPeople">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                SpacesPeople Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
         </xsd:restriction>
       </xsd:simpleType>
 
