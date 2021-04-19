@@ -1,7 +1,7 @@
 ﻿
 # PnP Provisioning Schema
 ----------
-* Topic automatically generated on 3/30/2021*
+* Topic automatically generated on 4/19/2021*
 
 ## Namespace
 The namespace of the PnP Provisioning Schema is:
@@ -2416,7 +2416,8 @@ Defines a Custom Action, which will be provisioned while applying the Provisioni
       RegistrationId="xsd:string"
       RegistrationType="pnp:RegistrationType"
       ClientSideComponentId="xsd:string"
-      ClientSideComponentProperties="xsd:string">
+      ClientSideComponentProperties="xsd:string"
+      ClientSideHostProperties="xsd:string">
    <pnp:CommandUIExtension />
 </pnp:CustomAction>
 ```
@@ -2451,6 +2452,7 @@ RegistrationId|xsd:string|The RegistrationId of the CustomAction, optional attri
 RegistrationType|RegistrationType|The RegistrationType of the CustomAction, optional attribute.|No|
 ClientSideComponentId|xsd:string|The Client-Side Component Id of a customizer, optional attribute.|No|
 ClientSideComponentProperties|xsd:string|The Client-Side Component Properties of a customizer, optional attribute.|No|
+ClientSideHostProperties|xsd:string|The Client Side Host Properties of a customizer, optional attribute.|No|
 <a name="commanduiextension"></a>
 ### CommandUIExtension
 Defines the Custom UI Extension XML, optional element.
