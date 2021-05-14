@@ -1,7 +1,7 @@
 ﻿
 # PnP Provisioning Schema
 ----------
-* Topic automatically generated on 4/19/2021*
+* Topic automatically generated on 5/14/2021*
 
 ## Namespace
 The namespace of the PnP Provisioning Schema is:
@@ -839,6 +839,7 @@ Section of Settings for the current Web Site, optional element.
       Title="xsd:string"
       Description="xsd:string"
       SiteLogo="xsd:string"
+      SiteLogoThumbnail="xsd:string"
       AlternateCSS="xsd:string"
       MasterPageUrl="xsd:string"
       CustomMasterPageUrl="xsd:string"
@@ -878,6 +879,7 @@ WelcomePage|xsd:string|Defines the Welcome Page (Home Page) of the site to which
 Title|xsd:string|The Title of the Site, optional attribute.|No|
 Description|xsd:string|The Description of the Site, optional attribute.|No|
 SiteLogo|xsd:string|The SiteLogo of the Site, optional attribute.|No|
+SiteLogoThumbnail|xsd:string|The SiteLogoThumbnail of the Site, optional attribute.|No|
 AlternateCSS|xsd:string|The AlternateCSS of the Site, optional attribute.|No|
 MasterPageUrl|xsd:string|The MasterPage URL of the Site, optional attribute.|No|
 CustomMasterPageUrl|xsd:string|The Custom MasterPage URL of the Site, optional attribute.|No|
@@ -1154,7 +1156,8 @@ The Navigation configurations of the Provisioning Template, optional collection 
 <pnp:Navigation
       EnableTreeView="xsd:boolean"
       AddNewPagesToNavigation="xsd:boolean"
-      CreateFriendlyUrlsForNewPages="xsd:boolean">
+      CreateFriendlyUrlsForNewPages="xsd:boolean"
+      EnableAudienceTargeting="xsd:boolean">
    <pnp:GlobalNavigation />
    <pnp:CurrentNavigation />
    <pnp:SearchNavigation />
@@ -1179,6 +1182,7 @@ Attibute|Type|Description|Required|Default
 EnableTreeView|xsd:boolean|Declares whether the tree view has to be enabled at the site level or not, optional attribute.|No|false
 AddNewPagesToNavigation|xsd:boolean|Declares whether the New Page ribbon command will automatically create a navigation item for the newly created page, optional attribute.|No|false
 CreateFriendlyUrlsForNewPages|xsd:boolean|Declares whether the New Page ribbon command will automatically create a friendly URL for the newly created page, optional attribute.|No|false
+EnableAudienceTargeting|xsd:boolean|Declares whether to enable site navigation audience targeting or not, optional attribute.|No|false
 <a name="globalnavigation"></a>
 ### GlobalNavigation
 The Global Navigation settings for the Provisioning Template, optional element.
@@ -2741,7 +2745,9 @@ Defines the Header settings for the target site.
 <pnp:Header
       Layout=""
       MenuStyle=""
-      BackgroundEmphasis="pnp:Emphasis">
+      BackgroundEmphasis="pnp:Emphasis"
+      ShowSiteTitle="xsd:boolean"
+      ShowSiteNavigation="xsd:boolean">
 </pnp:Header>
 ```
 
@@ -2754,6 +2760,8 @@ Attibute|Type|Description|Required|Default
 Layout||Defines the Layout of the Header, required attribute.|Yes|
 MenuStyle||Defines the Menu Style, required attribute.|No|Cascading
 BackgroundEmphasis|Emphasis|Defines the Background Emphasis of the Header, optional attribute.|No|None
+ShowSiteTitle|xsd:boolean|Defines whether the site title is visible or not, optional attribute.|No|true
+ShowSiteNavigation|xsd:boolean|Defines whether the site navigation is visible or not, optional attribute.|No|true
 <a name="footer"></a>
 ### Footer
 Defines the Footer settings for the target site.
@@ -2763,7 +2771,9 @@ Defines the Footer settings for the target site.
       Enabled="xsd:boolean"
       Logo="pnp:ReplaceableString"
       Name="pnp:ReplaceableString"
-      RemoveExistingNodes="xsd:boolean">
+      RemoveExistingNodes="xsd:boolean"
+      Layout=""
+      DisplayName="pnp:ReplaceableString">
    <pnp:FooterLinks />
 </pnp:Footer>
 ```
@@ -2785,6 +2795,8 @@ Enabled|xsd:boolean|Defines whether the site Footer is enabled or not, required 
 Logo|ReplaceableString|Defines the Logo to render in the Footer, optional attribute.|No|
 Name|ReplaceableString|Defines the name of the footer, optional attribute.|No|
 RemoveExistingNodes|xsd:boolean|Defines whether the existing site Footer links should be removed, optional attribute.|No|true
+Layout||Defines the Layout of the Footer, required attribute.|No|Simple
+DisplayName|ReplaceableString|Defines the Display Name for the footer, optional attribute.|No|
 <a name="footerlinks"></a>
 ### FooterLinks
 Defines the Footer Links for the target site.

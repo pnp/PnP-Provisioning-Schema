@@ -213,6 +213,7 @@
         Title="Site Title"
         Description="Site Description"
         SiteLogo="{sitecollection}/SiteAssets/Logo.png"
+        SiteLogoThumbnail="{sitecollection}/SiteAssets/Logo.png"
         AlternateCSS="{sitecollection}/Resources/Themes/Contoso/Contoso.css"
         MasterPageUrl="{sitecollection}/_catalogs/MasterPage/oslo.master"
         CustomMasterPageUrl="{sitecollection}/_catalogs/MasterPage/CustomMaster.master"
@@ -368,7 +369,7 @@
         </pnp:Permissions>
       </pnp:Security>
 
-      <pnp:Navigation EnableTreeView="true" AddNewPagesToNavigation="true" CreateFriendlyUrlsForNewPages="true">
+      <pnp:Navigation EnableTreeView="true" AddNewPagesToNavigation="true" CreateFriendlyUrlsForNewPages="true" EnableAudienceTargeting="false">
         <pnp:GlobalNavigation NavigationType="Managed">
           <pnp:ManagedNavigation
             TermStoreId="{sitecollectiontermstoreid}"
@@ -1084,9 +1085,9 @@
         </pnp:ClientSidePage>
       </pnp:ClientSidePages>
 
-      <pnp:Header Layout="Standard" MenuStyle="MegaMenu" BackgroundEmphasis="Soft" />
+      <pnp:Header Layout="Standard" MenuStyle="MegaMenu" BackgroundEmphasis="Soft" ShowSiteTitle="true" ShowSiteNavigation="true" />
       
-      <pnp:Footer Enabled="true" Logo="logo.png" Name="FooterName" RemoveExistingNodes="true">
+      <pnp:Footer Enabled="true" Logo="logo.png" Name="FooterName" RemoveExistingNodes="true" Layout="Simple" DisplayName="Custom footer">
         <pnp:FooterLinks>
           <pnp:FooterLink DisplayName="Link 01" Url="www.link01.com" />
           <pnp:FooterLink DisplayName="Link 02" Url="www.link02.com" />

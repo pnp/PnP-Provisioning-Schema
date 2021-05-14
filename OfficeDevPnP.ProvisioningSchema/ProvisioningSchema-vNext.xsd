@@ -1718,6 +1718,15 @@
       </xsd:annotation>
     </xsd:attribute>
 
+    <xsd:attribute name="SiteLogoThumbnail" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          The SiteLogoThumbnail of the Site, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
     <xsd:attribute name="AlternateCSS" type="xsd:string" use="optional">
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
@@ -2539,6 +2548,14 @@
         <xsd:appinfo>Added with schema version 201801</xsd:appinfo>
         <xsd:documentation xml:lang="en">
           Declares whether the New Page ribbon command will automatically create a friendly URL for the newly created page, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+    <xsd:attribute name="EnableAudienceTargeting" type="xsd:boolean" use="optional" default="false">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Declares whether to enable site navigation audience targeting or not, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -4644,6 +4661,15 @@
       </xsd:annotation>
     </xsd:attribute>
 
+    <xsd:attribute name="ClientSideHostProperties" type="xsd:string" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          The Client Side Host Properties of a customizer, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
   </xsd:complexType>
 
   <xsd:complexType name="SiteWebhooksList">
@@ -5268,6 +5294,22 @@
               </xsd:documentation>
             </xsd:annotation>
           </xsd:enumeration>
+          <xsd:enumeration value="Extended">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Defines the Extended Layout for the Site Header.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="Minimal">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Defines the Minimal Layout for the Site Header.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
         </xsd:restriction>
       </xsd:simpleType>
     </xsd:attribute>
@@ -5307,6 +5349,24 @@
         <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
         <xsd:documentation xml:lang="en">
           Defines the Background Emphasis of the Header, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="ShowSiteTitle" type="xsd:boolean" use="optional" default="true">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines whether the site title is visible or not, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="ShowSiteNavigation" type="xsd:boolean" use="optional" default="true">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines whether the site navigation is visible or not, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -5379,6 +5439,45 @@
         <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
         <xsd:documentation xml:lang="en">
           Defines whether the existing site Footer links should be removed, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="Layout" use="optional" default="Simple">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines the Layout of the Footer, required attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Simple">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Defines the Simple Layout for the Site Footer.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="Extended">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Defines the Extended Layout for the Site Footer.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+
+    <xsd:attribute name="DisplayName" type="pnp:ReplaceableString" use="optional">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines the Display Name for the footer, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -5878,6 +5977,126 @@
           <xsd:enumeration value="YammerEmbed" />
           <xsd:enumeration value="YammerFullFeed" />
           <xsd:enumeration value="YouTube" />
+          <xsd:enumeration value="Kindle">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Kindle Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="MyFeed">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                MyFeed Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="OrgChart">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                OrgChart Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="SavedForLater">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                SavedForLater Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="Twitter">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Twitter Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="WorldClock">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                WorldClock Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="SpacesDocLib">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                SpacesDocLib Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="SpacesFileViewer">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                SpacesFileViewer Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="SpacesImageViewer">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                SpacesImageViewer Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="SpacesModelViewer">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                SpacesModelViewer Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="SpacesImageThreeSixty">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                SpacesImageThreeSixty Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="SpacesVideoThreeSixty">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                SpacesVideoThreeSixty Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="SpacesText2D">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                SpacesText2D Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="SpacesVideoPlayer">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                SpacesVideoPlayer Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="SpacesPeople">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                SpacesPeople Client Side Web Part
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
         </xsd:restriction>
       </xsd:simpleType>
 
