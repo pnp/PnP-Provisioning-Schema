@@ -2175,7 +2175,7 @@ Here follow the available attributes for the DocumentSetTemplate element.
 Attibute|Type|Description|Required|Default
 --------|----|-----------|--------|-------
 WelcomePage|xsd:string|Defines the custom WelcomePage for the Document Set, optional attribute.|No|
-UpdateChildren|xsd:boolean|Declares whether changes to the content type will be udpated on inherited content types, optional attribute.|No|false
+UpdateChildren|xsd:boolean|Declares whether changes to the content type will be udpated on inherited content types, optional attribute, default true.|No|true
 <a name="allowedcontenttypes"></a>
 ### AllowedContentTypes
 The list of allowed Content Types for the Document Set, optional element.
