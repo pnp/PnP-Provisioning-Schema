@@ -1,7 +1,7 @@
 ﻿
 # PnP Provisioning Schema
 ----------
-* Topic automatically generated on 5/14/2021*
+* Topic automatically generated on 5/25/2021*
 
 ## Namespace
 The namespace of the PnP Provisioning Schema is:
@@ -2083,7 +2083,7 @@ Overwrite|xsd:boolean|Optional Boolean. TRUE to overwrite an existing content ty
 NewFormUrl|xsd:string|Specifies the URL of a custom new form to use for list items that have been assigned the content type, optional attribute.|No|
 EditFormUrl|xsd:string|Specifies the URL of a custom edit form to use for list items that have been assigned the content type, optional attribute.|No|
 DisplayFormUrl|xsd:string|Specifies the URL of a custom display form to use for list items that have been assigned the content type, optional attribute.|No|
-UpdateChildren|xsd:boolean|Declares whether changes to the content type will be udpated on inherited content types, optional attribute.|No|
+UpdateChildren|xsd:boolean|Declares whether changes to the content type will be udpated on inherited content types, optional attribute, default true.|No|true
 <a name="fieldrefs"></a>
 ### FieldRefs
 The FieldRefs entries of the List Instance, optional collection of elements.
@@ -2175,7 +2175,7 @@ Here follow the available attributes for the DocumentSetTemplate element.
 Attibute|Type|Description|Required|Default
 --------|----|-----------|--------|-------
 WelcomePage|xsd:string|Defines the custom WelcomePage for the Document Set, optional attribute.|No|
-UpdateChildren|xsd:boolean|Declares whether changes to the content type will be udpated on inherited content types, optional attribute.|No|
+UpdateChildren|xsd:boolean|Declares whether changes to the content type will be udpated on inherited content types, optional attribute, default true.|No|true
 <a name="allowedcontenttypes"></a>
 ### AllowedContentTypes
 The list of allowed Content Types for the Document Set, optional element.
@@ -4318,7 +4318,8 @@ Defines a Channel for a Team, optional element.
       DisplayName="pnp:ReplaceableString"
       Description="pnp:ReplaceableString"
       IsFavoriteByDefault="xsd:boolean"
-      ID="pnp:ReplaceableString">
+      ID="pnp:ReplaceableString"
+      Private="xsd:boolean">
    <pnp:Tabs />
    <pnp:TabResources />
    <pnp:Messages />
@@ -4344,6 +4345,7 @@ DisplayName|ReplaceableString|Defines the Display Name of the Channel, required 
 Description|ReplaceableString|Defines the Description of the Channel, required attribute.|Yes|
 IsFavoriteByDefault|xsd:boolean|Defines whether the Channel is Favorite by default for all members of the Team, optional attribute.|No|false
 ID|ReplaceableString|Declares the ID for the Channel, optional attribute.|No|
+Private|xsd:boolean|Declares whether the Channel is private or not, optional attribute (default false).|No|false
 <a name="teamchanneltabs"></a>
 ### TeamChannelTabs
 Defines a collection of Tabs for a Channel in a Team, optional element.
