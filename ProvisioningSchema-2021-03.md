@@ -1,7 +1,7 @@
 ﻿
 # PnP Provisioning Schema
 ----------
-* Topic automatically generated on 5/21/2021*
+* Topic automatically generated on 5/25/2021*
 
 ## Namespace
 The namespace of the PnP Provisioning Schema is:
@@ -2083,7 +2083,7 @@ Overwrite|xsd:boolean|Optional Boolean. TRUE to overwrite an existing content ty
 NewFormUrl|xsd:string|Specifies the URL of a custom new form to use for list items that have been assigned the content type, optional attribute.|No|
 EditFormUrl|xsd:string|Specifies the URL of a custom edit form to use for list items that have been assigned the content type, optional attribute.|No|
 DisplayFormUrl|xsd:string|Specifies the URL of a custom display form to use for list items that have been assigned the content type, optional attribute.|No|
-UpdateChildren|xsd:boolean|Declares whether changes to the content type will be udpated on inherited content types, optional attribute.|No|false
+UpdateChildren|xsd:boolean|Declares whether changes to the content type will be udpated on inherited content types, optional attribute, default true.|No|true
 <a name="fieldrefs"></a>
 ### FieldRefs
 The FieldRefs entries of the List Instance, optional collection of elements.
