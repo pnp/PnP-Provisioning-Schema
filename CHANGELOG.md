@@ -14,6 +14,27 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 ### Changed
 -
 
+## [2021-03]
+
+### Added
+- Added DefaultLCID to Localizations
+- Added SiteLogoThumbnail to SiteLogoThumbnail WebSettings
+- Added EnableAudienceTargeting to Navigation
+- Added DefaultColumnValues to ListInstance
+- Added UpdateChildren to ContentType
+- Added Name and Remove to AllowedContentTypes in DocumentSet
+- Added Name and Remove to SharedField in DocumentSet
+- Added UpdateChildren to DocumentSetTemplate
+- Added ClientSideHostProperties to CustomAction
+- Added new Layout types (Extended, Minimal) for site Header
+- Added ShowSiteTitle to site Header
+- Added ShowSiteNavigation to site Header
+- Added Layout to site Footer
+- Added DisplayName to site Footer
+- Added new native client side web parts (Kindle, MyFeed, OrgChart, SavedForLater, Twitter, WorldClock, SpacesDocLib, SpacesFileViewer SpacesImageViewer, SpacesModelViewer, SpacesImageThreeSixty, SpacesVideoThreeSixty, SpacesText2D, SpacesVideoPlayer, SpacesPeople)
+- Added InstallOrUpdate option to Action for Apps
+- Added HiddenGroupMembershipEnabled for Teams
+
 ## [2020-02]
  
 ### Added
