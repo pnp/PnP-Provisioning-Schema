@@ -1258,7 +1258,7 @@
         </pnp:Templates>
       </pnp:SiteCollection>
       <pnp:SiteCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="pnp:ClassicSite"
-          WebTemplate="STS#0" Title="Classic Site" Description="A sample classic site"
+          WebTemplate="STS#0" Title="Classic Site" Description="A sample classic site generated in a sequence"
           ProvisioningId="SITE.04" Owner="{parameter:TeamSiteNoGroupOwner}"
           Url="https://{parameter:O365TenantName}.sharepoint.com/sites/ClassicSite" />
     </pnp:SiteCollections>
