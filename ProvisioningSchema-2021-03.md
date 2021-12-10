@@ -1,7 +1,7 @@
 ﻿
 # PnP Provisioning Schema
 ----------
-* Topic automatically generated on 5/25/2021*
+* Topic automatically generated on 12/10/2021*
 
 ## Namespace
 The namespace of the PnP Provisioning Schema is:
@@ -3893,6 +3893,33 @@ Alias|ReplaceableString|The Alias of the target Office 365 Group backing the Sit
 Classification|ReplaceableString|The Classification of the target groupified Site, if any, optional attribute. It is used if and only if the Groupify attribute has a value of True.|No|
 IsPublic|xsd:boolean|Defines whether the Office 365 Group for the target groupified Site is Public or Private, optional attribute. It is used if and only if the Groupify attribute has a value of True.|No|true
 KeepOldHomePage|xsd:boolean|Defines whether to keep the old home page of the site after it gets groupified, optional attribute. It is used if and only if the Groupify attribute has a value of True.|No|false
+<a name="classicsite"></a>
+### ClassicSite
+
+
+```xml
+<pnp:ClassicSite
+      Url="pnp:ReplaceableString"
+      Owner="pnp:ReplaceableString"
+      TimeZoneId="pnp:ReplaceableString"
+      Language="pnp:ReplaceableString"
+      WebTemplate="pnp:ReplaceableString"
+      Classification="pnp:ReplaceableString">
+</pnp:ClassicSite>
+```
+
+
+Here follow the available attributes for the ClassicSite element.
+
+
+Attibute|Type|Description|Required|Default
+--------|----|-----------|--------|-------
+Url|ReplaceableString|The URL of the target Site, required attribute.|Yes|
+Owner|ReplaceableString|Primary Owner of the target Site, required attribute.|Yes|
+TimeZoneId|ReplaceableString|TimeZone of the target Site, optional attribute.|No|
+Language|ReplaceableString|Language of the target Site, optional attribute.|No|
+WebTemplate|ReplaceableString|The WebTemplate to be used to provision this site collection.|Yes|
+Classification|ReplaceableString|The Classification of the target groupified Site, if any, optional attribute. It is used if and only if the Groupify attribute has a value of True.|No|
 <a name="site"></a>
 ### Site
 Defines a Site that will be created into a target Site Collection.
