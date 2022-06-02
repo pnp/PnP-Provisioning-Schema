@@ -1707,7 +1707,7 @@ Here follow the available child elements for the ListInstance element.
 
 Element|Type|Description
 -------|----|-----------
-DefaultColumnValues|[DefaultColumnValues](#defaultcolumnvalues)|The Default Columne Values entries of the Folder, optional collection of elements.
+DefaultColumnValues|[DefaultColumnValues](#defaultcolumnvalues)|The Default Column Values entries of the Folder, optional collection of elements.
 PropertyBagEntries|[PropertyBagEntries](#propertybagentries)|The Property Bag entries of the root folder, optional collection of elements.
 ContentTypeBindings|[ContentTypeBindings](#contenttypebindings)|The ContentTypeBindings entries of the List Instance, optional collection of elements.
 Views|[Views](#views)|The Views entries of the List Instance, optional collection of elements.
@@ -1763,7 +1763,7 @@ ValidationMessage|xsd:string|Defines a value that specifies the error message re
 TemplateInternalName|xsd:string|Defines the alternate template internal name for a list based on a .STP file/list definition.|No|
 <a name="defaultcolumnvalues"></a>
 ### DefaultColumnValues
-The Default Columne Values entries of the Folder, optional collection of elements.
+The Default Column Values entries of the Folder, optional collection of elements.
 
 ```xml
 <pnp:DefaultColumnValues>
@@ -1988,7 +1988,7 @@ Element|Type|Description
 Folder|[Folder](#folder)|A child Folder of another Folder item, optional element.
 Security|[ObjectSecurity](#objectsecurity)|Defines the security rules for the row that will be added to the List Instance, optional element.
 PropertyBagEntries|[PropertyBagEntries](#propertybagentries)|The Property Bag entries of the Folder, optional collection of elements.
-DefaultColumnValues|[DefaultColumnValues](#defaultcolumnvalues)|The Default Columne Values entries of the Folder, optional collection of elements.
+DefaultColumnValues|[DefaultColumnValues](#defaultcolumnvalues)|The Default Column Values entries of the Folder, optional collection of elements.
 Properties|[FileProperties](#fileproperties)|The File Properties for the Folder, optional collection of elements.
 
 Here follow the available attributes for the Folder element.
@@ -2000,7 +2000,7 @@ Name|xsd:string|The Name of the Folder, required attribute.|Yes|
 ContentTypeID|ContentTypeId|The Content Type ID for the Folder, optional attribute.|No|
 <a name="defaultcolumnvalues"></a>
 ### DefaultColumnValues
-The Default Columne Values entries of the Folder, optional collection of elements.
+The Default Column Values entries of the Folder, optional collection of elements.
 
 ```xml
 <pnp:DefaultColumnValues>
