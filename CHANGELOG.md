@@ -14,6 +14,20 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 ### Changed
 -
 
+## [2022-09]
+
+### Added
+- Added support for SPFx form customizers in ContentType elements [PaoloPia]
+- Added support for collapsible sections in modern pages [LauraKokkarinen]
+- Added support for ShowPeoplePickerSuggestionsForGuestUsers in Site Settings [patrikhellgren]
+- Added support for ShowBackgroundGradient in modern pages [mhazebroucq]
+- Added attributes EnableAudienceTargeting and EnableClassicAudienceTargeting to ListInstance [rlv-dan]
+- Added attributes AllowNewMessageFromBots, AllowNewMessageFromConnectors, ReplyRestriction, UserNewMessageRestriction to TeamChannel [czullu]
+- Added support for Extended layout in modern Site Header [prawnz,benwharg]
+
+### Changed
+- Changed regex for ContentType ID in order to support dynamic arguments [eduardpaul]
+
 ## [2021-03]
 
 ### Added

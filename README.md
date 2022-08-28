@@ -1,24 +1,36 @@
 # Remote Provisioning Schema
-## by SharePoint Patterns and Practices (PnP)
+## by Microsoft 365 Patterns and Practices (PnP)
 This is the Community Source Code location for the PnP remote provisioning schema designed to be used as remote 
-creation instructions for remote provisioning engine towards Office 365. 
+creation instructions for remote provisioning engine towards Microsoft 365. 
 
-This is community driven effort for designing one schema which can be used to define elements in the Office 365. 
+This is community driven effort for designing one schema which can be used to define elements in the Microsoft 365. 
 Initial versions will concentrate on SharePoint, but target is to define also other services using this same structure. 
 
 This effort is closely related on the work being done in the 
-[SharePoint Patterns and Practices CSOM Core repository](https://github.com/SharePoint/PnP-Sites-Core) on actual engine, 
+[Microsoft 365 Patterns and Practices PnP Framework Library repository](https://github.com/pnp/pnpframework) on actual engine, 
 which will provision SharePoint sites and other elements using this schema. 
 
-![SharePoint Patterns and Practices](https://devofficecdn.azureedge.net/media/Default/PnP/sppnp.png)
+![Microsoft 365 Patterns and Practices](https://raw.githubusercontent.com/pnp/media/master/pnp-logos-sp/png/1x/SharePoint_PnP_mark_fullcolor.png)
 
 # Version
 
 # Current default implemented version (in the PnP Provisioning Engine) 
 
-[Version 202103](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2021-03.xsd)
+[Version 202209](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2022-09.xsd)
 
 ## Current approved versions
+
+[Version 202209](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2022-09.xsd)
+
+In order to reference the schema version 202103 you can use the following syntax:
+
+```xml
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2022/09/ProvisioningSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2022/09/ProvisioningSchema https://raw.githubusercontent.com/OfficeDev/PnP-Provisioning-Schema/master/OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2022-09.xsd">
+	<!-- All the schema contents -->
+</pnp:Provisioning>
+```
 
 [Version 202103](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2021-03.xsd)
 
@@ -56,6 +68,8 @@ In order to reference the schema version 201909 you can use the following syntax
 </pnp:Provisioning>
 ```
 
+## Deprecated schema versions
+
 [Version 201903](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2019-03.xsd)
 
 In order to reference the schema version 201903 you can use the following syntax:
@@ -67,8 +81,6 @@ In order to reference the schema version 201903 you can use the following syntax
 	<!-- All the schema contents -->
 </pnp:Provisioning>
 ```
-
-## Deprecated schema versions
 
 [Version 201807](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2018-07.xsd)
 
@@ -158,13 +170,15 @@ In order to reference the schema version 201508 you can use the following syntax
 ## More information
 More information and documentation can be found here:
 
+* [Remote Provisioning Schema Documentation - 202209](ProvisioningSchema-2022-09.md)
+
 * [Remote Provisioning Schema Documentation - 202103](ProvisioningSchema-2021-03.md)
 
 * [Remote Provisioning Schema Documentation - 202002](ProvisioningSchema-2020-02.md)
 
 * [Remote Provisioning Schema Documentation - 201909](ProvisioningSchema-2019-09.md)
 
-* [Remote Provisioning Schema Documentation - 201903](ProvisioningSchema-2019-03.md)
+* [Remote Provisioning Schema Documentation - 201903 - Deprecated](ProvisioningSchema-2019-03.md)
 
 * [Remote Provisioning Schema Documentation - 201807 - Deprecated](ProvisioningSchema-2018-07.md)
 
