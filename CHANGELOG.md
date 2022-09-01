@@ -24,6 +24,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/).
 - Added attributes EnableAudienceTargeting and EnableClassicAudienceTargeting to ListInstance [rlv-dan]
 - Added attributes AllowNewMessageFromBots, AllowNewMessageFromConnectors, ReplyRestriction, UserNewMessageRestriction to TeamChannel [czullu]
 - Added support for Extended layout in modern Site Header [prawnz,benwharg]
+- Added support for Shared channels in Teams provisioning [PaoloPia]
 
 ### Changed
 - Changed regex for ContentType ID in order to support dynamic arguments [eduardpaul]

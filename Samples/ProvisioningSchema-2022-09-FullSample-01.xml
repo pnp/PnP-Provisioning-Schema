@@ -1442,7 +1442,10 @@
                      UserNewMessageRestriction="Moderators" />
         <pnp:Channel DisplayName="Sample Channel 03"
                      Description="This is just a Sample Channel"
-                     IsFavoriteByDefault="false" Private="true" />
+                     IsFavoriteByDefault="false" MembershipType="Private" />
+        <pnp:Channel DisplayName="Sample Channel 04"
+                     Description="This is just a Sample Channel"
+                     IsFavoriteByDefault="false" MembershipType="Shared" />
       </pnp:Channels>
       <pnp:Apps>
         <pnp:App AppId="12345678-9abc-def0-123456789a" />

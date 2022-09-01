@@ -9418,13 +9418,41 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="Private" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="MembershipType" use="optional" default="Public">
       <xsd:annotation>
-        <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+        <xsd:appinfo>Added with schema version 202209</xsd:appinfo>
         <xsd:documentation xml:lang="en">
-          Declares whether the Channel is private or not, optional attribute (default false).
+          Declares whether the Channel is Public, Private, or Shared, optional attribute (default public).
         </xsd:documentation>
       </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Public">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202209</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                The channel is Public
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="Private">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202209</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                The channel is Private
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="Shared">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202209</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                The channel is Shared
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
     </xsd:attribute>
 
     <xsd:attribute name="AllowNewMessageFromBots" type="xsd:boolean" use="optional" default="false">
