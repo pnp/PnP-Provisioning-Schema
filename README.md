@@ -16,153 +16,153 @@ which will provision SharePoint sites and other elements using this schema.
 
 # Current default implemented version (in the PnP Provisioning Engine) 
 
-[Version 202209](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2022-09.xsd)
+[Version 202209](PnP.ProvisioningSchema/ProvisioningSchema-2022-09.xsd)
 
 ## Current approved versions
 
-[Version 202209](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2022-09.xsd)
+[Version 202209](PnP.ProvisioningSchema/ProvisioningSchema-2022-09.xsd)
 
-In order to reference the schema version 202103 you can use the following syntax:
+In order to reference the schema version 202209 you can use the following syntax:
 
 ```xml
 <pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2022/09/ProvisioningSchema"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2022/09/ProvisioningSchema https://raw.githubusercontent.com/OfficeDev/PnP-Provisioning-Schema/master/OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2022-09.xsd">
+                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2022/09/ProvisioningSchema https://raw.githubusercontent.com/PnP/PnP-Provisioning-Schema/master/PnP.ProvisioningSchema/ProvisioningSchema-2022-09.xsd">
 	<!-- All the schema contents -->
 </pnp:Provisioning>
 ```
 
-[Version 202103](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2021-03.xsd)
+[Version 202103](PnP.ProvisioningSchema/ProvisioningSchema-2021-03.xsd)
 
 In order to reference the schema version 202103 you can use the following syntax:
 
 ```xml
 <pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2021/03/ProvisioningSchema"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2021/03/ProvisioningSchema https://raw.githubusercontent.com/OfficeDev/PnP-Provisioning-Schema/master/OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2021-03.xsd">
+                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2021/03/ProvisioningSchema https://raw.githubusercontent.com/PnP/PnP-Provisioning-Schema/master/PnP.ProvisioningSchema/ProvisioningSchema-2021-03.xsd">
 	<!-- All the schema contents -->
 </pnp:Provisioning>
 ```
 
-[Version 202002](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2020-02.xsd)
+[Version 202002](PnP.ProvisioningSchema/ProvisioningSchema-2020-02.xsd)
 
 In order to reference the schema version 201909 you can use the following syntax:
 
 ```xml
 <pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2020/02/ProvisioningSchema"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2020/02/ProvisioningSchema https://raw.githubusercontent.com/OfficeDev/PnP-Provisioning-Schema/master/OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2020-02.xsd">
+                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2020/02/ProvisioningSchema https://raw.githubusercontent.com/PnP/PnP-Provisioning-Schema/master/PnP.ProvisioningSchema/ProvisioningSchema-2020-02.xsd">
 	<!-- All the schema contents -->
 </pnp:Provisioning>
 ```
 
-[Version 201909](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2019-09.xsd)
+[Version 201909](PnP.ProvisioningSchema/ProvisioningSchema-2019-09.xsd)
 
 In order to reference the schema version 201909 you can use the following syntax:
 
 ```xml
 <pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2019/09/ProvisioningSchema"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2019/09/ProvisioningSchema https://raw.githubusercontent.com/OfficeDev/PnP-Provisioning-Schema/master/OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2019-09.xsd">
+                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2019/09/ProvisioningSchema https://raw.githubusercontent.com/PnP/PnP-Provisioning-Schema/master/PnP.ProvisioningSchema/ProvisioningSchema-2019-09.xsd">
 	<!-- All the schema contents -->
 </pnp:Provisioning>
 ```
 
 ## Deprecated schema versions
 
-[Version 201903](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2019-03.xsd)
+[Version 201903](PnP.ProvisioningSchema/ProvisioningSchema-2019-03.xsd)
 
 In order to reference the schema version 201903 you can use the following syntax:
 
 ```xml
 <pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2019/03/ProvisioningSchema"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2019/03/ProvisioningSchema https://raw.githubusercontent.com/OfficeDev/PnP-Provisioning-Schema/master/OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2019-03.xsd">
+                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2019/03/ProvisioningSchema https://raw.githubusercontent.com/PnP/PnP-Provisioning-Schema/master/PnP.ProvisioningSchema/ProvisioningSchema-2019-03.xsd">
 	<!-- All the schema contents -->
 </pnp:Provisioning>
 ```
 
-[Version 201807](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2018-07.xsd)
+[Version 201807](PnP.ProvisioningSchema/ProvisioningSchema-2018-07.xsd)
 
 In order to reference the schema version 201807 you can use the following syntax:
 
 ```xml
 <pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2018/07/ProvisioningSchema"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2018/07/ProvisioningSchema https://raw.githubusercontent.com/OfficeDev/PnP-Provisioning-Schema/master/OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2018-07.xsd">
+                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2018/07/ProvisioningSchema https://raw.githubusercontent.com/PnP/PnP-Provisioning-Schema/master/PnP.ProvisioningSchema/ProvisioningSchema-2018-07.xsd">
 	<!-- All the schema contents -->
 </pnp:Provisioning>
 ```
 
-[Version 201805](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2018-05.xsd)
+[Version 201805](PnP.ProvisioningSchema/ProvisioningSchema-2018-05.xsd)
 
 In order to reference the schema version 201805 you can use the following syntax:
 
 ```xml
 <pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2018/05/ProvisioningSchema"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2018/05/ProvisioningSchema https://raw.githubusercontent.com/OfficeDev/PnP-Provisioning-Schema/master/OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2018-05.xsd">
+                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2018/05/ProvisioningSchema https://raw.githubusercontent.com/PnP/PnP-Provisioning-Schema/master/PnP.ProvisioningSchema/ProvisioningSchema-2018-05.xsd">
 	<!-- All the schema contents -->
 </pnp:Provisioning>
 ```
 
-[Version 201801](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2018-01.xsd)
+[Version 201801](PnP.ProvisioningSchema/ProvisioningSchema-2018-01.xsd)
 
 In order to reference the schema version 201801 you can use the following syntax:
 
 ```xml
 <pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2018/01/ProvisioningSchema"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2018/01/ProvisioningSchema https://raw.githubusercontent.com/OfficeDev/PnP-Provisioning-Schema/master/OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2018-01.xsd">
+                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2018/01/ProvisioningSchema https://raw.githubusercontent.com/PnP/PnP-Provisioning-Schema/master/PnP.ProvisioningSchema/ProvisioningSchema-2018-01.xsd">
 	<!-- All the schema contents -->
 </pnp:Provisioning>
 ```
 
-[Version 201705](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2017-05.xsd)
+[Version 201705](PnP.ProvisioningSchema/ProvisioningSchema-2017-05.xsd)
 
 In order to reference the schema version 201705 you can use the following syntax:
 
 ```xml
 <pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2017/05/ProvisioningSchema"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2017/05/ProvisioningSchema https://raw.githubusercontent.com/OfficeDev/PnP-Provisioning-Schema/master/OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2017-05.xsd">
+                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2017/05/ProvisioningSchema https://raw.githubusercontent.com/PnP/PnP-Provisioning-Schema/master/PnP.ProvisioningSchema/ProvisioningSchema-2017-05.xsd">
 	<!-- All the schema contents -->
 </pnp:Provisioning>
 ```
 
-[Version 201605](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2016-05.xsd)
+[Version 201605](PnP.ProvisioningSchema/ProvisioningSchema-2016-05.xsd)
 
 In order to reference the schema version 201605 you can use the following syntax:
 
 ```xml
 <pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2016/05/ProvisioningSchema"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2016/05/ProvisioningSchema https://raw.githubusercontent.com/OfficeDev/PnP-Provisioning-Schema/master/OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2016-05.xsd">
+                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2016/05/ProvisioningSchema https://raw.githubusercontent.com/PnP/PnP-Provisioning-Schema/master/PnP.ProvisioningSchema/ProvisioningSchema-2016-05.xsd">
 	<!-- All the schema contents -->
 </pnp:Provisioning>
 ```
 
-[Version 201512](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2015-12.xsd)
+[Version 201512](PnP.ProvisioningSchema/ProvisioningSchema-2015-12.xsd)
 
 In order to reference the schema version 201512 you can use the following syntax:
 
 ```xml
 <pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema https://raw.githubusercontent.com/OfficeDev/PnP-Provisioning-Schema/master/OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2015-12.xsd">
+                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2015/12/ProvisioningSchema https://raw.githubusercontent.com/PnP/PnP-Provisioning-Schema/master/PnP.ProvisioningSchema/ProvisioningSchema-2015-12.xsd">
 	<!-- All the schema contents -->
 </pnp:Provisioning>
 ```
 
 
-[Version 201508](OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2015-08.xsd)
+[Version 201508](PnP.ProvisioningSchema/ProvisioningSchema-2015-08.xsd)
 
 In order to reference the schema version 201508 you can use the following syntax:
 
 ```xml
 <pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2015/08/ProvisioningSchema"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2015/08/ProvisioningSchema https://raw.githubusercontent.com/OfficeDev/PnP-Provisioning-Schema/master/OfficeDevPnP.ProvisioningSchema/ProvisioningSchema-2015-08.xsd">
+                  xsi:schemaLocation="http://schemas.dev.office.com/PnP/2015/08/ProvisioningSchema https://raw.githubusercontent.com/PnP/PnP-Provisioning-Schema/master/PnP.ProvisioningSchema/ProvisioningSchema-2015-08.xsd">
 	<!-- All the schema contents -->
 </pnp:Provisioning>
 ```

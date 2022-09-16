@@ -244,6 +244,7 @@
         AllowSavePublishDeclarativeWorkflow="false"
         SocialBarOnSitePagesDisabled="true"
         SearchBoxInNavBar="ModernOnly"
+        ShowPeoplePickerSuggestionsForGuestUsers="true"
         SearchCenterUrl="https://contoso.sharepoint.com/sites/SearchCenter"
         />
 
@@ -1018,6 +1019,7 @@
               ShowPublishDate="true"
               ShowTopicHeader="true"
               TopicHeader="Topic header value"
+              ShowBackgroundGradient="true"                      
           />
           <pnp:Sections>
             <pnp:Section Order="1" Type="OneColumn" BackgroundEmphasis="Neutral"
@@ -1434,18 +1436,16 @@
           </pnp:Messages>
         </pnp:Channel>
         <pnp:Channel DisplayName="Sample Channel 02"
-                     Description="This is just a Sample Channel"
-                     IsFavoriteByDefault="false"
-                     AllowNewMessageFromBots="true"
-                     AllowNewMessageFromConnectors="true"
-                     ReplyRestriction="AuthorAndModerators"
-                     UserNewMessageRestriction="Moderators" />
+                    Description="This is just a Sample Channel"
+                    IsFavoriteByDefault="false"
+                    MembershipType="Shared" 
+                    AllowNewMessageFromBots="true"
+                    AllowNewMessageFromConnectors="true"
+                    ReplyRestriction="AuthorAndModerators"
+                    UserNewMessageRestriction="Moderators" />
         <pnp:Channel DisplayName="Sample Channel 03"
-                     Description="This is just a Sample Channel"
-                     IsFavoriteByDefault="false" MembershipType="Private" />
-        <pnp:Channel DisplayName="Sample Channel 04"
-                     Description="This is just a Sample Channel"
-                     IsFavoriteByDefault="false" MembershipType="Shared" />
+                    Description="This is just a Sample Channel"
+                    IsFavoriteByDefault="false" MembershipType="Private" />
       </pnp:Channels>
       <pnp:Apps>
         <pnp:App AppId="12345678-9abc-def0-123456789a" />
