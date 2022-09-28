@@ -4747,15 +4747,6 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="ClientSideHostProperties" type="xsd:string" use="optional">
-      <xsd:annotation>
-        <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
-        <xsd:documentation xml:lang="en">
-          The Client Side Host Properties of a customizer, optional attribute.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-
   </xsd:complexType>
 
   <xsd:complexType name="SiteWebhooksList">
