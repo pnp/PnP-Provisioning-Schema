@@ -2779,7 +2779,8 @@ Defines the Footer settings for the target site.
       Name="pnp:ReplaceableString"
       RemoveExistingNodes="xsd:boolean"
       Layout=""
-      DisplayName="pnp:ReplaceableString">
+      DisplayName="pnp:ReplaceableString"
+      BackgroundEmphasis="pnp:Emphasis">
    <pnp:FooterLinks />
 </pnp:Footer>
 ```
@@ -2803,6 +2804,7 @@ Name|ReplaceableString|Defines the name of the footer, optional attribute.|No|
 RemoveExistingNodes|xsd:boolean|Defines whether the existing site Footer links should be removed, optional attribute.|No|true
 Layout||Defines the Layout of the Footer, required attribute.|No|Simple
 DisplayName|ReplaceableString|Defines the Display Name for the footer, optional attribute.|No|
+BackgroundEmphasis|Emphasis|Defines the Background Emphasis of the Footer, optional attribute.|No|None
 <a name="footerlinks"></a>
 ### FooterLinks
 Defines the Footer Links for the target site.
