@@ -1,7 +1,7 @@
 ﻿
 # PnP Provisioning Schema
 ----------
-* Topic automatically generated on 9/28/2022*
+* Topic automatically generated on 10/2/2022*
 
 ## Namespace
 The namespace of the PnP Provisioning Schema is:
@@ -4394,7 +4394,7 @@ DisplayName|ReplaceableString|Defines the Display Name of the Channel, required 
 Description|ReplaceableString|Defines the Description of the Channel, required attribute.|Yes|
 IsFavoriteByDefault|xsd:boolean|Defines whether the Channel is Favorite by default for all members of the Team, optional attribute.|No|false
 ID|ReplaceableString|Declares the ID for the Channel, optional attribute.|No|
-MembershipType||Declares whether the Channel is Public, Private, or Shared, optional attribute (default public).|No|Public
+MembershipType||Declares whether the Channel is Public, Private, or Shared, optional attribute (default public).|No|Standard
 AllowNewMessageFromBots|xsd:boolean|Declares whether the Channel allows messages from BOTs or not, optional attribute (default false).|No|false
 AllowNewMessageFromConnectors|xsd:boolean|Declares whether the Channel allows messages from Connectors or not, optional attribute (default false).|No|false
 ReplyRestriction||Declares the Channel reply restrictions, optional attribute (default everyone).|No|Everyone
