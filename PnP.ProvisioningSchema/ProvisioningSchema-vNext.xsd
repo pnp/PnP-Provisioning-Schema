@@ -1960,7 +1960,7 @@
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
-
+    
     <xsd:attribute name="SocialBarOnSitePagesDisabled" type="xsd:boolean" use="optional" default="false">
       <xsd:annotation>
         <xsd:appinfo>Added with schema version 201909</xsd:appinfo>
@@ -4039,7 +4039,7 @@
       </xsd:element>
 
     </xsd:all>
-
+    
     <xsd:attributeGroup ref="ContentTypeClientSideComponentAttributes" />
 
     <xsd:attribute name="ID" type="pnp:ContentTypeId" use="required">
@@ -4743,15 +4743,6 @@
       <xsd:annotation>
         <xsd:documentation xml:lang="en">
           The Client-Side Component Properties of a customizer, optional attribute.
-        </xsd:documentation>
-      </xsd:annotation>
-    </xsd:attribute>
-
-    <xsd:attribute name="ClientSideHostProperties" type="xsd:string" use="optional">
-      <xsd:annotation>
-        <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
-        <xsd:documentation xml:lang="en">
-          The Client Side Host Properties of a customizer, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -5572,6 +5563,15 @@
         <xsd:appinfo>Added with schema version 202103</xsd:appinfo>
         <xsd:documentation xml:lang="en">
           Defines the Display Name for the footer, optional attribute.
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
+    <xsd:attribute name="BackgroundEmphasis" type="pnp:Emphasis" use="optional" default="None">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version 202209</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines the Background Emphasis of the Footer, optional attribute.
         </xsd:documentation>
       </xsd:annotation>
     </xsd:attribute>
@@ -9418,13 +9418,41 @@
       </xsd:annotation>
     </xsd:attribute>
 
-    <xsd:attribute name="Private" type="xsd:boolean" use="optional" default="false">
+    <xsd:attribute name="MembershipType" use="optional" default="Standard">
       <xsd:annotation>
-        <xsd:appinfo>Added with schema version 202002</xsd:appinfo>
+        <xsd:appinfo>Added with schema version 202209</xsd:appinfo>
         <xsd:documentation xml:lang="en">
-          Declares whether the Channel is private or not, optional attribute (default false).
+          Declares whether the Channel is Public, Private, or Shared, optional attribute (default public).
         </xsd:documentation>
       </xsd:annotation>
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:enumeration value="Standard">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202209</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                The channel is Public (i.e. Standard)
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="Private">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202209</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                The channel is Private
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+          <xsd:enumeration value="Shared">
+            <xsd:annotation>
+              <xsd:appinfo>Added with schema version 202209</xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                The channel is Shared
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
+        </xsd:restriction>
+      </xsd:simpleType>
     </xsd:attribute>
 
     <xsd:attribute name="AllowNewMessageFromBots" type="xsd:boolean" use="optional" default="false">
@@ -10360,7 +10388,7 @@
         <xsd:annotation>
           <xsd:appinfo>Updated with schema version 201909</xsd:appinfo>
           <xsd:documentation xml:lang="en">
-            Defines No emphasis for the Site Header.
+            Defines No emphasis for the Site Header/Footer.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:enumeration>
@@ -10368,7 +10396,7 @@
         <xsd:annotation>
           <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
           <xsd:documentation xml:lang="en">
-            Defines the Neutral emphasis for the Site Header.
+            Defines the Neutral emphasis for the Site Header/Footer.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:enumeration>
@@ -10376,7 +10404,7 @@
         <xsd:annotation>
           <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
           <xsd:documentation xml:lang="en">
-            Defines the Soft emphasis for the Site Header.
+            Defines the Soft emphasis for the Site Header/Footer.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:enumeration>
@@ -10384,7 +10412,7 @@
         <xsd:annotation>
           <xsd:appinfo>Added with schema version 201903</xsd:appinfo>
           <xsd:documentation xml:lang="en">
-            Defines the Strong emphasis for the Site Header.
+            Defines the Strong emphasis for the Site Header/Footer.
           </xsd:documentation>
         </xsd:annotation>
       </xsd:enumeration>
