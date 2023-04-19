@@ -6024,6 +6024,15 @@
       </xsd:annotation>
     </xsd:attribute>
 
+    <xsd:attribute name="SectionType" type="xsd:int" use="optional" default="0">
+      <xsd:annotation>
+        <xsd:appinfo>Added with schema version vNext</xsd:appinfo>
+        <xsd:documentation xml:lang="en">
+          Defines whether the Canvas Section for a Client-side Page is actually collapsible or not. Value "0" = not collapsible, value "1" - collapsible
+        </xsd:documentation>
+      </xsd:annotation>
+    </xsd:attribute>
+
   </xsd:complexType>
 
   <xsd:complexType name="CanvasControl">
