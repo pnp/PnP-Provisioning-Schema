@@ -8776,6 +8776,14 @@
               </xsd:documentation>
             </xsd:annotation>
           </xsd:enumeration>
+          <xsd:enumeration value="HiddenMembership">
+            <xsd:annotation>
+              <xsd:appinfo></xsd:appinfo>
+              <xsd:documentation xml:lang="en">
+                Defines a M365 Education Tenant Class Team which is only prepared without the students having access.
+              </xsd:documentation>
+            </xsd:annotation>
+          </xsd:enumeration>
         </xsd:restriction>
       </xsd:simpleType>
 
