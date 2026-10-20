@@ -1,4 +1,17 @@
 # Remote Provisioning Schema
+
+> [!IMPORTANT]
+> **The PnP Provisioning schemas have moved to [PnP Core](https://github.com/pnp/pnpcore)** 🎉
+>
+> To keep everything in one place, the provisioning schemas now live in the `PnP.Core.Provisioning` project in the [PnP Core](https://github.com/pnp/pnpcore) repo. All future updates and additions to the schemas will happen there only, so this repo will no longer get schema changes.
+>
+> **What this means for you:**
+> - 📦 Get the latest schemas from [PnP Core](https://github.com/pnp/pnpcore).
+> - 🐛 Open new issues in [PnP Core](https://github.com/pnp/pnpcore/issues).
+> - 🔧 Send pull requests to [PnP Core](https://github.com/pnp/pnpcore/pulls).
+>
+> Thanks to everyone who has contributed here over the years! We look forward to working with you in PnP Core. 💙
+
 ## by Microsoft 365 Patterns and Practices (PnP)
 This is the Community Source Code location for the PnP remote provisioning schema designed to be used as remote 
 creation instructions for remote provisioning engine towards Microsoft 365. 
